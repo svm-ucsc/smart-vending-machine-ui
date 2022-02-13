@@ -1,8 +1,8 @@
 <template>
   <section>
       <div class="container ItemDetail_container">
-        <h2 class="ItemDetail_name">{{food.name}}</h2>
-        <button @click="toggleDetails" type="button" class="btn">Show Nutritional Info</button>
+        <h2 class="ItemDetail_name text-center">{{food.name}}</h2>
+        <button @click="toggleDetails" type="button" class="btn-info align-items-center">Show Nutritional Info</button>
         <ul v-if="detailsAreVisible">
             <li>{{food.description}}</li>
             <li>{{food.calories}}</li>
@@ -40,10 +40,15 @@
 
 <style>
     .ItemDetail_container{
-        background: pink;
+        background: white;
+        border-radius: 5px;
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+        min-height: 250px;
         .ItemDetail_name{
             color: black;
+            
         }
+        
     }
     
 
