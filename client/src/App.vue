@@ -1,26 +1,38 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <section>
+    <div class="container">
+      <h2>Pick your Poison</h2>
+      <div class="row d-flex">
+        <div class="col-6">
+          <item-detail></item-detail>
+        </div>
+        <div class="col-6">
+          <item-detail></item-detail>
+        </div>
+
+      </div>
+     
+      
+    </div>
+    
+    
+    
+  </section>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
-export default {
-  name: 'App',
-  components: {
-    HelloWorld
+  export default {
+    data(){
+      return{
+        food:[
+          {
+            name: '',
+            description: '',
+            calories: ''
+          }
+        ]
+          
+      };
+    }
   }
-}
 </script>
-
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
