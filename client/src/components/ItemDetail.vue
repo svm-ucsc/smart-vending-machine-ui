@@ -2,7 +2,7 @@
   <section>
       <div class="container ItemDetail_container">
         <h2 class="ItemDetail_name">{{food.name}}</h2>
-        <button @click="toggleDetails">Show Nutritional Info</button>
+        <button @click="toggleDetails" type="button" class="btn">Show Nutritional Info</button>
         <ul v-if="detailsAreVisible">
             <li>{{food.description}}</li>
             <li>{{food.calories}}</li>
@@ -43,7 +43,6 @@
         background: pink;
         .ItemDetail_name{
             color: black;
-            
         }
     }
     
