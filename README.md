@@ -25,16 +25,16 @@ Run npm install in the root directory and client directory
 
 In the root directory, you can run:
 
-### `npm run build`
+`npm run build`
 
 To build the Vue project and copy its contents into the server/public directory
 
-### `npm run dev`
+`npm run dev`
 
 To start the app in dev mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-### `npm start`
+`npm start`
 
 For production mode
 
