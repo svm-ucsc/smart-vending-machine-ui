@@ -5,7 +5,7 @@
     "main": "app.js",
     "scripts": {
         "build": "cd client && npm run build",
-        "start": "fastify start -l info server/app.js",
+        "start": "fastify start -a 0.0.0.0 -l info server/app.js",
         "dev": "fastify start -w -l info -P server/app.js"
     },
     "keywords": [],
