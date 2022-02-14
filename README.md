@@ -1,3 +1,4 @@
+# Smart Vending Machine UI and Node server
 
 ## Project Structure
 
