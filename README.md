@@ -1,40 +1,40 @@
-# smart-vending-machine
-  Repository for the code dedicated to the management of the Smart Vending Machine project for CSE123A/B at UCSC for the Winter/Spring '22 quarters.
 
-# getting-started-with-UI
-## Step 1:
-  Install Node v16.13.2 to your computer (use homebrew or install from website). Confirm version by running: 'node --version'
-## Step 2:
-  Install npm v8.1.2 to your computer. Confirm by running: 'npm --version'
-## Step 3:
-  Run the command: 'npm install'
-  This will install the bootstrap framework and other packages to your computer locally. These files will be in the .gitignore so that we are not constantly pushing ~20gb of the framework unneccesarily.
+## Project Structure
 
-### Extras:
-If you are using VS Code, I recommend installing the Vetur Extension.
+    .
+    ├── client                  # Vue client code
+    │   ├── public              # Public facing assets used by Vue
+    │   ├── src                 # All Vue source code
+    │   ├── vue.config.js       # Config file for Vue build artifacts
+    │   ├── package.json   
+    ├── server                  # Fastify server
+    │   ├── plugins             # Managed plugins for Fastify
+    │   ├── public              # Build folder copied in by Vue's build
+    │   ├── routes              # Folder structure creates route structure
+    │   ├── app.js              # Main server app
+    ├── package.json            
+    └── README.md
 
+## Project Setup
 
-# machine-ui
+Run npm install in the root directory and client directory
 
-## Project setup
-```
-npm install
-```
+`npm i && cd client && npm i && cd ..`
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+## Available Scripts
 
-### Compiles and minifies for production
-```
-npm run build
-```
+In the root directory, you can run:
 
-### Lints and fixes files
-```
-npm run lint
-```
+### `npm run build`
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+To build the Vue project and copy its contents into the server/public directory
+
+### `npm run dev`
+
+To start the app in dev mode.\
+Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+
+### `npm start`
+
+For production mode
+
