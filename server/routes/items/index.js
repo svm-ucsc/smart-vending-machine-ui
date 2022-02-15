@@ -8,7 +8,7 @@ module.exports = async function (fastify, opts) {
     const client = new DynamoDBClient({ region: "us-east-1" });
 
     const params = {
-      TableName : "inventory",
+      TableName : "items",
     };
 
     const command = new ScanCommand(params);

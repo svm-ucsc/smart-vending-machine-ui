@@ -8,12 +8,12 @@
 </head>
 <body>
     <section>
-        <div class="container ItemDetail_container">
-          <h2 class="ItemDetail_name text-center">{{food.name}}</h2>
+        <div v-if="data_ready" class="container ItemDetail_container">
+          <h2 class="ItemDetail_name text-center">{{item_data.name.S}}</h2>
           <button @click="toggleDetails" type="button" class="btn-info align-items-center">Show Nutritional Info</button>
           <ul v-if="detailsAreVisible">
-              <li>{{food.description}}</li>
-              <li>{{food.calories}}</li>
+              <li>{{item_data.cost.N}}</li>
+              <li>{{item_data.nutritional_info.M}}</li>
           </ul>
         </div>
       
