@@ -18,9 +18,13 @@
 
 ## Project Setup
 
-Run npm install in the root directory and client directory.
+### Run npm install in the root directory and client directory.
 
 `npm i && cd client && npm i && cd ..`
+
+### Set up your AWS credentials
+
+The website makes API call which involve pulling data from DynamoDB. In order to run these calls locally, you need to configure your AWS credentials file. You need a creds file like `[your-name]_credentials.csv`. This file contains your **Access key ID** and **Secret access key**. ***Do not share these keys with anyone.*** Follow [these instructions](https://docs.aws.amazon.com/sdk-for-net/v3/developer-guide/creds-file.html) to tell the server to use your credentials file. Once this is done, you can run the server using the intructions below.
 
 ## How to...
 
