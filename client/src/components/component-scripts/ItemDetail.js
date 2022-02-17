@@ -16,7 +16,7 @@ export default{
         async getData() {
             try {
                 // Calls the items API on this server
-                let response = await fetch("../items");
+                let response = await fetch("/items");
                 let response_data = await response.json();
                 // itemId is an index
                 // If the index doesn't exist dont update the data
