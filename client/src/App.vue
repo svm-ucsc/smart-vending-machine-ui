@@ -25,8 +25,9 @@
     
 </template>
 
-<style>
+<style lang="scss">
   @import'~bootstrap/dist/css/bootstrap.css';
+  
 
   .app_container{
     background: rgb(237,247,247);
