@@ -1,13 +1,12 @@
 @import "variables";
 // $primary: purple;
 .ItemDetail_container{
-    // background: $secondary; // an example of how to call global sass styles
-    border-radius: 5px;
-    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    background: white;
+    border-radius: $card-radius;
+    box-shadow: $component-shadow;
     min-height: 250px;
     .ItemDetail_name{
-        color: black;
-        
+        font-family: $font-family-bold;
     }
     
 }

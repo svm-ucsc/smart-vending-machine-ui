@@ -1,4 +1,53 @@
-$primary: purple;
-$secondary: green;
+// This is where global styles will be stored
+// You can call these is the .scss styles like so:
+// property: $(variable-name);
 
-// @import "variables";
+// Font
+@font-face {
+    font-family: 'Noto-Sans-SC';
+    font-style: normal;
+    font-weight: 300px;
+    src: url("https://fonts.googleapis.com/css?family=Noto Sans");
+}
+
+@font-face {
+    font-family: 'Noto-Sans-SC-medium';
+    font-style: normal;
+    font-weight: 500px;
+    src: url("//db.onlinewebfonts.com/c/a165a42685795361b25593effb32fdb1?family=Noto+Sans");
+}
+
+@font-face {
+    font-family: 'Noto-Sans-SC-bold';
+    font-style: normal;
+    font-weight: 700px;
+    src: url("https://fonts.googleapis.com/css?family=Noto Sans");
+}
+
+$font-family: 'Noto-Sans-SC', Arial, Helvetica, sans-serif;
+$font-family-medium: 'Noto-Sans-SC-medium', Arial, Helvetica, sans-serif;
+$font-family-bold: 'Noto-Sans-SC-bold', Arial, Helvetica, sans-serif;
+$font-size: 16px;
+$font-height: 1.5;
+
+body{
+    font-family: 'Noto-Sans-SC', Arial, Helvetica, sans-serif;
+}
+
+
+// Summer Reef Color Palette from https://www.color-hex.com/color-palette/107145
+$summer-tan: rgb(255, 233, 206);
+$summer-yellow: rgb(251,253,214);
+$summer-green: rgb(208,249,183);
+$summer-aqua: rgb(147, 244,202);
+$summer-blue: rgb(142,195,244);
+
+// Shadowing, radii, etc
+$component-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+$card-radius: 12px;
+$icon-radius: 6px;
+$button-radius: 6px;
+
+// Padding?
+
+// Animations?
