@@ -1,6 +1,7 @@
-
+@import "variables";
+// $primary: purple;
 .ItemDetail_container{
-    background: white;
+    // background: $secondary; // an example of how to call global sass styles
     border-radius: 5px;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     min-height: 250px;
@@ -10,4 +11,3 @@
     }
     
 }
-

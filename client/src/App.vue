@@ -9,7 +9,7 @@
           <!---- itemId is a hacky way of doing this ---->
           <!---- rn each item gets all items and picks one ---->
           <!---- Probably need a containing component to hold the items ---->
-          <!-- <item-detail itemId="0"/> -->
+          <item-detail itemId="0"/>
         </div>
         <!-- <div class="col-4">
           <item-detail itemId="1"/>
@@ -27,6 +27,7 @@
 
 <style lang="scss">
   @import'~bootstrap/dist/css/bootstrap.css';
+  @import'../src/styles/_variables.scss';
   
 
   .app_container{
