@@ -33,3 +33,13 @@ export default{
         this.getData();
     },
 };
+
+
+var count = 1;
+var button = document.getElementById("ItemDetail-incr");
+button.addEventListener("click", function() {
+    var increment = document.getElementById("#ItemDetail-count");
+    increment.innerHTML = count;
+    count++;
+});
+
