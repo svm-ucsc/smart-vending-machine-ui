@@ -5,12 +5,6 @@ window.onload = function(){
     if (count <= 0){
         butnDwn.classList.add("disabled");
     }
-    // else{
-    //     // if class exists, remove it:
-    //     if(butnDwn.classList.contains("disabled")){
-    //         butnDwn.classList.remove("disabled");
-    //     }
-    // }
     if (butnUp){
         butnUp.addEventListener("click", function() {
             var increment = document.getElementById("ItemDetail-count");
