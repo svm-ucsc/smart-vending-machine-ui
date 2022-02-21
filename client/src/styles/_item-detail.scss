@@ -1,0 +1,45 @@
+@import "variables";
+// $primary: purple;
+.ItemDetail_container{
+    background: white;
+    border-radius: $card-radius;
+    box-shadow: $component-shadow;
+    min-width: 300px;
+    height: 275px;
+    // min-height: 250px;
+    .ItemDetail_name{
+        font-family: $font-family-bold;
+    }
+    .ItemDetail_decBtn{
+        background: $summer-tan;
+        // width: 20px;
+        // height: 20px;
+        
+        &:after{
+            content: "-";
+        }
+    }
+    .ItemDetail_incBtn{
+        background: $summer-tan;
+        // width: 20px;
+        // height: 20px;
+        &:after{
+            content:"+";
+        }
+
+    }
+    .ItemDetail_counter{
+        // width: 20px;
+        // height: 20px;
+        background: $summer-purple;
+        text-decoration: none;
+
+        &:after{
+            content:" ";
+        }
+    }
+    .ItemDetail_addCart{
+        background: $summer-green;
+    }
+    
+}
