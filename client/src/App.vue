@@ -1,10 +1,8 @@
 <template>
   <div>
-
-    <div class="input-group input-group-lg">
-            <searchbar/>
+    <div class="container-fluid app_container p-0">
+        <searchbar/>
     </div>
-
     <div class="container-fluid app_container"> 
       <div class="row d-flex">
         <div class="col-4">
