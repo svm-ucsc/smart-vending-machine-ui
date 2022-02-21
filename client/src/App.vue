@@ -1,6 +1,11 @@
 <template>
-    <div class="container-fluid app_container">
-      <h2 class="app_title text-center">Welcome to Mr. E's Vending Machine</h2>
+  <div>
+
+    <div class="input-group input-group-lg">
+            <searchbar/>
+    </div>
+
+    <div class="container-fluid app_container"> 
       <div class="row d-flex">
         <div class="col-4">
           <!---- itemId is a hacky way of doing this ---->
@@ -14,11 +19,10 @@
         <div class="col-4">
           <item-detail itemId="2"/>
         </div>
-
       </div>
-     
-      
     </div>
+  
+  </div>
     
 </template>
 
