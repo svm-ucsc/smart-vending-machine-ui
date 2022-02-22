@@ -30,8 +30,6 @@ window.onload = function(){
                 increment.innerHTML = count;
             }
         });
-        
-       
     }
 }
 

@@ -1,0 +1,23 @@
+@import "variables";
+
+.SearchBar_container{
+    background: $summer-blue;
+    margin: 0 0;
+    padding: 0 0;
+    box-shadow: $component-shadow;
+    min-height: 75px;
+    justify-content: center;
+    width: 100%;
+    
+    .SearchBar_bar{
+        font-family: $font-family-bold;
+        position: absolute;
+        min-height: 49px;
+        margin: 13px 10px;
+        justify-content: center;
+        width: 96%; 
+        text-align: center;
+    }
+}
+
+
