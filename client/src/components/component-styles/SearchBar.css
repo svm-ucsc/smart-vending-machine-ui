@@ -1,0 +1,20 @@
+
+.SearchBar_container{
+    background: #8ec3f4;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    min-height: 75px;
+    min-width: 600px;
+    margin: 0 0 27px 0;
+    padding-left: 1%;
+    padding-right: 1%;
+    justify-content: center;
+    width: 100%;
+    
+}
+
+.SearchBar_bar{
+    position: absolute;
+    margin: 13px auto;
+    justify-content: center;
+    width: 96%;
+}
