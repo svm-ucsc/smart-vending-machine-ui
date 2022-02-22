@@ -21,4 +21,4 @@ jobs:
             node-version: ${{ matrix.node-version }}
       - run: npm install
       - run: npm run build
-      - run: pm2 restart app.js
+      - run: pm2 restart app
