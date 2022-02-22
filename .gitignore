@@ -29,7 +29,6 @@ build/Release
 # Dependency directories
 node_modules
 jspm_packages
-server/public
 
 # Optional npm cache directory
 .npm
@@ -67,3 +66,6 @@ profile*
 .env.local
 .env.*.local
 .env
+
+# build
+dist

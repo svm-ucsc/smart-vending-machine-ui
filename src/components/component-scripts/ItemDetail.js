@@ -55,7 +55,8 @@ export default{
         async getData() {
             try {
                 // Calls the items API on this server
-                let response = await fetch("http://ec2-54-167-36-58.compute-1.amazonaws.com:3000/items", {mode:'no-cors'});
+                const BASE_URL = process.env.VUE_APP_APIBASEURL;
+                let response = await fetch(BASE_URL + "/items", {mode:'no-cors'});
                 let response_data = await response.json();
                 // itemId is an index
                 // If the index doesn't exist dont update the data
