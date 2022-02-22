@@ -8,6 +8,8 @@ on:
 jobs:
   deploy:
     runs-on: self-hosted
+    env:
+      VUE_APP_APIBASEURL: http://ec2-54-167-36-58.compute-1.amazonaws.com:3000
     
     strategy: 
       matrix:
