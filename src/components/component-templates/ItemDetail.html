@@ -19,16 +19,20 @@
         </div>
         <div class="row pt-3 justify-content-center">
             <div class="col-2">
-                <button type="button" class="btn ItemDetail_decBtn mx-auto" id="ItemDetail-decr"></button>
+                <button type="button" class="btn ItemDetail_decBtn mx-auto" v-if="quantity>0" @click="quantity--"></button>
+                <button type="button" class="btn ItemDetail_decBtn mx-auto disabled" v-else></button>
+
             </div>
             <div class="col-2">
-                <button type="button" class="btn ItemDetail_counter mx-auto" id="ItemDetail-count">0</button>
+                <!-- Get numeric item counter and print it as a string in UI -->
+                <button type="button" class="btn ItemDetail_counter mx-auto" id="ItemDetail-count">{{ quantity }}</button>
             </div>
             <div class="col-2">
-                <button type="button" class="btn ItemDetail_incBtn mx-auto" id="ItemDetail-incr"></button>
+                <button type="button" class="btn ItemDetail_incBtn mx-auto" @click="quantity++"></button>
             </div>
             <div class="col-6 justify-content-end">
-                <button type="button" class="btn ItemDetail_addCart mx-auto">Add to Cart</button>
+                <button type="button" class="btn ItemDetail_addCart mx-auto" v-if="quantity >= 1">Add to Cart</button>
+                <button type="button" class="btn ItemDetail_addCart mx-auto disabled" v-else>Add to Cart</button>
             </div> 
 
         </div>
