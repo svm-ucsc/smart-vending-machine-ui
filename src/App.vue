@@ -1,9 +1,9 @@
 <template>
   <div class="container-fluid app_container">
     <!-- <h2 class="app_title text-center">Welcome to Mr. E's Vending Machine</h2> -->
-    <!-- <div class="row d-flex">
-        <search-bar/>
-      </div> -->
+    <div class="p-0">
+      <search-bar />
+    </div>
     <div class="row d-flex">
       <div class="col-4">
         <!---- itemId is a hacky way of doing this ---->
@@ -23,15 +23,18 @@
 
 <style lang="scss">
   @import'~bootstrap/dist/css/bootstrap.css';
-  @import'./styles/_variables.scss';
-  
+  @import'../src/styles/_variables.scss';
 
   .app_container{
-    background: $summer-tan;
+    background: $summer-yellow;
     height: 100%;
     width: 100%;
   }
   .app_title{
     font-size: 45px;
+  }
+
+  .row{
+    padding: 20px 0;
   }
 </style>
