@@ -1,7 +1,7 @@
 <template>
   <div class="container-fluid app_container">
     <!-- <h2 class="app_title text-center">Welcome to Mr. E's Vending Machine</h2> -->
-    <div class="p-0">
+    <div class="row p-0">
       <search-bar />
     </div>
     <div class="row d-flex">
@@ -11,12 +11,6 @@
         <!---- Probably need a containing component to hold the items ---->
         <item-detail :item-id="1" />
       </div>
-      <!-- <div class="col-4">
-          <item-detail itemId="1"/>
-        </div>
-        <div class="col-4">
-          <item-detail itemId="2"/>
-        </div> -->
     </div>
   </div>
 </template>
