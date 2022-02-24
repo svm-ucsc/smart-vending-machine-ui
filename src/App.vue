@@ -1,15 +1,22 @@
 <template>
   <div class="container-fluid app_container">
-    <!-- <h2 class="app_title text-center">Welcome to Mr. E's Vending Machine</h2> -->
     <div class="p-0">
       <search-bar />
     </div>
     <div class="row d-flex">
-      <div class="col-4">
+      <div class="col-6">
         <!---- itemId is a hacky way of doing this ---->
         <!---- rn each item gets all items and picks one ---->
-        <!---- Probably need a containing component to hold the items ---->
-        <item-detail :item-id="1" />
+        <item-detail
+          :item-id="0"
+          food-name="Cheetos"
+        />
+      </div>
+      <div class="col-6">
+        <item-detail
+          :item-id="1"
+          food-name="Takis"
+        />
       </div>
     </div>
     <div class="row">

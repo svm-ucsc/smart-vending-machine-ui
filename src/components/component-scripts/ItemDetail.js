@@ -1,6 +1,7 @@
 export default{
-    props: {
-        itemId: Number
+    props: { 
+        itemId: Number,
+        foodName: String
     },
     data(){
         return{
