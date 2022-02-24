@@ -11,12 +11,12 @@
         <!---- Probably need a containing component to hold the items ---->
         <item-detail :item-id="1" />
       </div>
-      <!-- <div class="col-4">
-          <item-detail itemId="1"/>
-        </div>
-        <div class="col-4">
-          <item-detail itemId="2"/>
-        </div> -->
+    </div>
+    <div class="row">
+      <!-- cart left half split screen -->
+      <div class="col-6">
+        <cart-items />
+      </div>
     </div>
   </div>
 </template>
