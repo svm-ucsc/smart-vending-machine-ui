@@ -1,15 +1,27 @@
 <template>
   <div class="container-fluid app_container">
-    <!-- <h2 class="app_title text-center">Welcome to Mr. E's Vending Machine</h2> -->
     <div class="row p-0">
       <search-bar />
     </div>
+    <div class="container scroll">
+      <div class="row d-flex menu_box">
+        <div class="col-6 item_box">
+          <item-detail :item-id="1" />
+        </div>
+        <div class="col-6 item_box">
+          <item-detail :item-id="2" />
+        </div>
+        <div class="col-6 item_box">
+          <item-detail :item-id="3" />
+        </div>
+      </div>
+    </div>
     <div class="row d-flex">
-      <div class="col-4">
-        <!---- itemId is a hacky way of doing this ---->
-        <!---- rn each item gets all items and picks one ---->
-        <!---- Probably need a containing component to hold the items ---->
+      <div class="col-6 item_box">
         <item-detail :item-id="1" />
+      </div>
+      <div class="col-6 item_box">
+        <item-detail :item-id="2" />
       </div>
     </div>
   </div>
@@ -31,4 +43,20 @@
   .row{
     padding: 20px 0;
   }
+
+  .item_box{
+    padding: 0 4%; 
+    margin-right: -1%;
+    display: inline-block;
+    float: none;
+  }
+
+  .menu_box{
+    overflow-x: scroll;
+    overflow-y: hidden;
+    white-space: nowrap;
+    
+  }
+
+
 </style>
