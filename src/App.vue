@@ -4,46 +4,43 @@
       <search-bar />
     </div>
 
-    <div>
-      <div class="row menu_box">
-        <div class="col-6 item_box">
-          <item-detail :item-id="1" />
+    <div class="row_box">
+        <div class="row menu_box">
+          <div class="col-6 item_box">
+            <item-detail :item-id="1" />
+          </div>
+          <div class="col-6 item_box">
+            <item-detail :item-id="2" />
+          </div>
+          <div class="col-6 item_box">
+            <item-detail :item-id="3" />
+          </div>
         </div>
-        <div class="col-6 item_box">
-          <item-detail :item-id="2" />
-        </div>
-        <div class="col-6 item_box">
-          <item-detail :item-id="3" />
-        </div>
-      </div>
-    </div>
 
-    <div>
-      <div class="row menu_box">
-        <div class="col-6 item_box">
-          <item-detail :item-id="1" />
+        <div class="row menu_box">
+          <div class="col-6 item_box">
+            <item-detail :item-id="1" />
+          </div>
+          <div class="col-6 item_box">
+            <item-detail :item-id="2" />
+          </div>
+          <div class="col-6 item_box">
+            <item-detail :item-id="3" />
+          </div>
         </div>
-        <div class="col-6 item_box">
-          <item-detail :item-id="2" />
-        </div>
-        <div class="col-6 item_box">
-          <item-detail :item-id="3" />
-        </div>
-      </div>
-    </div>
 
-    <div>
-      <div class="row menu_box">
-        <div class="col-6 item_box">
-          <item-detail :item-id="1" />
+        <div class="row menu_box">
+          <div class="col-6 item_box">
+            <item-detail :item-id="1" />
+          </div>
+          <div class="col-6 item_box">
+            <item-detail :item-id="2" />
+          </div>
+          <div class="col-6 item_box">
+            <item-detail :item-id="3" />
+          </div>
         </div>
-        <div class="col-6 item_box">
-          <item-detail :item-id="2" />
-        </div>
-        <div class="col-6 item_box">
-          <item-detail :item-id="3" />
-        </div>
-      </div>
+
     </div>
   </div>
 </template>
@@ -57,9 +54,15 @@
     height: 100%;
     width: 100%;
 
+    .row_box{
+      overflow-y: scroll;
+      height: 825px;
+    }
+
     .menu_box{
       overflow-x: scroll;
       flex-wrap: nowrap;
+      padding: 5% 0;
     }
 
     .item_box{
