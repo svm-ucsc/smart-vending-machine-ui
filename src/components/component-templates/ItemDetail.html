@@ -9,15 +9,15 @@
 </head>
 <body>
     <div class="container ItemDetail_container">
-        <div class="row">
-            <h1 class="col text-center">Item Name</h1>
+        <div class="row ItemDetail_name">
+            <h1 class="col text-center ">Item Name</h1>
         </div>
         <div class="row">
-            <div class="col">
-                <a href="#"><img src="https://via.placeholder.com/100" width="200px" height="150px" class="mx-auto rounded mx-auto d-block" alt="Cheetos Image"></a>
+            <div class="col ItemDetail_imgcontainer">
+                <a href="#"><img src="https://via.placeholder.com/100" class="mx-auto rounded mx-auto d-block ItemDetail_image" alt="Cheetos Image"></a>
             </div>
         </div>
-        <div class="row pt-3 justify-content-center">
+        <div class="row pt-1 justify-content-center ItemDetail_btncontainer">
             <div class="col-2">
                 <button type="button" class="btn ItemDetail_decBtn mx-auto" v-if="quantity>0" @click="quantity--"></button>
                 <button type="button" class="btn ItemDetail_decBtn mx-auto disabled" v-else></button>

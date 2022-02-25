@@ -4,11 +4,22 @@
     background: white;
     border-radius: $card-radius;
     box-shadow: $component-shadow;
-    min-width: 300px;
-    height: 275px;
+
     .ItemDetail_name{
         font-family: $font-family-bold;
+        font-size: medium;
+        padding: 10px 0;
     }
+    .ItemDetail_imgcontainer{
+        margin: 0 0;
+        padding: 0 0;
+    }
+    .ItemDetail_image{
+        margin: auto;
+        min-width: 175px;
+        min-height: 175px;
+    }
+
     .ItemDetail_decBtn{
         background: $summer-tan;        
         &:after{
@@ -31,5 +42,6 @@
     }
     .ItemDetail_addCart{
         background: $summer-green;
+        font-size: 2vmin;
     }
 }
