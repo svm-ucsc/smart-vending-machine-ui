@@ -3,6 +3,7 @@
     <div class="row p-0">
       <search-bar />
     </div>
+<<<<<<< HEAD
 
     <div class="row_box">
       <div
@@ -21,6 +22,10 @@
           />
         </div>
       </div>
+=======
+    <div>
+      <store-menu />
+>>>>>>> separated menu code into its own component
     </div>
     <!-- Shopping Cart Component -->
     <div class="row pt-1">
@@ -52,6 +57,7 @@
     height: 100%;
     width: 100%;
 
+<<<<<<< HEAD
     .row_box{
       overflow-y: scroll;
       height: 825px;
@@ -71,6 +77,8 @@
     }    
 
     
+=======
+>>>>>>> separated menu code into its own component
   }
   .app_title{
     font-size: 45px;

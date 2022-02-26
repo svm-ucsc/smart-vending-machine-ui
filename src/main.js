@@ -6,6 +6,8 @@ import 'bootstrap'
 import ItemDetail from './components/ItemDetail.vue';
 import SearchBar from './components/SearchBar.vue';
 import CartItems from './components/CartItems.vue';
+import Menu from './components/Menu.vue';
+
 
 // Holds global data for application
 const store = createStore({
@@ -46,5 +48,6 @@ app.use(store);
 app.component('ItemDetail', ItemDetail);
 app.component('SearchBar', SearchBar);
 app.component('CartItems', CartItems);
+app.component('StoreMenu', Menu);
 
 app.mount('#app')
