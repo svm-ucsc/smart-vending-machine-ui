@@ -1,6 +1,7 @@
 export default{
-    props: {
-        itemId: Number
+    props: { 
+        itemId: Number,
+        foodName: String
     },
     data(){
         return{
@@ -10,7 +11,6 @@ export default{
         };
     },
     methods: {
-
         async getData() {
             try {
                 // Calls the items API on this server

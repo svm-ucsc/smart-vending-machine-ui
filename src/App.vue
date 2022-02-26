@@ -5,42 +5,59 @@
     </div>
 
     <div class="row_box">
-        <div class="row menu_box">
-          <div class="col-6 item_box">
-            <item-detail :item-id="1" />
-          </div>
-          <div class="col-6 item_box">
-            <item-detail :item-id="2" />
-          </div>
-          <div class="col-6 item_box">
-            <item-detail :item-id="3" />
-          </div>
+      <div class="row menu_box">
+        <div class="col-6 item_box">
+          <item-detail 
+            :item-id="1" 
+            food-name="Cheetos"
+          />
         </div>
-
-        <div class="row menu_box">
-          <div class="col-6 item_box">
-            <item-detail :item-id="1" />
-          </div>
-          <div class="col-6 item_box">
-            <item-detail :item-id="2" />
-          </div>
-          <div class="col-6 item_box">
-            <item-detail :item-id="3" />
-          </div>
+        <div class="col-6 item_box">
+          <item-detail 
+            :item-id="2" 
+            food-name="Takis"
+          />
         </div>
-
-        <div class="row menu_box">
-          <div class="col-6 item_box">
-            <item-detail :item-id="1" />
-          </div>
-          <div class="col-6 item_box">
-            <item-detail :item-id="2" />
-          </div>
-          <div class="col-6 item_box">
-            <item-detail :item-id="3" />
-          </div>
+        <div class="col-6 item_box">
+          <item-detail 
+            :item-id="3" 
+            food-name="Chips"
+          />
         </div>
+      </div>
 
+      <div class="row menu_box">
+        <div class="col-6 item_box">
+          <item-detail 
+            :item-id="4" 
+            food-name="Cadbury"
+          />
+        </div>
+        <div class="col-6 item_box">
+          <item-detail 
+            :item-id="5"
+            food-name="Sandwich"
+          />
+        </div>
+        <div class="col-6 item_box">
+          <item-detail 
+            :item-id="6" 
+            food-name="Hersheys"
+          />
+        </div>
+      </div>
+
+      <div class="row menu_box">
+        <div class="col-6 item_box">
+          <item-detail :item-id="7" />
+        </div>
+        <div class="col-6 item_box">
+          <item-detail :item-id="8" />
+        </div>
+        <div class="col-6 item_box">
+          <item-detail :item-id="9" />
+        </div>
+      </div>
     </div>
   </div>
 </template>
