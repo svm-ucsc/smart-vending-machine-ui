@@ -1,28 +1,62 @@
 <template>
   <div class="container-fluid app_container">
-    <div class="p-0">
+    <div class="row p-0">
       <search-bar />
     </div>
-    <div class="row d-flex">
-      <div class="col-6">
-        <!---- itemId is a hacky way of doing this ---->
-        <!---- rn each item gets all items and picks one ---->
-        <item-detail
-          :item-id="0"
-          food-name="Cheetos"
-        />
+
+    <div class="row_box">
+      <div class="row menu_box">
+        <div class="col-6 item_box">
+          <item-detail 
+            :item-id="1" 
+            food-name="Cheetos"
+          />
+        </div>
+        <div class="col-6 item_box">
+          <item-detail 
+            :item-id="2" 
+            food-name="Takis"
+          />
+        </div>
+        <div class="col-6 item_box">
+          <item-detail 
+            :item-id="3" 
+            food-name="Chips"
+          />
+        </div>
       </div>
-      <div class="col-6">
-        <item-detail
-          :item-id="1"
-          food-name="Takis"
-        />
+
+      <div class="row menu_box">
+        <div class="col-6 item_box">
+          <item-detail 
+            :item-id="4" 
+            food-name="Cadbury"
+          />
+        </div>
+        <div class="col-6 item_box">
+          <item-detail 
+            :item-id="5"
+            food-name="Sandwich"
+          />
+        </div>
+        <div class="col-6 item_box">
+          <item-detail 
+            :item-id="6" 
+            food-name="Hersheys"
+          />
+        </div>
       </div>
-    </div>
-    <div class="row">
-      <!-- cart left half split screen -->
-      <div class="col-6">
-        <cart-items />
+
+      <div class="row menu_box">
+        <div class="col-6 item_box">
+          <item-detail :item-id="7" />
+        </div>
+        <div class="col-6 item_box">
+          <item-detail :item-id="8" />
+        </div>
+        <div class="col-6 item_box">
+          <item-detail :item-id="9" />
+        </div>
       </div>
     </div>
   </div>
@@ -36,6 +70,24 @@
     background: $summer-yellow;
     height: 100%;
     width: 100%;
+
+    .row_box{
+      overflow-y: scroll;
+      height: 825px;
+    }
+
+    .menu_box{
+      overflow-x: scroll;
+      flex-wrap: nowrap;
+      padding: 5% 0;
+    }
+
+    .item_box{
+      padding: 0 4%; 
+      margin-right: -1%;
+      display: inline-block;
+      float: none;
+    }    
   }
   .app_title{
     font-size: 45px;
@@ -44,4 +96,5 @@
   .row{
     padding: 20px 0;
   }
+
 </style>
