@@ -1,0 +1,19 @@
+@import "variables";
+
+.menu_box{
+    overflow-x: scroll;
+    flex-wrap: nowrap;
+    padding: 5% 0;
+}
+
+.row_box{
+    overflow-y: scroll;
+    height: 825px;
+}
+
+.item_box{
+    padding: 0 4%; 
+    margin-right: -1%;
+    display: inline-block;
+    float: none;
+}

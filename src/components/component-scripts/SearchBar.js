@@ -10,6 +10,10 @@ export default{
         };
     },
     methods: {
+        search(){
+
+        },
+
         toggleDetails(){
             this.detailsAreVisible = !this.detailsAreVisible;
         },
