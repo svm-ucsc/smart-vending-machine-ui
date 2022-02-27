@@ -11,9 +11,9 @@
         <div class="row">
             <div class="col">Cart</div>
         </div>
-        <div class="row list-entry">
-            <div class="col-4">quantity</div>
-            <div class="col-4">Name of Food</div>
+        <div class="row list-entry" v-for="cartStuff in this.$store.state.cartInfo">
+            <div class="col-4">{{ cartStuff.quantity }}</div>
+            <div class="col-4">{{cartStuff.foodName }}</div>
             <div class="col-4"><btn type="button" class="btn CartItems_deletebtn">trash can</btn></div>
         </div>
     </div>
