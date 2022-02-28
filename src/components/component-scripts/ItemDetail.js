@@ -11,12 +11,7 @@ export default{
         };
     },
     methods: {
-        // updateCart(quantity){
-        //     // here I wish to take quantity recorded and send value to cart component
-        //     console.log(`the quantity is ${quantity}!`)
-        //     this.$store.state.cartQuantity = quantity;
-        //     // this.quantity = 0; // might not want to reset it
-        // },
+
         async getData() {
             try {
                 // Calls the items API on this server
