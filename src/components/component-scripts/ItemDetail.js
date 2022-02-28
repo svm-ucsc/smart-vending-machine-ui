@@ -11,6 +11,7 @@ export default{
         };
     },
     methods: {
+
         async getData() {
             try {
                 // Calls the items API on this server

@@ -2,11 +2,31 @@
 
 .CartItems_container{
     background-color: $summer-blue;
+    // width: 100%;
+    padding: 0px 0px;
+    margin-bottom: 0px;
     .list-entry{
         background: $summer-yellow;
+        border: 1px solid black;
+        padding: 20px;
     }
     .CartItems_deletebtn{
         background: white;
         border-radius: $button-radius;
     }
+    .review-order-btn{
+        background: $summer-blue;
+        width: 80%;
+        height: 90px;
+        border-radius: $button-radius;
+        
+      }
+      .collapseStyleBtn{
+        background: $summer-purple;
+        position: relative;
+        left: 400;
+        width: 60;
+        height: 60;
+        visibility: hidden;
+      }
 }
