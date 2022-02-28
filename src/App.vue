@@ -23,11 +23,26 @@
       </div>
     </div>
     <!-- Shopping Cart Component -->
+    <!-- <div class="row"><button type="button" class="btn review-order-btn mx-auto">REVIEW ORDER</button></div> -->
     <div class="row pt-1">
-      <cart-items />
+      <cart-items id="show-cart"/>
     </div>
   </div>
 </template>
+
+<script>
+  // API call for name finding will happen here
+  export default{
+    data(){
+      return{
+        // this will eventually be turned into an API call. I can change this to MOD 3 for 3 elements per row or something like that.
+        foodNames: [["Cheetos", "Takis", "Chips"], [ "Cadbury", "Sandwich", "Hersheys"], [ "Burgers", "Pizza", "Mojitos"]]
+        
+      }
+    }
+
+  }
+</script>
 
 <style lang="scss">
   @import'~bootstrap/dist/css/bootstrap.css';
@@ -55,6 +70,8 @@
       display: inline-block;
       float: none;
     }    
+
+    
   }
   .app_title{
     font-size: 45px;
@@ -65,17 +82,3 @@
   }
 
 </style>
-
-<script>
-  // API call for name finding will happen here
-  export default{
-    data(){
-      return{
-        // this will eventually be turned into an API call. I can change this to MOD 3 for 3 elements per row or something like that.
-        foodNames: [["Cheetos", "Takis", "Chips"], [ "Cadbury", "Sandwich", "Hersheys"], [ "Burgers", "Pizza", "Mojitos"]]
-        
-      }
-    }
-
-  }
-</script>
