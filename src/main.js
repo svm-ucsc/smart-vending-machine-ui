@@ -2,7 +2,7 @@ import { createApp} from 'vue'
 import { createStore} from 'vuex'
 import App from './App.vue'
 import 'bootstrap'
-import $ from 'jquery'
+// import $ from 'jquery'
 import ItemDetail from './components/ItemDetail.vue';
 import SearchBar from './components/SearchBar.vue';
 import CartItems from './components/CartItems.vue';
