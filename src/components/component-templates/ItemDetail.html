@@ -31,7 +31,7 @@
                 <button type="button" class="btn ItemDetail_incBtn mx-auto" @click="quantity++"></button>
             </div>
             <div class="col-6 justify-content-end">
-                <button type="button" class="btn ItemDetail_addCart mx-auto" v-if="quantity >= 1" @click="this.$store.commit('updateCart', {foodName, quantity})">Add to Cart</button>
+                <button type="button" class="btn ItemDetail_addCart mx-auto" v-if="quantity >= 1" @click="this.$store.commit('insertToCart', {foodName, quantity})">Add to Cart</button>
                 <button type="button" class="btn ItemDetail_addCart mx-auto disabled" v-else>Add to Cart</button>
             </div> 
 

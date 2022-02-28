@@ -11,10 +11,11 @@
         <div class="row">
             <div class="col">Cart</div>
         </div>
-        <div class="row list-entry" v-for="cartStuff in this.$store.state.cartInfo">
+        <div class="row" v-if="this.$store.state.cartInfo.length === 0">Your cart is empty! Add something now.</div>
+        <div class="row list-entry" v-else v-for="(cartStuff, i) in this.$store.state.cartInfo">
             <div class="col-4">{{ cartStuff.quantity }}</div>
             <div class="col-4">{{cartStuff.foodName }}</div>
-            <div class="col-4"><btn type="button" class="btn CartItems_deletebtn">trash can</btn></div>
+            <div class="col-4"><button type="button" class="btn CartItems_deletebtn" @click="this.$store.commit('removeFromCart', i)">trash can</button></div>
         </div>
     </div>
 </body>

@@ -16,7 +16,7 @@ const store = createStore({
  
     mutations: {
 
-        updateCart(state, data){
+        insertToCart(state, data){
             // data will be an object pushed onto cartInfo array that holds {foodName, quantity}
             if(state.cartInfo.length > 0){ // if list isn't empty, we need to look through it first
                 let temp = state.cartInfo.find(o => o.foodName === data.foodName); // temp returns an object so we need to parse it's properties
@@ -34,6 +34,11 @@ const store = createStore({
                 console.log("cart is empty!");
                 state.cartInfo.push(data);
             }
+        },
+        removeFromCart(state, indexToDelete){
+            // data stores the index of where the element is to be removed
+            console.log(`The index requested to delete entry is: ${JSON.stringify(indexToDelete)}`);
+            state.cartInfo.splice(indexToDelete,1); // delete 1 element at indexToDelete
         }
     }
 });
