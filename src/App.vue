@@ -2,9 +2,7 @@
   <div class="container-fluid app_container">
     <div class="row p-0">
       <search-bar />
-    </div>
 
-    <div> 
       <store-menu />
     </div>
 
@@ -68,7 +66,7 @@
   }
 
    .row-order{
-    padding: 0px 0px;
+    padding: 0 0 10px 0;
   }
 
 </style>
