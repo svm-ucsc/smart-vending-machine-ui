@@ -2,6 +2,7 @@
 
 .CartItems_container{
     background-color: $summer-blue;
+    box-shadow: $component-shadow;
     border: 1px solid black;
     width: 100%;
     padding: 0px 0px;
@@ -24,13 +25,16 @@
     .review-order-btn{
         background: $summer-blue;
         width: 80%;
+<<<<<<< HEAD
         height: 100px;
+=======
+        height: 80px;
+>>>>>>> more css styling. fixing more scrolling bugs on touchscreen UI.
         border-radius: $button-radius;
         border-radius: 25px;
         font-size: xx-large;
         text-align: right;
         padding-right: 9%;
-        
       }
       .collapseStyleBtn{
         background: $summer-purple;

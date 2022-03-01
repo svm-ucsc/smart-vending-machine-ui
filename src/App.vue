@@ -3,6 +3,7 @@
     <div class="row p-0">
       <search-bar />
 <<<<<<< HEAD
+<<<<<<< HEAD
     </div>
 <<<<<<< HEAD
 
@@ -28,6 +29,10 @@
 =======
 
 >>>>>>> fixing scrolling bug. update to css
+=======
+    </div>
+    <div>
+>>>>>>> more css styling. fixing more scrolling bugs on touchscreen UI.
       <store-menu />
 >>>>>>> separated menu code into its own component
     </div>
@@ -60,6 +65,7 @@
     background: $summer-yellow;
     height: 100%;
     width: 100%;
+<<<<<<< HEAD
 
 <<<<<<< HEAD
     .row_box{
@@ -83,7 +89,11 @@
     
 =======
 >>>>>>> separated menu code into its own component
+=======
+    scrollbar-width: 5px;    
+>>>>>>> more css styling. fixing more scrolling bugs on touchscreen UI.
   }
+
   .app_title{
     font-size: 45px;
   }
@@ -96,6 +106,7 @@
 =======
    .row-order{
     padding: 0 0 10px 0;
+    margin-top: 2%;
   }
 
 >>>>>>> fixing scrolling bug. update to css
