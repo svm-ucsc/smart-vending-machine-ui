@@ -5,62 +5,43 @@
     </div>
 
     <div class="row_box">
-      <div class="row menu_box">
-        <div class="col-6 item_box">
+      <div
+        v-for="(row,index) in foodNames"
+        :key="index"
+        class="row menu_box"
+      >
+        <div
+          v-for="(name, position) in row"
+          :key="position"
+          class="col-6 item_box"
+        >
           <item-detail 
-            :item-id="1" 
-            food-name="Cheetos"
+            :item-id="position"
+            :food-name="name"
           />
-        </div>
-        <div class="col-6 item_box">
-          <item-detail 
-            :item-id="2" 
-            food-name="Takis"
-          />
-        </div>
-        <div class="col-6 item_box">
-          <item-detail 
-            :item-id="3" 
-            food-name="Chips"
-          />
-        </div>
-      </div>
-
-      <div class="row menu_box">
-        <div class="col-6 item_box">
-          <item-detail 
-            :item-id="4" 
-            food-name="Cadbury"
-          />
-        </div>
-        <div class="col-6 item_box">
-          <item-detail 
-            :item-id="5"
-            food-name="Sandwich"
-          />
-        </div>
-        <div class="col-6 item_box">
-          <item-detail 
-            :item-id="6" 
-            food-name="Hersheys"
-          />
-        </div>
-      </div>
-
-      <div class="row menu_box">
-        <div class="col-6 item_box">
-          <item-detail :item-id="7" />
-        </div>
-        <div class="col-6 item_box">
-          <item-detail :item-id="8" />
-        </div>
-        <div class="col-6 item_box">
-          <item-detail :item-id="9" />
         </div>
       </div>
     </div>
+    <!-- Shopping Cart Component -->
+    <div class="row pt-1">
+      <cart-items id="show-cart" />
+    </div>
   </div>
 </template>
+
+<script>
+  // API call for name finding will happen here
+  export default{
+    data(){
+      return{
+        // this will eventually be turned into an API call. I can change this to MOD 3 for 3 elements per row or something like that.
+        foodNames: [["Cheetos", "Takis", "Chips"], [ "Cadbury", "Sandwich", "Hersheys"], [ "Burgers", "Pizza", "Mojitos"]]
+        
+      }
+    }
+
+  }
+</script>
 
 <style lang="scss">
   @import'~bootstrap/dist/css/bootstrap.css';
@@ -88,6 +69,8 @@
       display: inline-block;
       float: none;
     }    
+
+    
   }
   .app_title{
     font-size: 45px;
