@@ -2,7 +2,8 @@
   <div class="container-fluid app_container">
     <div class="row p-0">
       <search-bar />
-
+    </div>
+    <div>
       <store-menu />
     </div>
 
@@ -36,27 +37,9 @@
     background: $summer-yellow;
     height: 100%;
     width: 100%;
-
-    .row_box{
-      overflow-y: scroll;
-      height: 825px;
-    }
-
-    .menu_box{
-      overflow-x: scroll;
-      flex-wrap: nowrap;
-      padding: 5% 0;
-    }
-
-    .item_box{
-      padding: 0 4%; 
-      margin-right: -1%;
-      display: inline-block;
-      float: none;
-    }    
-
-    
+    scrollbar-width: 5px;    
   }
+
   .app_title{
     font-size: 45px;
   }
@@ -67,6 +50,7 @@
 
    .row-order{
     padding: 0 0 10px 0;
+    margin-top: 2%;
   }
 
 </style>

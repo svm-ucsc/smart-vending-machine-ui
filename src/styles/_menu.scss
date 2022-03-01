@@ -1,16 +1,66 @@
 @import "variables";
 
+body::-webkit-scrollbar {
+    width: 5px;               /* width of the entire scrollbar */
+}
+
+body::-webkit-scrollbar-track {
+    background: $summer-yellow;        /* color of the tracking area */
+}
+
+body::-webkit-scrollbar-thumb {
+    background-color: $nice-grey;    /* color of the scroll thumb */
+    border-radius: 20px;       /* roundness of the scroll thumb */
+    border: 3px $summer-yellow;;  /* creates padding around scroll thumb */
+}
+
+// ------------------------------------------------------
+
 .row_box{
     overflow-y: scroll;
     height: 825px;
 }
 
+.row_box::-webkit-scrollbar {
+    width: 5px;               /* width of the entire scrollbar */
+}
+
+.row_box::-webkit-scrollbar-track {
+    background: $summer-yellow;        /* color of the tracking area */
+}
+
+.row_box::-webkit-scrollbar-thumb {
+    background-color: $nice-grey;    /* color of the scroll thumb */
+    border-radius: 20px;       /* roundness of the scroll thumb */
+    border: 3px $summer-yellow;;  /* creates padding around scroll thumb */
+}
+
+// ------------------------------------------------------
+
 .menu_box{
     background-color: $summer-yellow;
     overflow-x: scroll;
     flex-wrap: nowrap;
-    padding: 5% 0;
+    padding: 5% 0px 4% 0px;
+    margin: 0px 0px;
+    width: 100%;
 }
+
+.menu_box::-webkit-scrollbar {
+    height: 5px;               /* width of the entire scrollbar */
+}
+
+.menu_box::-webkit-scrollbar-track {
+    background: $summer-yellow;        /* color of the tracking area */
+}
+
+.menu_box::-webkit-scrollbar-thumb {
+    background-color: $nice-grey;    /* color of the scroll thumb */
+    border-radius: 20px;       /* roundness of the scroll thumb */
+    border: 3px $summer-yellow;;  /* creates padding around scroll thumb */
+}
+
+// ------------------------------------------------------
 
 .item_box{
     padding: 0 4%; 
