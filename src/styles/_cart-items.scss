@@ -2,11 +2,20 @@
 
 .CartItems_container{
     background-color: $summer-blue;
-    padding: 10px;
+    border: 1px solid black;
+    width: 100%;
+    padding: 0px 0px;
+    margin-bottom: 0px;
+    border-radius: 25px;
+    
     .list-entry{
-        background: $summer-yellow;
+        background: #f7f6f6;
         border: 1px solid black;
+        font-size:x-large;
+        width:60%;
+        margin: 0px 0px;
         padding: 20px;
+        border-radius: 25px;
     }
     .CartItems_deletebtn{
         background: white;
@@ -17,6 +26,10 @@
         width: 80%;
         height: 100px;
         border-radius: $button-radius;
+        border-radius: 25px;
+        font-size: xx-large;
+        text-align: right;
+        padding-right: 9%;
         
       }
       .collapseStyleBtn{
@@ -26,5 +39,6 @@
         width: 60;
         height: 60;
         visibility: hidden;
+        border-radius: 25px;
       }
 }

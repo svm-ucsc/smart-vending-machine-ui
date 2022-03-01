@@ -1,19 +1,18 @@
 export default{
-    props: {
-        itemId: Number
+    props: { 
+        itemId: Number,
+        foodName: String
     },
     data(){
         return{
-            data_ready: false,
-            item_data: [],
-            detailsAreVisible: false,
+            foodNames: [["Cheetos", "Takis", "Chips"], [ "Cadbury", "Sandwich", "Hersheys"], [ "Burgers", "Pizza", "Mojitos"]]
+
         };
     },
     methods: {
         search(){
-
+           
         },
-
         toggleDetails(){
             this.detailsAreVisible = !this.detailsAreVisible;
         },

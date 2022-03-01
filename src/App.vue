@@ -2,6 +2,7 @@
   <div class="container-fluid app_container">
     <div class="row p-0">
       <search-bar />
+<<<<<<< HEAD
     </div>
 <<<<<<< HEAD
 
@@ -24,6 +25,9 @@
       </div>
 =======
     <div>
+=======
+
+>>>>>>> fixing scrolling bug. update to css
       <store-menu />
 >>>>>>> separated menu code into its own component
     </div>
@@ -88,4 +92,11 @@
     padding: 20px 0;
   }
 
+<<<<<<< HEAD
+=======
+   .row-order{
+    padding: 0 0 10px 0;
+  }
+
+>>>>>>> fixing scrolling bug. update to css
 </style>
