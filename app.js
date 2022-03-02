@@ -1,5 +1,4 @@
 const statik = require('node-static');
-const fs = require('fs');
 
 const file = new statik.Server('./dist');
 
