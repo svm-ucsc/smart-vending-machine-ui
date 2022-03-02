@@ -9,9 +9,7 @@ jobs:
   deploy:
     runs-on: self-hosted
     env:
-      VUE_APP_APIBASEURL: https://ec2-54-167-36-58.compute-1.amazonaws.com:443
-      UI_KEY: ${{ secrets.SVM_UI_KEY }}
-      UI_CERT: ${{ secrets.SVM_UI_CERT }}
+      VUE_APP_APIBASEURL: http://ec2-54-167-36-58.compute-1.amazonaws.com:3000
     
     strategy: 
       matrix:
