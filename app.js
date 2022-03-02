@@ -1,15 +1,14 @@
 const statik = require('node-static');
+const fs = require('fs');
 
 const file = new statik.Server('./dist');
 
+const options = {
+    key: fs.readFileSync('https/svm_ui.pem'),
+    cert:fs.readFileSync('https/cert.pem')
+};
 
-require('http').createServer(function (request, response) {
-    request.addListener('end', function () {
-        file.serve(request, response);
-    }).resume();
-}).listen(3000);
-
-require('https').createServer(function (request, response) {
+require('https').createServer(options, function (request, response) {
     request.addListener('end', function() {
         file.serve(request, response);
     }).resume();
