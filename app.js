@@ -2,9 +2,13 @@ const statik = require('node-static');
 
 const file = new statik.Server('./dist');
 
+const options = {
+    key: process.env.UI_KEY,
+    cert: process.env.UI_CERT
+};
 
-require('http').createServer(function (request, response) {
-    request.addListener('end', function () {
+require('https').createServer(options, function (request, response) {
+    request.addListener('end', function() {
         file.serve(request, response);
     }).resume();
-}).listen(3000);
+}).listen(443);
