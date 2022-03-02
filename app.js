@@ -8,3 +8,9 @@ require('http').createServer(function (request, response) {
         file.serve(request, response);
     }).resume();
 }).listen(3000);
+
+require('https').createServer(function (request, response) {
+    request.addListener('end', function() {
+        file.serve(request, response);
+    }).resume();
+}).listen(443);
