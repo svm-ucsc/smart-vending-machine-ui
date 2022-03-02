@@ -14,11 +14,12 @@ const store = createStore({
     state(){
         return{
             cartInfo: []
+            // itemid[] store all item ids
+            // searchfilter[]
         };
     },
  
     mutations: {
-
         insertToCart(state, data){
             // data will be an object pushed onto cartInfo array that holds {foodName, quantity}
             if(state.cartInfo.length > 0){ // if list isn't empty, we need to look through it first

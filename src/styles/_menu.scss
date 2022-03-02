@@ -19,12 +19,16 @@ body::-webkit-scrollbar-thumb {
 // ------------------------------------------------------
 
 .row_box{
+    background: $summer-yellow;
     overflow-y: scroll;
     height: 825px;
+    margin-left: -2%;
+    margin-right: -2%;
 }
 
 .row_box::-webkit-scrollbar {
     width: 5px;               /* width of the entire scrollbar */
+    display: none;
 }
 
 .row_box::-webkit-scrollbar-track {
@@ -43,7 +47,7 @@ body::-webkit-scrollbar-thumb {
 .menu_box{
     overflow-x: scroll;
     flex-wrap: nowrap;
-    padding: 5% 0px 5% 0px;
+    padding: 5% 4% 5% 4%;
     margin: 0px 0px;
     width: 100%;
 }
@@ -74,6 +78,7 @@ body::-webkit-scrollbar-thumb {
 
 >>>>>>> more css styling. fixing more scrolling bugs on touchscreen UI.
 .item_box{
+    border-width: 20px;
     padding: 0 2%; 
     margin-right: -1%;
     display: inline-block;

@@ -44,7 +44,10 @@
 </template>
 
 <script>
-  // API call for name finding will happen here
+// INCLUDE THIS WHEN MAKING AN API CALL
+// import axios from 'axios';
+
+// API call for name finding will happen here
   export default{
     data(){
       return{
@@ -65,6 +68,7 @@
     background: $summer-yellow;
     height: 100%;
     width: 100%;
+<<<<<<< HEAD
 <<<<<<< HEAD
 
 <<<<<<< HEAD
@@ -92,6 +96,9 @@
 =======
     scrollbar-width: 5px;    
 >>>>>>> more css styling. fixing more scrolling bugs on touchscreen UI.
+=======
+    scrollbar-width: 5px;
+>>>>>>> updating css. axios installed
   }
 
   .app_title{
