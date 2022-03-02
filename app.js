@@ -4,8 +4,8 @@ const fs = require('fs');
 const file = new statik.Server('./dist');
 
 const options = {
-    key: fs.readFileSync('https/svm_ui.pem'),
-    cert:fs.readFileSync('https/cert.pem')
+    key: process.env.UI_KEY,
+    cert: process.env.UI_CERT
 };
 
 require('https').createServer(options, function (request, response) {

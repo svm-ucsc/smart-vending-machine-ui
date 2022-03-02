@@ -69,7 +69,3 @@ profile*
 
 # build
 dist
-
-# https keys
-https
-.pem
