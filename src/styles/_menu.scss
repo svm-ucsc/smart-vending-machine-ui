@@ -1,7 +1,5 @@
 @import "variables";
 
-<<<<<<< HEAD
-=======
 body::-webkit-scrollbar {
     width: 5px;               /* width of the entire scrollbar */
 }
@@ -43,8 +41,8 @@ body::-webkit-scrollbar-thumb {
 
 // ------------------------------------------------------
 
->>>>>>> more css styling. fixing more scrolling bugs on touchscreen UI.
 .menu_box{
+    background-color: $summer-yellow;
     overflow-x: scroll;
     flex-wrap: nowrap;
     padding: 5% 4% 5% 4%;
@@ -57,13 +55,6 @@ body::-webkit-scrollbar-thumb {
     display: none;
 }
 
-<<<<<<< HEAD
-.row_box{
-    overflow-y: scroll;
-    height: 825px;
-}
-
-=======
 .menu_box::-webkit-scrollbar-track {
     background: $summer-yellow;        /* color of the tracking area */
 }
@@ -76,7 +67,6 @@ body::-webkit-scrollbar-thumb {
 
 // ------------------------------------------------------
 
->>>>>>> more css styling. fixing more scrolling bugs on touchscreen UI.
 .item_box{
     border-width: 20px;
     padding: 0 2%; 

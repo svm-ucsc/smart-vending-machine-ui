@@ -1,8 +1,8 @@
-import ItemDetail from '../ItemDetail.vue'
-
 export default {
-  name: 'Menu',
-  components: {
-    ItemDetail,
-  }
+  data(){
+    return{
+      foodNames: [["Cheetos", "Takis", "Chips"], [ "Cadbury", "Sandwich", "Hersheys"], [ "Burgers", "Pizza", "Mojitos"]]
+
+    };
+  },
 }
