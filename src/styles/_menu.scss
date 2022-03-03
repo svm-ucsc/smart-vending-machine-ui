@@ -1,0 +1,77 @@
+@import "variables";
+
+body::-webkit-scrollbar {
+    width: 5px;               /* width of the entire scrollbar */
+}
+
+body::-webkit-scrollbar-track {
+    background: $summer-yellow;        /* color of the tracking area */
+}
+
+body::-webkit-scrollbar-thumb {
+    background-color: $nice-grey;    /* color of the scroll thumb */
+    border-radius: 20px;       /* roundness of the scroll thumb */
+    border: 3px $summer-yellow;;  /* creates padding around scroll thumb */
+}
+
+// ------------------------------------------------------
+
+.row_box{
+    background: $summer-yellow;
+    overflow-y: scroll;
+    height: 825px;
+    margin-left: -2%;
+    margin-right: -2%;
+}
+
+.row_box::-webkit-scrollbar {
+    width: 5px;               /* width of the entire scrollbar */
+    display: none;
+}
+
+.row_box::-webkit-scrollbar-track {
+    background: $summer-yellow;        /* color of the tracking area */
+}
+
+.row_box::-webkit-scrollbar-thumb {
+    background-color: $nice-grey;    /* color of the scroll thumb */
+    border-radius: 20px;       /* roundness of the scroll thumb */
+    border: 3px $summer-yellow;;  /* creates padding around scroll thumb */
+}
+
+// ------------------------------------------------------
+
+.menu_box{
+    background-color: $summer-yellow;
+    overflow-x: scroll;
+    flex-wrap: nowrap;
+    padding: 5% 4% 5% 4%;
+    margin: 0px 0px;
+    width: 100%;
+}
+
+.menu_box::-webkit-scrollbar {
+    height: 5px;               /* width of the entire scrollbar */
+    display: none;
+}
+
+.menu_box::-webkit-scrollbar-track {
+    background: $summer-yellow;        /* color of the tracking area */
+}
+
+.menu_box::-webkit-scrollbar-thumb {
+    background-color: $nice-grey;    /* color of the scroll thumb */
+    border-radius: 20px;       /* roundness of the scroll thumb */
+    border: 3px $summer-yellow;;  /* creates padding around scroll thumb */
+}
+
+// ------------------------------------------------------
+
+.item_box{
+    border-width: 20px;
+    padding: 0 2%; 
+    margin-right: -1%;
+    display: inline-block;
+    float: none;
+    width: 265px;
+}

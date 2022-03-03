@@ -3,7 +3,7 @@
 .SearchBar_container{
     background: $summer-blue;
     margin: 0 0;
-    padding: 0 4%;
+    padding: 0 6%;
     box-shadow: $component-shadow;
     min-height: 75px;
     justify-content: center;
@@ -14,6 +14,7 @@
         min-height: 50px;
         justify-content: center;
         text-align: center;
+        font-size: x-large;
     }
 }
 

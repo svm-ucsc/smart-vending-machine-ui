@@ -6,17 +6,20 @@ import 'bootstrap'
 import ItemDetail from './components/ItemDetail.vue';
 import SearchBar from './components/SearchBar.vue';
 import CartItems from './components/CartItems.vue';
+import Menu from './components/Menu.vue';
+
 
 // Holds global data for application
 const store = createStore({
     state(){
         return{
             cartInfo: []
+            // itemid[] store all item ids
+            // searchfilter[]
         };
     },
  
     mutations: {
-
         insertToCart(state, data){
             // data will be an object pushed onto cartInfo array that holds {foodName, quantity}
             if(state.cartInfo.length > 0){ // if list isn't empty, we need to look through it first
@@ -46,5 +49,6 @@ app.use(store);
 app.component('ItemDetail', ItemDetail);
 app.component('SearchBar', SearchBar);
 app.component('CartItems', CartItems);
+app.component('StoreMenu', Menu);
 
 app.mount('#app')

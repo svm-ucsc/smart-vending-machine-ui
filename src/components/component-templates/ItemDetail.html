@@ -12,7 +12,7 @@
         <div class="row ItemDetail_name">
             <h1 class="col text-center ">{{ foodName }}</h1>
         </div>
-        <div class="row">
+        <div class="row" style="padding: 0px 0px 10px 0px">
             <div class="col ItemDetail_imgcontainer">
                 <a href="#"><img src="https://via.placeholder.com/100" class="mx-auto rounded mx-auto d-block ItemDetail_image" alt="Cheetos Image"></a>
             </div>
@@ -30,7 +30,7 @@
             <div class="col-2">
                 <button type="button" class="btn ItemDetail_incBtn mx-auto" @click="quantity++"></button>
             </div>
-            <div class="col-6 justify-content-end">
+            <div class="col-6 justify-content-end" style="padding: 0px 0px 0px 15px">
                 <button type="button" class="btn ItemDetail_addCart mx-auto" v-if="quantity >= 1" @click="this.$store.commit('insertToCart', {foodName, quantity})">Add to Cart</button>
                 <button type="button" class="btn ItemDetail_addCart mx-auto disabled" v-else>Add to Cart</button>
             </div> 
