@@ -8,7 +8,6 @@
     </div>
 
     <!-- Shopping Cart Component -->
-    <!-- <div class="row"><button type="button" class="btn review-order-btn mx-auto">REVIEW ORDER</button></div> -->
     <div class="row-order pt-1">
       <cart-items id="show-cart" />
     </div>

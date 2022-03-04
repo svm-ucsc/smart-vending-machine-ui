@@ -10,7 +10,7 @@
     <div class="container-fluid CartItems_container">
         <button type="button" class="btn review-order-btn mx-auto" @click="showCart()" id="reviewOrderBtn">Review Order</button>
         <button type="button" class="btn collapseStyleBtn" @click="collapseCart()" id="collapseCartBtn">Hide Cart</button>
-        <div class="row" v-show="toggle" v-if="this.$store.state.cartInfo.length === 0">Your cart is empty! Add something now.</div>
+        <div class="row justify-content-center" v-show="toggle" v-if="this.$store.state.cartInfo.length === 0">Your cart is empty.</div>
         <div class="row list-entry" v-show="toggle" v-else v-for="(cartStuff, i) in this.$store.state.cartInfo">
             <div class="col-2">{{ cartStuff.quantity }}</div>
             <div class="col-5">{{ cartStuff.foodName }}</div>
