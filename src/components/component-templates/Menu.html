@@ -10,17 +10,17 @@
     
     <div class ="row_box">
         <div
-            v-for="(row,index) in foodNames"
-            :key="index"
+            v-for="(row,i) in foodNames"
+            :key="i"
             class="row menu_box"
         >
             <div
-            v-for="(name, position) in row"
-            :key="position"
+            v-for="(name, j) in row"
+            :key="j"
             class="col-6 item_box"
             >
                 <item-detail 
-                    :item-id="position"
+                    :item-id="j"
                     :food-name="name"
                 />
             </div>

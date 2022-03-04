@@ -15,6 +15,8 @@ export default{
         updateCartCounter(){
             this.$store.commit('insertToCart', {foodName: this.foodName, itemId: this.itemId, quantity: this.quantity});
             this.quantity = 0; // reset counter to 0 for UX functionality
+            console.log(`item id looked at is: ${this.itemId}`);
+            console.log(`food name: ${this.foodName}`);
         },  
 
          async getData() {

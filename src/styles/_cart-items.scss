@@ -8,15 +8,17 @@
     padding: 0px 0px;
     margin-bottom: 0px;
     border-radius: 25px;
+    max-height: 400px;
     
     .list-entry{
         background: #f7f6f6;
         border: 1px solid black;
         font-size:x-large;
-        width:60%;
-        margin: 0px 0px;
-        padding: 20px;
+        // width:60%;
+        margin: 5px 0px;
+        padding: 15px;
         border-radius: 25px;
+      
     }
     .CartItems_deletebtn{
         background: white;
@@ -31,8 +33,8 @@
         font-size: xx-large;
         text-align: right;
         padding-right: 15%;
-      }
-      .collapseStyleBtn{
+    }
+    .collapseStyleBtn{
         background: $summer-purple;
         position: relative;
         left: 400;
@@ -40,5 +42,23 @@
         height: 60;
         visibility: hidden;
         border-radius: 25px;
-      }
+    }
+
+    .CartItems__list-wrapper{
+      // overflow-y:scroll;
+      background: lightgray;
+      margin: 0 25px;
+      max-height: 350px;
+      border-radius: $card-radius;
+    }
+    .CartItems__itemViewScroll{
+      overflow-y:scroll;
+      max-height: 250px;
+    }
+    .CartItems_placeOrderBtn{
+      background: $summer-green;
+      margin: 0px 0px;
+      padding: 20px;
+      border-radius: 25px;
+    }
 }
