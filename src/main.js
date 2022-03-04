@@ -14,7 +14,8 @@ const axios = require('axios');
 const store = createStore({
     state(){
         return{
-            cartInfo: []
+            cartInfo: [],
+            itemIDs: []
         };
     },
  
