@@ -13,8 +13,8 @@ import Menu from './components/Menu.vue';
 const store = createStore({
     state(){
         return{
-            cartInfo: []
-            // itemid[] store all item ids
+            cartInfo: [],
+            itemIDs: []
             // searchfilter[]
         };
     },
