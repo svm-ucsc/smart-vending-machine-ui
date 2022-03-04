@@ -4,8 +4,15 @@ export default {
     return{
       food: [["Cheetos", "Takis", "Chips"], [ "Cadbury", "Sandwich", "Hersheys"], [ "Burgers", "Pizza", "Mojitos"]],
       foodNames: [],
-      itemIDs: []
+      itemIDs: [],
+      items: []
     };
+  },
+
+  computed:{
+    filteredFoodNames() {
+        return this.foodNames.filter(this.items.name.includes(this.search))
+    }
   },
 
   async created() {
@@ -15,29 +22,19 @@ export default {
       const response = await axios.get('http://ec2-54-167-36-58.compute-1.amazonaws.com:3000/item', 
         { params: { fields: "item_id,name" } });
       const obj = response.data;
+      this.items.push(obj);
       var temp = [];
       // loop to push each item_id into itemIDs data field
       for(var i = 0; i < obj.length; i++){
         this.itemIDs.push(obj[i].item_id);
         temp.push(obj[i].name);
+        if(((i+1)%3) == 0){
+          this.foodNames.push(temp);
+          temp = [];
+        }
       }
-      this.foodNames.push(temp);
-      // console.log(this.foodNames);
-      // console.log(this.food);
-      
     } catch (e) {
       console.log(e);
     }
   }
-  // methods:{
-    
-  
-    // getFoodNames(){
-    //   try{
-
-    //   } catch(e){
-    //     console.log(e).
-    //   }
-    // }
-  
 }
