@@ -6,7 +6,7 @@ import 'bootstrap'
 import ItemDetail from './components/ItemDetail.vue';
 import SearchBar from './components/SearchBar.vue';
 import CartItems from './components/CartItems.vue';
-import Menu from './components/Menu.vue';
+import StoreMenu from './components/StoreMenu.vue';
 
 
 // Holds global data for application
@@ -44,6 +44,6 @@ app.use(store);
 app.component('ItemDetail', ItemDetail);
 app.component('SearchBar', SearchBar);
 app.component('CartItems', CartItems);
-app.component('StoreMenu', Menu);
+app.component('StoreMenu', StoreMenu);
 
 app.mount('#app')
