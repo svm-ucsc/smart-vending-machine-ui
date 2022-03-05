@@ -14,8 +14,6 @@ const store = createStore({
     state(){
         return{
             cartInfo: []
-            // itemid[] store all item ids
-            // searchfilter[]
         };
     },
  

@@ -15,12 +15,12 @@
             class="row menu_box"
         >
             <div
-            v-for="(name, j) in row"
+            v-for="(name, itemId, j) in row"
             :key="j"
             class="col-6 item_box"
             >
                 <item-detail 
-                    :item-id="j"
+                    :item-id="itemId"
                     :food-name="name"
                 />
             </div>
