@@ -1,19 +1,27 @@
+const axios = require('axios');
 export default{
-    props: { 
-        itemId: Number,
-        foodName: String
-    },
     data(){
-        return{
-            foodNames: [["Cheetos", "Takis", "Chips"], [ "Cadbury", "Sandwich", "Hersheys"], [ "Burgers", "Pizza", "Mojitos"]]
-
+        return {
+            searchQuery: '',
+            items: []
         };
     },
-    methods: {
 
-        toggleDetails(){
-            this.detailsAreVisible = !this.detailsAreVisible;
-        },
-        
+    computed: {
+        filteredItems: function(){
+            return this.items.filter((item) => {
+                return item.name.toLowerCase().match(this.searchQuery)
+            });
+            
+        }
+    },
+    async mounted(){
+        const response = await axios.get('http://ec2-54-167-36-58.compute-1.amazonaws.com:3000/item');
+        this.items = response.data;
+        console.log(this.items);
+    },
+
+    async getData(){
+        console.log(this.searchQuery)
     }
-};
+}

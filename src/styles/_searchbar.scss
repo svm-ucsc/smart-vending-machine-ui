@@ -2,12 +2,12 @@
 
 .SearchBar__container{
     background: $summer-blue;
-    margin: 0 0;
+    margin: 0 -2%;
     padding: 0 6%;
     box-shadow: $component-shadow;
     min-height: 75px;
     justify-content: center;
-    width: 100%;
+    width: 104%;
     
     .SearchBar__bar{
         font-family: $font-family-bold;
