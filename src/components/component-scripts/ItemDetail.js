@@ -1,6 +1,6 @@
 export default{
     props: { 
-        itemId: Number,
+        itemId: String,
         foodName: String
     },
     data(){

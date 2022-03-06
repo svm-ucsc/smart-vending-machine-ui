@@ -8,28 +8,25 @@ export default {
         console.log(response.data);
         const obj = response.data;
 
-        let parsedFoodNames =  obj.map(i => i.name);
-        let parsedItemIds = obj.map(i => i.item_id);
+        let parsedData = obj;
+        let dataPlaceHolder = [];
+        // let parsedFoodNames =  obj.map(i => i.name);
+        // let parsedItemIds = obj.map(i => i.item_id);
 
-        let foodPlaceHolder = [];
-        let itemPlaceHolder = [];
+        // let foodPlaceHolder = [];
+        // let itemPlaceHolder = [];
         let chunk = 3; // 3 items displayed per row
         
         let i,j;
-        for (i = 0,j = parsedFoodNames.length; i < j; i += chunk) {
-          foodPlaceHolder = parsedFoodNames.slice(i, i + chunk);
-          itemPlaceHolder = parsedItemIds.slice(i,i + chunk);
-            this.foodNames.push(foodPlaceHolder);
-            this.itemIDs.push(itemPlaceHolder);
-        }
+        for (i = 0,j = parsedData.length; i < j; i += chunk) {
+          dataPlaceHolder = parsedData.slice(i,i+chunk);
+          this.nameIdSet.push(dataPlaceHolder); // push the (food, id) as a set together
 
-        // console.log(`foodName returned: ${obj.map(i => i.name)}`);
-        // console.log(`${typeof(this.foodNames)}`)
-
-        
-        // console.log(`item id returned: ${obj.map(i => i.item_id)}`)
-       
-        
+          // foodPlaceHolder = parsedFoodNames.slice(i, i + chunk);
+          // itemPlaceHolder = parsedItemIds.slice(i,i + chunk);
+          //   this.foodNames.push(foodPlaceHolder);
+          //   this.itemIDs.push(itemPlaceHolder);
+        }        
       } catch (e) {
         console.log("Error");
       }
@@ -39,9 +36,10 @@ export default {
 
   data(){
     return{
-      foodNames: [],
+      nameIdSet: [] // an array that holds an object. each object holds a foodname and foodID
+      // foodNames: [],
       // foodNames: [["Cheetos", "Takis", "Chips"], [ "Cadbury", "Sandwich", "Hersheys"], [ "Burgers", "Pizza", "Mojitos"]],
-      itemIDs: []
+      // itemIDs: []
     };
   },
 
