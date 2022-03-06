@@ -3,35 +3,26 @@
 // property: $(variable-name);
 
 // Font
-@font-face {
-    font-family: 'Noto-Sans-SC';
+@font-face{
+    font-family: 'NotoSans-Regular';
     font-style: normal;
-    font-weight: 300px;
-    src: url("https://fonts.googleapis.com/css?family=Noto+Sans");
+    src: local("NotoSans-Regular"), url("/fonts/NotoSans-Regular.ttf") format("ttf");
 }
 
-@font-face {
-    font-family: 'Noto-Sans-SC-medium';
-    font-style: normal;
-    font-weight: 500px;
-    src: url("//db.onlinewebfonts.com/c/a165a42685795361b25593effb32fdb1?family=Noto+Sans");
+@font-face{
+    font-family: 'NotoSans-Bold';
+    font-style: bold;
+    src: local("NotoSans-Bold"), url("/fonts/NotoSans-Bold.ttf") format("ttf");
 }
 
-@font-face {
-    font-family: 'Noto-Sans-SC-bold';
-    font-style: normal;
-    font-weight: 700px;
-    src: url("https://fonts.googleapis.com/css?family=Noto+Sans");
-}
-
-$font-family: 'Noto-Sans-SC', Arial, Helvetica, sans-serif;
-$font-family-medium: 'Noto-Sans-SC-medium', Arial, Helvetica, sans-serif;
-$font-family-bold: 'Noto-Sans-SC-bold', Arial, Helvetica, sans-serif;
+$font-family: 'NotoSans-Regular';
+$font-family-medium: 'NotoSans-Regular';
+$font-family-bold: 'NotoSans-Bold';
 $font-size: 16px;
 $font-height: 1.5;
 
 body{
-    font-family: 'Noto-Sans-SC', Arial, Helvetica, sans-serif;
+    font-family: 'NotoSans', 'NotoSans-Bold', Arial, Helvetica, sans-serif;
 }
 
 
@@ -42,7 +33,7 @@ $summer-green: rgb(208,249,183);
 $summer-aqua: rgb(147, 244,202);
 $summer-blue: rgb(142,195,244);
 $summer-purple: rgb(244, 224, 255);
-$nice-grey: #afafaf;
+$nice-grey: rgb(235, 232, 237);
 
 // Shadowing, radii, etc
 $component-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
@@ -51,7 +42,7 @@ $icon-radius: 6px;
 $button-radius: 6px;
 
 // borders:
-// $button-border: 1px black;
+$button-border: 1px black;
 // Padding?
 
 // Animations?

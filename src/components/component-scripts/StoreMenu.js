@@ -10,22 +10,11 @@ export default {
 
         let parsedData = obj;
         let dataPlaceHolder = [];
-        // let parsedFoodNames =  obj.map(i => i.name);
-        // let parsedItemIds = obj.map(i => i.item_id);
-
-        // let foodPlaceHolder = [];
-        // let itemPlaceHolder = [];
         let chunk = 3; // 3 items displayed per row
-        
         let i,j;
         for (i = 0,j = parsedData.length; i < j; i += chunk) {
           dataPlaceHolder = parsedData.slice(i,i+chunk);
           this.nameIdSet.push(dataPlaceHolder); // push the (food, id) as a set together
-
-          // foodPlaceHolder = parsedFoodNames.slice(i, i + chunk);
-          // itemPlaceHolder = parsedItemIds.slice(i,i + chunk);
-          //   this.foodNames.push(foodPlaceHolder);
-          //   this.itemIDs.push(itemPlaceHolder);
         }        
       } catch (e) {
         console.log("Error");

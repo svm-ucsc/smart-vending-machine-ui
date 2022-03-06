@@ -8,6 +8,7 @@ import SearchBar from './components/SearchBar.vue';
 import CartItems from './components/CartItems.vue';
 import StoreMenu from './components/StoreMenu.vue';
 
+const axios = require('axios');
 
 // Holds global data for application
 const store = createStore({
@@ -35,6 +36,26 @@ const store = createStore({
             // data stores the index of where the element is to be removed
             console.log(`The index requested to delete entry is: ${JSON.stringify(indexToDelete)}`);
             state.cartInfo.splice(indexToDelete,1); // delete 1 element at indexToDelete
+        },
+        async sendOrderToDB(state){
+            // send the cartInfo
+            console.log(`Cart info: ${state.cartInfo}`)
+            // also need to randomly generate an order number (math.random()...)
+            try{
+                await axios.post('http://ec2-54-167-36-58.compute-1.amazonaws.com:3000/order/',
+                {body:
+                    {
+                        "machine_id": "string",
+                        "items":{
+                            "d016": 2
+                        }
+                    }
+            
+                })
+
+            }catch(e){
+                console.log("Error: Cannot place the order")
+            }
         }
     }
 });
