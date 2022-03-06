@@ -8,13 +8,11 @@
 </head>
 <body>
     
-        <div class="container-fluid SearchBar__container">
+        <div class="container-fluid SearchFilter_container">
             <div class="row align-items-center">
-                <input class="col form-control search-bar SearchBar__bar border-end-0 border rounded-pill mx-auto" 
-                type="text" 
-                placeholder="Tap to Search"
-                v-model="searchQuery"
-                >
+                <div class="row list-entry" v-show="toggle" v-else v-for="(searchFilter, i) in this.$store.state.searchFilter">
+                    <div class="col-2">{{ searchFilter.name }}</div>
+                </div>
             </div>
         </div>
     

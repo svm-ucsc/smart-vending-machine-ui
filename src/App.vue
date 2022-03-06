@@ -1,10 +1,10 @@
 <template>
   <div class="container-fluid app_container">
     <div class="row p-0">
-      <search-bar />
-    </div>
-    <div>
-      <store-menu />
+      <search-bar>
+        <search-filter v-if="this.$store.state.searchFilter.length > 0" />
+        <store-menu v-else />
+      </search-bar>
     </div>
 
     <!-- Shopping Cart Component -->
