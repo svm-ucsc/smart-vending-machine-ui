@@ -1,6 +1,6 @@
 @import "variables";
 
-.SearchBar_container{
+.SearchBar__container{
     background: $summer-blue;
     margin: 0 0;
     padding: 0 6%;
@@ -9,7 +9,7 @@
     justify-content: center;
     width: 100%;
     
-    .SearchBar_bar{
+    .SearchBar__bar{
         font-family: $font-family-bold;
         min-height: 50px;
         justify-content: center;

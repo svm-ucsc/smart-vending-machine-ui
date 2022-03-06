@@ -8,16 +8,16 @@
 </head>
 <body> 
     
-    <div class ="row_box">
+    <div class ="StoreMenu__row-box">
         <div
             v-for="(row, i) in nameIdSet"
             :key="i"
-            class="row menu_box"
+            class="row StoreMenu__menu-box"
         >
             <div
             v-for="(food, j) in row"
             :key="j"
-            class="col-6 item_box"
+            class="col-6 StoreMenu__item-box"
             >
                 <item-detail 
                     :item-id="food.item_id"

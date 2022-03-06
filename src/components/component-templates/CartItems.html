@@ -7,23 +7,23 @@
     <title>Document</title>
 </head>
 <body style="background: transparent">
-    <div class="container-fluid CartItems_container">
-        <button type="button" class="btn review-order-btn mx-auto" @click="showCart()" id="reviewOrderBtn">Review Order</button>
-        <button type="button" class="btn collapseStyleBtn" @click="collapseCart()" id="collapseCartBtn">Hide Cart</button>
+    <div class="container-fluid CartItems__container">
+        <button type="button" class="btn CartItems__review-order-btn mx-auto" @click="showCart()" id="reviewOrderBtn">Review Order</button>
+        <button type="button" class="btn CartItems__collapseStyleBtn" @click="collapseCart()" id="collapseCartBtn">Hide Cart</button>
         <div class="row justify-content-center" v-show="toggle" v-if="this.$store.state.cartInfo.length === 0">Your cart is empty.</div>
         <div class="row CartItems__list-wrapper" v-show="toggle" v-else>
             <div class="col-8 align-items-center CartItems__itemViewScroll">
-                <div class="row list-entry justify-content-center" v-for="(cartStuff, i) in this.$store.state.cartInfo">
+                <div class="row CartItems__list-entry justify-content-center" v-for="(cartStuff, i) in this.$store.state.cartInfo">
                     <div class="col-2">{{ cartStuff.quantity }}</div>
                     <div class="col-5">{{ cartStuff.foodName }}</div>
-                    <div class="col-4"><button type="button" class="btn CartItems_deletebtn" @click="this.$store.commit('removeFromCart', i)">trash</button></div>
+                    <div class="col-4"><button type="button" class="btn CartItems__deletebtn" @click="this.$store.commit('removeFromCart', i)">trash</button></div>
                 </div>
             </div>
             <div class="col-4 align-items-center CartItems_reviewScreen">
                 <div class="row justify-content-center"><div class="col">Total Amount</div></div>
                 <div class="row align-items-center">
                     <div class="col">
-                        <button type="button" class="btn CartItems_placeOrderBtn">Pay Now</button>
+                        <button type="button" class="btn CartItems__placeOrderBtn">Pay Now</button>
                     </div>
                 </div>
             </div>

@@ -16,7 +16,7 @@ body::-webkit-scrollbar-thumb {
 
 // ------------------------------------------------------
 
-.row_box{
+.StoreMenu__row-box{
     background: $summer-yellow;
     overflow-y: scroll;
     height: 825px;
@@ -24,16 +24,16 @@ body::-webkit-scrollbar-thumb {
     margin-right: -2%;
 }
 
-.row_box::-webkit-scrollbar {
+.StoreMenu__row-box::-webkit-scrollbar {
     width: 5px;               /* width of the entire scrollbar */
     display: none;
 }
 
-.row_box::-webkit-scrollbar-track {
+.StoreMenu__row-box::-webkit-scrollbar-track {
     background: $summer-yellow;        /* color of the tracking area */
 }
 
-.row_box::-webkit-scrollbar-thumb {
+.StoreMenu__row-box::-webkit-scrollbar-thumb {
     background-color: $nice-grey;    /* color of the scroll thumb */
     border-radius: 20px;       /* roundness of the scroll thumb */
     border: 3px $summer-yellow;;  /* creates padding around scroll thumb */
@@ -41,7 +41,7 @@ body::-webkit-scrollbar-thumb {
 
 // ------------------------------------------------------
 
-.menu_box{
+.StoreMenu__menu-box{
     background-color: $summer-yellow;
     overflow-x: scroll;
     flex-wrap: nowrap;
@@ -50,16 +50,16 @@ body::-webkit-scrollbar-thumb {
     width: 100%;
 }
 
-.menu_box::-webkit-scrollbar {
+.StoreMenu__menu-box::-webkit-scrollbar {
     height: 5px;               /* width of the entire scrollbar */
     display: none;
 }
 
-.menu_box::-webkit-scrollbar-track {
+.StoreMenu__menu-box::-webkit-scrollbar-track {
     background: $summer-yellow;        /* color of the tracking area */
 }
 
-.menu_box::-webkit-scrollbar-thumb {
+.StoreMenu__menu-box::-webkit-scrollbar-thumb {
     background-color: $nice-grey;    /* color of the scroll thumb */
     border-radius: 20px;       /* roundness of the scroll thumb */
     border: 3px $summer-yellow;;  /* creates padding around scroll thumb */
@@ -67,7 +67,7 @@ body::-webkit-scrollbar-thumb {
 
 // ------------------------------------------------------
 
-.item_box{
+.StoreMenu__item-box{
     border-width: 20px;
     padding: 0 2%; 
     margin-right: -1%;
