@@ -15,6 +15,9 @@
                 placeholder="Tap to Search"
                 v-model="searchQuery"
                 >
+                <div class="row list-entry" v-for="item in filteredItems">
+                    <div class="col-2">{{ item.name }}</div>
+                </div>
             </div>
         </div>
     
