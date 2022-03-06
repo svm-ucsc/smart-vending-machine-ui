@@ -7,6 +7,7 @@ import ItemDetail from './components/ItemDetail.vue';
 import SearchBar from './components/SearchBar.vue';
 import CartItems from './components/CartItems.vue';
 import Menu from './components/Menu.vue';
+import SearchFilter from './components/SearchFilter.vue';
 
 
 // Holds global data for application
@@ -14,8 +15,8 @@ const store = createStore({
     state(){
         return{
             cartInfo: [],
-            itemIDs: []
-            // searchfilter[]
+            itemIDs: [],
+            searchFilter: []
         };
     },
  
@@ -50,5 +51,6 @@ app.component('ItemDetail', ItemDetail);
 app.component('SearchBar', SearchBar);
 app.component('CartItems', CartItems);
 app.component('StoreMenu', Menu);
+app.component('SearchFilter', SearchFilter);
 
 app.mount('#app')
