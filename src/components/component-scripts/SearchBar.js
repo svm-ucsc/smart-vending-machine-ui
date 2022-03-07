@@ -1,9 +1,11 @@
+import $ from 'jquery'
 const axios = require('axios');
 export default{
     data(){
         return {
             searchQuery: '',
-            items: []
+            items: [],
+            showResults: false
         };
     },
 
@@ -23,5 +25,17 @@ export default{
 
     async getData(){
         console.log(this.searchQuery)
+    },
+
+    methods: {
+        showSearchResults(){
+            const query = document.getElementById('SearchBar_results');
+            const entry = document.getElementById('list_entry');
+            $(query).css('visibility', 'visible');
+            $(entry).css('visibility', 'visible');
+            this.showResults = true;
+        },
     }
+
+
 }

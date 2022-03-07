@@ -13,11 +13,15 @@
                 <input class="col form-control search-bar SearchBar_bar border-end-0 border rounded-pill mx-auto" 
                 type="text" 
                 placeholder="Tap to Search"
+                @keyup="showSearchResults()"
                 v-model="searchQuery"
                 >
-                <div class="row list-entry" v-for="item in filteredItems">
-                    <div class="col-2">{{ item.name }}</div>
+                <div class="SearchBar_results" v-if="filteredItems.length > 0 && searchQuery.length > 0">
+                    <div class="row list-entry" v-for="item in filteredItems">
+                        <div class="col-2 result">{{ item.name }}</div>
+                    </div>
                 </div>
+                
             </div>
         </div>
     
