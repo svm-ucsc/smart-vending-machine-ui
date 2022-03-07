@@ -8,6 +8,7 @@
     min-height: 75px;
     justify-content: center;
     width: 104%;
+    z-index: 0;
     
     .SearchBar__bar{
         font-family: $font-family-bold;
@@ -15,6 +16,29 @@
         justify-content: center;
         text-align: center;
         font-size: x-large;
+    }
+
+    .SearchBar_results{
+        background: gainsboro;
+        margin: 0 -2%;
+        padding: 0 6%;
+        box-shadow: $component-shadow;
+        min-height: 75px;
+        justify-content: center;
+        //visibility: hidden;
+        width: 104%;
+    }
+
+    .list_entry{
+        background: #f7f6f6;
+        border: 1px solid black;
+        font-size:x-large;
+        width:60%;
+        margin: 0px 0px;
+        padding: 20px;
+        border-radius: 25px;
+        z-index: 9;
+        //visibility: hidden;
     }
 }
 
