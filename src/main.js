@@ -6,9 +6,14 @@ import 'bootstrap'
 import ItemDetail from './components/ItemDetail.vue';
 import SearchBar from './components/SearchBar.vue';
 import CartItems from './components/CartItems.vue';
+<<<<<<< HEAD
 import StoreMenu from './components/StoreMenu.vue';
 
 const axios = require('axios');
+=======
+import Menu from './components/Menu.vue';
+import SimpleKeyboard from "./components/SimpleKeyboard.vue";
+>>>>>>> added inc,dec,cart btns to search results. more sassy css.
 
 // Holds global data for application
 const store = createStore({
@@ -61,11 +66,17 @@ const store = createStore({
     }
 });
 
+
 const app = createApp(App);
 app.use(store);
 app.component('ItemDetail', ItemDetail);
 app.component('SearchBar', SearchBar);
 app.component('CartItems', CartItems);
+<<<<<<< HEAD
 app.component('StoreMenu', StoreMenu);
+=======
+app.component('StoreMenu', Menu);
+app.component('SimpleKeyboard', SimpleKeyboard);
+>>>>>>> added inc,dec,cart btns to search results. more sassy css.
 
 app.mount('#app')

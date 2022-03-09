@@ -2,9 +2,6 @@
   <div class="container-fluid app_container">
     <search-bar style="width: 100%;" />
     <div class="row p-0">
-      <div v-show="$store.state.searchFilter.length > 0">
-        <search-filter />
-      </div>
       <store-menu />
     </div>
 

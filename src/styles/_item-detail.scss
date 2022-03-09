@@ -19,7 +19,17 @@
         min-height: 175px;
     }
 
+<<<<<<< HEAD
     .ItemDetail__decBtn{
+=======
+    .ItemDetail_btncontainer{
+        display: flex;
+        justify-content: center;
+        align-content: center;
+    }
+
+    .ItemDetail_decBtn{
+>>>>>>> added inc,dec,cart btns to search results. more sassy css.
         background: $summer-tan;        
         &:after{
             content: "-";
