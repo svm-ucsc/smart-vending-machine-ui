@@ -19,6 +19,12 @@
         min-height: 175px;
     }
 
+    .ItemDetail_btncontainer{
+        display: flex;
+        justify-content: center;
+        align-content: center;
+    }
+
     .ItemDetail_decBtn{
         background: $summer-tan;        
         &:after{

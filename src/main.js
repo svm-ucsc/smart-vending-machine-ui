@@ -7,16 +7,14 @@ import ItemDetail from './components/ItemDetail.vue';
 import SearchBar from './components/SearchBar.vue';
 import CartItems from './components/CartItems.vue';
 import Menu from './components/Menu.vue';
-//import SearchFilter from './components/SearchFilter.vue';
-
+import SimpleKeyboard from "./components/SimpleKeyboard.vue";
 
 // Holds global data for application
 const store = createStore({
     state(){
         return{
             cartInfo: [],
-            itemIDs: [],
-            searchFilter: []
+            itemIDs: []
         };
     },
  
@@ -45,12 +43,13 @@ const store = createStore({
     }
 });
 
+
 const app = createApp(App);
 app.use(store);
 app.component('ItemDetail', ItemDetail);
 app.component('SearchBar', SearchBar);
 app.component('CartItems', CartItems);
 app.component('StoreMenu', Menu);
-//app.component('SearchFilter', SearchFilter);
+app.component('SimpleKeyboard', SimpleKeyboard);
 
 app.mount('#app')
