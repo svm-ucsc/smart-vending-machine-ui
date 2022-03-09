@@ -7,7 +7,6 @@ import ItemDetail from './components/ItemDetail.vue';
 import SearchBar from './components/SearchBar.vue';
 import CartItems from './components/CartItems.vue';
 import Menu from './components/Menu.vue';
-import SimpleKeyboard from "./components/SimpleKeyboard.vue";
 
 // Holds global data for application
 const store = createStore({
@@ -50,6 +49,5 @@ app.component('ItemDetail', ItemDetail);
 app.component('SearchBar', SearchBar);
 app.component('CartItems', CartItems);
 app.component('StoreMenu', Menu);
-app.component('SimpleKeyboard', SimpleKeyboard);
 
 app.mount('#app')
