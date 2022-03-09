@@ -1,11 +1,6 @@
 import $ from 'jquery'
-import SimpleKeyboard from "../SimpleKeyboard";
 const axios = require('axios');
 export default{
-    components: {
-        SimpleKeyboard
-    },
-
     data(){
         return {
             searchQuery: '',
@@ -42,16 +37,5 @@ export default{
             $(entry).css('visibility', 'visible');
             this.showResults = true;
         },
-        onChange(input) {
-            this.input = input;
-        },
-        onKeyPress(button) {
-            console.log("button", button);
-        },
-        onInputChange(input) {
-            this.input = input.target.value;
-        }
     }
-
-
 }

@@ -18,7 +18,11 @@ export default{
         },  
 
         async getData() {
+<<<<<<< HEAD
             //TODO
+=======
+            // TODO
+>>>>>>> getting rid of virtual keyboard for demo vid
         },
     },
     created() {

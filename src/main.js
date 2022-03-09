@@ -12,8 +12,11 @@ import StoreMenu from './components/StoreMenu.vue';
 const axios = require('axios');
 =======
 import Menu from './components/Menu.vue';
+<<<<<<< HEAD
 import SimpleKeyboard from "./components/SimpleKeyboard.vue";
 >>>>>>> added inc,dec,cart btns to search results. more sassy css.
+=======
+>>>>>>> getting rid of virtual keyboard for demo vid
 
 // Holds global data for application
 const store = createStore({
@@ -76,7 +79,10 @@ app.component('CartItems', CartItems);
 app.component('StoreMenu', StoreMenu);
 =======
 app.component('StoreMenu', Menu);
+<<<<<<< HEAD
 app.component('SimpleKeyboard', SimpleKeyboard);
 >>>>>>> added inc,dec,cart btns to search results. more sassy css.
+=======
+>>>>>>> getting rid of virtual keyboard for demo vid
 
 app.mount('#app')
