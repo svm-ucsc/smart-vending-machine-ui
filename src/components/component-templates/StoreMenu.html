@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body> 
+    
+    <div class ="StoreMenu__row-box">
+        <div
+            v-for="(row, i) in nameIdSet"
+            :key="i"
+            class="row StoreMenu__menu-box"
+        >
+            <div
+            v-for="(food, j) in row"
+            :key="j"
+            class="col-6 StoreMenu__item-box"
+            >
+                <item-detail 
+                    :item-id="food.item_id"
+                    :food-name="food.name"
+                />
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

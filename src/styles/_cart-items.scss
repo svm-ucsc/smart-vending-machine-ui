@@ -1,6 +1,6 @@
 @import "variables"; // DO NOT REMOVE THIS LINE OR SCSS WILL NOT WORK!
 
-.CartItems_container{
+.CartItems__container{
     background-color: $summer-blue;
     box-shadow: $component-shadow;
     border: 1px solid black;
@@ -8,21 +8,25 @@
     padding: 0px 0px;
     margin-bottom: 0px;
     border-radius: 25px;
+    max-height: 400px;
     
-    .list-entry{
+    .CartItems__list-entry{
         background: #f7f6f6;
         border: 1px solid black;
         font-size:x-large;
-        width:60%;
-        margin: 0px 0px;
-        padding: 20px;
+        // width:60%;
+        margin: 5px 0px;
+        padding: 15px;
         border-radius: 25px;
+      
     }
-    .CartItems_deletebtn{
+
+    .CartItems__deletebtn{
         background: white;
         border-radius: $button-radius;
     }
-    .review-order-btn{
+
+    .CartItems__review-order-btn{
         background: $summer-blue;
         width: 80%;
         height: 80px;
@@ -31,8 +35,8 @@
         font-size: xx-large;
         text-align: right;
         padding-right: 15%;
-      }
-      .collapseStyleBtn{
+    }
+    .CartItems__collapseStyleBtn{
         background: $summer-purple;
         position: relative;
         left: 400;
@@ -40,5 +44,23 @@
         height: 60;
         visibility: hidden;
         border-radius: 25px;
-      }
+    }
+
+    .CartItems__list-wrapper{
+      // overflow-y:scroll;
+      background: $nice-grey;
+      margin: 0 25px;
+      max-height: 350px;
+      border-radius: $card-radius;
+    }
+    .CartItems__itemViewScroll{
+      overflow-y:scroll;
+      max-height: 250px;
+    }
+    .CartItems__placeOrderBtn{
+      background: $summer-green;
+      margin: 0px 0px;
+      padding: 20px;
+      border-radius: 25px;
+    }
 }

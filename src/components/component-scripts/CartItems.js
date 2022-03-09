@@ -21,6 +21,10 @@ export default{
             const collapseBtn = document.getElementById('collapseCartBtn');
             $(collapseBtn).css('visibility', 'hidden');
 
+        },
+        placeOrder(){
+            this.$store.commit('sendOrderToDB');
         }
+
     } 
 }
