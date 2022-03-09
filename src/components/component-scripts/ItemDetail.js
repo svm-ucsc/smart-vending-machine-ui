@@ -18,7 +18,7 @@ export default{
         },  
 
         async getData() {
-            
+            // TODO
         },
     },
     created() {

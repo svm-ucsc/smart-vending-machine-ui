@@ -1,45 +1,51 @@
 @import "variables"; // DO NOT REMOVE THIS LINE OR SCSS WILL NOT WORK!
 
-.ItemDetail__container{
+.ItemDetail_container{
     background: white;
     border-radius: $card-radius;
     box-shadow: $component-shadow;
-    .ItemDetail__name{
+    .ItemDetail_name{
         font-family: $font-family-bold;
         font-size: medium;
         padding: 10px 0px 0px 0px;
     }
-    .ItemDetail__imgcontainer{
+    .ItemDetail_imgcontainer{
         margin: 0 0;
         padding: 0 0;
     }
-    .ItemDetail__image{
+    .ItemDetail_image{
         margin: auto;
         min-width: 175px;
         min-height: 175px;
     }
 
-    .ItemDetail__decBtn{
+    .ItemDetail_btncontainer{
+        display: flex;
+        justify-content: center;
+        align-content: center;
+    }
+
+    .ItemDetail_decBtn{
         background: $summer-tan;        
         &:after{
             content: "-";
         }
     }
-    .ItemDetail__incBtn{
+    .ItemDetail_incBtn{
         background: $summer-tan;
         &:after{
             content:"+";
         }
 
     }
-    .ItemDetail__counter{
+    .ItemDetail_counter{
         background: $summer-purple;
         text-decoration: none;
         &:after{
             content:" ";
         }
     }
-    .ItemDetail__addCart{
+    .ItemDetail_addCart{
         background: $summer-green;
         font-size: 2vmin;
         height: 40px;

@@ -14,7 +14,8 @@ const axios = require('axios');
 const store = createStore({
     state(){
         return{
-            cartInfo: []
+            cartInfo: [],
+            itemIDs: []
         };
     },
  
@@ -59,6 +60,7 @@ const store = createStore({
         }
     }
 });
+
 
 const app = createApp(App);
 app.use(store);
