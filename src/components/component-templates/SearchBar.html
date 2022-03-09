@@ -18,31 +18,29 @@
                 @input="searchQuery"
                 v-model="searchQuery"
                 ></div>
-                <!-- <div class="SearchBar_results" v-if="filteredItems.length > 0 && searchQuery.length > 0"> -->
-                    <div class="row list-entry SearchBar_results" v-if="filteredItems.length > 0 && searchQuery.length > 0" v-for="item in filteredItems">
-                        <div class="col-6 result">{{ item.name }}</div>
-                        <div class="col-6 row ItemDetail_btncontainer">
-                            <div class="col-2">
-                                <button type="button" class="btn ItemDetail_decBtn mx-auto" v-if="quantity>0" @click="quantity--"></button>
-                                <button type="button" class="btn ItemDetail_decBtn mx-auto disabled" v-else></button>
-                
-                            </div>
-                            <div class="col-2">
-                                <!-- Get numeric item counter and print it as a string in UI -->
-                                <button type="button" class="btn ItemDetail_counter mx-auto" id="ItemDetail-count">{{ quantity }}</button>
-                            </div>
-                            <div class="col-2">
-                                <button type="button" class="btn ItemDetail_incBtn mx-auto" @click="quantity++"></button>
-                            </div>
-                            <div class="col-6 justify-content-end" style="padding: 0px 0px 0px 15px">
-                                <button type="button" class="btn ItemDetail_addCart mx-auto" v-if="quantity >= 1" @click="this.$store.commit('insertToCart', {foodName, quantity})">Add to Cart</button>
-                                <button type="button" class="btn ItemDetail_addCart mx-auto disabled" v-else>Add to Cart</button>
-                            </div> 
-                
+            
+                <div class="row list-entry SearchBar_results" v-if="filteredItems.length > 0 && searchQuery.length > 0" v-for="item in filteredItems">
+                    <div class="col-6 result">{{ item.name }}</div>
+                    <div class="col-6 row ItemDetail_btncontainer">
+                        <div class="col-2">
+                            <button type="button" class="btn ItemDetail_decBtn mx-auto" v-if="quantity>0" @click="quantity--"></button>
+                            <button type="button" class="btn ItemDetail_decBtn mx-auto disabled" v-else></button>
+            
                         </div>
+                        <div class="col-2">
+                            <!-- Get numeric item counter and print it as a string in UI -->
+                            <button type="button" class="btn ItemDetail_counter mx-auto" id="ItemDetail-count">{{ quantity }}</button>
+                        </div>
+                        <div class="col-2">
+                            <button type="button" class="btn ItemDetail_incBtn mx-auto" @click="quantity++"></button>
+                        </div>
+                        <div class="col-6 justify-content-end" style="padding: 0px 0px 0px 15px">
+                            <button type="button" class="btn ItemDetail_addCart mx-auto" v-if="quantity >= 1" @click="this.$store.commit('insertToCart', {foodName, quantity})">Add to Cart</button>
+                            <button type="button" class="btn ItemDetail_addCart mx-auto disabled" v-else>Add to Cart</button>
+                        </div> 
+            
                     </div>
-                <!-- </div> -->
-                <!-- <SimpleKeyboard @onChange="onChange" @onKeyPress="onKeyPress" :input="searchQuery"/> -->
+                </div>
             </div>
         </div>
     
