@@ -1,7 +1,9 @@
 <template>
   <div class="container-fluid app_container">
-    <search-bar style="width: 100%;" />
     <div class="row p-0">
+      <search-bar />
+    </div>
+    <div>
       <store-menu />
     </div>
 
@@ -14,27 +16,14 @@
 
 <script>
 // INCLUDE THIS WHEN MAKING AN API CALL
-  const axios = require('axios');
+// import axios from 'axios';
+// API call for name finding will happen here
   export default{
     data(){
       return{
-        itemIDs: []
-      }
-    },
-    async getItemIDs() {
-      try {
-        // API call to get item_id
-        // equivalent to http://ec2-54-167-36-58.compute-1.amazonaws.com:3000/item?fields=item_id
-        const response = await axios.get('http://ec2-54-167-36-58.compute-1.amazonaws.com:3000/item', 
-          { params: { fields: "item_id" } });
-        const obj = response.data;
-        // loop to push each item_id into itemIDs data field
-        for(var i = 0; i < obj.length; i++){
-          this.itemIDs.push(obj[i].item_id);
-        }
+        // this will eventually be turned into an API call. I can change this to MOD 3 for 3 elements per row or something like that.
+        foodNames: [["Cheetos", "Takis", "Chips"], [ "Cadbury", "Sandwich", "Hersheys"], [ "Burgers", "Pizza", "Mojitos"]]
         
-      } catch (e) {
-        console.log("Error");
       }
     }
   }
