@@ -31,8 +31,8 @@
                 <button type="button" class="btn ItemDetail__incBtn mx-auto" @click="quantity++"></button>
             </div>
             <div class="col-6 justify-content-end">
-                <button type="button" class="btn ItemDetail__addCart mx-auto" v-if="quantity >= 1" @click="updateCartCounter()">Add to Cart</button>
-                <button type="button" class="btn ItemDetail__addCart mx-auto disabled" v-else>Add to Cart</button>
+                <button type="button" class="btn ItemDetail__addCart mx-auto" v-if="quantity >= 1" @click="updateCartCounter()"><font-awesome-icon icon="cart-arrow-down" /></button>
+                <button type="button" class="btn ItemDetail__addCart mx-auto disabled" v-else><font-awesome-icon icon="cart-arrow-down" /></button>
             </div> 
         </div>
     </div>
