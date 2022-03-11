@@ -38,24 +38,24 @@ const store = createStore({
             state.cartInfo.splice(indexToDelete,1); // delete 1 element at indexToDelete
         },
         async sendOrderToDB(state){
-            // send the cartInfo
-            console.log(`Cart info: ${state.cartInfo}`)
-            // also need to randomly generate an order number (math.random()...)
+            // send the cartInfo by parsing cartInfo obj and reassigning to id:quantity format        
+            let orderObj = state.cartInfo.reduce(
+            (orderObj, item) => Object.assign(orderObj, { [item.itemId]: item.quantity }), {});
+
             try{
                 await axios.post('http://ec2-54-167-36-58.compute-1.amazonaws.com:3000/order/',
-                {body:
-                    {
-                        "machine_id": "string",
-                        "items":{
-                            "d016": 2
-                        }
-                    }
+                
+                    {"machine_id": "string", "items": orderObj }
             
-                })
+                )
 
             }catch(e){
                 console.log("Error: Cannot place the order")
             }
+
+            // TODO:
+            // if API Call is successful:
+            // state.cartInfo = {}; // clear the cart and all information associated with it based on return code
         }
     }
 });
