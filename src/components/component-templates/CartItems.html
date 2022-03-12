@@ -6,29 +6,65 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
-<body style="background: transparent">
-    <div class="container-fluid CartItems__container">
-        <button type="button" class="btn CartItems__review-order-btn mx-auto" @click="showCart()" id="reviewOrderBtn">Review Order</button>
-        <button type="button" class="btn CartItems__collapseStyleBtn" @click="collapseCart()" id="collapseCartBtn">Hide Cart</button>
-        <div class="row justify-content-center" v-show="toggle" v-if="this.$store.state.cartInfo.length === 0">Your cart is empty.</div>
-        <div class="row CartItems__list-wrapper" v-show="toggle" v-else>
-            <div class="col-8 align-items-center CartItems__itemViewScroll">
-                <div class="row CartItems__list-entry justify-content-center" v-for="(cartStuff, i) in this.$store.state.cartInfo">
-                    <div class="col-2">{{ cartStuff.quantity }}</div>
-                    <div class="col-5">{{ cartStuff.foodName }}</div>
-                    <div class="col-4"><button type="button" class="btn CartItems__deletebtn" @click="this.$store.commit('removeFromCart', i)">trash</button></div>
+<body>
+    
+    <!-- Button trigger modal -->
+        <button type="button" class="btn CartItems__review-order-btn p-0 m-0 text-center" data-bs-toggle="modal" data-bs-target="#cartModalScreen">
+            Review Order
+        </button>
+  
+        <!-- Modal -->
+        <div class="modal fade" id="cartModalScreen" tabindex="-1" role="dialog" aria-labelledby="cartModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                <h5 class="modal-title" id="cartModalTitle">Order Details</h5>
+                <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                     <!-- <font-awesome-icon icon="regular xmark"/> -->
+                </button>
+                </div>
+                <div class="modal-body CartItems__list-wrapper">
+                    <div class="row justify-content-center" v-if="this.$store.state.cartInfo.length === 0">Your cart is empty.</div>
+                    <div class="row" v-else>
+                        <div class="col align-items-center CartItems__itemViewScroll">
+                            <div class="row CartItems__list-entry justify-content-center align-items-center" v-for="(cartStuff, i) in this.$store.state.cartInfo">
+                                
+                                <!-- make this a button group -->
+                                <div class="col-4">
+                                    <div class="btn-group" role="group">
+                                        <button type="button" class="btn CartItems__decBtn" v-if="(cartStuff.quantity)>0" @click="(cartStuff.quantity)--"></button>
+                                        <button type="button" class="btn CartItems__decBtn disabled" v-else></button>
+                                        <button type="button" class="btn CartItems__counter" id="ItemDetail-count">{{ cartStuff.quantity }}</button>
+                                        <button type="button" class="btn CartItems__incBtn" @click="(cartStuff.quantity)++"></button>
+                                    </div>
+                                </div>
+
+
+                                <div class="col-3 text-center">{{ cartStuff.foodName }}</div>
+                                <div class="col-3 text-left">$100000</div>
+                                <div class="col-2"><button type="button" class="btn" @click="this.$store.commit('removeFromCart', i)"><font-awesome-icon icon="trash-can"/></button></div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <!-- <div class="row"> -->
+                        <div class="col-4">
+                            TOTAL: 
+                        </div>
+                        <div class="col-3">
+                            <button type="button" class="btn CartItems__returnToOrder" data-bs-dismiss="modal"><font-awesome-icon icon="arrow-rotate-left"/></button>
+                            <button type="button" class="btn CartItems__placeOrderBtn" @click="placeOrder()"><font-awesome-icon icon="check"/></button>
+                        </div>
+                    <!-- </div> -->
+                <!-- <button type="button" class="btn CartItems__returnToOrder" data-bs-dismiss="modal"><font-awesome-icon icon="arrow-rotate-left"/></button>
+                <button type="button" class="btn CartItems__placeOrderBtn" @click="placeOrder()"><font-awesome-icon icon="check"/></button> -->
                 </div>
             </div>
-            <div class="col-4 align-items-center CartItems_reviewScreen">
-                <div class="row justify-content-center"><div class="col">Total Amount</div></div>
-                <div class="row align-items-center">
-                    <div class="col">
-                        <button type="button" class="btn CartItems__placeOrderBtn" @click="placeOrder()">Place Order</button>
-                    </div>
-                </div>
             </div>
         </div>
-    </div>
 
 </body>
 </html>
