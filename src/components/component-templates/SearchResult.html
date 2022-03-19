@@ -30,7 +30,7 @@
                     <button type="button" class="btn SearchResult__incBtn mx-auto" @click="quantity++"></button>
                 </div>
                 <div class="col-6 justify-content-end" style="padding: 0px 0px 0px 15px">
-                    <button type="button" class="btn SearchResult__addCart mx-auto" v-if="quantity >= 1" @click="this.$store.commit('insertToCart', {foodName, quantity})">Add to Cart</button>
+                    <button type="button" class="btn SearchResult__addCart mx-auto" v-if="quantity >= 1" @click="updateCartCounter()">Add to Cart</button>
                     <button type="button" class="btn SearchResult__addCart mx-auto disabled" v-else>Add to Cart</button>
                 </div> 
 

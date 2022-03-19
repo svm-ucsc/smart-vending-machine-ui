@@ -18,8 +18,8 @@
                 @input="searchQuery"
                 v-model="searchQuery"
                 ></div>
-                <div class="SearchBar__resultsbox" v-if="filteredItems.length > 0 && searchQuery.length > 0">
-                    <div class="SearchBar__results" v-for="item in filteredItems">
+                <div class="SearchBar__resultsbox" v-if="searchQuery.length > 0">
+                    <div class="SearchBar__results" v-if="filteredItems.length > 0 && searchQuery.length > 0" v-for="item in filteredItems">
                         <search-result 
                         :item-id="item.item_id"
                         :food-name="item.name"
