@@ -1,6 +1,6 @@
 <template>
   <div class="container-fluid app_container">
-    <search-bar style="width: 100%;" />
+    <search-bar />
     <div class="row p-0">
       <store-menu />
     </div>

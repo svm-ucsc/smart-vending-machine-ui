@@ -18,8 +18,8 @@
                 @input="searchQuery"
                 v-model="searchQuery"
                 ></div>
-            
-                <div class="row list-entry SearchBar_results" v-if="filteredItems.length > 0 && searchQuery.length > 0" v-for="item in filteredItems">
+                <div class="SearchBar_resultsbox" v-if="filteredItems.length > 0 && searchQuery.length > 0">
+                <div class="row list-entry SearchBar_results" v-for="item in filteredItems">
                     <div class="col-6 result">{{ item.name }}</div>
                     <div class="col-6 row ItemDetail_btncontainer">
                         <div class="col-2">
@@ -41,6 +41,7 @@
             
                     </div>
                 </div>
+            </div>
             </div>
         </div>
     

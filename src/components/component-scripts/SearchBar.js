@@ -31,7 +31,7 @@ export default{
 
     methods: {
         showSearchResults(){
-            const query = document.getElementById('SearchBar_results');
+            const query = document.getElementById('SearchBar_resultsbox');
             const entry = document.getElementById('list_entry');
             $(query).css('visibility', 'visible');
             $(entry).css('visibility', 'visible');

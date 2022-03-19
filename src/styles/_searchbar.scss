@@ -18,6 +18,16 @@
         font-size: x-large;
     }
 
+    .SearchBar_resultsbox{
+        position: fixed;
+        z-index: 1000;
+        top: 90px;
+        margin: 0px 0px;
+        padding: 0px 0px;
+        min-height: 825px;
+        background: #f7f6f6;
+        border: 2px solid black;
+    }
     .SearchBar_results{
         background: #f7f6f6;
         border: 1px solid black;
@@ -26,6 +36,7 @@
         padding: 0 1% 0 6%;
         min-height: 75px;
         width: 104%;
+        
     }
 
     .result{
