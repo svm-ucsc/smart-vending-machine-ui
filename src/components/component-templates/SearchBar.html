@@ -8,21 +8,23 @@
 </head>
 <body>
     
-        <div class="container-fluid SearchBar_container">
+        <div class="container-fluid SearchBar__container">
             <div class="row align-items-center">
                 <div style="padding-left: 3%; padding-right: 3%;">
-                <input class="col form-control search-bar SearchBar_bar border-end-0 border rounded-pill mx-auto" 
+                <input class="col form-control search-bar SearchBar__bar border-end-0 border rounded-pill mx-auto" 
                 type="text" 
                 placeholder="Tap to Search"
                 @keyup="showSearchResults()"
                 @input="searchQuery"
                 v-model="searchQuery"
                 ></div>
-                <div class="SearchBar_resultsbox" v-if="filteredItems.length > 0 && searchQuery.length > 0">
-                    <item-detail 
-                    :item-id="item.item_id"
-                    :food-name="item.name"
-                    />
+                <div class="SearchBar__resultsbox" v-if="filteredItems.length > 0 && searchQuery.length > 0">
+                    <div class="SearchBar__results" v-for="item in filteredItems">
+                        <search-result 
+                        :item-id="item.item_id"
+                        :food-name="item.name"
+                        />
+                    </div>
                 <!-- <div class="row list-entry SearchBar_results" v-for="item in filteredItems">
                     <div class="col-6 result">{{ item.name }}</div>
                     <div class="col-6 row ItemDetail_btncontainer">

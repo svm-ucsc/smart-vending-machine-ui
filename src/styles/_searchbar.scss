@@ -1,6 +1,6 @@
 @import "variables";
 
-.SearchBar_container{
+.SearchBar__container{
     background: $summer-blue;
     box-shadow: $component-shadow;
     margin: 0 -2%;
@@ -10,7 +10,7 @@
     width: 104%;
     z-index: 0;
     
-    .SearchBar_bar{
+    .SearchBar__bar{
         font-family: $font-family-bold;
         min-height: 50px;
         justify-content: center;
@@ -18,55 +18,26 @@
         font-size: x-large;
     }
 
-    .SearchBar_resultsbox{
+    .SearchBar__resultsbox{
         position: fixed;
         z-index: 1000;
         top: 90px;
         margin: 0px 0px;
         padding: 0px 0px;
-        min-height: 825px;
+        max-height: 525px;
+        max-height: 525px;
+        flex-wrap: nowrap;
+        overflow-y: scroll;
         background: #f7f6f6;
         border: 2px solid black;
     }
-    .SearchBar_results{
+    .SearchBar__results{
         background: #f7f6f6;
-        border: 1px solid black;
         font-size:x-large;
         margin: 0px 0px;
-        padding: 0 1% 0 6%;
-        min-height: 75px;
-        width: 104%;
+        padding: 1% 0;
+        width: 100%;
         
-    }
-
-    .result{
-        display: flex;
-        //justify-content: center;
-        align-items: center;
-    }
-    .ItemDetail_decBtn{
-        background: $summer-tan;        
-        &:after{
-            content: "-";
-        }
-    }
-    .ItemDetail_incBtn{
-        background: $summer-tan;
-        &:after{
-            content:"+";
-        }
-
-    }
-    .ItemDetail_counter{
-        background: $summer-purple;
-        text-decoration: none;
-        &:after{
-            content:" ";
-        }
-    }
-    .ItemDetail_addCart{
-        background: $summer-green;
-        font-size: 2vmin;
-        height: 40px;
+        
     }
 }

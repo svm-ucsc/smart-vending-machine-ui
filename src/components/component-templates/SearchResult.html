@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+<body>
+    <div class="container SearchResult__container">
+        <div class="row">
+            <div class="col-2" style="padding: 0px 5px;">
+                <a href="#"><img src="https://via.placeholder.com/60" 
+                    class="rounded SearchResult__image"
+                    style="margin: 0px 0px;padding: 0px 0px"></a>
+            </div>
+            <div class="col-4 SearchResult__name">{{ foodName }}</div>
+            <div class="col-6 pt-1 justify-content-center SearchResult__btncontainer">
+                <div class="col-2">
+                    <button type="button" class="btn SearchResult__decBtn mx-auto" v-if="quantity>0" @click="quantity--"></button>
+                    <button type="button" class="btn SearchResult__decBtn mx-auto disabled" v-else></button>
+
+                </div>
+                <div class="col-2">
+                    <!-- Get numeric item counter and print it as a string in UI -->
+                    <button type="button" class="btn SearchResult__counter mx-auto" id="SearchResult-count">{{ quantity }}</button>
+                </div>
+                <div class="col-2">
+                    <button type="button" class="btn SearchResult__incBtn mx-auto" @click="quantity++"></button>
+                </div>
+                <div class="col-6 justify-content-end" style="padding: 0px 0px 0px 15px">
+                    <button type="button" class="btn SearchResult__addCart mx-auto" v-if="quantity >= 1" @click="this.$store.commit('insertToCart', {foodName, quantity})">Add to Cart</button>
+                    <button type="button" class="btn SearchResult__addCart mx-auto disabled" v-else>Add to Cart</button>
+                </div> 
+
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,19 +1,12 @@
 import $ from 'jquery'
 const axios = require('axios');
 export default{
-    props: { 
-        itemId: String,
-        foodName: String
-    },
     data(){
         return {
             searchQuery: '',
             items: [],
             showResults: false,
-            input: "",
-            data_ready: false,
-            item_data: [],
-            quantity: 0
+            input: ""
         };
     },
 
@@ -43,9 +36,5 @@ export default{
             $(entry).css('visibility', 'visible');
             this.showResults = true;
         },
-        updateCartCounter(){
-            this.$store.commit('insertToCart', {foodName: this.foodName, itemId: this.itemId, quantity: this.quantity});
-            this.quantity = 0; // reset counter to 0 for UX functionality
-        }, 
     }
 }

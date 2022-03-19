@@ -1,0 +1,65 @@
+@import "variables"; // DO NOT REMOVE THIS LINE OR SCSS WILL NOT WORK!
+img{
+    margin: 0px 0px;
+}
+.SearchResult__container{
+    background: white;
+    border-radius: $card-radius;
+    box-shadow: $component-shadow;
+    .SearchResult__name{
+        font-family: $font-family-bold;
+        font-size: medium;
+        padding: 10px 0px 0px 0px;
+    }
+    .SearchResult__results{
+        background: #f7f6f6;
+        border: 1px solid black;
+        font-size:x-large;
+        margin: 0px 0px;
+        padding: 0 1% 0 6%;
+        min-height: 75px;
+        width: 104%;
+        
+    }
+    .SearchResult__imgcontainer{
+        margin: 0 0;
+        padding: 0 0;
+    }
+    .SearchResult__image{
+        margin: auto;
+        min-width: 15px;
+        min-height: 15px;
+    }
+
+    .SearchResult__btncontainer{
+        display: flex;
+        justify-content: center;
+        align-content: center;
+    }
+
+    .SearchResult__decBtn{
+        background: $summer-tan;        
+        &:after{
+            content: "-";
+        }
+    }
+    .SearchResult__incBtn{
+        background: $summer-tan;
+        &:after{
+            content:"+";
+        }
+
+    }
+    .SearchResult__counter{
+        background: $summer-purple;
+        text-decoration: none;
+        &:after{
+            content:" ";
+        }
+    }
+    .SearchResult__addCart{
+        background: $summer-green;
+        font-size: 2vmin;
+        height: 40px;
+    }
+}

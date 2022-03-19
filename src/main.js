@@ -5,6 +5,7 @@ import 'bootstrap'
 // import $ from 'jquery'
 import ItemDetail from './components/ItemDetail.vue';
 import SearchBar from './components/SearchBar.vue';
+import SearchResult from './components/SearchResult.vue';
 import CartItems from './components/CartItems.vue';
 import StoreMenu from './components/StoreMenu.vue';
 
@@ -64,6 +65,7 @@ const app = createApp(App);
 app.use(store);
 app.component('ItemDetail', ItemDetail);
 app.component('SearchBar', SearchBar);
+app.component('SearchResult', SearchResult);
 app.component('CartItems', CartItems);
 app.component('StoreMenu', StoreMenu);
 
