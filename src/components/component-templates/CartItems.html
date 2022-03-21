@@ -9,20 +9,17 @@
 <body>
     
     <!-- Button trigger modal -->
-        <button type="button" class="btn CartItems__review-order-btn p-0 m-0 text-center" data-bs-toggle="modal" data-bs-target="#cartModalScreen">
+        <button type="button" class="btn CartItems__review-order-btn p-0 m-0 text-center" data-bs-toggle="modal" data-bs-target="#cartModalReviewScreen">
             Review Order
         </button>
   
-        <!-- Modal -->
-        <div class="modal fade" id="cartModalScreen" tabindex="-1" role="dialog" aria-labelledby="cartModalCenterTitle" aria-hidden="true">
+        <!-- Modal 1 -->
+        <div class="modal fade" id="cartModalReviewScreen" tabindex="-1" role="dialog" aria-labelledby="cartModalCenterTitle" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content CartItems__container">
                 <div class="modal-header">
                 <h5 class="modal-title" id="cartModalTitle">Order Details</h5>
                     <button type="button" class="CartItems__close" data-bs-dismiss="modal" aria-label="Close"><font-awesome-icon icon="square-xmark" /></button>
-                <!-- <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button> -->
 
                 </div>
                 <div class="modal-body CartItems__list-wrapper p-0 m-0">
@@ -55,10 +52,35 @@
                             TOTAL: $10.73
                         </div>
                         <div class="col-8">
-                            <button type="button" class="btn CartItems__placeOrderBtn" @click="placeOrder()">Place Order <font-awesome-icon icon="check"/></button>
+                            <button type="button" class="btn CartItems__review-order-btn p-0 m-0 text-center" data-bs-toggle="modal" data-bs-target="#cartModalPaymentScreen">
+                                Proceed to Checkout
+                            </button>
+                            <!-- <button type="button" class="btn CartItems__placeOrderBtn" @click="placeOrder()">Place Order <font-awesome-icon icon="check" class="CartItems__check"/></button> -->
                         </div>
                 </div>
             </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="cartModalPaymentScreen" tabindex="-1" role="dialog" aria-labelledby="cartModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content CartItems__container">
+                    <div class="modal-header">
+                        Checkout screen
+                    </div>
+                    <div class="modal-body CartItems__list-wrapper p-0 m-0">
+
+                    </div>
+                    <div class="modal-footer">
+                        <div class="col-3 CartItems__totalFont">
+                            TOTAL: $10.73
+                        </div>
+                        <div class="col-8">
+                            <button type="button" class="btn CartItems__placeOrderBtn" @click="placeOrder()">Place Order <font-awesome-icon icon="check" class="CartItems__check"/></button>
+                        </div>
+                    </div>
+
+                </div>
             </div>
         </div>
 
