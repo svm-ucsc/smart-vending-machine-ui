@@ -24,8 +24,8 @@
         top: 90px;
         margin: 0px 0px;
         padding: 0px 0px;
-        min-height: 933px;
-        max-height: 933px;
+        min-height: 705px;
+        max-height: 705px;
         flex-wrap: nowrap;
         overflow-y: scroll;
         background: #f7f6f6;
@@ -37,7 +37,18 @@
         margin: 0px 0px;
         padding: 1% 0;
         width: 100%;
-        
-        
+    }
+    .keyboard{
+        position: fixed;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        top: 500;    
+    }
+    .btnClose{
+        position: absolute;
+        top: 50;
+        right: 500;
+        visibility: hidden;
     }
 }

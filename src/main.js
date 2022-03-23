@@ -8,7 +8,7 @@ import SearchBar from './components/SearchBar.vue';
 import SearchResult from './components/SearchResult.vue';
 import CartItems from './components/CartItems.vue';
 import StoreMenu from './components/StoreMenu.vue';
-
+import SimpleKeyboard from "./components/SimpleKeyboard.vue";
 const axios = require('axios');
 
 // Holds global data for application
@@ -68,5 +68,6 @@ app.component('SearchBar', SearchBar);
 app.component('SearchResult', SearchResult);
 app.component('CartItems', CartItems);
 app.component('StoreMenu', StoreMenu);
+app.component('SimpleKeyboard', SimpleKeyboard);
 
 app.mount('#app')

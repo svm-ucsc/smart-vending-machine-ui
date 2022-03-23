@@ -17,6 +17,11 @@ export default {
         }        
       } catch (e) {
         console.log("Error");
+        console.log(e);
+        console.log(e.response);
+        console.log(e.response.data);
+        console.log(e.response.status);
+        console.log(e.response.headers);
       }
     },
   },

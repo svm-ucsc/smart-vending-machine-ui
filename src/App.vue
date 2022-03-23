@@ -35,6 +35,7 @@
         
       } catch (e) {
         console.log("Error");
+        console.log(e.response.data);
       }
     }
   }

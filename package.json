@@ -21,8 +21,9 @@
     "node-static": "^0.7.11",
     "sass": "^1.49.8",
     "sass-loader": "^8.0.2",
-    "simple-keyboard": "^3.4.58",
+    "simple-keyboard": "^3.4.68",
     "vue": "^3.0.0",
+    "vue-touch-keyboard": "^0.3.2",
     "vuex": "^4.0.2"
   },
   "devDependencies": {

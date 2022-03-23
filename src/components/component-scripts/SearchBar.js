@@ -1,15 +1,26 @@
 import $ from 'jquery'
+import SimpleKeyboard from "../SimpleKeyboard.vue";
 const axios = require('axios');
 export default{
+    components:{
+        SimpleKeyboard
+    },
     data(){
         return {
             searchQuery: '',
             items: [],
             showResults: false,
-            input: ""
+            showKeyboard: false,
+            visible: false,
+            layout: "normal",
+            input: "",
+            options: {
+                useKbEvents: false,
+                preventClickEvent: false
+            }
         };
     },
-
+    
     computed: {
         filteredItems: function(){
             return this.items.filter((item) => {
@@ -35,6 +46,35 @@ export default{
             $(query).css('visibility', 'visible');
             $(entry).css('visibility', 'visible');
             this.showResults = true;
+        },
+        accept(text) {
+            alert("Input text: " + text);
+            this.hide();
+        },
+
+        show(e) {
+            this.input = e.target;
+            this.layout = e.target.dataset.layout;
+
+            if (!this.visible)
+            this.visible = true
+        },
+
+        hide() {
+            this.visible = false;
+        },
+        onChange(input) {
+            this.input = input;
+        },
+        onKeyPress(button) {
+        console.log("button", button);
+        },
+        onInputChange(input) {
+        this.input = input.target.value;
+        },
+        close(){
+            this.input = '';
+            this.showKeyboard = false;
         },
     }
 }
