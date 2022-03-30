@@ -42,9 +42,17 @@ export default{
     methods: {
         showSearchInterface(){
             this.showKeyboard = true;
+            const bar = document.getElementById('searchBar');
+            const btn = document.getElementById('closeBtn');
+            $(bar).css('width', '90%');
+            $(btn).css('display', 'inline');
         },
         hideSearchInterface(){
             this.showKeyboard = false;
+            const bar = document.getElementById('searchBar');
+            const btn = document.getElementById('closeBtn');
+            $(bar).css('width', '95%');
+            $(btn).css('display', 'none');
         },
         showSearchResults(){
             const query = document.getElementById('SearchBar_resultsbox');

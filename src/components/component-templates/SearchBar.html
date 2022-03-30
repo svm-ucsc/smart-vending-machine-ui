@@ -9,18 +9,20 @@
 <body>
     
         <div class="container-fluid SearchBar__container">
-            <div class="row align-items-center SearchBar__border">
-                <div style="padding-left: 3%; padding-right: 3%;">
-                <input class=" col form-control search-bar SearchBar__bar border-end-0 border rounded-pill mx-auto" 
-                type="text" 
-                placeholder="Tap to Search"
-                @keyup="showSearchResults()"
-                @input="input"
-                v-model="input"
-                v-on:click="showSearchInterface()"
-                ></div>
+            <div class="row SearchBar__border">
+                <div class="row align-items-center" style="padding: 0 3% 0 3%;">
+                    <input class="col-1 form-control SearchBar__bar border-end-0 border rounded-pill mx-auto"
+                    id="searchBar" 
+                    type="text" 
+                    placeholder="Tap to Search"
+                    @keyup="showSearchResults()"
+                    @input="input"
+                    v-model="input"
+                    v-on:click="showSearchInterface()"
+                    >
+                    <button type="button" class="btn SearchBar__btnClose col-1" id="closeBtn" @click="hideSearchInterface()">X</button>
+                </div>
                 <div class="SearchBar__resultsbox" v-if="showKeyboard">
-                    <button type="button" class="btn" @click="hideSearchInterface()">Close</button>
                     <div class="SearchBar__results" v-if="filteredItems.length > 0 && input.length > 0" v-for="item in filteredItems">
                         <search-result 
                         :item-id="item.item_id"
@@ -28,7 +30,7 @@
                         />
                     </div>
                     <div class="keyboard">
-                    <SimpleKeyboard @onChange="onChange" @onKeyPress="onKeyPress" :input="input"/>
+                        <SimpleKeyboard @onChange="onChange" @onKeyPress="onKeyPress" :input="input"/>
                     </div>
                 </div>
             </div>

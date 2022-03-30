@@ -3,12 +3,11 @@
 .SearchBar__container{
     background: $summer-blue;
     box-shadow: $component-shadow;
-    margin-left: -2.5%;
-    margin-right: 10px;
+    margin: 0 -2%;
     padding: 0 2%;
     min-height: 75px;
     justify-content: center;
-    width: 105%;
+    width: 104%;
     z-index: 0;
     
     .SearchBar__bar{
@@ -17,6 +16,11 @@
         justify-content: center;
         text-align: center;
         font-size: x-large;
+        width: 95%;
+    }
+
+    .SearchBar__border{
+        justify-content: center;
     }
 
     .SearchBar__resultsbox{
@@ -38,6 +42,10 @@
         padding: 1% 0;
         width: 100%;
     }
+    .SearchBar__btnClose{
+        color: red;
+        display: none;
+    }
     .keyboard{
         position: fixed;
         left: 0;
@@ -45,10 +53,5 @@
         bottom: 0;
         top: 500;    
     }
-    .btnClose{
-        position: absolute;
-        top: 50;
-        right: 500;
-        visibility: hidden;
-    }
+    
 }
