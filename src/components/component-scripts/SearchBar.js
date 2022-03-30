@@ -40,6 +40,12 @@ export default{
     },
 
     methods: {
+        showSearchInterface(){
+            this.showKeyboard = true;
+        },
+        hideSearchInterface(){
+            this.showKeyboard = false;
+        },
         showSearchResults(){
             const query = document.getElementById('SearchBar_resultsbox');
             const entry = document.getElementById('list_entry');

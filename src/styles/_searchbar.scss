@@ -3,11 +3,12 @@
 .SearchBar__container{
     background: $summer-blue;
     box-shadow: $component-shadow;
-    margin: 0 -2%;
+    margin-left: -2.5%;
+    margin-right: 10px;
     padding: 0 2%;
     min-height: 75px;
     justify-content: center;
-    width: 104%;
+    width: 105%;
     z-index: 0;
     
     .SearchBar__bar{
@@ -29,7 +30,6 @@
         flex-wrap: nowrap;
         overflow-y: scroll;
         background: #f7f6f6;
-        border: 2px solid black;
     }
     .SearchBar__results{
         background: #f7f6f6;
