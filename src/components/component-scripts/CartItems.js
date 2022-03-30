@@ -3,7 +3,8 @@ import $ from 'jquery'
 export default{
     data() {
         return{
-            toggle: false
+            toggle: false,
+            modal_pageCount: 0,
         }
     },  
     methods: {
@@ -26,5 +27,17 @@ export default{
             this.$store.commit('sendOrderToDB');
         }
 
-    } 
+        
+
+    },
+    mounted: function(){
+        let nextBtn = document.querySelector('.CartItems__nextBtn');
+        if (this.modal_pageCount === 1){
+            if(nextBtn){
+                nextBtn.style.visibility="hidden";
+            }
+        }else{
+            nextBtn.style.visibility="visible";
+        }
+    }
 }

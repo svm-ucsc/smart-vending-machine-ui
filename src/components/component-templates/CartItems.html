@@ -23,66 +23,75 @@
 
                 </div>
                 <div class="modal-body CartItems__list-wrapper p-0 m-0">
-                    <div class="row justify-content-center" v-if="this.$store.state.cartInfo.length === 0">Your cart is empty.</div>
-                    <div class="row p-0 m-0" v-else>
-                        <div class="col align-items-center CartItems__itemViewScroll">
-                            <div class="row CartItems__list-entry justify-content-center align-items-center" v-for="(cartStuff, i) in this.$store.state.cartInfo">
-                                
-                                <!-- make this a button group -->
-                                <div class="col-4">
-                                    <div class="btn-group" role="group">
-                                        <button type="button" class="btn CartItems__decBtn" v-if="(cartStuff.quantity)>0" @click="(cartStuff.quantity)--"></button>
-                                        <button type="button" class="btn CartItems__decBtn disabled" v-else></button>
-                                        <button type="button" class="btn CartItems__counter" id="ItemDetail-count">{{ cartStuff.quantity }}</button>
-                                        <button type="button" class="btn CartItems__incBtn" @click="(cartStuff.quantity)++"></button>
+                    <div class="modal-split" v-if="modal_pageCount===0">
+                        <div class="row justify-content-center" v-if="this.$store.state.cartInfo.length === 0">Your cart is empty.</div>
+                        <div class="row p-0 m-0" v-else>
+                            <div class="col align-items-center CartItems__itemViewScroll">
+                                <div class="row CartItems__list-entry justify-content-center align-items-center" v-for="(cartStuff, i) in this.$store.state.cartInfo">
+                                    
+                                    <!-- make this a button group -->
+                                    <div class="col-4">
+                                        <div class="btn-group" role="group">
+                                            <button type="button" class="btn CartItems__decBtn" v-if="(cartStuff.quantity)>0" @click="(cartStuff.quantity)--"></button>
+                                            <button type="button" class="btn CartItems__decBtn disabled" v-else></button>
+                                            <button type="button" class="btn CartItems__counter" id="ItemDetail-count">{{ cartStuff.quantity }}</button>
+                                            <button type="button" class="btn CartItems__incBtn" @click="(cartStuff.quantity)++"></button>
+                                        </div>
                                     </div>
+    
+    
+                                    <div class="col-3 text-center">{{ cartStuff.foodName }}</div>
+                                    <div class="col-3 text-left">$100000</div>
+                                    <div class="col-2"><button type="button" class="btn" @click="this.$store.commit('removeFromCart', i)"><font-awesome-icon icon="trash-can"/></button></div>
                                 </div>
-
-
-                                <div class="col-3 text-center">{{ cartStuff.foodName }}</div>
-                                <div class="col-3 text-left">$100000</div>
-                                <div class="col-2"><button type="button" class="btn" @click="this.$store.commit('removeFromCart', i)"><font-awesome-icon icon="trash-can"/></button></div>
                             </div>
                         </div>
                     </div>
 
+                    <div class="modal-split" v-if="modal_pageCount===1">
+                        <form>
+                           
+                            <div class="form-row">
+                                <div class="col">
+                                    <input type="text" class="form-control" placeholder="Card Details">
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="col">
+                                    <input type="text" class="form-control" placeholder="Cardholder's Name">
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="col-md-6">
+                                    <input type="text" class="form-control" placeholder="Expiration Date">
+                                </div>
+                                <div class="col-md-6">
+                                    <input type="text" class="form-control" placeholder="CCV">
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    
+
                 </div>
                 <div class="modal-footer justify-content-between">
-                        <div class="col-3 CartItems__totalFont">
+                    <button type="button" class="btn CartItems__prevBtn" v-if="modal_pageCount > 0" @click="modal_pageCount--">Previous</button>
+                    <button type="button" class="btn CartItems__nextBtn" @click="modal_pageCount++">Next</button>
+                    <!-- <button type="button" class="btn CartItems__nextBtn" v-if="this.$store.state.cartInfo.length > 0">Next</button>
+                    <button type="button" class="btn disabled CartItems__nextBtn" v-else>You must add to cart first</button> -->
+
+                        <!-- <div class="col-3 CartItems__totalFont">
                             TOTAL: $10.73
                         </div>
                         <div class="col-8">
-                            <button type="button" class="btn CartItems__review-order-btn p-0 m-0 text-center" data-bs-toggle="modal" data-bs-target="#cartModalPaymentScreen">
-                                Proceed to Checkout
-                            </button>
-                            <!-- <button type="button" class="btn CartItems__placeOrderBtn" @click="placeOrder()">Place Order <font-awesome-icon icon="check" class="CartItems__check"/></button> -->
-                        </div>
-                </div>
-            </div>
-            </div>
-        </div>
-
-        <div class="modal fade" id="cartModalPaymentScreen" tabindex="-1" role="dialog" aria-labelledby="cartModalCenterTitle" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered" role="document">
-                <div class="modal-content CartItems__container">
-                    <div class="modal-header">
-                        Checkout screen
-                    </div>
-                    <div class="modal-body CartItems__list-wrapper p-0 m-0">
-
-                    </div>
-                    <div class="modal-footer">
-                        <div class="col-3 CartItems__totalFont">
-                            TOTAL: $10.73
-                        </div>
-                        <div class="col-8">
+                           
                             <button type="button" class="btn CartItems__placeOrderBtn" @click="placeOrder()">Place Order <font-awesome-icon icon="check" class="CartItems__check"/></button>
-                        </div>
-                    </div>
-
+                        </div> -->
                 </div>
             </div>
+            </div>
         </div>
+
 
 </body>
 </html>
