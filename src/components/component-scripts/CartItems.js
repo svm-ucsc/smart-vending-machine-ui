@@ -25,6 +25,23 @@ export default{
         },
         placeOrder(){
             this.$store.commit('sendOrderToDB');
+        },
+        nextSplitModal(){
+            
+            let nextBtn = document.querySelector('.CartItems__nextBtn');
+            if(this.modal_pageCount === 1){
+                nextBtn.classList.add("disabled");
+                // if validation successful, increment counter and remove disabled class
+                                // nextBtn.classList.remove("disabled");
+                
+            }else{
+                this.modal_pageCount++;
+            }            
+        },
+        prevSplitModal(){
+            this.modal_pageCount--;
+            let nextBtn = document.querySelector('.CartItems__nextBtn');
+            nextBtn.classList.remove("disabled");
         }
 
         
