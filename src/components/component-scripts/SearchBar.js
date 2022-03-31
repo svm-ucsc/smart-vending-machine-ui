@@ -51,6 +51,7 @@ export default{
             this.showKeyboard = false;
             const bar = document.getElementById('searchBar');
             const btn = document.getElementById('closeBtn');
+            this.input = "";
             $(bar).css('width', '95%');
             $(btn).css('display', 'none');
         },
