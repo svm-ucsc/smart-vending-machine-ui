@@ -8,7 +8,12 @@ export default{
     data(){
         return {
             searchQuery: '',
-            items: [],
+            //items: [],
+            // TEMPORARY ITEM TEST CODE
+            items: [{"item_id":"1", "name":"Doritos"},{"item_id":"2", "name":"Lays"},{"item_id":"3", "name":"Red Vines"},
+            {"item_id":"4", "name":"M&M's"},{"item_id":"5", "name":"Reeses"},{"item_id":"6", "name":"Twix"},
+            {"item_id":"7", "name":"Sun Chips"},{"item_id":"8", "name":"Ruffles"},{"item_id":"9", "name":"Crunch"}],
+
             showResults: false,
             showKeyboard: false,
             visible: false,
@@ -51,7 +56,7 @@ export default{
             this.showKeyboard = false;
             const bar = document.getElementById('searchBar');
             const btn = document.getElementById('closeBtn');
-            this.input = "";
+            this.searchQuery = "";
             $(bar).css('width', '95%');
             $(btn).css('display', 'none');
         },
@@ -68,7 +73,7 @@ export default{
         },
 
         show(e) {
-            this.input = e.target;
+            this.searchQuery = e.target;
             this.layout = e.target.dataset.layout;
 
             if (!this.visible)
@@ -78,17 +83,17 @@ export default{
         hide() {
             this.visible = false;
         },
-        onChange(input) {
-            this.input = input;
+        onChange(searchQuery) {
+            this.searchQuery = searchQuery;
         },
         onKeyPress(button) {
         console.log("button", button);
         },
-        onInputChange(input) {
-        this.input = input.target.value;
+        onInputChange(searchQuery) {
+        this.searchQuery = searchQuery.target.value;
         },
         close(){
-            this.input = '';
+            this.searchQuery = '';
             this.showKeyboard = false;
         },
     }

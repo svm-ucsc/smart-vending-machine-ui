@@ -7,32 +7,31 @@
     <title>Document</title>
 </head>
 <body>
-    
         <div class="container-fluid SearchBar__container">
             <div class="row SearchBar__border">
-                <div class="row align-items-center" style="padding: 0 3% 0 3%;">
-                    <input class="col-1 form-control SearchBar__bar border-end-0 border rounded-pill mx-auto"
+                    <input class="col-1 form-control SearchBar__bar rounded-pill mx-auto"
                     id="searchBar" 
                     type="text" 
                     placeholder="Tap to Search"
                     @keyup="showSearchResults()"
-                    @input="input"
-                    v-model="input"
-                    v-on:click="showSearchInterface()"
+                    @input="searchQuery"
+                    v-model="searchQuery"
+                    v-on:click="showSearchInterface()"  
                     >
                     <button type="button" class="btn SearchBar__btnClose col-1" id="closeBtn" @click="hideSearchInterface()">X</button>
-                </div>
+                
                 <div class="SearchBar__resultsbox" v-if="showKeyboard">
-                    <div class="SearchBar__results" v-if="filteredItems.length > 0 && input.length > 0" v-for="item in filteredItems">
+                    <div class="SearchBar__results" v-if="filteredItems.length > 0 && searchQuery.length > 0" v-for="item in filteredItems">
                         <search-result 
                         :item-id="item.item_id"
                         :food-name="item.name"
                         />
+                        <hr class="mx-auto">
                     </div>
                     <div class="keyboard">
-                        <SimpleKeyboard @onChange="onChange" @onKeyPress="onKeyPress" :input="input"/>
+                        <SimpleKeyboard @onChange="onChange" @onKeyPress="onKeyPress" :input="searchQuery"/>
                     </div>
-                </div>
+                </div> 
             </div>
         </div>
     

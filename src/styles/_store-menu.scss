@@ -19,9 +19,11 @@ body::-webkit-scrollbar-thumb {
 .StoreMenu__row-box{
     background: $summer-yellow;
     overflow-y: scroll;
-    height: 825px;
+    min-height: 840px;
+    max-height: 840px;
     margin-left: -2%;
     margin-right: -2%;
+    z-index: 0;
 }
 
 .StoreMenu__row-box::-webkit-scrollbar {

@@ -1,12 +1,12 @@
 <template>
   <div class="container-fluid app_container">
     <search-bar />
-    <div class="row p-0">
+    <div class="row p-0 m-0">
       <store-menu />
     </div>
 
     <!-- Shopping Cart Component -->
-    <div class="row-order pt-1">
+    <div class="row p-0 mx-auto">
       <cart-items id="show-cart" />
     </div>
   </div>
@@ -49,15 +49,9 @@
     height: 100%;
     width: 100%;
     scrollbar-width: 5px;
+    padding: 0 0;
   }
   .app_title{
     font-size: 45px;
-  }
-  .row{
-    padding: 20px 0;
-  }
-   .row-order{
-    padding: 0 0 10px 0;
-    margin-top: 2%;
   }
 </style>

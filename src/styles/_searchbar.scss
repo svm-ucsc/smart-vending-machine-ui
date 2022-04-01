@@ -2,38 +2,56 @@
 
 .SearchBar__container{
     background: $summer-blue;
-    box-shadow: $component-shadow;
-    margin: 0 -2%;
-    padding: 0 2%;
-    min-height: 75px;
     justify-content: center;
-    width: 104%;
-    z-index: 0;
+    position: relative;
+    width: 100%;
+    min-height: 75px;
+    margin: 0 0;
+    padding: 0 2%;
+    box-shadow: 0px 5px 10px -5px #111; 
     
+    .SearchBar__border{
+        padding-top:12px;
+        justify-content: center;
+        
+    }
+
     .SearchBar__bar{
         font-family: $font-family-bold;
-        min-height: 50px;
+        min-height: 45px;
         justify-content: center;
         text-align: center;
         font-size: x-large;
         width: 95%;
     }
-
-    .SearchBar__border{
-        justify-content: center;
+    //Changes placeholder text color
+    ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+        color: black;
+        opacity: 1; /* Firefox */
+    }
+    :-ms-input-placeholder { /* Internet Explorer 10-11 */
+        color: black;
+    } 
+    ::-ms-input-placeholder { /* Microsoft Edge */
+        color: black;
     }
 
     .SearchBar__resultsbox{
+        background: #f7f6f6;
         position: fixed;
         z-index: 1000;
-        top: 90px;
-        margin: 0px 0px;
-        padding: 0px 0px;
-        min-height: 705px;
-        max-height: 705px;
+        top: 76px;
         flex-wrap: nowrap;
         overflow-y: scroll;
-        background: #f7f6f6;
+        min-height: 580px;
+        max-height: 580px;
+        margin: 0px 0px;
+        padding: 0px 0px;
+    }
+    hr{
+        width:95%;
+        margin-top:0%;
+        margin-bottom:0%;
     }
     .SearchBar__results{
         background: #f7f6f6;
@@ -45,6 +63,8 @@
     .SearchBar__btnClose{
         color: red;
         display: none;
+        width: 25px;
+        margin-right: 2%;
     }
     .keyboard{
         position: fixed;
