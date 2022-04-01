@@ -39,11 +39,12 @@ export default{
         this.items = response.data;
         console.log(this.items);
     },
+    data(){
+        return{
+            foodNames: [["Cheetos", "Takis", "Chips"], [ "Cadbury", "Sandwich", "Hersheys"], [ "Burgers", "Pizza", "Mojitos"]]
 
-    async getData(){
-        console.log(this.searchQuery)
+        };
     },
-
     methods: {
         showSearchInterface(){
             this.showKeyboard = true;
@@ -97,4 +98,4 @@ export default{
             this.showKeyboard = false;
         },
     }
-}
+};
