@@ -7,9 +7,9 @@ export default {
         // { params: { fields:["item_id", "name"].join() } });
         //const obj = response.data;
         // TEMPORARY ITEM TEST CODE
-        const obj = [{"item_id":"1", "name":"Doritos"},{"item_id":"2", "name":"Lays"},{"item_id":"3", "name":"Red Vines"},
-                     {"item_id":"4", "name":"M&M's"},{"item_id":"5", "name":"Reeses"},{"item_id":"6", "name":"Twix"},
-                     {"item_id":"7", "name":"Sun Chips"},{"item_id":"8", "name":"Ruffles"},{"item_id":"9", "name":"Crunch"},];
+        const obj = [{"item_id":"1", "name":"Doritos", "price":"1.25", "image_url":"https://smart-vending-product-img.s3.amazonaws.com/dos+manos.jpg"},{"item_id":"2", "name":"Lays", "image_url":""},{"item_id":"3", "name":"Red Vines", "image_url":""},
+                     {"item_id":"4", "name":"M&M's", "image_url":""},{"item_id":"5", "name":"Reeses", "image_url":""},{"item_id":"6", "name":"Twix", "image_url":""},
+                     {"item_id":"7", "name":"Sun Chips", "image_url":""},{"item_id":"8", "name":"Ruffles", "image_url":""},{"item_id":"9", "name":"Crunch", "image_url":""},];
         let parsedData = obj;
         let dataPlaceHolder = [];
         let chunk = 3; // 3 items displayed per row

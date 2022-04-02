@@ -2,7 +2,8 @@ export default{
     props: { 
         itemId: String,
         foodName: String,
-        price: Number
+        price: Number,
+        imageUrl: String
     },
     data(){
         return{
@@ -25,6 +26,15 @@ export default{
 
         showNutritionalInfo(){
             this.nutritionalInfo = true;
+        },
+        getImageURL(){
+            if(this.imageUrl != ""){
+                return this.imageUrl;
+            }
+            else{
+                const placeholder = "https://via.placeholder.com/100";
+                return placeholder;
+            }
         }
     },
     created() {
