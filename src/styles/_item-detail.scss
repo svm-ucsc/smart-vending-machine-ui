@@ -1,5 +1,8 @@
 @import "variables"; // DO NOT REMOVE THIS LINE OR SCSS WILL NOT WORK!
-
+.btn:focus {
+    outline: none;
+    box-shadow: none;
+}
 .ItemDetail__container{
     background: white;
     border-radius: $card-radius;

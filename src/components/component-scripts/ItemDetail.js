@@ -3,7 +3,8 @@ export default{
         itemId: String,
         foodName: String,
         price: Number,
-        imageUrl: String
+        imageUrl: String,
+        nutritionalInfoURL: String
     },
     data(){
         return{
@@ -33,6 +34,17 @@ export default{
             }
             else{
                 const placeholder = "https://via.placeholder.com/100";
+                return placeholder;
+            }
+        },
+        getNutritionalInfoURL(){
+            if(this.nutritionalInfoURL != ""){
+                const placeholder = "https://world.openfoodfacts.org/images/products/002/840/009/0896/nutrition_en.35.full.jpg";
+                return placeholder;
+                //return this.nutritionalInfoURL;
+            }
+            else{
+                const placeholder = "https://world.openfoodfacts.org/images/products/002/840/009/0896/nutrition_en.35.full.jpg";
                 return placeholder;
             }
         }

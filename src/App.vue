@@ -6,7 +6,7 @@
     </div>
 
     <!-- Shopping Cart Component -->
-    <div class="row p-0 m-0">
+    <div class="row px-auto mx-auto">
       <cart-items id="show-cart" />
     </div>
   </div>
