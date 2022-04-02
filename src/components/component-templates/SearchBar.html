@@ -20,7 +20,7 @@
             >
             <button type="button" class="btn SearchBar__btnClose col-1" id="closeBtn" @click="hideSearchInterface()">X</button>
 
-            <div class="SearchBar__resultsbox" v-if="showKeyboard">
+            <div class="SearchBar__resultsbox animated fadeIn" v-if="showKeyboard">
                 <div class="SearchBar__results" v-if="filteredItems.length > 0 && searchQuery.length > 0" v-for="item in filteredItems">
                     <search-result 
                     :item-id="item.item_id"

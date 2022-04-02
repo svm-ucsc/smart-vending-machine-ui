@@ -2,7 +2,7 @@ export default{
     props: { 
         itemId: String,
         foodName: String,
-        price: Number,
+        price: String,
         imageUrl: String,
         nutritionalInfoURL: String
     },
