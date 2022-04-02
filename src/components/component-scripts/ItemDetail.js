@@ -1,13 +1,15 @@
 export default{
     props: { 
         itemId: String,
-        foodName: String
+        foodName: String,
+        price: Number
     },
     data(){
         return{
             data_ready: false,
             item_data: [],
-            quantity: 0
+            quantity: 0,
+            nutritionalInfo: false
         };
     },
     methods: {
@@ -20,6 +22,10 @@ export default{
         async getData() {
             
         },
+
+        showNutritionalInfo(){
+            this.nutritionalInfo = true;
+        }
     },
     created() {
         this.getData();
