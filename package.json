@@ -47,7 +47,9 @@
     "parserOptions": {
       "parser": "babel-eslint"
     },
-    "rules": {}
+    "rules": {
+      "vue/require-explicit-emits":0
+    }
   },
   "browserslist": [
     "> 1%",
