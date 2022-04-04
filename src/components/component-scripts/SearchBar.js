@@ -94,5 +94,6 @@ export default{
             this.searchQuery = '';
             this.showKeyboard = false;
         },
+
     }
 };
