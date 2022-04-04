@@ -28,6 +28,9 @@
                     />
                     <hr class="mx-auto">
                 </div>
+                <div class="SearchBar__notFoundContainer" v-if="0 >= filteredItems.length">
+                    <h1>Search not found.</h1> 
+                </div>
                 <div class="keyboard">
                     <SimpleKeyboard @onChange="onChange" @onKeyPress="onKeyPress" :input="searchQuery"/>
                 </div>

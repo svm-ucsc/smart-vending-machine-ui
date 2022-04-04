@@ -19,6 +19,7 @@ export default{
             visible: false,
             layout: "normal",
             input: "",
+            foundCount: 0,
             options: {
                 useKbEvents: false,
                 preventClickEvent: false
@@ -29,9 +30,11 @@ export default{
     computed: {
         filteredItems: function(){
             return this.items.filter((item) => {
-                return item.name.toLowerCase().match(this.searchQuery)
+                if( item.name.toLowerCase().match(this.searchQuery) != "null" ){
+                    this.foundCount = this.foundCount + 1;
+                }
+                return item.name.toLowerCase().match(this.searchQuery);
             });
-            
         }
     },
     async mounted(){
