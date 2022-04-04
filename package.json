@@ -48,6 +48,7 @@
       "parser": "babel-eslint"
     },
     "rules": {
+      "indent": [2, 2],
       "vue/require-explicit-emits":0
     }
   },
