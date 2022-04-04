@@ -29,7 +29,8 @@
                     <hr class="mx-auto">
                 </div>
                 <div class="SearchBar__notFoundContainer" v-if="0 >= filteredItems.length">
-                    <h1>Search not found.</h1> 
+                    <h1>Item not found.</h1>
+                    <button type="button" class="btn btn-link SearchBar__checkAvailability" data-bs-toggle="modal" data-bs-target="#checkAvailabilityModal">Check nearby machines</button> 
                 </div>
                 <div class="keyboard">
                     <SimpleKeyboard @onChange="onChange" @onKeyPress="onKeyPress" :input="searchQuery"/>
@@ -38,6 +39,22 @@
              
         </div>
     </div>
-    
 </body>
+
+<div class="modal fade" id="checkAvailabilityModal" tabindex="-1" aria-labelledby="checkAvailabilityModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="checkAvailabilityModalLabel">Check Nearby Machines</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <h3>Available at    Baskin's Engineering 1st Floor (0.05 mi).</h3>
+            <h3>Available at    Social Sciences 1st Floor (0.10 mi).</h3>
+            <h3>Available at    McHenry Library (0.20 mi).</h3>
+        </div>
+      </div>
+    </div>
+  </div>
+
 </html>
