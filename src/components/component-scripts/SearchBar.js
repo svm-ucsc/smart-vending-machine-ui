@@ -9,11 +9,6 @@ export default{
         return {
             searchQuery: '',
             items: [],
-            // TEMPORARY ITEM TEST CODE
-            // items: [{"item_id":"1", "name":"Doritos"},{"item_id":"2", "name":"Lays"},{"item_id":"3", "name":"Red Vines"},
-            //     {"item_id":"4", "name":"M&M's"},{"item_id":"5", "name":"Reeses"},{"item_id":"6", "name":"Twix"},
-            //     {"item_id":"7", "name":"Sun Chips"},{"item_id":"8", "name":"Ruffles"},{"item_id":"9", "name":"Crunch"}],
-
             showResults: false,
             showKeyboard: false,
             visible: false,
@@ -33,7 +28,7 @@ export default{
                 if( item.name.toLowerCase().match(this.searchQuery) != "null" ){
                     this.foundCount = this.foundCount + 1;
                 }
-                return item.name.toLowerCase().match(this.searchQuery);
+                return item.name.toLowerCase().match(this.searchQuery.toLowerCase());
             });
         }
     },
