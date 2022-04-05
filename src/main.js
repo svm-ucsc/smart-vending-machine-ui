@@ -9,6 +9,8 @@ import SearchResult from './components/SearchResult.vue';
 import CartItems from './components/CartItems.vue';
 import StoreMenu from './components/StoreMenu.vue';
 import SimpleKeyboard from "./components/SimpleKeyboard.vue";
+import OpenLayersMap from 'vue3-openlayers'
+import 'vue3-openlayers/dist/vue3-openlayers.css'
 const axios = require('axios');
 
 // Holds global data for application
@@ -63,6 +65,7 @@ const store = createStore({
 
 const app = createApp(App);
 app.use(store);
+app.use(OpenLayersMap);
 app.component('ItemDetail', ItemDetail);
 app.component('SearchBar', SearchBar);
 app.component('SearchResult', SearchResult);

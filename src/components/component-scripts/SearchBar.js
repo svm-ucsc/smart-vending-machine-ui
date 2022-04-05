@@ -1,5 +1,7 @@
 import $ from 'jquery'
 import SimpleKeyboard from "../SimpleKeyboard.vue";
+import hereIcon from '@/assets/here.png'
+import {ref} from 'vue'
 const axios = require('axios');
 export default{
     components:{
@@ -21,7 +23,33 @@ export default{
             }
         };
     },
-    
+    setup() {
+        const center = ref([40, 40])
+        const projection = ref('EPSG:4326')
+        const zoom = ref(8)
+        const rotation = ref(0)
+
+        const view = ref(null)
+        const map = ref(null)
+
+        const geoLocChange = (loc) => {
+            console.log(loc);
+            view.value.fit([loc[0], loc[1], loc[0], loc[1]], {
+                maxZoom: 14
+            })
+        }
+
+        return {
+            center,
+            projection,
+            zoom,
+            rotation,
+            hereIcon,
+            view,
+            map,
+            geoLocChange
+        }
+    },
     computed: {
         filteredItems: function(){
             return this.items.filter((item) => {

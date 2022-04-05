@@ -24,6 +24,7 @@
     "simple-keyboard": "^3.4.68",
     "vue": "^3.0.0",
     "vue-touch-keyboard": "^0.3.2",
+    "vue3-openlayers": "^0.1.63",
     "vuex": "^4.0.2"
   },
   "devDependencies": {
@@ -49,7 +50,7 @@
     },
     "rules": {
       "indent": 2,
-      "vue/require-explicit-emits":0
+      "vue/require-explicit-emits": 0
     }
   },
   "browserslist": [
