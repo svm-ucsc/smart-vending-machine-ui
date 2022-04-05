@@ -18,7 +18,6 @@
             <button class="btn btn-default" data-bs-toggle="modal" data-bs-target="#nutritionalInfoModal">
                 <img :src="getImageURL()"
                     class="mx-auto px-auto round d-block ItemDetail_image" 
-                    alt="https://via.placeholder.com/100"
                     style="width:100%;height:100%;max-width: 200px; max-height: 200px;"
                     >
             </button>
@@ -33,31 +32,15 @@
                     </div>
                     <div class="modal-body">
                         <img :src="getNutritionalInfoURL()"
+                        v-if="getNutritionalInfoURL() != null"
                         class="mx-auto px-auto round d-block" 
                         alt="Nutritional Info Not Available"
                         style="width:100%;height:100%;"
                         >
+                        <h3 v-else>Nutritional Information Not Available</h3>
                     </div>
                 </div>
                 </div>
-            </div>
-        </div>
-
-        <div class="modal fade" id="snutritionalInfoModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Nutritional Info</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <img :src="getNutritionalInfoURL()"
-                    class="mx-auto px-auto round d-block" 
-                    alt="Nutritional Info Not Available"
-                    style="width:100%;height:100%;"
-                    >
-                </div>
-            </div>
             </div>
         </div>
 
