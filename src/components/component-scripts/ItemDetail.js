@@ -36,13 +36,24 @@ export default{
                 return placeholder;
             }
         },
+        getItemID(){
+            return this.itemId;
+        },
+        getModalID(){
+            const item = this.itemId;
+            const sym = "#"
+            const modalID = sym.concat(item);
+            return modalID;
+        },
         getNutritionalInfoURL(){
-            if(this.nutritionalInfoUrl != null){
-                return this.nutritionalInfoUrl;
-            }
-            else{
-                return "https://via.placeholder.com/100";
-            }
+            console.log(this.nutritionalInfoUrl);
+            return this.nutritionalInfoUrl;
+            // if(this.nutritionalInfoUrl != null){
+            //     return this.nutritionalInfoUrl;
+            // }
+            // else{
+            //     return "https://via.placeholder.com/100";
+            // }
         }
     },
     created() {

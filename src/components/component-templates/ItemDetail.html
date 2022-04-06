@@ -15,7 +15,7 @@
             <h1 class="col-2 text-center " style="font-size: larger;">${{ price }}</h1>
         </div>
         <div class="row px-auto mx-auto" style="min-width:100px;min-height:100px;">
-            <button class="btn btn-default" data-bs-toggle="modal" data-bs-target="#nutritionalInfoModal">
+            <button class="btn btn-default" data-bs-toggle="modal" :data-bs-target="getModalID()">
                 <img :src="getImageURL()"
                     class="mx-auto px-auto round d-block ItemDetail_image" 
                     style="width:100%;height:100%;max-width: 200px; min-height: 200px; max-height: 200px;"
@@ -23,12 +23,12 @@
             </button>
   
         <!-- Modal -->
-            <div class="modal fade" id="nutritionalInfoModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal fade" :id="getItemID()" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Nutritional Info</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        <h5 class="modal-title" id="exampleModalLabel">Nutritional Info</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
                         <img :src="getNutritionalInfoURL()"
@@ -40,6 +40,7 @@
                 </div>
                 </div>
             </div>
+            
         </div>
 
         <div class="row pt-1 justify-content-center ItemDetail_btncontainer">
