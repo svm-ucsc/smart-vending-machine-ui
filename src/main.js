@@ -7,6 +7,7 @@ import ItemDetail from './components/ItemDetail.vue';
 import SearchBar from './components/SearchBar.vue';
 import CartItems from './components/CartItems.vue';
 import StoreMenu from './components/StoreMenu.vue';
+import Payment from './components/Payment.vue';
 
 // font awesome icons added
 import { library } from '@fortawesome/fontawesome-svg-core'
@@ -34,13 +35,16 @@ const store = createStore({
                 }else{ // element doesn't exist, so push it
                     state.cartInfo.push(data);
                 }
+                // console.log(`temp contents are: ${temp.cost}`)
             }else{ // empty list condition
                 state.cartInfo.push(data);
-            }           
+            }
+            
+            // console.log(`cart holds: ` + JSON.stringify(data))           
         },
         removeFromCart(state, indexToDelete){
             // data stores the index of where the element is to be removed
-            console.log(`The index requested to delete entry is: ${JSON.stringify(indexToDelete)}`);
+            // console.log(`The index requested to delete entry is: ${JSON.stringify(indexToDelete)}`);
             state.cartInfo.splice(indexToDelete,1); // delete 1 element at indexToDelete
         },
         async sendOrderToDB(state){
@@ -72,6 +76,7 @@ app.component('ItemDetail', ItemDetail);
 app.component('SearchBar', SearchBar);
 app.component('CartItems', CartItems);
 app.component('StoreMenu', StoreMenu);
-app.component('font-awesome-icon', FontAwesomeIcon);
+app.component('Payment', Payment);
+app.component('FontAwesomeIcon', FontAwesomeIcon);
 
 app.mount('#app')

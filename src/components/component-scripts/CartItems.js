@@ -4,6 +4,7 @@ export default{
     data() {
         return{
             toggle: false,
+            modal_paymentScreen: false,
             modal_pageCount: 0,
         }
     },  
@@ -27,21 +28,19 @@ export default{
             this.$store.commit('sendOrderToDB');
         },
         nextSplitModal(){
-            
-            let nextBtn = document.querySelector('.CartItems__nextBtn');
-            if(this.modal_pageCount === 1){
-                nextBtn.classList.add("disabled");
-                // if validation successful, increment counter and remove disabled class
-                                // nextBtn.classList.remove("disabled");
-                
-            }else{
-                this.modal_pageCount++;
-            }            
+            this.modal_pageCount++;
+            this.modal_paymentScreen = true;
+                 
         },
         prevSplitModal(){
             this.modal_pageCount--;
-            let nextBtn = document.querySelector('.CartItems__nextBtn');
-            nextBtn.classList.remove("disabled");
+            this.modal_paymentScreen = false;
+        },
+        costMultiplier(itemPrice){
+            let dollars = itemPrice/100;
+            dollars = dollars.toLocaleString("en-US", {style:"currency", currency:"USD"});
+            console.log(`item price passed in: ${itemPrice}`);
+            return dollars;
         }
 
         
@@ -49,6 +48,14 @@ export default{
     },
     mounted: function(){
         let nextBtn = document.querySelector('.CartItems__nextBtn');
+        // if(nextBtn){
+        //     if((this.modal_paymentScreen == false) && ($store.state.cartInfo.length === 0)){
+        //         nextBtn.style.visibility="hidden";
+        //     }else{
+        //         nextBtn.style.visibility="visible";
+        //     }
+        // }
+        
         if (this.modal_pageCount === 1){
             if(nextBtn){
                 nextBtn.style.visibility="hidden";

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="payment-plugin__container">
+        <div v-if="!paidFor">
+          <!-- <h1>Buy this Lamp - ${{ product.price }} OBO</h1>
+    
+          <p>{{ product.description }}</p> -->
+          Please Select Payment Option
+          
+        </div>
+    
+        <div v-if="paidFor">
+          <h1>Congrats, you've purchased food!</h1>
+        </div>
+    
+        <div ref="paypal" v-if="!paidFor" />
+      </div>
+</body>
+</html>
