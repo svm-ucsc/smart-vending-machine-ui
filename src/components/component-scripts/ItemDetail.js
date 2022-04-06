@@ -46,14 +46,12 @@ export default{
             return modalID;
         },
         getNutritionalInfoURL(){
-            console.log(this.nutritionalInfoUrl);
-            return this.nutritionalInfoUrl;
-            // if(this.nutritionalInfoUrl != null){
-            //     return this.nutritionalInfoUrl;
-            // }
-            // else{
-            //     return "https://via.placeholder.com/100";
-            // }
+            if(this.nutritionalInfoUrl != null){
+                return this.nutritionalInfoUrl;
+            }
+            else{
+                return "https://via.placeholder.com/100";
+            }
         }
     },
     created() {

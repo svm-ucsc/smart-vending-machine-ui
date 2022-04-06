@@ -16,6 +16,7 @@ export default{
             items: [],
             showResults: false,
             showKeyboard: false,
+            openMap: false,
             visible: false,
             layout: "normal",
             input: "",
@@ -105,6 +106,12 @@ export default{
             this.searchQuery = '';
             this.showKeyboard = false;
         },
+        openMap(){
+            this.openMap = true;
+        },
+        closeMap(){
+            this.openMap = false;
+        }
 
     }
 };
