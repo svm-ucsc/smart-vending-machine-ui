@@ -1,11 +1,14 @@
 import $ from 'jquery'
 import SimpleKeyboard from "../SimpleKeyboard.vue";
-import hereIcon from '@/assets/here.png'
-import {ref} from 'vue'
+import OpenLayersMap from "../OpenLayersMap.vue"
+// import {
+//     ref
+// } from 'vue';
 const axios = require('axios');
 export default{
     components:{
-        SimpleKeyboard
+        SimpleKeyboard,
+        OpenLayersMap
     },
     data(){
         return {
@@ -23,33 +26,7 @@ export default{
             }
         };
     },
-    setup() {
-        const center = ref([40, 40])
-        const projection = ref('EPSG:4326')
-        const zoom = ref(8)
-        const rotation = ref(0)
-
-        const view = ref(null)
-        const map = ref(null)
-
-        const geoLocChange = (loc) => {
-            console.log(loc);
-            view.value.fit([loc[0], loc[1], loc[0], loc[1]], {
-                maxZoom: 14
-            })
-        }
-
-        return {
-            center,
-            projection,
-            zoom,
-            rotation,
-            hereIcon,
-            view,
-            map,
-            geoLocChange
-        }
-    },
+    
     computed: {
         filteredItems: function(){
             return this.items.filter((item) => {
@@ -60,10 +37,21 @@ export default{
             });
         }
     },
+    // setup() {
+    //     const center = ref([40, 40])
+    //     const projection = ref('EPSG:4326')
+    //     const zoom = ref(8)
+    //     const rotation = ref(0)
+    //     return {
+    //         center,
+    //         projection,
+    //         zoom,
+    //         rotation
+    //     }
+    // },
     async mounted(){
         const response = await axios.get('http://ec2-54-167-36-58.compute-1.amazonaws.com:3000/item');
         this.items = response.data;
-        console.log(this.items);
     },
     methods: {
         showSearchInterface(){

@@ -9,8 +9,8 @@ import SearchResult from './components/SearchResult.vue';
 import CartItems from './components/CartItems.vue';
 import StoreMenu from './components/StoreMenu.vue';
 import SimpleKeyboard from "./components/SimpleKeyboard.vue";
-import OpenLayersMap from 'vue3-openlayers'
-import 'vue3-openlayers/dist/vue3-openlayers.css'
+import OpenLayersMap from '../node_modules/vue3-openlayers'
+import '../node_modules/vue3-openlayers/dist/vue3-openlayers.css'
 const axios = require('axios');
 
 // Holds global data for application
@@ -72,5 +72,6 @@ app.component('SearchResult', SearchResult);
 app.component('CartItems', CartItems);
 app.component('StoreMenu', StoreMenu);
 app.component('SimpleKeyboard', SimpleKeyboard);
+app.component('OpenLayersMap', OpenLayersMap);
 
 app.mount('#app')

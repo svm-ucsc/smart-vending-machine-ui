@@ -35,9 +35,9 @@ export default{
         },
         getNutritionalInfoURL(){
             if(this.nutritionalInfoURL != null){
-                const placeholder = "https://world.openfoodfacts.org/images/products/002/840/009/0896/nutrition_en.35.full.jpg";
-                return placeholder;
-                //return this.nutritionalInfoURL;
+                // const placeholder = "https://world.openfoodfacts.org/images/products/002/840/009/0896/nutrition_en.35.full.jpg";
+                // return placeholder;
+                return this.nutritionalInfoURL;
             }
             else{
                 const placeholder = "https://world.openfoodfacts.org/images/products/002/840/009/0896/nutrition_en.35.full.jpg";

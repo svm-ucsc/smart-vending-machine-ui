@@ -52,32 +52,19 @@
             <h3>Available at    Social Sciences 1st Floor (0.10 mi).</h3>
             <h3>Available at    McHenry Library (0.20 mi).</h3>
             
-            <ol-map :loadTilesWhileAnimating="true" :loadTilesWhileInteracting="true" style="height:400px" ref="map">
+            <OpenLayersMap />
 
-              <ol-view ref="view" :center="center" :rotation="rotation" :zoom="zoom" :projection="projection" />
+            <!-- <ol-map :loadTilesWhileAnimating="true" :loadTilesWhileInteracting="true" style="height:400px">
+
+              <ol-view ref="view" :center="center" :rotation="rotation" :zoom="zoom" 
+              :projection="projection" />
           
               <ol-tile-layer>
                   <ol-source-osm />
               </ol-tile-layer>
-          
-              <ol-geolocation :projection="projection" @positionChanged="geoLocChange">
-                  
-                  <ol-vector-layer :zIndex="2">
-                      <ol-source-vector>
-                          <ol-feature ref="positionFeature">
-                              <ol-geom-point :coordinates="slotProps.position"></ol-geom-point>
-                              <ol-style>
-                                  <ol-style-icon :src="hereIcon" :scale="0.1"></ol-style-icon>
-                              </ol-style>
-                          </ol-feature>
-                      </ol-source-vector>
-      
-                  </ol-vector-layer>
-                  
-              </ol-geolocation>
-          
-            </ol-map>
-            
+              
+            </ol-map> -->
+
         </div>
       </div>
     </div>
