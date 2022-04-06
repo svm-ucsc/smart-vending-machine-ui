@@ -36,8 +36,8 @@ export default{
             this.modal_pageCount--;
             this.modal_paymentScreen = false;
         },
-        costMultiplier(itemPrice){
-            let dollars = itemPrice/100;
+        costMultiplier(itemPrice, quantity){
+            let dollars = (itemPrice * quantity)/100;
             dollars = dollars.toLocaleString("en-US", {style:"currency", currency:"USD"});
             console.log(`item price passed in: ${itemPrice}`);
             return dollars;
