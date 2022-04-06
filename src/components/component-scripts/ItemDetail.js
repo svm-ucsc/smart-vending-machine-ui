@@ -38,11 +38,10 @@ export default{
         },
         getNutritionalInfoURL(){
             if(this.nutritionalInfoUrl != null){
-                console.log(this.nutritionalInfoUrl);
                 return this.nutritionalInfoUrl;
             }
             else{
-                return null;
+                return "https://via.placeholder.com/100";
             }
         }
     },
