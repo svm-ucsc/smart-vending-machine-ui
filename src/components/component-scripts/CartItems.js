@@ -41,6 +41,13 @@ export default{
             dollars = dollars.toLocaleString("en-US", {style:"currency", currency:"USD"});
             console.log(`item price passed in: ${itemPrice}`);
             return dollars;
+        },
+
+        // Need to pass by reference here,TODO
+        getTotalAmount(){
+            let amount = calculateTotalCost();
+            // loop through cart info, grab each cost amount and print
+            return "$1000";
         }
 
         

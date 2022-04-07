@@ -52,6 +52,7 @@ const store = createStore({
             let orderObj = state.cartInfo.reduce(
             (orderObj, item) => Object.assign(orderObj, { [item.itemId]: item.quantity }), {});
 
+            // need to update this to pass total price amount as well (in cents)
             try{
                 await axios.post('http://ec2-54-167-36-58.compute-1.amazonaws.com:3000/order/',
                 
@@ -66,6 +67,12 @@ const store = createStore({
             // TODO:
             // if API Call is successful:
             // state.cartInfo = {}; // clear the cart and all information associated with it based on return code
+        },
+        calculateTotalCost(state, data){
+            if (state.cartInfo.length > 0){
+                // calcculate cost of each
+                console.log(`fill this in`)
+            }
         }
     }
 });

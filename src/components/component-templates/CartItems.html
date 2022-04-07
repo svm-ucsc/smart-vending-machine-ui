@@ -69,10 +69,10 @@
                     <button type="button" class="btn CartItems__nextBtn" v-else-if="(this.$store.state.cartInfo.length > 0) && (modal_pageCount === 1)" @click="prevSplitModal()">Previous</button>
                     <button type="button" class="btn disabled CartItems__nextBtn" v-else>You must add to cart first</button>
 
-                        <!-- <div class="col-3 CartItems__totalFont">
-                            TOTAL: $10.73
+                        <div class="col-3 CartItems__totalFont">
+                            {{ getTotalAmount()}}
                         </div>
-                        <div class="col-8">
+                        <!-- <div class="col-8">
                            
                             <button type="button" class="btn CartItems__placeOrderBtn" @click="placeOrder()">Place Order <font-awesome-icon icon="check" class="CartItems__check"/></button>
                         </div> -->
