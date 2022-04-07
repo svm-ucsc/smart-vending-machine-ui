@@ -24,9 +24,9 @@ export default{
             $(collapseBtn).css('visibility', 'hidden');
 
         },
-        placeOrder(){
-            this.$store.commit('sendOrderToDB');
-        },
+        // placeOrder(){
+        //     this.$store.commit('sendOrderToDB');
+        // },
         nextSplitModal(){
             this.modal_pageCount++;
             this.modal_paymentScreen = true;
@@ -44,25 +44,19 @@ export default{
         },
 
         // Need to pass by reference here,TODO
-        getTotalAmount(){
-            let amount = calculateTotalCost();
-            // loop through cart info, grab each cost amount and print
-            return "$1000";
+        getTotalAmount(cartInfo){
+            // pass by reference taking local shopping basket and placing in Vuex, then Vuex will globally store the subtotal and then this function will grab a copy of it
+            this.$store.commit('calculateTotalCost', cartInfo);
+            let local_subTotal = (this.$store.subTotal)/100;
+            local_subTotal = local_subTotal.toLocaleString("en-US", {style:"currency", currency:"USD"})
+            return local_subTotal;
         }
 
         
 
     },
     mounted: function(){
-        let nextBtn = document.querySelector('.CartItems__nextBtn');
-        // if(nextBtn){
-        //     if((this.modal_paymentScreen == false) && ($store.state.cartInfo.length === 0)){
-        //         nextBtn.style.visibility="hidden";
-        //     }else{
-        //         nextBtn.style.visibility="visible";
-        //     }
-        // }
-        
+        let nextBtn = document.querySelector('.CartItems__nextBtn');        
         if (this.modal_pageCount === 1){
             if(nextBtn){
                 nextBtn.style.visibility="hidden";

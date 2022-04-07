@@ -21,7 +21,8 @@ const axios = require('axios');
 const store = createStore({
     state(){
         return{
-            cartInfo: []
+            cartInfo: [],
+            subTotal: Number
         };
     },
  
@@ -35,16 +36,12 @@ const store = createStore({
                 }else{ // element doesn't exist, so push it
                     state.cartInfo.push(data);
                 }
-                // console.log(`temp contents are: ${temp.cost}`)
             }else{ // empty list condition
                 state.cartInfo.push(data);
-            }
-            
-            // console.log(`cart holds: ` + JSON.stringify(data))           
+            }          
         },
         removeFromCart(state, indexToDelete){
             // data stores the index of where the element is to be removed
-            // console.log(`The index requested to delete entry is: ${JSON.stringify(indexToDelete)}`);
             state.cartInfo.splice(indexToDelete,1); // delete 1 element at indexToDelete
         },
         async sendOrderToDB(state){
@@ -56,8 +53,8 @@ const store = createStore({
             try{
                 await axios.post('http://ec2-54-167-36-58.compute-1.amazonaws.com:3000/order/',
                 
-                    {"machine_id": "string", "items": orderObj }
-            
+                    {"machine_id": "string", "items": orderObj, "totalCost": this.subTotal}
+                    // right now the post request will fail because the API cannot handle the subTotal receipt yet
                 )
 
             }catch(e){
@@ -68,12 +65,23 @@ const store = createStore({
             // if API Call is successful:
             // state.cartInfo = {}; // clear the cart and all information associated with it based on return code
         },
-        calculateTotalCost(state, data){
+        calculateTotalCost(state){
+            let subTotal = 0;
             if (state.cartInfo.length > 0){
                 // calcculate cost of each
-                console.log(`fill this in`)
+                console.log("passed stuff is "+JSON.stringify(state.cartInfo))
+                // loop through cartInfo and get quantity and cost and add up total amount:
+                for(let i=0; i < state.cartInfo.length; ++i){
+                    let curQuantity = state.cartInfo[i].quantity;
+                    let costPerItem = state.cartInfo[i].itemCost;
+                    subTotal += curQuantity * costPerItem;
+                }
+                console.log("running subtotal is " + subTotal)
             }
+            // store running subtotal in Vuex global store
+            this.subTotal = subTotal;
         }
+       
     }
 });
 

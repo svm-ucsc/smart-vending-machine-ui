@@ -7,7 +7,7 @@ export default {
         loaded: false,
         paidFor: false,
         product: {
-          price: 777.77,
+        //   price: 0,
           description: "this is the amount you owe"
           // img: "./assets/lamp.jpg"
         }
@@ -32,7 +32,8 @@ export default {
                     description: this.product.description,
                     amount: {
                       currency_code: "USD",
-                      value: this.product.price
+                    //   value: this.product.price
+                        value: (this.$store.subTotal)/100
                     }
                   }
                 ]
@@ -48,6 +49,12 @@ export default {
             }
           })
           .render(this.$refs.paypal);
-      }
+      },
+      
+    // right now this is unsuccessful because API cannot handle subtotal receiving yet
+        placeOrder(){
+            this.$store.commit('sendOrderToDB');
+            this.$store.cartInfo = {};
+        }
     }
   };

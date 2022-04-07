@@ -9,15 +9,15 @@
 <body>
     <div class="payment-plugin__container">
         <div v-if="!paidFor">
-          <!-- <h1>Buy this Lamp - ${{ product.price }} OBO</h1>
-    
-          <p>{{ product.description }}</p> -->
           Please Select Payment Option
           
         </div>
     
         <div v-if="paidFor">
-          <h1>Congrats, you've purchased food!</h1>
+            <!-- TODO: Hide Previous Button -->
+            <!-- Hide Subtotal Price -->
+            <!-- Make a receipt option? -->
+          <h1>Your Order Has Been Purchased From Smart Vending Machine!!! {{ placeOrder() }}</h1>
         </div>
     
         <div ref="paypal" v-if="!paidFor" />
