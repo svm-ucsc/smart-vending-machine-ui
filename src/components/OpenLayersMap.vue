@@ -46,6 +46,7 @@ import {
     ref
 } from 'vue'
 export default {
+    props: ['openMap'],
     setup() {
         const center = ref([40, 40])
         const projection = ref('EPSG:4326')

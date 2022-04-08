@@ -16,8 +16,7 @@
             @keyup="showSearchResults()"
             @input="searchQuery"
             v-model="searchQuery"
-            v-on:click="showSearchInterface()"  
-            >
+            v-on:click="showSearchInterface()">
             <button type="button" class="btn SearchBar__btnClose col-1" id="closeBtn" @click="hideSearchInterface()">X</button>
 
             <div class="SearchBar__resultsbox animated fadeIn" v-if="showKeyboard">
@@ -29,13 +28,19 @@
                 </div>
                 <div class="SearchBar__notFoundContainer" v-if="0 >= filteredItems.length">
                     <h1>Item not found.</h1>
-                    <button type="button" @click="openMap()" class="btn btn-link SearchBar__checkAvailability" data-bs-toggle="modal" data-bs-target="#checkAvailabilityModal">Check nearby machines</button> 
+                    <button type="button" 
+                    @click="showMap()"
+                    class="btn btn-link SearchBar__checkAvailability" >test</button> 
+                    <button type="button" 
+                    @click="showMap()"
+                    class="btn btn-link SearchBar__checkAvailability" 
+                    data-bs-toggle="modal" 
+                    data-bs-target="#checkAvailabilityModal">Check nearby machines</button> 
                 </div>
                 <div class="keyboard">
                     <SimpleKeyboard layout="default" @onChange="onChange" @onKeyPress="onKeyPress" :input="searchQuery"/>
                 </div>
             </div>
-             
         </div>
     </div>
 </body>
@@ -51,23 +56,21 @@
             <h3>Available at    Baskin's Engineering 1st Floor (0.05 mi).</h3>
             <h3>Available at    Social Sciences 1st Floor (0.10 mi).</h3>
             <h3>Available at    McHenry Library (0.20 mi).</h3>
-            
-            <OpenLayersMap />
-
-            <ol-map :loadTilesWhileAnimating="true" :loadTilesWhileInteracting="true" style="height:400px" v-if="mapOpen">
-
-              <ol-view ref="view" :center="center" :rotation="rotation" :zoom="zoom" 
-              :projection="projection" />
-          
+            <OpenLayersMap 
+            :open-map="openMap"
+            v-if="openMap"
+            />
+            <!-- <ol-map :loadTilesWhileAnimating="true" :loadTilesWhileInteracting="true" style="height:400px">
+              <ol-view ref="view" :center="center" :rotation="rotation" :zoom="zoom" :projection="projection" />
               <ol-tile-layer>
                   <ol-source-osm />
               </ol-tile-layer>
-              
-            </ol-map>
-
+            </ol-map> -->
         </div>
       </div>
     </div>
   </div>
 
 </html>
+
+
