@@ -69,14 +69,14 @@ const store = createStore({
             let subTotal = 0;
             if (state.cartInfo.length > 0){
                 // calcculate cost of each
-                console.log("passed stuff is "+JSON.stringify(state.cartInfo))
+                // console.log("passed stuff is "+JSON.stringify(state.cartInfo))
                 // loop through cartInfo and get quantity and cost and add up total amount:
                 for(let i=0; i < state.cartInfo.length; ++i){
                     let curQuantity = state.cartInfo[i].quantity;
                     let costPerItem = state.cartInfo[i].itemCost;
                     subTotal += curQuantity * costPerItem;
                 }
-                console.log("running subtotal is " + subTotal)
+                // console.log("running subtotal is " + subTotal)
             }
             // store running subtotal in Vuex global store
             this.subTotal = subTotal;

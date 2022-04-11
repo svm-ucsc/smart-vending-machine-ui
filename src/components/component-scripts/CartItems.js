@@ -24,9 +24,15 @@ export default{
             $(collapseBtn).css('visibility', 'hidden');
 
         },
-        // placeOrder(){
-        //     this.$store.commit('sendOrderToDB');
-        // },
+        placeOrder(){
+            // this.$store.commit('sendOrderToDB');
+            this.$store.cartInfo = {};
+        },
+        onSuccess(){
+            // console.log("payment went through");
+            this.modal_pageCount++;
+
+        },
         nextSplitModal(){
             this.modal_pageCount++;
             this.modal_paymentScreen = true;
@@ -36,10 +42,13 @@ export default{
             this.modal_pageCount--;
             this.modal_paymentScreen = false;
         },
+        backToHome(){
+            this.modal_pageCount = 0;
+        },
         costMultiplier(itemPrice, quantity){
             let dollars = (itemPrice * quantity)/100;
             dollars = dollars.toLocaleString("en-US", {style:"currency", currency:"USD"});
-            console.log(`item price passed in: ${itemPrice}`);
+            // console.log(`item price passed in: ${itemPrice}`);
             return dollars;
         },
 

@@ -2,4 +2,14 @@
 .payment-plugin__container{
     // background: green;
     max-height: inherit;
+    font-family: $font-family;
+    padding: 40px;
+}
+.payment-plugin__checkmark{
+    color: green;
+    // background: white;
+    height: 100px;
+}
+.payment-plugin__rowWrap{
+    padding:  30px 30px 0px 30px;
 }

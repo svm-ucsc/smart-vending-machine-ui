@@ -6,21 +6,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
-<body>
-    <div class="payment-plugin__container">
+
+    <div class="payment-plugin__container modal-split">
         <div v-if="!paidFor">
-          Please Select Payment Option
+          <h4 class="text-center">Please Select Your Method of Payment</h4>
           
         </div>
     
         <div v-if="paidFor">
-            <!-- TODO: Hide Previous Button -->
-            <!-- Hide Subtotal Price -->
-            <!-- Make a receipt option? -->
-          <h1>Your Order Has Been Purchased From Smart Vending Machine!!! {{ placeOrder() }}</h1>
+          <!-- <h1>Your Order Has Been Purchased From Smart Vending Machine!!! {{ placeOrder() }}</h1> -->
+          <!-- <div class="row payment-plugin__rowWrap">
+              <div class="col">
+                  <h1 class="text-center">Payment successful!{{ placeOrder()}}</h1>
+                  <h2 class="text-center"><font-awesome-icon icon="square-check" class="payment-plugin__checkmark"/></h2>
+                  <p class="text-center">Your payment of {xx.xxx} has successfully been sent to the Smart Vending Machine from your wallet.</p>
+              </div>
+          </div> -->
         </div>
     
         <div ref="paypal" v-if="!paidFor" />
       </div>
-</body>
+
 </html>

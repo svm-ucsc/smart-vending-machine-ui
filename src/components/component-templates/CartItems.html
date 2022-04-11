@@ -53,34 +53,39 @@
 
                     <!-- Second Modal: Paypal Component here -->
                     <div class="modal-split" v-if="modal_pageCount === 1">
-                        <Payment />
-                       
+                        <!-- listen for approval event -->
+                        <Payment @on-approval="onSuccess()"/>
                     </div>
-
-                    <!-- <div class="modal-split" v-if="modal_pageCount===2">
-                        Order has been placed screen
-                    </div> -->
+                    <!-- Third Modal Screen on Approval, Receipt Shown -->
+                    <div class="modal-split" v-if="modal_pageCount === 2">
+                        <div class="row payment-plugin__rowWrap">
+                            <div class="col CartItems__itemViewScroll">
+                                <h1 class="text-center">Payment successful! {{ placeOrder()}}</h1>
+                                <h2 class="text-center"><font-awesome-icon icon="square-check" class="payment-plugin__checkmark"/></h2>
+                                <p class="text-center">Your payment of {{getTotalAmount(this.$store.state.cartInfo).toString()}} has successfully been sent to the Smart Vending Machine from your wallet.</p>
+                                <div class="CartItems__orderReceipt text-center">Order Details</div>
+                                <div class="row justify-content-center align-items-center p-0 pb-3" v-for="(cartStuff, i) in this.$store.state.cartInfo">
+                                    <hr v-if="i != this.$store.state.cartInfo.length">
+                                    <div class="col-4 text-center">{{ cartStuff.foodName }}</div>
+                                    <div class="col-4 text-center">{{cartStuff.quantity + " @ " + costMultiplier(cartStuff.itemCost, 1) + "/each"}}</div>
+                                    <div class="col-4 text-center">{{ costMultiplier(cartStuff.itemCost, cartStuff.quantity)}}</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     
-
                 </div>
                 <div class="modal-footer justify-content-between">
-               
                     <button type="button" class="btn CartItems__nextBtn" v-if="(this.$store.state.cartInfo.length > 0) && (modal_pageCount === 0)" @click="nextSplitModal()">Next</button>
                     <button type="button" class="btn CartItems__nextBtn" v-else-if="(this.$store.state.cartInfo.length > 0) && (modal_pageCount === 1)" @click="prevSplitModal()">Previous</button>
+                    <button type="button" class="btn CartItems__nextBtn" v-else-if="(modal_pageCount===2)" data-bs-dismiss="modal" aria-label="Close" @click="backToHome()">Return to Home</button>
                     <button type="button" class="btn disabled CartItems__nextBtn" v-else>You must add to cart first</button>
-
-                        <div class="col-3 CartItems__totalFont" v-if="(this.$store.state.cartInfo.length > 0)">
-                            {{ "Subtotal: " + getTotalAmount(this.$store.state.cartInfo).toString()}}
-                        </div>
-                        <!-- <div class="col-8">
-                           
-                            <button type="button" class="btn CartItems__placeOrderBtn" @click="placeOrder()">Place Order <font-awesome-icon icon="check" class="CartItems__check"/></button>
-                        </div> -->
+                    <div class="col-3 CartItems__totalFont" v-if="((this.$store.state.cartInfo.length > 0)&&(modal_pageCount != 2))">
+                        {{ "Subtotal: " + getTotalAmount(this.$store.state.cartInfo).toString()}}
+                    </div>
                 </div>
             </div>
             </div>
         </div>
-
-
 </body>
 </html>

@@ -42,6 +42,7 @@ export default {
             onApprove: async (data, actions) => {
               const order = await actions.order.capture();
               this.paidFor = true;
+              this.$emit('onApproval');
               console.log(order);
             },
             onError: err => {
@@ -52,9 +53,9 @@ export default {
       },
       
     // right now this is unsuccessful because API cannot handle subtotal receiving yet
-        placeOrder(){
-            this.$store.commit('sendOrderToDB');
-            this.$store.cartInfo = {};
-        }
+        // placeOrder(){
+        //     // this.$store.commit('sendOrderToDB');
+        //     this.$store.cartInfo = {};
+        // }
     }
   };
