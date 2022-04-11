@@ -1,7 +1,7 @@
-import $ from 'jquery'
+import $ from 'jquery';
 import SimpleKeyboard from "../SimpleKeyboard.vue";
-import OpenLayersMap from "../OpenLayersMap.vue"
-import {ref} from 'vue';
+import OpenLayersMap from "../OpenLayersMap.vue";
+import { ref } from 'vue';
 const axios = require('axios');
 
 export default{
@@ -30,9 +30,6 @@ export default{
     computed: {
         filteredItems: function(){
             return this.items.filter((item) => {
-                if( item.name.toLowerCase().match(this.searchQuery) != "null" ){
-                    this.foundCount = this.foundCount + 1;
-                }
                 return item.name.toLowerCase().match(this.searchQuery.toLowerCase());
             });
         }
@@ -107,7 +104,8 @@ export default{
             this.showKeyboard = false;
         },
         showMap(){
-            this.openMap = true;            
+            this.openMap = true;
+                        
         },
         closeMap(){
             this.openMap = false;
@@ -115,7 +113,5 @@ export default{
         checkMap(){
             return this.openMap;
         },
-        
-
     }
 };

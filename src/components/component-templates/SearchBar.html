@@ -14,7 +14,6 @@
             type="text" 
             placeholder="Tap to Search"
             @keyup="showSearchResults()"
-            @input="searchQuery"
             v-model="searchQuery"
             v-on:click="showSearchInterface()">
             <button type="button" class="btn SearchBar__btnClose col-1" id="closeBtn" @click="hideSearchInterface()">X</button>
@@ -26,26 +25,26 @@
                     :food-name="item.name"
                     />
                 </div>
+
                 <div class="SearchBar__notFoundContainer" v-if="0 >= filteredItems.length">
                     <h1>Item not found.</h1>
-                    <button type="button" 
-                    @click="showMap()"
-                    class="btn btn-link SearchBar__checkAvailability" >test</button> 
                     <button type="button" 
                     @click="showMap()"
                     class="btn btn-link SearchBar__checkAvailability" 
                     data-bs-toggle="modal" 
                     data-bs-target="#checkAvailabilityModal">Check nearby machines</button> 
                 </div>
+
                 <div class="keyboard">
                     <SimpleKeyboard layout="default" @onChange="onChange" @onKeyPress="onKeyPress" :input="searchQuery"/>
                 </div>
+                
             </div>
         </div>
     </div>
 </body>
 
-  <div class="modal fade" id="checkAvailabilityModal" tabindex="-1" aria-labelledby="checkAvailabilityModalLabel" aria-hidden="true">
+  <div class="modal" id="checkAvailabilityModal" tabindex="-1" aria-labelledby="checkAvailabilityModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
@@ -60,17 +59,12 @@
             :open-map="openMap"
             v-if="openMap"
             />
-            <!-- <ol-map :loadTilesWhileAnimating="true" :loadTilesWhileInteracting="true" style="height:400px">
-              <ol-view ref="view" :center="center" :rotation="rotation" :zoom="zoom" :projection="projection" />
-              <ol-tile-layer>
-                  <ol-source-osm />
-              </ol-tile-layer>
-            </ol-map> -->
         </div>
       </div>
     </div>
   </div>
 
 </html>
+
 
 

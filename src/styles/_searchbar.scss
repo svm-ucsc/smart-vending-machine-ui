@@ -1,5 +1,8 @@
 @import "variables";
-
+#map {
+    width:100%;
+    height:500px;
+}
 .SearchBar__container{
     background: $summer-blue;
     justify-content: center;

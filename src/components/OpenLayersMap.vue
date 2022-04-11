@@ -3,7 +3,7 @@
     ref="map"
     :load-tiles-while-animating="true"
     :load-tiles-while-interacting="true"
-    style="height:400px"
+    style="height:400px;"
   >
     <ol-view
       ref="view"
@@ -46,13 +46,11 @@ import {
     ref
 } from 'vue'
 export default {
-    props: ['openMap'],
     setup() {
-        const center = ref([40, 40])
+        const center = ref([140, 140])
         const projection = ref('EPSG:4326')
         const zoom = ref(8)
         const rotation = ref(0)
-
         const view = ref(null)
         const map = ref(null)
 
@@ -74,5 +72,6 @@ export default {
             geoLocChange
         }
     },
+
 }
 </script>
