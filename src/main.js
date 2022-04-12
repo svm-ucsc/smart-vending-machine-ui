@@ -53,23 +53,9 @@ const store = createStore({
             // need to update this to pass total price amount as well (in cents)
             try{
                 await axios.post('http://ec2-54-167-36-58.compute-1.amazonaws.com:3000/order/',
-<<<<<<< HEAD
-                    {body:
-                    {
-                        "machine_id": "string",
-                        "items":{
-                            "d016": 2
-                        }
-                    }
-            
-                    })
-
-=======
-                
                     {"machine_id": "string", "items": orderObj} //, "totalCost": this.subTotal}
                     // right now the post request will fail because the API cannot handle the subTotal receipt yet
                 )
->>>>>>> main
             }catch(e){
                 console.log("Error (main.js): Cannot place the order")
             }
@@ -100,11 +86,8 @@ app.component('SearchBar', SearchBar);
 app.component('SearchResult', SearchResult);
 app.component('CartItems', CartItems);
 app.component('StoreMenu', StoreMenu);
-<<<<<<< HEAD
 app.component('SimpleKeyboard', SimpleKeyboard);
-=======
 app.component('Payment', Payment);
 app.component('FontAwesomeIcon', FontAwesomeIcon);
->>>>>>> main
 
 app.mount('#app')
