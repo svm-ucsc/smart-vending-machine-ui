@@ -2,13 +2,10 @@ export default{
     props: { 
         itemId: String,
         foodName: String,
-<<<<<<< HEAD
         price: String,
         imageUrl: String,
-        nutritionalInfoURL: String
-=======
+        nutritionalInfoURL: String,
         itemCost: Number
->>>>>>> main
     },
     data(){
         return{
@@ -20,13 +17,8 @@ export default{
     },
     methods: {
         updateCartCounter(){
-<<<<<<< HEAD
-            this.$store.commit('insertToCart', {foodName: this.foodName, itemId: this.itemId, quantity: this.quantity});
-            this.quantity = 0;
-=======
             this.$store.commit('insertToCart', {foodName: this.foodName, itemId: this.itemId, quantity: this.quantity, itemCost: this.itemCost});
             this.quantity = 0; // reset counter to 0 for UX functionality
->>>>>>> main
         },  
 
         async getData() {
