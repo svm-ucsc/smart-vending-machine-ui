@@ -4,7 +4,7 @@ export default {
         async fetchingNameId(){
             try {
                 const response = await axios.get('http://ec2-54-167-36-58.compute-1.amazonaws.com:3000/item', 
-                    { params: { fields:["item_id", "name","nutritional_url"].join() } });
+                    { params: { fields:["item_id", "name","nutrition_url", "cost", "image_url"].join() } });
                 const obj = response.data;
                 let parsedData = obj;
                 let dataPlaceHolder = [];
