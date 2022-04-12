@@ -22,14 +22,14 @@ export default{
         },  
 
         async getData() {
-            // TODO
+            
         },
         getImageURL(){
             if(this.imageUrl != null){
                 return this.imageUrl;
             }
             else{
-                const placeholder = "https://via.placeholder.com/100";
+                var placeholder = "https://via.placeholder.com/100";
                 return placeholder;
             }
         },
