@@ -56,10 +56,8 @@
     }
     .SearchBar__results{
         background: #f7f6f6;
-        font-size:x-large;
-        margin: 0px 0px;
-        padding: 1% 0;
-        width: 100%;
+        min-height: 125px;
+        max-height: 125px;
     }
     .SearchBar__btnClose{
         color: red;

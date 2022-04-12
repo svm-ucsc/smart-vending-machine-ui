@@ -14,24 +14,23 @@
                 <button class="btn btn-default" data-bs-toggle="modal" data-bs-target="#nutritionalInfoModal" data-backdrop="false">
                     <img :src="getImageURL()" 
                         class="rounded SearchResult__image"
-                        style="width:100%;height:100%;max-width: 200px; max-height: 200px;"
                         >
                 </button>    
             </div>
             <div class="col-4 SearchResult__name">{{ foodName }}</div>
-            <div class="col-6 pt-1 justify-content-center SearchResult__btncontainer">
-                <div class="col-2">
+            <div class="col-6 pt-1 SearchResult__btncontainer">
+                <div class="col-2 btn-col">
                     <button type="button" class="btn SearchResult__decBtn mx-auto" v-if="quantity>0" @click="quantity--"></button>
                     <button type="button" class="btn SearchResult__decBtn mx-auto disabled" v-else></button>
 
                 </div>
-                <div class="col-2">
+                <div class="col-2 btn-col">
                     <button type="button" class="btn SearchResult__counter mx-auto" id="SearchResult-count">{{ quantity }}</button>
                 </div>
-                <div class="col-2">
+                <div class="col-2 btn-col">
                     <button type="button" class="btn SearchResult__incBtn mx-auto" @click="quantity++"></button>
                 </div>
-                <div class="col-6 justify-content-end" style="padding: 0px 0px 0px 15px">
+                <div class="col-6 btn-col" style="padding: 0px 0px 0px 15px">
                     <button type="button" class="btn SearchResult__addCart mx-auto" v-if="quantity >= 1" @click="updateCartCounter()">Add to Cart</button>
                     <button type="button" class="btn SearchResult__addCart mx-auto disabled" v-else>Add to Cart</button>
                 </div> 
