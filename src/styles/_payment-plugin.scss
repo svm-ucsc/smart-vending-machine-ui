@@ -1,0 +1,14 @@
+@import "variables";
+.payment-plugin__container{
+    max-height: 350px;
+    font-family: $font-family;
+    padding: 40px;
+    overflow-y: scroll;
+}
+.payment-plugin__checkmark{
+    color: green;
+    height: 100px;
+}
+.payment-plugin__rowWrap{
+    padding:  30px 30px 0px 30px;
+}

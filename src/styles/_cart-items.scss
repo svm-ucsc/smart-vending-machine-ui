@@ -1,22 +1,18 @@
 @import "variables"; // DO NOT REMOVE THIS LINE OR SCSS WILL NOT WORK!
 
-.CartItems__container{
-    background-color: $summer-blue;
-    width: 95%;
-    padding: 0px 2%;
-    margin-top: 14px;
-    margin-bottom:14px;
-    border-radius: 25px;
-    max-height: 400px;
+    .CartItems__container{
+        border-radius: $card-radius;
+        box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+        font-family: $font-family;
+    }
     
     .CartItems__list-entry{
         background: #f7f6f6;
-        border: 1px solid black;
-        font-size:x-large;
-        // width:60%;
-        margin: 5px 0px;
-        padding: 15px;
-        border-radius: 25px;
+        box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+        font-size: large;
+        margin: 5px 0px;  
+        border-radius: $card-radius;
+        font-family: $font-family;
     }
 
     .CartItems__deletebtn{
@@ -26,15 +22,13 @@
 
     .CartItems__review-order-btn{
         background: $summer-blue;
-        color: black;
-        width: 80%;
-        height: 80px;
+        width: 100%;
+        height: 60px;
         border-radius: $button-radius;
-        border-radius: 25px;
-        font-size: xx-large;
-        text-align: right;
-        padding-right: 15%;
+        font-family: $font-family;
+        font-size: x-large;
     }
+
     .CartItems__collapseStyleBtn{
         background: $summer-purple;
         position: relative;
@@ -46,20 +40,85 @@
     }
 
     .CartItems__list-wrapper{
-      // overflow-y:scroll;
       background: $nice-grey;
-      margin: 0 25px;
       max-height: 350px;
-      border-radius: $card-radius;
+      padding-top: 0px;
+      padding-bottom: 0px;
     }
+
     .CartItems__itemViewScroll{
       overflow-y:scroll;
-      max-height: 250px;
+      max-height: 290px;
     }
+
     .CartItems__placeOrderBtn{
-      background: $summer-green;
-      margin: 0px 0px;
-      padding: 20px;
-      border-radius: 25px;
+        background: $summer-green;
+        font-size: x-large;
+        border-radius: $button-radius;
+        width: 100%;
+        font-family: $font-family;
     }
-}
+
+    .CartItems__returnToOrder{
+        font-size: x-large;
+        background: $summer-blue;
+        border-radius: $button-radius;
+    }
+
+    .CartItems__decBtn{
+        background: $summer-tan;        
+        &:after{
+            content: "-";
+        }
+        width: 40px;
+    }
+
+    .CartItems__incBtn{
+        background: $summer-tan;
+        &:after{
+            content:"+";
+        }
+        width: 40px;
+    }
+
+    .CartItems__counter{
+        background: $summer-purple;
+        text-decoration: none;
+        &:after{
+            content:" ";
+        }
+        width: 40px;
+    }
+
+    .CartItems__close{
+        border: none;
+        background: none;
+        color: $summer-coral;
+        font-size: x-large;
+        padding: 0px;
+        margin: 0px;
+      
+    }
+    .CartItems__totalFont{
+        font-family: $font-family;
+        font-size: large;
+    }
+    .CartItems__check{
+        position: relative;
+        left: 75px;
+    }
+
+    .modal-title{
+        font-family: $font-family;
+        font-size: x-large;
+    }
+
+    .CartItems__prevBtn{
+        background-color: pink;
+    }
+    .CartItems__nextBtn{
+        background-color: pink;
+    }
+    .CartItems__orderReceipt{
+        font-weight: bold;
+    }
