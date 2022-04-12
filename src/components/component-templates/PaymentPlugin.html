@@ -14,14 +14,6 @@
         </div>
     
         <div v-if="paidFor">
-          <!-- <h1>Your Order Has Been Purchased From Smart Vending Machine!!! {{ placeOrder() }}</h1> -->
-          <!-- <div class="row payment-plugin__rowWrap">
-              <div class="col">
-                  <h1 class="text-center">Payment successful!{{ placeOrder()}}</h1>
-                  <h2 class="text-center"><font-awesome-icon icon="square-check" class="payment-plugin__checkmark"/></h2>
-                  <p class="text-center">Your payment of {xx.xxx} has successfully been sent to the Smart Vending Machine from your wallet.</p>
-              </div>
-          </div> -->
         </div>
     
         <div ref="paypal" v-if="!paidFor" />

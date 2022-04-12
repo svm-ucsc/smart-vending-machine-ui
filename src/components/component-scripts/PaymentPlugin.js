@@ -1,4 +1,7 @@
-// import image from "../assets/lamp.png"
+// This Component code was taken from: https://fireship.io/lessons/paypal-checkout-frontend/
+// It is also based on the PayPal Developer Code: https://developer.paypal.com/docs/checkout/standard/integrate/ 
+// These references were also used in conjunction with our PaymentPlugin.html template
+
 export default {
     name: "PayPal Template",
   
@@ -7,9 +10,7 @@ export default {
         loaded: false,
         paidFor: false,
         product: {
-        //   price: 0,
-          description: "this is the amount you owe"
-          // img: "./assets/lamp.jpg"
+            description: "this is the amount you owe"
         }
       };
     },
@@ -32,7 +33,6 @@ export default {
                     description: this.product.description,
                     amount: {
                       currency_code: "USD",
-                    //   value: this.product.price
                         value: (this.$store.subTotal)/100
                     }
                   }
@@ -51,11 +51,5 @@ export default {
           })
           .render(this.$refs.paypal);
       },
-      
-    // right now this is unsuccessful because API cannot handle subtotal receiving yet
-        // placeOrder(){
-        //     // this.$store.commit('sendOrderToDB');
-        //     this.$store.cartInfo = {};
-        // }
     }
   };
