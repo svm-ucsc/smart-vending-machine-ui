@@ -22,7 +22,6 @@
                 <div class="col-2 btn-col">
                     <button type="button" class="btn SearchResult__decBtn mx-auto" v-if="quantity>0" @click="quantity--"></button>
                     <button type="button" class="btn SearchResult__decBtn mx-auto disabled" v-else></button>
-
                 </div>
                 <div class="col-2 btn-col">
                     <button type="button" class="btn SearchResult__counter mx-auto" id="SearchResult-count">{{ quantity }}</button>
@@ -34,10 +33,8 @@
                     <button type="button" class="btn SearchResult__addCart mx-auto" v-if="quantity >= 1" @click="updateCartCounter()">Add to Cart</button>
                     <button type="button" class="btn SearchResult__addCart mx-auto disabled" v-else>Add to Cart</button>
                 </div> 
-
             </div>
         </div>
     </div>
 </body>
-
 </html>

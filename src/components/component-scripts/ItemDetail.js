@@ -11,7 +11,6 @@ export default{
             data_ready: false,
             item_data: [],
             quantity: 0,
-            nutritionalInfo: false
         };
     },
     methods: {
@@ -20,38 +19,21 @@ export default{
             this.quantity = 0;
         },  
 
-        async getData() {
-            
-        },
+        async getData() {},
 
-        showNutritionalInfo(){
-            this.nutritionalInfo = true;
-        },
-        getImageURL(){
-            if(this.imageUrl != null){
-                return this.imageUrl;
-            }
-            else{
-                var placeholder = "https://via.placeholder.com/100";
-                return placeholder;
-            }
-        },
         getItemID(){
             return this.itemId;
         },
         getModalID(){
-            const item = this.itemId;
             const sym = "#"
-            const modalID = sym.concat(item);
+            const modalID = sym.concat(this.itemId);
             return modalID;
         },
+        getImageURL(){
+            return (this.imageUrl != null) ? this.imageUrl : "https://via.placeholder.com/100";
+        },
         getNutritionalInfoURL(){
-            if(this.nutritionalInfoUrl != null){
-                return this.nutritionalInfoUrl;
-            }
-            else{
-                return "https://via.placeholder.com/100";
-            }
+            return (this.nutritionalInfoUrl != null) ? this.nutritionalInfoUrl : "https://via.placeholder.com/100";
         }
     },
     created() {
