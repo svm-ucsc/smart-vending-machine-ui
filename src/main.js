@@ -53,35 +53,29 @@ const store = createStore({
             try{
                 await axios.post('http://ec2-54-167-36-58.compute-1.amazonaws.com:3000/order/',
                 
-                    {"machine_id": "string", "items": orderObj, "totalCost": this.subTotal}
+                    {"machine_id": "string", "items": orderObj} //, "totalCost": this.subTotal}
                     // right now the post request will fail because the API cannot handle the subTotal receipt yet
                 )
-
             }catch(e){
-                console.log("Error: Cannot place the order")
+                console.log("Error (main.js): Cannot place the order")
             }
 
-            // TODO:
-            // if API Call is successful:
-            // state.cartInfo = {}; // clear the cart and all information associated with it based on return code
+            // when API Call is successful/working, this will be moved into the try block
+            state.cartInfo = {}; // clear the cart and all information associated with it based on return code
         },
         calculateTotalCost(state){
             let subTotal = 0;
             if (state.cartInfo.length > 0){
-                // calcculate cost of each
-                // console.log("passed stuff is "+JSON.stringify(state.cartInfo))
-                // loop through cartInfo and get quantity and cost and add up total amount:
+                // calculate cost of each element and cart total
                 for(let i=0; i < state.cartInfo.length; ++i){
                     let curQuantity = state.cartInfo[i].quantity;
                     let costPerItem = state.cartInfo[i].itemCost;
                     subTotal += curQuantity * costPerItem;
                 }
-                // console.log("running subtotal is " + subTotal)
             }
-            // store running subtotal in Vuex global store
+            // store running subtotal in a Vuex global store
             this.subTotal = subTotal;
         }
-       
     }
 });
 

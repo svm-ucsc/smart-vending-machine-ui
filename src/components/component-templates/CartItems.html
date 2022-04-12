@@ -19,7 +19,7 @@
             <div class="modal-content CartItems__container">
                 <div class="modal-header">
                 <h5 class="modal-title" id="cartModalTitle">Order Details</h5>
-                    <button type="button" class="CartItems__close" data-bs-dismiss="modal" aria-label="Close"><font-awesome-icon icon="square-xmark" /></button>
+                    <button type="button" class="CartItems__close" data-bs-dismiss="modal" aria-label="Close" @click="backToHome()"><font-awesome-icon icon="square-xmark" /></button>
 
                 </div>
                 <div class="modal-body CartItems__list-wrapper p-0 m-0">
@@ -62,10 +62,10 @@
                             <div class="col CartItems__itemViewScroll">
                                 <h1 class="text-center">Payment successful! {{ placeOrder()}}</h1>
                                 <h2 class="text-center"><font-awesome-icon icon="square-check" class="payment-plugin__checkmark"/></h2>
-                                <p class="text-center">Your payment of {{getTotalAmount(this.$store.state.cartInfo).toString()}} has successfully been sent to the Smart Vending Machine from your wallet.</p>
+                                <p class="text-center">Your payment of {{getTotalAmount(cartReceipt).toString()}} has successfully been sent to the Smart Vending Machine from your wallet.</p>
                                 <div class="CartItems__orderReceipt text-center">Order Details</div>
-                                <div class="row justify-content-center align-items-center p-0 pb-3" v-for="(cartStuff, i) in this.$store.state.cartInfo">
-                                    <hr v-if="i != this.$store.state.cartInfo.length">
+                                <div class="row justify-content-center align-items-center p-0 pb-3" v-for="(cartStuff, i) in cartReceipt">
+                                    <hr v-if="i != cartReceipt.length">
                                     <div class="col-4 text-center">{{ cartStuff.foodName }}</div>
                                     <div class="col-4 text-center">{{cartStuff.quantity + " @ " + costMultiplier(cartStuff.itemCost, 1) + "/each"}}</div>
                                     <div class="col-4 text-center">{{ costMultiplier(cartStuff.itemCost, cartStuff.quantity)}}</div>

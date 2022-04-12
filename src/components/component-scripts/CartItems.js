@@ -6,6 +6,7 @@ export default{
             toggle: false,
             modal_paymentScreen: false,
             modal_pageCount: 0,
+            cartReceipt: []
         }
     },  
     methods: {
@@ -25,11 +26,13 @@ export default{
 
         },
         placeOrder(){
-            // this.$store.commit('sendOrderToDB');
-            this.$store.cartInfo = {};
+            // copy order to a receipt list prior to the reset of content
+            for(let i of this.$store.state.cartInfo){
+                this.cartReceipt.push(i);
+            }
+            this.$store.commit('sendOrderToDB');            
         },
         onSuccess(){
-            // console.log("payment went through");
             this.modal_pageCount++;
 
         },
@@ -48,11 +51,8 @@ export default{
         costMultiplier(itemPrice, quantity){
             let dollars = (itemPrice * quantity)/100;
             dollars = dollars.toLocaleString("en-US", {style:"currency", currency:"USD"});
-            // console.log(`item price passed in: ${itemPrice}`);
             return dollars;
         },
-
-        // Need to pass by reference here,TODO
         getTotalAmount(cartInfo){
             // pass by reference taking local shopping basket and placing in Vuex, then Vuex will globally store the subtotal and then this function will grab a copy of it
             this.$store.commit('calculateTotalCost', cartInfo);
@@ -60,11 +60,14 @@ export default{
             local_subTotal = local_subTotal.toLocaleString("en-US", {style:"currency", currency:"USD"})
             return local_subTotal;
         }
-
-        
-
     },
     mounted: function(){
+        // need arrow operator because the scope of "this" changes otherwise
+        // any time the modal is clicked out of, we reset the modal page counter
+        document.getElementById('cartModalReviewScreen').addEventListener("hidden.bs.modal",() => {
+            this.modal_pageCount = 0;          
+        });
+
         let nextBtn = document.querySelector('.CartItems__nextBtn');        
         if (this.modal_pageCount === 1){
             if(nextBtn){
