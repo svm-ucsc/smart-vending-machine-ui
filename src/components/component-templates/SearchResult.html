@@ -11,7 +11,7 @@
     <div class="SearchResult__container">
         <div class="row SearchResult__row">
             <div class="col-2" style="padding: 0px 5px;">
-                <button class="btn btn-default" data-bs-toggle="modal" data-bs-target="#nutritionalInfoModal" data-backdrop="false">
+                <button class="btn btn-default" data-bs-toggle="modal" :data-bs-target="getModalID()" data-backdrop="false">
                     <img :src="getImageURL()" 
                         class="rounded SearchResult__image"
                         >
@@ -39,4 +39,5 @@
         </div>
     </div>
 </body>
+
 </html>

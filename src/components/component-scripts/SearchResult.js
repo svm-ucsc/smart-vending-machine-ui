@@ -24,6 +24,15 @@ export default{
         async getData() {
             
         },
+        getItemID(){
+            return this.itemId;
+        },
+        getModalID(){
+            const item = this.itemId;
+            const sym = "#"
+            const modalID = sym.concat(item);
+            return modalID;
+        },
         getImageURL(){
             if(this.imageUrl != null){
                 return this.imageUrl;
