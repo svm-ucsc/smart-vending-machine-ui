@@ -9,7 +9,7 @@ import SearchResult from './components/SearchResult.vue';
 import CartItems from './components/CartItems.vue';
 import StoreMenu from './components/StoreMenu.vue';
 import Payment from './components/Payment.vue';
-
+import SimpleKeyboard from "./components/SimpleKeyboard.vue";
 // font awesome icons added
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { fas } from '@fortawesome/free-solid-svg-icons'
