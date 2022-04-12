@@ -7,6 +7,13 @@ import ItemDetail from './components/ItemDetail.vue';
 import SearchBar from './components/SearchBar.vue';
 import CartItems from './components/CartItems.vue';
 import StoreMenu from './components/StoreMenu.vue';
+import Payment from './components/Payment.vue';
+
+// font awesome icons added
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { fas } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+library.add(fas)
 
 const axios = require('axios');
 
@@ -14,7 +21,8 @@ const axios = require('axios');
 const store = createStore({
     state(){
         return{
-            cartInfo: []
+            cartInfo: [],
+            subTotal: Number
         };
     },
  
@@ -30,32 +38,43 @@ const store = createStore({
                 }
             }else{ // empty list condition
                 state.cartInfo.push(data);
-            }           
+            }          
         },
         removeFromCart(state, indexToDelete){
             // data stores the index of where the element is to be removed
-            console.log(`The index requested to delete entry is: ${JSON.stringify(indexToDelete)}`);
             state.cartInfo.splice(indexToDelete,1); // delete 1 element at indexToDelete
         },
         async sendOrderToDB(state){
-            // send the cartInfo
-            console.log(`Cart info: ${state.cartInfo}`)
-            // also need to randomly generate an order number (math.random()...)
+            // send the cartInfo by parsing cartInfo obj and reassigning to id:quantity format        
+            let orderObj = state.cartInfo.reduce(
+                (orderObj, item) => Object.assign(orderObj, { [item.itemId]: item.quantity }), {});
+
+            // need to update this to pass total price amount as well (in cents)
             try{
                 await axios.post('http://ec2-54-167-36-58.compute-1.amazonaws.com:3000/order/',
-                {body:
-                    {
-                        "machine_id": "string",
-                        "items":{
-                            "d016": 2
-                        }
-                    }
-            
-                })
-
+                
+                    {"machine_id": "string", "items": orderObj} //, "totalCost": this.subTotal}
+                    // right now the post request will fail because the API cannot handle the subTotal receipt yet
+                )
             }catch(e){
-                console.log("Error: Cannot place the order")
+                console.log("Error (main.js): Cannot place the order")
             }
+
+            // when API Call is successful/working, this will be moved into the try block
+            state.cartInfo = {}; // clear the cart and all information associated with it based on return code
+        },
+        calculateTotalCost(state){
+            let subTotal = 0;
+            if (state.cartInfo.length > 0){
+                // calculate cost of each element and cart total
+                for(let i=0; i < state.cartInfo.length; ++i){
+                    let curQuantity = state.cartInfo[i].quantity;
+                    let costPerItem = state.cartInfo[i].itemCost;
+                    subTotal += curQuantity * costPerItem;
+                }
+            }
+            // store running subtotal in a Vuex global store
+            this.subTotal = subTotal;
         }
     }
 });
@@ -66,5 +85,7 @@ app.component('ItemDetail', ItemDetail);
 app.component('SearchBar', SearchBar);
 app.component('CartItems', CartItems);
 app.component('StoreMenu', StoreMenu);
+app.component('Payment', Payment);
+app.component('FontAwesomeIcon', FontAwesomeIcon);
 
 app.mount('#app')

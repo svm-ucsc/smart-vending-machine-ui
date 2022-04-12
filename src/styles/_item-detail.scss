@@ -24,12 +24,14 @@
         &:after{
             content: "-";
         }
+        width: 40px;
     }
     .ItemDetail__incBtn{
         background: $summer-tan;
         &:after{
             content:"+";
         }
+        width: 40px;
 
     }
     .ItemDetail__counter{
@@ -38,10 +40,9 @@
         &:after{
             content:" ";
         }
+        width: 40px;
     }
     .ItemDetail__addCart{
         background: $summer-green;
-        font-size: 2vmin;
-        height: 40px;
     }
 }
