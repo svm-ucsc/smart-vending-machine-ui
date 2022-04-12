@@ -1,8 +1,9 @@
 @import "variables";
 .payment-plugin__container{
-    max-height: inherit;
+    max-height: 350px;
     font-family: $font-family;
     padding: 40px;
+    overflow-y: scroll;
 }
 .payment-plugin__checkmark{
     color: green;
