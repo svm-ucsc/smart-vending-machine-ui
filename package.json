@@ -46,7 +46,10 @@
     "parserOptions": {
       "parser": "babel-eslint"
     },
-    "rules": {}
+    "rules": {
+        "indent": 2,
+        "vue/require-explicit-emits": 0
+    }
   },
   "browserslist": [
     "> 1%",

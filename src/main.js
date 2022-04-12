@@ -47,7 +47,7 @@ const store = createStore({
         async sendOrderToDB(state){
             // send the cartInfo by parsing cartInfo obj and reassigning to id:quantity format        
             let orderObj = state.cartInfo.reduce(
-            (orderObj, item) => Object.assign(orderObj, { [item.itemId]: item.quantity }), {});
+                (orderObj, item) => Object.assign(orderObj, { [item.itemId]: item.quantity }), {});
 
             // need to update this to pass total price amount as well (in cents)
             try{
