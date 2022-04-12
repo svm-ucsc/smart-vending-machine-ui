@@ -47,10 +47,6 @@ export default {
         },
         onKeyPress(button) {
             this.$emit("onKeyPress", button);
-
-            /**
-       * If you want to handle the shift and caps lock buttons
-       */
             if (button === "{shift}" || button === "{lock}") this.handleShift();
         },
         handleShift() {
@@ -64,7 +60,3 @@ export default {
     },
 };
 </script>
-
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
-</style>

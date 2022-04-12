@@ -23,7 +23,6 @@ export default {
         },
     },
   
-
     data(){
         return{
             nameIdSet: [] // an array that holds an object. each object holds a foodname and foodID
