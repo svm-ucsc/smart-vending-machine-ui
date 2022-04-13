@@ -8,41 +8,20 @@
 
 </head>
 <body>
-    
     <div class="container ItemDetail__container">
         <div class="row ItemDetail__name">
             <h1 class="col-8 text-center " style="font-size: x-large;">{{ foodName }}</h1>
             <h1 class="col-2 text-center " style="font-size: larger;">${{ itemCost }}</h1>
         </div>
         <div class="row px-auto mx-auto" style="min-width:100px;min-height:100px;">
-            <button class="btn btn-default" data-bs-toggle="modal" data-bs-target="#nutritionalInfoModal">
+            <button class="btn btn-default" data-bs-toggle="modal" :data-bs-target="getModalID()">
                 <img :src="getImageURL()"
                     class="mx-auto px-auto round d-block ItemDetail_image" 
-                    style="width:100%;height:100%;max-width: 200px; max-height: 200px;"
+                    style="width:100%;height:100%;max-width: 200px; min-height: 200px; max-height: 200px;"
                     >
             </button>
-  
-        <!-- Modal -->
-            <div class="modal fade" id="nutritionalInfoModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Nutritional Info</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <img :src="getNutritionalInfoURL()"
-                        v-if="getNutritionalInfoURL() != null"
-                        class="mx-auto px-auto round d-block" 
-                        alt="Nutritional Info Not Available"
-                        style="width:100%;height:100%;"
-                        >
-                        <h3 v-else>Nutritional Information Not Available</h3>
-                    </div>
-                </div>
-                </div>
-            </div>
         </div>
+
         <div class="row pt-1">
             <div class="col">
                 <div class="btn-toolbar justify-content-around" role="toolbar">
@@ -63,4 +42,23 @@
         </div>
     </div>
 </body>
+    <!-- Modal -->
+    <div class="modal fade" :id="getItemID()" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Nutritional Info</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <img :src="getNutritionalInfoURL()"
+                class="mx-auto px-auto round d-block" 
+                alt="Nutritional Info Not Available"
+                style="width:100%;height:100%;"
+                >
+            </div>
+        </div>
+        </div>
+    </div>
+
 </html>

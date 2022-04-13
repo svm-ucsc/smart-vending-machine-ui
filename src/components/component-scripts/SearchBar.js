@@ -2,6 +2,13 @@ import $ from 'jquery'
 import SimpleKeyboard from "../SimpleKeyboard.vue";
 const axios = require('axios');
 export default{
+    props: { 
+        itemId: String,
+        foodName: String,
+        imageUrl: String,
+        nutritionalInfoURL: String,
+        itemCost: Number
+    },
     components:{
         SimpleKeyboard
     },

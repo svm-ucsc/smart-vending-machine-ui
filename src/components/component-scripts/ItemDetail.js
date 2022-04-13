@@ -3,15 +3,14 @@ export default{
         itemId: String,
         foodName: String,
         imageUrl: String,
-        nutritionalInfoURL: String,
+        nutritionalInfoUrl: String,
         itemCost: Number
     },
     data(){
         return{
             data_ready: false,
             item_data: [],
-            quantity: 0,
-            nutritionalInfo: false
+            quantity: 0
         };
     },
     methods: {
@@ -24,29 +23,19 @@ export default{
             
         },
 
-        showNutritionalInfo(){
-            this.nutritionalInfo = true;
+        getItemID(){
+            return this.itemId;
+        },
+        getModalID(){
+            const sym = "#"
+            const modalID = sym.concat(this.itemId);
+            return modalID;
         },
         getImageURL(){
-            if(this.imageUrl != null){
-                return this.imageUrl;
-            }
-            else{
-                var placeholder = "https://via.placeholder.com/100";
-                return placeholder;
-            }
+            return (this.imageUrl != null) ? this.imageUrl : "https://via.placeholder.com/100";
         },
         getNutritionalInfoURL(){
-            if(this.nutritionalInfoURL != null){
-                const placeholder = "https://world.openfoodfacts.org/images/products/002/840/009/0896/nutrition_en.35.full.jpg";
-                return placeholder;
-                //return this.nutritionalInfoURL;
-            }
-            else{
-                // const placeholder = "https://world.openfoodfacts.org/images/products/002/840/009/0896/nutrition_en.35.full.jpg";
-                // return placeholder;
-                return null;
-            }
+            return (this.nutritionalInfoUrl != null) ? this.nutritionalInfoUrl : "https://via.placeholder.com/100";
         }
     },
     created() {

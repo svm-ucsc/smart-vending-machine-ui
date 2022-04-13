@@ -14,7 +14,6 @@
             type="text" 
             placeholder="Tap to Search"
             @keyup="showSearchResults()"
-            @input="searchQuery"
             v-model="searchQuery"
             v-on:click="showSearchInterface()"  
             >
@@ -25,6 +24,9 @@
                     <search-result 
                     :item-id="item.item_id"
                     :food-name="item.name"
+                    :image-url="item.image_url"
+                    :nutritional-info-url="item.nutrition_url"
+                    :item-cost="item.cost"
                     />
                 </div>
                 <div class="SearchBar__notFoundContainer" v-if="0 >= filteredItems.length">
