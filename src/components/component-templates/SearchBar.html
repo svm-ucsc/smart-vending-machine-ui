@@ -30,8 +30,15 @@
                     />
                 </div>
                 <div class="SearchBar__notFoundContainer" v-if="0 >= filteredItems.length">
-                    <h1>Item not found.</h1>
-                    <button type="button" class="btn btn-link SearchBar__checkAvailability" data-bs-toggle="modal" data-bs-target="#checkAvailabilityModal">Check nearby machines</button> 
+                    <h1 style=" margin-top:50px; text-align: center;">{{searchQuery}} not found.</h1>
+                    <div
+                    style="display:flex;justify-content: center;align-items: center; margin-top: 20px;">
+                      <button type="button" 
+                      class="btn btn-link SearchBar__checkAvailability"
+                      style="text-align: center;"
+                      data-bs-toggle="modal" 
+                      data-bs-target="#checkAvailabilityModal">Check nearby machines</button> 
+                    </div>
                 </div>
                 <div class="keyboard">
                     <SimpleKeyboard layout="default" @onChange="onChange" @onKeyPress="onKeyPress" :input="searchQuery"/>
