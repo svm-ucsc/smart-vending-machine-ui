@@ -11,13 +11,13 @@ img{
     background: #f7f6f6;
     margin: auto;
     padding: auto;
-    min-height: 125px;
+    min-height: 93px;
     display: flex;
     justify-content: center;
     align-items: center;
 
     .SearchResult__name{
-        font-family: $font-family-bold;
+        font-family: $font-family;
         font-size: 160%;
         display: flex;
         align-items: center;
@@ -57,12 +57,14 @@ img{
         &:after{
             content: "-";
         }
+        width: 40px;
     }
     .SearchResult__incBtn{
         background: $summer-tan;
         &:after{
             content:"+";
         }
+        width: 40px;
 
     }
     .SearchResult__counter{
@@ -71,11 +73,11 @@ img{
         &:after{
             content:" ";
         }
+        width: 40px;
     }
     .SearchResult__addCart{
         background: $summer-green;
-        font-size: 2vmin;
-        height: 40px;
+        margin-left:75%;
     }
 
     .btn-col{

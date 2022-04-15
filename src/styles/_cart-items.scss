@@ -1,9 +1,14 @@
 @import "variables"; // DO NOT REMOVE THIS LINE OR SCSS WILL NOT WORK!
 
+    .CartItems__btn_container{
+        background: $summer-yellow;
+        min-height: 109px;
+        padding: 15px 0px 15px 0px;
+    }
+
     .CartItems__container{
         border-radius: $card-radius;
         box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
-        font-family: $font-family;
     }
     
     .CartItems__list-entry{
@@ -26,7 +31,7 @@
         height: 60px;
         border-radius: $button-radius;
         font-family: $font-family;
-        font-size: x-large;
+        font-size: xx-large;
     }
 
     .CartItems__collapseStyleBtn{

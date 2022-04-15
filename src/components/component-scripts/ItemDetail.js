@@ -4,7 +4,8 @@ export default{
         foodName: String,
         imageUrl: String,
         nutritionalInfoUrl: String,
-        itemCost: Number
+        itemCost: Number,
+        price: String
     },
     data(){
         return{
@@ -15,12 +16,16 @@ export default{
     },
     methods: {
         updateCartCounter(){
-            this.$store.commit('insertToCart', {foodName: this.foodName, itemId: this.itemId, quantity: this.quantity, itemCost: this.itemCost});
+            this.$store.commit('insertToCart', 
+                {foodName: this.foodName, 
+                    itemId: this.itemId, 
+                    quantity: this.quantity, 
+                    itemCost: this.itemCost});
             this.quantity = 0; // reset counter to 0 for UX functionality
         },  
 
         async getData() {
-            
+
         },
 
         getItemID(){
@@ -36,9 +41,14 @@ export default{
         },
         getNutritionalInfoURL(){
             return (this.nutritionalInfoUrl != null) ? this.nutritionalInfoUrl : "https://via.placeholder.com/100";
+        },
+        formatCost(){
+            let temp = (this.itemCost)/100;
+            return temp.toLocaleString("en-US", {style:"currency", currency:"USD"});
         }
     },
     created() {
+        // this.price = this.itemCost.toLocaleString("en-US", {style:"currency", currency:"USD"});
         this.getData();
     },
 };
