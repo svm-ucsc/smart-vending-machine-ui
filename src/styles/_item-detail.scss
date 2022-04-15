@@ -9,6 +9,7 @@
     box-shadow: $component-shadow;
     padding-bottom: 5%;
     padding-top: 5%;
+    color: rgb(0, 0, 0);
     .ItemDetail_name{
         font-family: $font-family;
         font-weight: 700;
@@ -34,7 +35,7 @@
     .ItemDetail__decBtn{
         background: $summer-tan;        
         &:after{
-            content: "-";
+            content: "−";
         }
         width: 40px;
     }
