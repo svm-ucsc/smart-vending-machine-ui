@@ -6,8 +6,11 @@
     </div>
 
     <!-- Shopping Cart Component -->
-    <div class="row p-0 m-0">
-      <cart-items id="show-cart" />
+    <div class="row p-0 m-0 ">
+      <cart-items
+        id="show-cart"
+        class="p-0 m-0"
+      />
     </div>
   </div>
 </template>

@@ -1,14 +1,14 @@
 @import "variables";
 
 .SearchBar__container{
-    background: $summer-blue;
+    background: $summer-yellow;
     justify-content: center;
     position: relative;
     width: 100%;
     min-height: 75px;
     margin: 0 0;
     padding: 2% 2%;
-    box-shadow: 0px 5px 10px -5px #111; 
+    border: 1px solid $summer-yellow;
     
     .SearchBar__border{
         justify-content: center;
@@ -16,6 +16,8 @@
 
     .SearchBar__bar{
         font-family: $font-family;
+        background: white;
+        border: 3px solid rgb(197, 197, 197);
         min-height: 45px;
         justify-content: center;
         text-align: center;

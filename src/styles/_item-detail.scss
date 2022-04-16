@@ -1,4 +1,8 @@
 @import "variables"; // DO NOT REMOVE THIS LINE OR SCSS WILL NOT WORK!
+
+body{
+    border-radius: 30px;
+}
 .btn:focus {
     outline: none;
     box-shadow: none;
@@ -12,7 +16,7 @@
     color: rgb(0, 0, 0);
     .ItemDetail_name{
         font-family: $font-family;
-        font-weight: 700;
+        font-weight: 400;
         font-size: medium;
         padding: 10px 0px 0px 0px;
     }
