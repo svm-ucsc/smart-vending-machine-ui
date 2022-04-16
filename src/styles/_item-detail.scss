@@ -14,11 +14,13 @@ body{
     padding-bottom: 5%;
     padding-top: 5%;
     color: rgb(0, 0, 0);
+    text-align: left;
     .ItemDetail_name{
         font-family: $font-family;
         font-weight: 400;
         font-size: medium;
         padding: 10px 0px 0px 0px;
+        
     }
     a{
         padding: 2% 2% 2% 2%;

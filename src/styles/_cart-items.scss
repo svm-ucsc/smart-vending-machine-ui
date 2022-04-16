@@ -1,12 +1,12 @@
 @import "variables"; // DO NOT REMOVE THIS LINE OR SCSS WILL NOT WORK!
-
     .CartItems__btn_container{
         background: $summer-yellow;
-        min-height: 75px;
-        padding: 0px 10px 0px 10px;
+        min-height: 104px;
+        padding: 0px 0px 0px 0px;
         display: flex;
         justify-content: center;
         align-items: center;
+        border:1px solid $summer-yellow; 
     }
 
     .CartItems__container{
@@ -27,15 +27,63 @@
         border-radius: $button-radius;
     }
 
-    .CartItems__review-order-btn{
-        background: $summer-blue;
+    .CartItems__review-order-bar{
+        background: $summer-creme;
         color: white;
         width: 100%;
-        height: 75px;
-        border-radius: 20px;
+        height: 104px;
         font-family: $font-family;
         font-weight: 400;
         font-size: 275%;
+    }
+
+    .btn-circle.btn-xl {
+        width: 160px;
+        height: 160px;
+        border-radius: 80px;
+    }
+    
+    .btn-circle {
+        width: 30px;
+        height: 30px;
+        padding: 6px 0px;
+        border-radius: 15px;
+        text-align: center;
+        font-size: 12px;
+        line-height: 1.42857;
+    }
+
+    
+    .CartItems__review-order-btn{
+        font-size: 190%;
+        text-align: center;
+        position: relative;
+        margin-top:-12%;
+        margin-left:8%;
+        margin-right:7%;
+    }
+
+    .CartItems__help-btn{
+        position:relative;
+        background-color: $summer-creme;
+        border: 1px solid $summer-creme;
+        margin-bottom:0px !important;
+        margin-left: 7% !important;
+        margin-right: 5% !important;
+        height: 80px;
+        font-size: 150%;
+        color: rgb(212, 215, 219);
+    }
+
+    .CartItems__info-btn{
+        position:relative;
+        background-color: $summer-creme;
+        border: 1px solid $summer-creme;
+        height: 80px;
+        font-size: 150%;
+        margin-left: 5%;
+        margin-right: 5%;
+        color: rgb(212, 215, 219);
     }
 
     .CartItems__collapseStyleBtn{

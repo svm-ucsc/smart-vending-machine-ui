@@ -10,9 +10,30 @@
     
     <!-- Button trigger modal -->
         <div class="CartItems__btn_container">
-            <button type="button" class="button btn CartItems__review-order-btn p-0 m-0 text-center" data-bs-toggle="modal" data-bs-target="#cartModalReviewScreen">
-                Review Order  <font-awesome-icon icon="cart-arrow-down" />
-            </button>
+            <div class="CartItems__review-order-bar p-0 m-0 text-center">
+                <div class="row m-0" style="padding: 0px 2% 0px 2%;">
+                    <button type="button" 
+                    class=" col-2 btn btn-primary btn-xl CartItems__help-btn p-0 m-0" 
+                    data-bs-toggle="modal" 
+                    data-bs-target="#cartModalHelpScreen">
+                        <font-awesome-icon icon="circle-question"/>
+                    </button>
+                    <button type="button" 
+                    class="col-2 btn btn-primary btn-circle btn-xl CartItems__review-order-btn" 
+                    data-bs-toggle="modal" 
+                    data-bs-target="#cartModalReviewScreen">
+                        <font-awesome-icon icon="cart-arrow-down" style="margin-right:10px;margin-left:0px;"/>
+                    </button>
+                    <button type="button" 
+                    class="col-2 btn btn-primary btn-xl CartItems__info-btn" 
+                    data-bs-toggle="modal" 
+                    data-bs-target="#cartModalInfoScreen">
+                        <font-awesome-icon icon="circle-info" style="margin-bottom:5px;"/>
+                    </button>
+                </div>
+                
+            </div>
+            
         </div>
         
         <!-- Modal 1 -->
