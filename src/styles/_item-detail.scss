@@ -17,7 +17,7 @@ body{
     text-align: left;
     .ItemDetail_name{
         font-family: $font-family;
-        font-weight: 400;
+        font-weight: 700;
         font-size: medium;
         padding: 10px 0px 0px 0px;
         
@@ -36,17 +36,18 @@ body{
         justify-content: center;
         align-content: center;
         margin-top: 3%;
+        font-weight: 700;   
     }
 
     .ItemDetail__decBtn{
-        background: $summer-tan;        
+        background: $summer-lightblue;     
         &:after{
             content: "−";
         }
         width: 40px;
     }
     .ItemDetail__incBtn{
-        background: $summer-tan;
+        background: $summer-lightblue;
         &:after{
             content:"+";
         }
@@ -54,7 +55,7 @@ body{
 
     }
     .ItemDetail__counter{
-        background: $summer-purple;
+        background: $summer-creme;
         text-decoration: none;
         &:after{
             content:" ";
@@ -62,6 +63,7 @@ body{
         width: 40px;
     }
     .ItemDetail__addCart{
-        background: $summer-green;
+        background: $summer-yellow;
+        color: rgb(49, 49, 49);
     }
 }

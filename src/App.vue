@@ -19,7 +19,7 @@
   @import'~bootstrap/dist/css/bootstrap.css';
   @import'../src/styles/_variables.scss';
   .app_container{
-    background: $summer-yellow;
+    background: $summer-white;
     height: 100%;
     width: 100%;
     scrollbar-width: 5px;

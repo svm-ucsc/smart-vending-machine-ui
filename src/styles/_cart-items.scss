@@ -1,12 +1,12 @@
 @import "variables"; // DO NOT REMOVE THIS LINE OR SCSS WILL NOT WORK!
     .CartItems__btn_container{
-        background: $summer-yellow;
+        background: $summer-white;
         min-height: 104px;
         padding: 0px 0px 0px 0px;
         display: flex;
         justify-content: center;
         align-items: center;
-        border:1px solid $summer-yellow; 
+        border:1px solid $summer-white; 
     }
 
     .CartItems__container{
@@ -52,7 +52,24 @@
         font-size: 12px;
         line-height: 1.42857;
     }
-
+    .btn-secondary{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .btn-secondary:focus{
+        background-color: $summer-creme !important; /* add here any color */
+        color: rgb(182, 185, 188);
+        border: 1px solid $summer-creme;
+    }
+    .btn-secondary:active{
+        background-color: $summer-creme !important; /* add here any color */
+        color: rgb(182, 185, 188);
+    }
+    .btn-secondary:active:focus {
+        background-color: $summer-creme !important; /* add here any color */
+        color: rgb(182, 185, 188);
+    }
     
     .CartItems__review-order-btn{
         font-size: 190%;
@@ -68,11 +85,11 @@
         background-color: $summer-creme;
         border: 1px solid $summer-creme;
         margin-bottom:0px !important;
-        margin-left: 7% !important;
+        margin-left: 5% !important;
         margin-right: 5% !important;
         height: 80px;
         font-size: 150%;
-        color: rgb(212, 215, 219);
+        color: rgb(182, 185, 188);
     }
 
     .CartItems__info-btn{
@@ -83,7 +100,7 @@
         font-size: 150%;
         margin-left: 5%;
         margin-right: 5%;
-        color: rgb(212, 215, 219);
+        color: rgb(182, 185, 188);
     }
 
     .CartItems__collapseStyleBtn{
@@ -123,7 +140,7 @@
     }
 
     .CartItems__decBtn{
-        background: $summer-tan;        
+        background: $summer-lightblue;        
         &:after{
             content: "-";
         }
@@ -131,7 +148,7 @@
     }
 
     .CartItems__incBtn{
-        background: $summer-tan;
+        background: $summer-lightblue;
         &:after{
             content:"+";
         }

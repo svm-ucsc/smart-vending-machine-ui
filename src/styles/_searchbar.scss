@@ -1,14 +1,14 @@
 @import "variables";
 
 .SearchBar__container{
-    background: $summer-yellow;
+    background: $summer-white;
     justify-content: center;
     position: relative;
     width: 100%;
     min-height: 75px;
     margin: 0 0;
     padding: 2% 2%;
-    border: 1px solid $summer-yellow;
+    border: 1px solid $summer-white;
     
     .SearchBar__border{
         justify-content: center;

@@ -37,8 +37,7 @@ export default{
             return modalID;
         },
         getImageURL(){
-            return (this.imageUrl != null) ? "https://via.placeholder.com/100?text=Image" : "https://via.placeholder.com/100";
-            // return (this.imageUrl != null) ? this.imageUrl : "https://via.placeholder.com/100";
+            return (this.imageUrl != null) ? this.imageUrl : "https://via.placeholder.com/100";
         },
         getNutritionalInfoURL(){
             return (this.nutritionalInfoUrl != null) ? this.nutritionalInfoUrl : "https://via.placeholder.com/100";
