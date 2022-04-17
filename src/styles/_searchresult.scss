@@ -8,7 +8,7 @@ img{
     margin: 0px 3% 0px 3%;
 }
 .SearchResult__container{
-    background: #f7f6f6;
+    background: $summer-creme;
     margin: auto;
     padding: auto;
     min-height: 93px;
@@ -23,7 +23,7 @@ img{
         align-items: center;
     }
     .SearchResult__results{
-        background: #f7f6f6;
+        background: $summer-creme;
         font-size:x-large;
         margin: 0px 0px;
         padding: 0 1% 0 6%;
@@ -53,14 +53,14 @@ img{
     }
 
     .SearchResult__decBtn{
-        background: $summer-tan;        
+        background: $summer-lightblue;        
         &:after{
             content: "-";
         }
         width: 40px;
     }
     .SearchResult__incBtn{
-        background: $summer-tan;
+        background: $summer-lightblue;
         &:after{
             content:"+";
         }
@@ -68,7 +68,7 @@ img{
 
     }
     .SearchResult__counter{
-        background: $summer-purple;
+        background: $summer-creme;
         text-decoration: none;
         &:after{
             content:" ";
@@ -76,7 +76,8 @@ img{
         width: 40px;
     }
     .SearchResult__addCart{
-        background: $summer-green;
+        background: $summer-yellow;
+        color: white;
         margin-left:75%;
     }
 

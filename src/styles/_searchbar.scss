@@ -8,7 +8,6 @@
     min-height: 75px;
     margin: 0 0;
     padding: 2% 2%;
-    border: 1px solid $summer-white;
     
     .SearchBar__border{
         justify-content: center;
@@ -37,7 +36,7 @@
     }
 
     .SearchBar__resultsbox{
-        background: #f7f6f6;
+        background: $summer-creme;
         position: fixed;
         z-index: 1;
         top: 76px;
@@ -54,7 +53,7 @@
         margin-bottom:0%;
     }
     .SearchBar__results{
-        background: #f7f6f6;
+        background: $summer-creme;
         font-size:x-large;
         margin: 0px 0px;
         padding: 1% 0;
