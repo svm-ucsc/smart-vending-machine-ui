@@ -45,6 +45,7 @@ body{
             content: "−";
         }
         width: 40px;
+        border-radius: 20px;
     }
     .ItemDetail__incBtn{
         background: $summer-lightblue;
@@ -52,7 +53,7 @@ body{
             content:"+";
         }
         width: 40px;
-
+        border-radius: 20px;
     }
     .ItemDetail__counter{
         background: $summer-creme;
@@ -65,5 +66,11 @@ body{
     .ItemDetail__addCart{
         background: $summer-yellow;
         color: rgb(255, 255, 255);
+        border-radius: 20px;
+        font-size: 120%;
+    }
+    .btn-group-cart{
+        margin-left: 5%;
+        width: 30%;
     }
 }
