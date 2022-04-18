@@ -19,8 +19,8 @@ body::-webkit-scrollbar-thumb {
 .StoreMenu__row-box{
     background: $summer-white;
     overflow-y: scroll;
-    min-height: 837px;
-    max-height: 837px;
+    min-height: 834px;
+    max-height: 834px;
     margin-left: -2%;
     margin-right: -2%;
 }
@@ -46,7 +46,7 @@ body::-webkit-scrollbar-thumb {
     background-color: $summer-white;
     overflow-x: scroll;
     flex-wrap: nowrap;
-    padding: 4% 4% 4% 4%;
+    padding: 2% 4% 4% 4%;
     margin: 0px 0px;
     width: 100%;
 }
