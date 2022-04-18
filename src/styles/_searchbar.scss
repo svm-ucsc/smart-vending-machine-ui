@@ -8,6 +8,7 @@
     min-height: 75px;
     margin: 0 0;
     padding: 2% 2%;
+    border: 1px solid $summer-white;
     
     .SearchBar__border{
         justify-content: center;
@@ -62,8 +63,11 @@
     .SearchBar__btnClose{
         color: red;
         display: none;
+        position: relative;
+        right: 10px;
         width: 25px;
         margin-right: 2%;
+        font-size: 170%;
     }
     .keyboard{
         position: fixed;
