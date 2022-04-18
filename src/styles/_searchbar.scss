@@ -1,7 +1,7 @@
 @import "variables";
 
 .SearchBar__container{
-    background: $summer-creme;
+    background: $summer-white;
     justify-content: center;
     position: relative;
     width: 100%;
@@ -37,7 +37,7 @@
     }
 
     .SearchBar__resultsbox{
-        background: $summer-creme;
+        background: $summer-white;
         position: fixed;
         z-index: 1;
         top: 76px;
@@ -54,7 +54,7 @@
         margin-bottom:0%;
     }
     .SearchBar__results{
-        background: $summer-creme;
+        background: $summer-white;
         font-size:x-large;
         margin: 0px 0px;
         padding: 1% 0;
