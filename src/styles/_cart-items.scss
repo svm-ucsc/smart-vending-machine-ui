@@ -38,9 +38,9 @@
     }
 
     .btn-circle.btn-xl {
-        width: 130px;
-        height: 130px;
-        border-radius: 65px;
+        width: 150px;
+        height: 150px;
+        border-radius: 75px;
     }
     
     .btn-circle {
@@ -72,12 +72,12 @@
     }
     
     .CartItems__review-order-btn{
-        font-size: 160%;
+        font-size: 190%;
         text-align: center;
         position: relative;
         margin-top:-12%;
-        margin-left: 5%;
-        margin-right: 5%;
+        margin-left:8%;
+        margin-right:7%;
     }
 
     .CartItems__help-btn{
@@ -85,6 +85,8 @@
         background-color: $summer-creme;
         border: 1px solid $summer-creme;
         margin-bottom:0px !important;
+        margin-left: 5% !important;
+        margin-right: 5% !important;
         height: 80px;
         font-size: 150%;
         color: rgb(182, 185, 188);
@@ -96,6 +98,8 @@
         border: 1px solid $summer-creme;
         height: 80px;
         font-size: 150%;
+        margin-left: 5% !important;
+        margin-right: 5% !important;
         color: rgb(182, 185, 188);
     }
 
