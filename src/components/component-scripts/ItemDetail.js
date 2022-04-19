@@ -24,9 +24,7 @@ export default{
             this.quantity = 0; // reset counter to 0 for UX functionality
         },  
 
-        async getData() {
-
-        },
+        async getData() {},
 
         getItemID(){
             return this.itemId;
@@ -48,7 +46,6 @@ export default{
         }
     },
     created() {
-        // this.price = this.itemCost.toLocaleString("en-US", {style:"currency", currency:"USD"});
         this.getData();
     },
 };
