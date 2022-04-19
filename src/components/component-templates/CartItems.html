@@ -61,7 +61,7 @@
                                 <div class="row CartItems__list-entry justify-content-center align-items-center" v-for="(cartStuff, i) in this.$store.state.cartInfo">
                                     
                                     <!-- make this a button group -->
-                                    <div class="col-4">
+                                    <div class="col-4" style="padding-left:0;">
                                         <div class="btn-group" role="group">
                                             <button type="button" class="btn CartItems__decBtn" v-if="(cartStuff.quantity)>0" @click="(cartStuff.quantity)--"></button>
                                             <button type="button" class="btn CartItems__decBtn disabled" v-else></button>

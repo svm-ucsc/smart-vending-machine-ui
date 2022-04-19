@@ -17,7 +17,7 @@
         background: #f7f6f6;
         box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
         font-size: large;
-        margin: 5px 0px;  
+        margin: 0% 0px;  
         border-radius: $card-radius;
         font-family: $font-family;
     }
@@ -129,6 +129,8 @@
     .CartItems__itemViewScroll{
       overflow-y:scroll;
       max-height: 290px;
+      padding-top: 3%;
+      padding-bottom: 3%;
     }
 
     .CartItems__placeOrderBtn{
@@ -151,6 +153,7 @@
             content: "-";
         }
         width: 40px;
+        border-radius: 20px;
     }
 
     .CartItems__incBtn{
@@ -159,6 +162,7 @@
             content:"+";
         }
         width: 40px;
+        border-radius: 20px;
     }
 
     .CartItems__counter{
