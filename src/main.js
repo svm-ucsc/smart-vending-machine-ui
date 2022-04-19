@@ -2,7 +2,6 @@ import { createApp} from 'vue'
 import { createStore} from 'vuex'
 import App from './App.vue'
 import 'bootstrap'
-// import $ from 'jquery'
 import ItemDetail from './components/ItemDetail.vue';
 import SearchBar from './components/SearchBar.vue';
 import SearchResult from './components/SearchResult.vue';
@@ -10,7 +9,6 @@ import CartItems from './components/CartItems.vue';
 import StoreMenu from './components/StoreMenu.vue';
 import Payment from './components/Payment.vue';
 import SimpleKeyboard from "./components/SimpleKeyboard.vue";
-// font awesome icons added
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { fas } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'

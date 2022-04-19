@@ -1,8 +1,11 @@
 <template>
   <div class="container-fluid app_container">
+    <!-- Search Bar Component -->
     <div class="row px-auto mx-auto">
       <search-bar />
     </div>
+
+    <!-- Menu Component -->
     <div class="row p-0 mx-auto">
       <store-menu />
     </div>
