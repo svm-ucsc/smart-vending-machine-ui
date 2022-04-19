@@ -1,5 +1,5 @@
 import $ from 'jquery'
-
+const axios = require('axios');
 export default{
     data() {
         return{
@@ -59,6 +59,19 @@ export default{
             let local_subTotal = (this.$store.subTotal)/100;
             local_subTotal = local_subTotal.toLocaleString("en-US", {style:"currency", currency:"USD"})
             return local_subTotal;
+        },
+        async demoOrder(){
+            try{
+                let orderObj = {itemId: 'd016', quantity: '2'}
+                console.log(orderObj)
+                await axios.post('http://ec2-54-167-36-58.compute-1.amazonaws.com:3000/order/',
+                
+                    {"machine_id": "pi1", "items": orderObj} //, "totalCost": this.subTotal}
+                    // right now the post request will fail because the API cannot handle the subTotal receipt yet
+                )
+            }catch(e){
+                console.log("Error (main.js): Cannot place the order")
+            }
         }
     },
     mounted: function(){

@@ -8,10 +8,16 @@
 </head>
 <body>
     
-    <!-- Button trigger modal -->
-        <button type="button" class="btn CartItems__review-order-btn p-0 m-0 text-center" data-bs-toggle="modal" data-bs-target="#cartModalReviewScreen">
-            Review Order
-        </button>
+        <!-- Button trigger modal -->
+        <div class="row demo_row">
+            <button type="button" class="col-2 demo_btn btn text-center" @click="demoOrder()">
+                Demo Order
+            </button>
+            <button type="button" class="col-2 btn CartItems__review-order-btn p-0 m-0 text-center" data-bs-toggle="modal" data-bs-target="#cartModalReviewScreen">
+                Review Order
+            </button>
+        </div>
+        
   
         <!-- Modal 1 -->
         <div class="modal fade" id="cartModalReviewScreen" tabindex="-1" role="dialog" aria-labelledby="cartModalCenterTitle" aria-hidden="true">
