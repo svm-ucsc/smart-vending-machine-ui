@@ -38,9 +38,9 @@
     }
 
     .btn-circle.btn-xl {
-        width: 150px;
-        height: 150px;
-        border-radius: 75px;
+        width: 250px;
+        height: 80px;
+        border-radius: 30px;
     }
     
     .btn-circle {
@@ -72,12 +72,12 @@
     }
     
     .CartItems__review-order-btn{
-        font-size: 170%;
+        font-size: 125%;
         text-align: center;
         position: relative;
-        margin-top:-12%;
-        margin-left:8%;
-        margin-right:7%;
+        padding-right:2.5%;
+        margin-left: 1%;
+        margin-right: 1%;
     }
 
     .CartItems__help-btn{
@@ -85,10 +85,11 @@
         background-color: $summer-creme;
         border: 1px solid $summer-creme;
         margin-bottom:0px !important;
-        margin-left: 5% !important;
-        margin-right: 5% !important;
+        margin-top: 2% !important;
+        margin-left: 3% !important;
+        margin-right: 7% !important;
         height: 80px;
-        font-size: 150%;
+        font-size: 105%;
         color: rgb(182, 185, 188);
     }
 
@@ -97,10 +98,15 @@
         background-color: $summer-creme;
         border: 1px solid $summer-creme;
         height: 80px;
-        font-size: 150%;
-        margin-left: 5% !important;
-        margin-right: 5% !important;
+        font-size: 105%;
+        margin-top: 2% !important;
+        margin-left: 7% !important;
+        margin-right: 3% !important;
         color: rgb(182, 185, 188);
+    }
+
+    .CartItems__btn_text{
+        font-size: 40%;
     }
 
     .CartItems__collapseStyleBtn{

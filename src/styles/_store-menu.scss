@@ -1,4 +1,7 @@
 @import "variables";
+html{
+    padding:0 !important;
+}
 
 body::-webkit-scrollbar {
     width: 5px;               /* width of the entire scrollbar */
@@ -19,10 +22,8 @@ body::-webkit-scrollbar-thumb {
 .StoreMenu__row-box{
     background: $summer-white;
     overflow-y: scroll;
-    min-height: 834px;
-    max-height: 834px;
-    margin-left: -2%;
-    margin-right: -2%;
+    min-height: 837px;
+    max-height: 837px;
 }
 
 .StoreMenu__row-box::-webkit-scrollbar {
