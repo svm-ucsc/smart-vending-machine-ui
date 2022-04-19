@@ -8,8 +8,10 @@
 
 </head>
 <body>
+    <!-- SearchResult Query Container  -->
     <div class="SearchResult__container">
         <div class="row SearchResult__row">
+            <!-- SearchResult Item Image / Nutritional Info Button  -->
             <div class="col-2" style="padding: 0px 5px;">
                 <button class="btn btn-default" data-bs-toggle="modal" :data-bs-target="getModalID()" data-backdrop="false">
                     <img :src="getImageURL()" 
@@ -17,7 +19,9 @@
                         >
                 </button>    
             </div>
+            <!-- SearchResult Item Name  -->
             <div class="col-4 SearchResult__name">{{ foodName }}</div>
+            <!-- SearchResult Item Cart Buttons  -->
             <div class="col SearchResult__container">
                 <div class="btn-toolbar justify-content-around" role="toolbar">
                     <div class="btn-group" role="group" aria-label="first group">

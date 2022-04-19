@@ -6,17 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
-
     <div class="payment-plugin__container modal-split">
         <div v-if="!paidFor">
           <h4 class="text-center">Please Select Your Method of Payment</h4>
-          
         </div>
-    
         <div v-if="paidFor">
         </div>
-    
         <div ref="paypal" v-if="!paidFor" />
       </div>
-
 </html>

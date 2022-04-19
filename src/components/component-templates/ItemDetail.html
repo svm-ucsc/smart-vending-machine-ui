@@ -8,8 +8,10 @@
 
 </head>
 <body>
+    <!-- Item Cart -->
     <div class="container ItemDetail__container">
         <div class="row px-auto mx-auto" style="min-width:100px;min-height:100px;">
+            <!-- Item Image / Nutritional Info Button -->
             <button class="btn btn-default" data-bs-toggle="modal" :data-bs-target="getModalID()">
                 <img :src="getImageURL()"
                     class="mx-auto px-auto round d-block ItemDetail_image" 
@@ -17,10 +19,12 @@
                     >
             </button>
         </div>
+        <!-- Item Name & Price -->
         <div class="row ItemDetail__name">
             <h1 class="col-7 text-left " style="font-size: x-large;">{{ foodName }}</h1>
             <h1 class="col-2 text-left " style="font-size: larger;">{{ formatCost() }}</h1>
         </div>
+        <!-- Item Cart Functionality -->
         <div class="row pt-1">
             <div class="col">
                 <div class="btn-toolbar justify-content-around" role="toolbar">
