@@ -1,205 +1,152 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-  </head>
-  <body>
+</head>
+
+<body>
     <!-- Button trigger modal -->
-    <button
-      type="button"
-      class="btn CartItems__review-order-btn p-0 m-0 text-center"
-      data-bs-toggle="modal"
-      data-bs-target="#cartModalReviewScreen"
-    >
-      Review Order
+    <button type="button" class="btn CartItems__review-order-btn p-0 m-0 text-center" data-bs-toggle="modal"
+        data-bs-target="#cartModalReviewScreen">
+        Review Order
     </button>
 
     <!-- Modal 1 -->
-    <div
-      class="modal fade"
-      id="cartModalReviewScreen"
-      tabindex="-1"
-      role="dialog"
-      aria-labelledby="cartModalCenterTitle"
-      aria-hidden="true"
-    >
-      <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content CartItems__container">
-          <div class="modal-header">
-            <h5 class="modal-title" id="cartModalTitle">Order Details</h5>
-            <button
-              type="button"
-              class="CartItems__close"
-              data-bs-dismiss="modal"
-              aria-label="Close"
-              @click="backToHome()"
-            >
-              <font-awesome-icon icon="square-xmark" />
-            </button>
-          </div>
-          <div class="modal-body CartItems__list-wrapper p-0 m-0">
-            <!-- First Modal: Shows items in cart -->
-            <div class="modal-split" v-if="modal_pageCount === 0">
-              <div
-                class="row justify-content-center"
-                v-if="this.$store.state.cartInfo.length === 0"
-              >
-                Your cart is empty.
-              </div>
-              <div class="row p-0 m-0" v-else>
-                <div class="col align-items-center CartItems__itemViewScroll">
-                  <div
-                    class="row CartItems__list-entry justify-content-center align-items-center"
-                    v-for="(cartStuff, i) in this.$store.state.cartInfo"
-                  >
-                    <!-- make this a button group -->
-                    <div class="col-4">
-                      <div class="btn-group" role="group">
-                        <button
-                          type="button"
-                          class="btn CartItems__decBtn"
-                          v-if="(cartStuff.quantity)>0"
-                          @click="(cartStuff.quantity)--"
-                        ></button>
-                        <button
-                          type="button"
-                          class="btn CartItems__decBtn disabled"
-                          v-else
-                        ></button>
-                        <button
-                          type="button"
-                          class="btn CartItems__counter"
-                          id="ItemDetail-count"
-                        >
-                          {{ cartStuff.quantity }}
-                        </button>
-                        <button
-                          type="button"
-                          class="btn CartItems__incBtn"
-                          @click="(cartStuff.quantity)++"
-                        ></button>
-                      </div>
-                    </div>
-
-                    <div class="col-3 text-center">
-                      {{ cartStuff.foodName }}
-                    </div>
-                    <!-- will need to adjust this for amounts > 1 dollar -->
-                    <div class="col-3 text-left">
-                      {{ costMultiplier(cartStuff.itemCost,
-                      cartStuff.quantity)}}
-                    </div>
-
-                    <div class="col-2">
-                      <button
-                        type="button"
-                        class="btn"
-                        @click="this.$store.commit('removeFromCart', i)"
-                      >
-                        <font-awesome-icon icon="trash-can" />
-                      </button>
-                    </div>
-                  </div>
+    <div class="modal fade" id="cartModalReviewScreen" tabindex="-1" role="dialog"
+        aria-labelledby="cartModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content CartItems__container">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="cartModalTitle">Order Details</h5>
+                    <button type="button" class="CartItems__close" data-bs-dismiss="modal" aria-label="Close"
+                        @click="backToHome()">
+                        <font-awesome-icon icon="square-xmark" />
+                    </button>
                 </div>
-              </div>
-            </div>
+                <div class="modal-body CartItems__list-wrapper p-0 m-0">
+                    <!-- First Modal: Shows items in cart -->
+                    <div class="modal-split" v-if="modal_pageCount === 0">
+                        <div class="row justify-content-center" v-if="this.$store.state.cartInfo.length === 0">
+                            Your cart is empty.
+                        </div>
+                        <div class="row p-0 m-0" v-else>
+                            <div class="col align-items-center CartItems__itemViewScroll">
+                                <div class="row CartItems__list-entry justify-content-center align-items-center"
+                                    v-for="(cartStuff, i) in this.$store.state.cartInfo">
+                                    <!-- make this a button group -->
+                                    <div class="col-4">
+                                        <div class="btn-group" role="group">
+                                            <button type="button" class="btn CartItems__decBtn"
+                                                v-if="(cartStuff.quantity)>0" @click="(cartStuff.quantity)--"></button>
+                                            <button type="button" class="btn CartItems__decBtn disabled"
+                                                v-else></button>
+                                            <button type="button" class="btn CartItems__counter" id="ItemDetail-count">
+                                                {{ cartStuff.quantity }}
+                                            </button>
+                                            <button type="button" class="btn CartItems__incBtn"
+                                                @click="(cartStuff.quantity)++"></button>
+                                        </div>
+                                    </div>
 
-            <!-- Insert New Modal Here for validation loading screen (page count is 1.5) -->
-            <!-- loading screen logic -->
-            <!-- Second Modal: Paypal Component here -->
-            <div class="modal-split" v-if="modal_pageCount === 1">
-              <!-- listen for approval event -->
-              <Payment @on-approval="onSuccess()" />
-            </div>
-            <!-- Third Modal Screen on Approval, Receipt Shown -->
-            <div class="modal-split" v-if="modal_pageCount === 2">
-              <div class="row payment-plugin__rowWrap">
-                <div class="col CartItems__itemViewScroll">
-                  <h1 class="text-center">
-                    Payment successful! {{ placeOrder()}}
-                  </h1>
-                  <h2 class="text-center">
-                    <font-awesome-icon
-                      icon="square-check"
-                      class="payment-plugin__checkmark"
-                    />
-                  </h2>
-                  <p class="text-center">
-                    Your payment of {{getTotalAmount(cartReceipt).toString()}}
-                    has successfully been sent to the Smart Vending Machine from
-                    your wallet.
-                  </p>
-                  <div class="CartItems__orderReceipt text-center">
-                    Order Details
-                  </div>
-                  <div
-                    class="row justify-content-center align-items-center p-0 pb-3"
-                    v-for="(cartStuff, i) in cartReceipt"
-                  >
-                    <hr v-if="i != cartReceipt.length" />
-                    <div class="col-4 text-center">
-                      {{ cartStuff.foodName }}
+                                    <div class="col-3 text-center">
+                                        {{ cartStuff.foodName }}
+                                    </div>
+                                    <!-- will need to adjust this for amounts > 1 dollar -->
+                                    <div class="col-3 text-left">
+                                        {{ costMultiplier(cartStuff.itemCost,
+                                        cartStuff.quantity)}}
+                                    </div>
+
+                                    <div class="col-2">
+                                        <button type="button" class="btn"
+                                            @click="this.$store.commit('removeFromCart', i)">
+                                            <font-awesome-icon icon="trash-can" />
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="col-4 text-center">
-                      {{cartStuff.quantity + " @ " +
-                      costMultiplier(cartStuff.itemCost, 1) + "/each"}}
+
+                    <!-- loading page for validation with machine's inventory... -->
+                    <div class="modal-split" v-if="modal_pageCount === 1">
+                        <LoadingSpinner @created-spinner="sleepingFcn()" />
                     </div>
-                    <div class="col-4 text-center">
-                      {{ costMultiplier(cartStuff.itemCost,
-                      cartStuff.quantity)}}
+
+                    <!-- Second Modal: Paypal Component here -->
+                    <div class="modal-split" v-if="modal_pageCount === 2">
+                        <!-- listen for approval event -->
+                        <Payment @on-approval="onSuccess()" />
                     </div>
-                  </div>
+
+                    <!-- Third Modal Screen on Approval, Receipt Shown -->
+                    <div class="modal-split" v-if="modal_pageCount === 3">
+                        <div class="row payment-plugin__rowWrap">
+                            <div class="col CartItems__itemViewScroll">
+                                <h1 class="text-center">
+                                    Payment successful! {{ placeOrder()}}
+                                </h1>
+                                <h2 class="text-center">
+                                    <font-awesome-icon icon="square-check" class="payment-plugin__checkmark" />
+                                </h2>
+                                <p class="text-center">
+                                    Your payment of {{getTotalAmount(cartReceipt).toString()}}
+                                    has successfully been sent to the Smart Vending Machine from
+                                    your wallet.
+                                </p>
+                                <div class="CartItems__orderReceipt text-center">
+                                    Order Details
+                                </div>
+                                <div class="row justify-content-center align-items-center p-0 pb-3"
+                                    v-for="(cartStuff, i) in cartReceipt">
+                                    <hr v-if="i != cartReceipt.length" />
+                                    <div class="col-4 text-center">
+                                        {{ cartStuff.foodName }}
+                                    </div>
+                                    <div class="col-4 text-center">
+                                        {{cartStuff.quantity + " @ " +
+                                        costMultiplier(cartStuff.itemCost, 1) + "/each"}}
+                                    </div>
+                                    <div class="col-4 text-center">
+                                        {{ costMultiplier(cartStuff.itemCost,
+                                        cartStuff.quantity)}}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-              </div>
+                <div class="modal-footer justify-content-between">
+                    <button type="button" class="btn CartItems__nextBtn"
+                        v-if="(this.$store.state.cartInfo.length > 0) && (modal_pageCount === 0)"
+                        @click="nextSplitModal()">
+                        Next
+                    </button>
+                    <button type="button" class="btn CartItems__nextBtn"
+                        v-else-if="(this.$store.state.cartInfo.length > 0) && ((modal_pageCount === 1) || (modal_pageCount === 2))"
+                        @click="prevSplitModal()">
+                        Previous
+                    </button>
+                    <button type="button" class="btn CartItems__nextBtn" v-else-if="(modal_pageCount===3)"
+                        data-bs-dismiss="modal" aria-label="Close" @click="backToHome()">
+                        Return to Home
+                    </button>
+                    <button type="button" class="btn disabled CartItems__nextBtn" v-else>
+                        You must add to cart first
+                    </button>
+                    <div class="col-3 CartItems__totalFont"
+                        v-if="((this.$store.state.cartInfo.length > 0)&&(modal_pageCount != 3))">
+                        {{ "Subtotal: " +
+                        getTotalAmount(this.$store.state.cartInfo).toString()}}
+                    </div>
+                </div>
             </div>
-          </div>
-          <div class="modal-footer justify-content-between">
-            <button
-              type="button"
-              class="btn CartItems__nextBtn"
-              v-if="(this.$store.state.cartInfo.length > 0) && (modal_pageCount === 0)"
-              @click="nextSplitModal()"
-            >
-              Next
-            </button>
-            <button
-              type="button"
-              class="btn CartItems__nextBtn"
-              v-else-if="(this.$store.state.cartInfo.length > 0) && (modal_pageCount === 1)"
-              @click="prevSplitModal()"
-            >
-              Previous
-            </button>
-            <button
-              type="button"
-              class="btn CartItems__nextBtn"
-              v-else-if="(modal_pageCount===2)"
-              data-bs-dismiss="modal"
-              aria-label="Close"
-              @click="backToHome()"
-            >
-              Return to Home
-            </button>
-            <button
-              type="button"
-              class="btn disabled CartItems__nextBtn"
-              v-else
-            >
-              You must add to cart first
-            </button>
-            <div
-              class="col-3 CartItems__totalFont"
-              v-if="((this.$store.state.cartInfo.length > 0)&&(modal_pageCount != 2))"
-            >
-              {{ "Subtotal: " +
-              getTotalAmount(this.$store.state.cartInfo).toString()}}
-            </div>
-          </div>
         </div>
-      </div>
     </div>
-  </body>
+</body>
+
 </html>

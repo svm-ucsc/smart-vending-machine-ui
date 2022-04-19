@@ -8,6 +8,7 @@ import SearchBar from "./components/SearchBar.vue";
 import CartItems from "./components/CartItems.vue";
 import StoreMenu from "./components/StoreMenu.vue";
 import Payment from "./components/Payment.vue";
+import LoadingSpinner from "./components/LoadingSpinner.vue"
 
 // font awesome icons added
 import { library } from "@fortawesome/fontawesome-svg-core";
@@ -94,5 +95,6 @@ app.component("CartItems", CartItems);
 app.component("StoreMenu", StoreMenu);
 app.component("Payment", Payment);
 app.component("FontAwesomeIcon", FontAwesomeIcon);
+app.component("LoadingSpinner", LoadingSpinner);
 
 app.mount("#app");
