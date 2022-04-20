@@ -95,6 +95,6 @@ app.component("CartItems", CartItems);
 app.component("StoreMenu", StoreMenu);
 app.component("Payment", Payment);
 app.component("FontAwesomeIcon", FontAwesomeIcon);
-app.component("LoadingSpinner", LoadingSpinner);
+app.component("LoadingSpinner", LoadingSpinner)
 
 app.mount("#app");

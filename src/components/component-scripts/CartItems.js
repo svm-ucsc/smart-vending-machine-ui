@@ -1,3 +1,4 @@
+import axios from 'axios';
 import $ from 'jquery'
 
 export default {
@@ -75,12 +76,49 @@ export default {
         async sleepingFcn() {
             this.sleeping = true;
             await new Promise(resolve => setTimeout(resolve, 3000));
-            // async so we need to confirm with "mutex boolean" style logic before updating
-            if (this.sleeping == true) {
-                this.modal_pageCount++;
-                this.sleeping = false;
 
+            try {
+                const response = await axios.get('http://ec2-54-167-36-58.compute-1.amazonaws.com:3000/machine',
+                    { params: { fields: ["machine_id", "location", "stock"].join() } });
+                const obj = response.data;
+                let parsedData = obj;
+
+
+
+                let inventoryObj = parsedData.find((o) => o.machine_id == "testclient");
+                if ((inventoryObj != null) && (inventoryObj.machine_id == "testclient")) {
+                    // loop through temp.stock and compare with cart contents now:
+                    console.log("machine stock is: " + JSON.stringify(inventoryObj))
+                    for (let item in this.$store.state.cartInfo) {
+                        console.log(`looping... item: ${JSON.stringify(item)}`)
+                        let foodExists = inventoryObj.stock.find((i) => i === item.itemId);
+                        if (foodExists) {
+                            if (foodExists.quantity > item.quantity) {
+                                console.log(`OUT OF STOCK. You requested: ${item.itemId} amount ${item.quantity} but only ${foodExists.quantity} was found`)
+                            }
+                        }
+                    }
+                    // for (let foodIds in inventoryObj.stock) {
+                    //     console.log(`food: ${foodIds}, quantity: ${inventoryObj.stock[foodIds]}`);
+                    // }
+                    console.log("the user's cart is: " + JSON.stringify(this.$store.state.cartInfo))
+                }
+
+                // async so we need to confirm with "mutex boolean" style logic before updating
+                if (this.sleeping == true) {
+                    this.modal_pageCount++;
+                    this.sleeping = false;
+                }
+            } catch (e) {
+                console.log("Error (cartitems.js): " + e);
+                this.modal_pageCount = 0;
+                this.sleeping = false;
             }
+            // // async so we need to confirm with "mutex boolean" style logic before updating
+            // if (this.sleeping == true) {
+            //     this.modal_pageCount++;
+            //     this.sleeping = false;
+            // }
             // else: there was an interrupt so it goes back to default and will need to reverify inventory if user decides to update cart
         }
     },
