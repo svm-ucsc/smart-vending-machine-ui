@@ -42,7 +42,6 @@ export default{
     async mounted(){
         const response = await axios.get('http://ec2-54-167-36-58.compute-1.amazonaws.com:3000/item');
         this.items = response.data;
-        console.log(this.items);
     },
     methods: {
         showSearchInterface(){
@@ -86,8 +85,7 @@ export default{
         onChange(searchQuery) {
             this.searchQuery = searchQuery;
         },
-        onKeyPress(button) {
-            console.log("button", button);
+        onKeyPress() {
         },
         onInputChange(searchQuery) {
             this.searchQuery = searchQuery.target.value;
