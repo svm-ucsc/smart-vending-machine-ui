@@ -1,15 +1,21 @@
 <template>
   <div class="container-fluid app_container">
-    <div class="row p-0">
+    <!-- Search Bar Component -->
+    <div class="row px-auto mx-auto">
       <search-bar />
     </div>
-    <div>
+
+    <!-- Menu Component -->
+    <div class="row p-0 mx-auto">
       <store-menu />
     </div>
 
     <!-- Shopping Cart Component -->
-    <div class="row-order pt-1">
-      <cart-items id="show-cart" />
+    <div class="row p-0 m-0">
+      <cart-items
+        id="show-cart"
+        class="p-0 m-0"
+      />
     </div>
   </div>
 </template>
@@ -18,19 +24,13 @@
   @import'~bootstrap/dist/css/bootstrap.css';
   @import'../src/styles/_variables.scss';
   .app_container{
-    background: $summer-yellow;
+    background: $summer-white;
     height: 100%;
     width: 100%;
     scrollbar-width: 5px;
+    padding: 0 0;
   }
   .app_title{
     font-size: 45px;
-  }
-  .row{
-    padding: 20px 0;
-  }
-   .row-order{
-    padding: 0 0 10px 0;
-    margin-top: 2%;
   }
 </style>

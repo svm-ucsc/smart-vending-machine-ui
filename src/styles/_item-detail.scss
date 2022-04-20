@@ -1,17 +1,29 @@
 @import "variables"; // DO NOT REMOVE THIS LINE OR SCSS WILL NOT WORK!
 
+body{
+    border-radius: 30px;
+}
+.btn:focus {
+    outline: none;
+    box-shadow: none;
+}
 .ItemDetail__container{
     background: white;
     border-radius: $card-radius;
     box-shadow: $component-shadow;
-    .ItemDetail__name{
-        font-family: $font-family-bold;
+    padding-bottom: 5%;
+    padding-top: 5%;
+    color: rgb(0, 0, 0);
+    text-align: left;
+    .ItemDetail_name{
+        font-family: $font-family;
+        font-weight: 700;
         font-size: medium;
         padding: 10px 0px 0px 0px;
+        
     }
-    .ItemDetail__imgcontainer{
-        margin: 0 0;
-        padding: 0 0;
+    a{
+        padding: 2% 2% 2% 2%;
     }
     .ItemDetail__image{
         margin: auto;
@@ -19,23 +31,32 @@
         min-height: 175px;
     }
 
+    .ItemDetail_btncontainer{
+        display: flex;
+        justify-content: center;
+        align-content: center;
+        margin-top: 3%;
+        font-weight: 700;   
+    }
+
     .ItemDetail__decBtn{
-        background: $summer-tan;        
+        background: $summer-lightblue;     
         &:after{
-            content: "-";
+            content: "−";
         }
         width: 40px;
+        border-radius: 20px;
     }
     .ItemDetail__incBtn{
-        background: $summer-tan;
+        background: $summer-lightblue;
         &:after{
             content:"+";
         }
         width: 40px;
-
+        border-radius: 20px;
     }
     .ItemDetail__counter{
-        background: $summer-purple;
+        background: $summer-creme;
         text-decoration: none;
         &:after{
             content:" ";
@@ -43,6 +64,15 @@
         width: 40px;
     }
     .ItemDetail__addCart{
-        background: $summer-green;
+        background: $summer-yellow;
+        color: rgb(255, 255, 255);
+        padding-left: 2%;
+        padding-right: 5%;
+        border-radius: 20px;
+        font-size: 140%;
+    }
+    .btn-group-cart{
+        margin-left: 4%;
+        width: 31%;
     }
 }

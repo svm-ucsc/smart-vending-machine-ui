@@ -2,14 +2,13 @@ import { createApp} from 'vue'
 import { createStore} from 'vuex'
 import App from './App.vue'
 import 'bootstrap'
-// import $ from 'jquery'
 import ItemDetail from './components/ItemDetail.vue';
 import SearchBar from './components/SearchBar.vue';
+import SearchResult from './components/SearchResult.vue';
 import CartItems from './components/CartItems.vue';
 import StoreMenu from './components/StoreMenu.vue';
 import Payment from './components/Payment.vue';
-
-// font awesome icons added
+import SimpleKeyboard from "./components/SimpleKeyboard.vue";
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { fas } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
@@ -52,7 +51,6 @@ const store = createStore({
             // need to update this to pass total price amount as well (in cents)
             try{
                 await axios.post('http://ec2-54-167-36-58.compute-1.amazonaws.com:3000/order/',
-                
                     {"machine_id": "testclient", "items": orderObj} //, "totalCost": this.subTotal}
                     // right now the post request will fail because the API cannot handle the subTotal receipt yet
                 )
@@ -83,8 +81,10 @@ const app = createApp(App);
 app.use(store);
 app.component('ItemDetail', ItemDetail);
 app.component('SearchBar', SearchBar);
+app.component('SearchResult', SearchResult);
 app.component('CartItems', CartItems);
 app.component('StoreMenu', StoreMenu);
+app.component('SimpleKeyboard', SimpleKeyboard);
 app.component('Payment', Payment);
 app.component('FontAwesomeIcon', FontAwesomeIcon);
 
