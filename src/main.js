@@ -51,7 +51,7 @@ const store = createStore({
             // need to update this to pass total price amount as well (in cents)
             try{
                 await axios.post('http://ec2-54-167-36-58.compute-1.amazonaws.com:3000/order/',
-                    {"machine_id": "pi1", "items": orderObj} //, "totalCost": this.subTotal}
+                    {"machine_id": "testclient", "items": orderObj} //, "totalCost": this.subTotal}
                     // right now the post request will fail because the API cannot handle the subTotal receipt yet
                 )
             }catch(e){
