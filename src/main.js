@@ -60,21 +60,18 @@ const store = createStore({
                     Object.assign(orderObj, { [item.itemId]: item.quantity }),
                 {}
             );
-
-            // need to update this to pass total price amount as well (in cents)
             try {
                 await axios.post(
                     "http://ec2-54-167-36-58.compute-1.amazonaws.com:3000/order/",
 
-                    { machine_id: "testclient", items: orderObj } //, "totalCost": this.subTotal}
+                    { machine_id: "testclient", items: orderObj }
                 );
                 state.cartInfo = []; // clear the cart and all information associated with it based on return code
 
             } catch (e) {
                 console.log("Error (main.js): Cannot place the order");
+                // this.$emit('sentOrderFailed')
             }
-
-            // when API Call is successful/working, this will be moved into the try block
         },
         calculateTotalCost(state) {
             let subTotal = 0;

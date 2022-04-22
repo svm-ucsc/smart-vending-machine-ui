@@ -30,7 +30,6 @@ export default {
         },
         placeOrder() {
             this.modal_pageCount++;
-            // this.placeOrder();
             // copy order to a receipt list prior to the reset of content
             for (let i of this.$store.state.cartInfo) {
                 this.cartReceipt.push(i);
@@ -58,9 +57,7 @@ export default {
         backToHome() {
             this.modal_pageCount = 0;
             this.sleeping = false;
-            this.cartReceipt.splice(0, this.cartReceipt.length)
-
-
+            this.cartReceipt.splice(0, this.cartReceipt.length); // reset the cart receipt
         },
         costMultiplier(itemPrice, quantity) {
             let dollars = (itemPrice * quantity) / 100;
@@ -77,6 +74,7 @@ export default {
         async sleepingFcn() {
             this.sleeping = true;
             await new Promise(resolve => setTimeout(resolve, 3000));
+            // I AM AWARE OF THIS GIANT COMMENT BLOCK: please keep this here for inventory validation
 
             // try {
             //     const response = await axios.get('http://ec2-54-167-36-58.compute-1.amazonaws.com:3000/machine',
@@ -120,7 +118,6 @@ export default {
                 this.modal_pageCount++;
                 this.sleeping = false;
             }
-            // else: there was an interrupt so it goes back to default and will need to reverify inventory if user decides to update cart
         }
     },
     mounted: function () {
@@ -129,10 +126,7 @@ export default {
         document.getElementById('cartModalReviewScreen').addEventListener("hidden.bs.modal", () => {
             this.modal_pageCount = 0;
             this.sleeping = false;
-            // this.cartReceipt = []; // reset cart receipt after modal closes
-
             this.cartReceipt.splice(0, this.cartReceipt.length)
-
         });
 
         let nextBtn = document.querySelector('.CartItems__nextBtn');
