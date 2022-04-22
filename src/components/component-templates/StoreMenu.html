@@ -7,23 +7,24 @@
     <title>Document</title>
 </head>
 <body> 
-    
+    <!-- Menu Container  -->
     <div class ="StoreMenu__row-box">
+        <!-- Loop to load items in 3x3  -->
         <div
             v-for="(row, i) in nameIdSet"
             :key="i"
-            class="row StoreMenu__menu-box"
-        >
+            class="row StoreMenu__menu-box">
             <div
             v-for="(food, j) in row"
             :key="j"
-            class="col-6 StoreMenu__item-box"
-            >
+            class="col-6 StoreMenu__item-box">
+            <!-- Item Detail Component  -->
                 <item-detail 
                     :item-id="food.item_id"
                     :food-name="food.name"
-                    :item-cost="food.cost"
-                />
+                    :image-url="food.image_url"
+                    :nutritional-info-url="food.nutrition_url"
+                    :item-cost="food.cost"/>
             </div>
         </div>
     </div>

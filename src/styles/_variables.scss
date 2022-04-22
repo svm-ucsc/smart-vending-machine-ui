@@ -2,43 +2,33 @@
 // You can call these is the .scss styles like so:
 // property: $(variable-name);
 
-// Font
-@font-face{
-    font-family: 'NotoSans-Regular';
-    font-style: normal;
-    src: local("NotoSans-Regular"), url("/fonts/NotoSans-Regular.ttf") format("ttf");
-}
-
-@font-face{
-    font-family: 'NotoSans-Bold';
-    font-style: bold;
-    src: local("NotoSans-Bold"), url("/fonts/NotoSans-Bold.ttf") format("ttf");
-}
-
-$font-family: 'NotoSans-Regular';
-$font-family-medium: 'NotoSans-Regular';
-$font-family-bold: 'NotoSans-Bold';
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@500;700&display=swap');
+$font-family: 'Noto Sans', sans-serif;
 $font-size: 16px;
 $font-height: 1.5;
 
 body{
-    font-family: 'NotoSans', 'NotoSans-Bold', Arial, Helvetica, sans-serif;
+    font-family: 'Noto Sans', Arial, Helvetica, sans-serif;
 }
 
 
 // Summer Reef Color Palette from https://www.color-hex.com/color-palette/107145
 $summer-tan: rgb(255, 233, 206);
-$summer-yellow: rgb(251,253,214);
+$summer-tan: rgb(255, 233, 206);
+$summer-yellow: rgba(23, 88, 238, 0.733);
+$summer-white: rgb(231, 241, 251);
 $summer-green: rgb(208,249,183);
 $summer-aqua: rgb(147, 244,202);
-$summer-blue: rgb(142,195,244);
+$summer-creme: rgb(245, 250, 254);
+$summer-blue: rgb(28, 143, 153);
+$summer-lightblue: rgba(1, 13, 245, 0.111);
 $summer-purple: rgb(244, 224, 255);
 $summer-coral: rgb(248,131,121);
 $nice-grey: rgb(235, 232, 237);
 
 // Shadowing, radii, etc
 $component-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-$card-radius: 12px;
+$card-radius: 22px;
 $icon-radius: 6px;
 $button-radius: 6px;
 

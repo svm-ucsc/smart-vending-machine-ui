@@ -1,21 +1,81 @@
 @import "variables";
 
 .SearchBar__container{
-    background: $summer-blue;
-    margin: 0 0;
-    padding: 0 6%;
-    box-shadow: $component-shadow;
-    min-height: 75px;
+    background: $summer-white;
     justify-content: center;
+    position: relative;
     width: 100%;
+    min-height: 75px;
+    margin: 0 0;
+    padding: 2% 2%;
+    border: 1px solid $summer-white;
     
+    .SearchBar__border{
+        justify-content: center;
+    }
+
     .SearchBar__bar{
-        font-family: $font-family-bold;
-        min-height: 50px;
+        font-family: $font-family;
+        background: white;
+        border: 3px solid rgb(197, 197, 197);
+        min-height: 45px;
         justify-content: center;
         text-align: center;
         font-size: x-large;
+        width: 95%;
     }
+    
+    //Changes placeholder text color
+    ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+        color: black;
+        opacity: 1; /* Firefox */
+    }
+    :-ms-input-placeholder { /* Internet Explorer 10-11 */
+        color: black;
+    } 
+    ::-ms-input-placeholder { /* Microsoft Edge */
+        color: black;
+    }
+
+    .SearchBar__resultsbox{
+        background: $summer-white;
+        position: fixed;
+        z-index: 1;
+        top: 76px;
+        flex-wrap: nowrap;
+        overflow-y: scroll;
+        min-height: 583px;
+        max-height: 583px;
+        margin: 0px 0px;
+        padding: 0px 0px;
+    }
+    hr{
+        width:95%;
+        margin-top:0%;
+        margin-bottom:0%;
+    }
+    .SearchBar__results{
+        background: $summer-white;
+        font-size:x-large;
+        margin: 0px 0px;
+        padding: 1% 0;
+        width: 100%;
+    }
+    .SearchBar__btnClose{
+        color: red;
+        display: none;
+        position: relative;
+        right: 10px;
+        width: 25px;
+        margin-right: 2%;
+        font-size: 170%;
+    }
+    .keyboard{
+        position: fixed;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        top: 500;    
+    }
+    
 }
-
-

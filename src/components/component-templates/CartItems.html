@@ -2,18 +2,45 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
 
 <body>
+
     <!-- Button trigger modal -->
-    <button type="button" class="btn CartItems__review-order-btn p-0 m-0 text-center" data-bs-toggle="modal"
-        data-bs-target="#cartModalReviewScreen">
-        Review Order
-    </button>
+    <div class="CartItems__btn_container">
+        <div class="CartItems__review-order-bar p-0 m-0 text-center">
+            <div class="row m-0"
+                style="padding: 0px 2% 0px 2%; height:107px;display:flex;justify-content:center;align-items:center;">
+                <!-- Help Button -->
+                <button type="button" class=" col-2 btn btn-secondary btn-xl CartItems__help-btn p-0 m-0"
+                    data-bs-toggle="modal" data-bs-target="#cartModalHelpScreen">
+                    <div class="row px-auto mx-auto">
+                        <font-awesome-icon icon="circle-question" class="p-0 m-0" />
+                        <p class="CartItems__btn_text p-0 m-0">Help</p>
+                    </div>
+                </button>
+                <!-- Order Button -->
+                <button type="button" class="col-2 btn btn-primary btn-circle btn-xl CartItems__review-order-btn"
+                    data-bs-toggle="modal" data-bs-target="#cartModalReviewScreen">
+                    <font-awesome-icon icon="cart-arrow-down" style="margin-left:3%;margin-bottom:2%;" />
+                </button>
+                <!-- Info Button -->
+                <button type="button" class="col-2 btn btn-secondary btn-xl CartItems__info-btn p-0 m-0"
+                    data-bs-toggle="modal" data-bs-target="#cartModalInfoScreen">
+                    <div class="row px-auto mx-auto">
+                        <font-awesome-icon icon="circle-info" class="p-0 m-0" />
+                        <p class="CartItems__btn_text p-0 m-0">Info</p>
+                    </div>
+                </button>
+            </div>
+
+        </div>
+
+    </div>
 
     <!-- Modal 1 -->
     <div class="modal fade" id="cartModalReviewScreen" tabindex="-1" role="dialog"
@@ -26,17 +53,18 @@
                         @click="backToHome()">
                         <font-awesome-icon icon="square-xmark" />
                     </button>
+
                 </div>
                 <div class="modal-body CartItems__list-wrapper p-0 m-0">
                     <!-- First Modal: Shows items in cart -->
                     <div class="modal-split" v-if="modal_pageCount === 0">
-                        <div class="row justify-content-center" v-if="this.$store.state.cartInfo.length === 0">
-                            Your cart is empty.
-                        </div>
+                        <div class="row justify-content-center" v-if="this.$store.state.cartInfo.length === 0">Your cart
+                            is empty.</div>
                         <div class="row p-0 m-0" v-else>
                             <div class="col align-items-center CartItems__itemViewScroll">
                                 <div class="row CartItems__list-entry justify-content-center align-items-center"
                                     v-for="(cartStuff, i) in this.$store.state.cartInfo">
+
                                     <!-- make this a button group -->
                                     <div class="col-4">
                                         <div class="btn-group" role="group">
@@ -44,29 +72,23 @@
                                                 v-if="(cartStuff.quantity)>0" @click="(cartStuff.quantity)--"></button>
                                             <button type="button" class="btn CartItems__decBtn disabled"
                                                 v-else></button>
-                                            <button type="button" class="btn CartItems__counter" id="ItemDetail-count">
-                                                {{ cartStuff.quantity }}
-                                            </button>
+                                            <button type="button" class="btn CartItems__counter"
+                                                id="ItemDetail-count">{{ cartStuff.quantity }}</button>
                                             <button type="button" class="btn CartItems__incBtn"
                                                 @click="(cartStuff.quantity)++"></button>
                                         </div>
                                     </div>
 
-                                    <div class="col-3 text-center">
-                                        {{ cartStuff.foodName }}
-                                    </div>
-                                    <!-- will need to adjust this for amounts > 1 dollar -->
-                                    <div class="col-3 text-left">
-                                        {{ costMultiplier(cartStuff.itemCost,
-                                        cartStuff.quantity)}}
-                                    </div>
 
-                                    <div class="col-2">
-                                        <button type="button" class="btn"
+                                    <div class="col-3 text-center">{{ cartStuff.foodName }}</div>
+                                    <!-- will need to adjust this for amounts > 1 dollar -->
+                                    <div class="col-3 text-left">{{ costMultiplier(cartStuff.itemCost,
+                                        cartStuff.quantity)}}</div>
+
+                                    <div class="col-2"><button type="button" class="btn"
                                             @click="this.$store.commit('removeFromCart', i)">
                                             <font-awesome-icon icon="trash-can" />
-                                        </button>
-                                    </div>
+                                        </button></div>
                                 </div>
                             </div>
                         </div>
@@ -119,7 +141,9 @@
                             </div>
                         </div>
                     </div>
+
                 </div>
+
                 <div class="modal-footer justify-content-between">
                     <button type="button" class="btn CartItems__nextBtn"
                         v-if="(this.$store.state.cartInfo.length > 0) && (modal_pageCount === 0)"

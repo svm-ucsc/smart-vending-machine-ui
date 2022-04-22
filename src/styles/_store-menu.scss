@@ -1,27 +1,29 @@
 @import "variables";
+html{
+    padding:0 !important;
+}
 
 body::-webkit-scrollbar {
     width: 5px;               /* width of the entire scrollbar */
 }
 
 body::-webkit-scrollbar-track {
-    background: $summer-yellow;        /* color of the tracking area */
+    background: $summer-white;        /* color of the tracking area */
 }
 
 body::-webkit-scrollbar-thumb {
     background-color: $nice-grey;    /* color of the scroll thumb */
     border-radius: 20px;       /* roundness of the scroll thumb */
-    border: 3px $summer-yellow;;  /* creates padding around scroll thumb */
+    border: 3px $summer-white;  /* creates padding around scroll thumb */
 }
 
 // ------------------------------------------------------
 
 .StoreMenu__row-box{
-    background: $summer-yellow;
+    background: $summer-white;
     overflow-y: scroll;
-    height: 825px;
-    margin-left: -2%;
-    margin-right: -2%;
+    min-height: 837px;
+    max-height: 837px;
 }
 
 .StoreMenu__row-box::-webkit-scrollbar {
@@ -30,22 +32,22 @@ body::-webkit-scrollbar-thumb {
 }
 
 .StoreMenu__row-box::-webkit-scrollbar-track {
-    background: $summer-yellow;        /* color of the tracking area */
+    background: $summer-white;        /* color of the tracking area */
 }
 
 .StoreMenu__row-box::-webkit-scrollbar-thumb {
     background-color: $nice-grey;    /* color of the scroll thumb */
     border-radius: 20px;       /* roundness of the scroll thumb */
-    border: 3px $summer-yellow;;  /* creates padding around scroll thumb */
+    border: 3px $summer-white;  /* creates padding around scroll thumb */
 }
 
 // ------------------------------------------------------
 
 .StoreMenu__menu-box{
-    background-color: $summer-yellow;
+    background-color: $summer-white;
     overflow-x: scroll;
     flex-wrap: nowrap;
-    padding: 5% 4% 5% 4%;
+    padding: 2% 4% 4% 4%;
     margin: 0px 0px;
     width: 100%;
 }
@@ -56,20 +58,20 @@ body::-webkit-scrollbar-thumb {
 }
 
 .StoreMenu__menu-box::-webkit-scrollbar-track {
-    background: $summer-yellow;        /* color of the tracking area */
+    background: $summer-white;        /* color of the tracking area */
 }
 
 .StoreMenu__menu-box::-webkit-scrollbar-thumb {
     background-color: $nice-grey;    /* color of the scroll thumb */
     border-radius: 20px;       /* roundness of the scroll thumb */
-    border: 3px $summer-yellow;;  /* creates padding around scroll thumb */
+    border: 3px $summer-white;  /* creates padding around scroll thumb */
 }
 
 // ------------------------------------------------------
 
 .StoreMenu__item-box{
     border-width: 20px;
-    padding: 0 2%; 
+    padding: 0 3%; 
     margin-right: -1%;
     display: inline-block;
     float: none;

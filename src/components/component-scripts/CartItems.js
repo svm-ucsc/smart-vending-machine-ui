@@ -70,7 +70,7 @@ export default {
             // pass by reference taking local shopping basket and placing in Vuex, then Vuex will globally store the subtotal and then this function will grab a copy of it
             this.$store.commit('calculateTotalCost', cartInfo);
             let local_subTotal = (this.$store.subTotal) / 100;
-            local_subTotal = local_subTotal.toLocaleString("en-US", { style: "currency", currency: "USD" })
+            local_subTotal = local_subTotal.toLocaleString("en-US", { style: "currency", currency: "USD" });
             return local_subTotal;
         },
         async sleepingFcn() {
