@@ -102,7 +102,7 @@
                     <!-- Second Modal: Paypal Component here -->
                     <div class="modal-split" v-if="modal_pageCount === 2">
                         <!-- listen for approval event -->
-                        <Payment @on-approval="onSuccess()" />
+                        <Payment @on-approval="placeOrder()" />
                     </div>
 
                     <!-- Third Modal Screen on Approval, Receipt Shown -->
@@ -110,7 +110,7 @@
                         <div class="row payment-plugin__rowWrap">
                             <div class="col CartItems__itemViewScroll">
                                 <h1 class="text-center">
-                                    Payment successful! {{ placeOrder()}}
+                                    Payment successful!
                                 </h1>
                                 <h2 class="text-center">
                                     <font-awesome-icon icon="square-check" class="payment-plugin__checkmark" />

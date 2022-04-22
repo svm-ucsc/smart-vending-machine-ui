@@ -68,12 +68,13 @@ const store = createStore({
 
                     { machine_id: "testclient", items: orderObj } //, "totalCost": this.subTotal}
                 );
+                state.cartInfo = []; // clear the cart and all information associated with it based on return code
+
             } catch (e) {
                 console.log("Error (main.js): Cannot place the order");
             }
 
             // when API Call is successful/working, this will be moved into the try block
-            state.cartInfo = {}; // clear the cart and all information associated with it based on return code
         },
         calculateTotalCost(state) {
             let subTotal = 0;

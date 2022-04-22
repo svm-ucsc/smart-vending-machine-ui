@@ -4,8 +4,8 @@
 
 export default {
     name: "PayPal Template",
-  
-    data: function() {
+
+    data: function () {
         return {
             loaded: false,
             paidFor: false,
@@ -14,15 +14,15 @@ export default {
             }
         };
     },
-    mounted: function() {
+    mounted: function () {
         const script = document.createElement("script");
         script.src =
-        "https://www.paypal.com/sdk/js?client-id=AUa5_Jl61gBVAKStkIh3OroJlrRZUWqcfjmvjgKuUsCi7UsmZRZcPFT2uJKydC2n9Umqd_Xxyz3PB3WX";
+            "https://www.paypal.com/sdk/js?client-id=AUa5_Jl61gBVAKStkIh3OroJlrRZUWqcfjmvjgKuUsCi7UsmZRZcPFT2uJKydC2n9Umqd_Xxyz3PB3WX";
         script.addEventListener("load", this.setLoaded);
         document.body.appendChild(script);
     },
     methods: {
-        setLoaded: function() {
+        setLoaded: function () {
             this.loaded = true;
             window.paypal
                 .Buttons({
@@ -33,17 +33,17 @@ export default {
                                     description: this.product.description,
                                     amount: {
                                         currency_code: "USD",
-                                        value: (this.$store.subTotal)/100
+                                        value: (this.$store.subTotal) / 100
                                     }
                                 }
                             ]
                         });
                     },
                     onApprove: async (data, actions) => {
-                        const order = await actions.order.capture();
+                        await actions.order.capture();
                         this.paidFor = true;
                         this.$emit('onApproval');
-                        console.log(order);
+                        // console.log(order);
                     },
                     onError: err => {
                         console.log(err);

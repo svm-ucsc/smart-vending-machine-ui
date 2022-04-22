@@ -29,14 +29,13 @@ export default {
 
         },
         placeOrder() {
+            this.modal_pageCount++;
+            // this.placeOrder();
             // copy order to a receipt list prior to the reset of content
             for (let i of this.$store.state.cartInfo) {
                 this.cartReceipt.push(i);
             }
             this.$store.commit('sendOrderToDB');
-        },
-        onSuccess() {
-            this.modal_pageCount++;
 
         },
         nextSplitModal() {
@@ -59,6 +58,8 @@ export default {
         backToHome() {
             this.modal_pageCount = 0;
             this.sleeping = false;
+            this.cartReceipt.splice(0, this.cartReceipt.length)
+
 
         },
         costMultiplier(itemPrice, quantity) {
@@ -128,6 +129,9 @@ export default {
         document.getElementById('cartModalReviewScreen').addEventListener("hidden.bs.modal", () => {
             this.modal_pageCount = 0;
             this.sleeping = false;
+            // this.cartReceipt = []; // reset cart receipt after modal closes
+
+            this.cartReceipt.splice(0, this.cartReceipt.length)
 
         });
 
