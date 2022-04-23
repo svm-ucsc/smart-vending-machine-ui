@@ -1,3 +1,4 @@
+import { mapGetters } from 'vuex'
 export default{
     props: { 
         itemId: String,
@@ -14,6 +15,9 @@ export default{
             item_data: [],
             quantity: 0
         };
+    },
+    computed: {
+        ...mapGetters(['checkMode'])
     },
     methods: {
         updateCartCounter(){

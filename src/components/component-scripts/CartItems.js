@@ -8,7 +8,7 @@ export default{
             modal_pageCount: 0,
             cartReceipt: []
         }
-    },  
+    },
     methods: {
         showCart(){
             const btn = document.getElementById('reviewOrderBtn');
@@ -59,6 +59,9 @@ export default{
             let local_subTotal = (this.$store.subTotal)/100;
             local_subTotal = local_subTotal.toLocaleString("en-US", {style:"currency", currency:"USD"});
             return local_subTotal;
+        },
+        devMode(){
+            this.$store.commit('switchMode'); 
         }
     },
     mounted: function(){

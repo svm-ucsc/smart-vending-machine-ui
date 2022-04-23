@@ -22,7 +22,8 @@
         <!-- Item Name & Price -->
         <div class="row ItemDetail__name">
             <h1 class="col-8 text-left " style="font-size: calc(153% - 0.01em);">{{ foodName }}</h1>
-            <h1 class="col-2 text-left " style="font-size: larger;">{{ formatCost() }}</h1>
+            <h1 class="col-2 text-left " style="font-size: larger;" v-if="!checkMode">{{ formatCost() }}</h1>
+            <h1 class="col-2 text-left " style="font-size: larger;" v-else>{{ getItemCount() }}</h1>
         </div>
         <!-- Item Cart Functionality -->
         <div class="row pt-1">

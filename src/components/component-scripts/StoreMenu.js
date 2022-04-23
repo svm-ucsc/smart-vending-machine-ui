@@ -39,6 +39,7 @@ export default {
 
     created(){
         this.fetchingNameId();
+        this.$store.commit('initMode');
     }
 
 }

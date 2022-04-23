@@ -20,6 +20,7 @@ const axios = require('axios');
 const store = createStore({
     state(){
         return{
+            isDevMode: Boolean,
             cartInfo: [],
             subTotal: Number
         };
@@ -73,6 +74,19 @@ const store = createStore({
             }
             // store running subtotal in a Vuex global store
             this.subTotal = subTotal;
+        },
+        initMode(state){
+            state.isDevMode = false;
+            console.log(state.isDevMode);
+        },
+        switchMode(state){
+            state.isDevMode = !state.isDevMode;
+            console.log(state.isDevMode);
+        }
+    },
+    getters: {
+        checkMode: state => {
+            return state.isDevMode;
         }
     }
 });
