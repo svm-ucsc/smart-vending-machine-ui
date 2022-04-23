@@ -1,6 +1,8 @@
+// @import "../node_modules/bootstrap/scss/mixins";
 @import "variables";
 
-.SearchBar__container{
+
+.SearchBar__container {
     background: $summer-white;
     justify-content: center;
     position: relative;
@@ -9,12 +11,12 @@
     margin: 0 0;
     padding: 2% 2%;
     border: 1px solid $summer-white;
-    
-    .SearchBar__border{
+
+    .SearchBar__border {
         justify-content: center;
     }
 
-    .SearchBar__bar{
+    .SearchBar__bar {
         font-family: $font-family;
         background: white;
         border: 3px solid rgb(197, 197, 197);
@@ -24,20 +26,32 @@
         font-size: x-large;
         width: 95%;
     }
-    
-    //Changes placeholder text color
-    ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
-        color: black;
-        opacity: 1; /* Firefox */
+
+    .SearchBar__bar::placeholder {
+        // color: green;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3C!--! Font Awesome Pro 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --%3E%3Cpath d='M500.3 443.7l-119.7-119.7c27.22-40.41 40.65-90.9 33.46-144.7C401.8 87.79 326.8 13.32 235.2 1.723C99.01-15.51-15.51 99.01 1.724 235.2c11.6 91.64 86.08 166.7 177.6 178.9c53.8 7.189 104.3-6.236 144.7-33.46l119.7 119.7c15.62 15.62 40.95 15.62 56.57 0C515.9 484.7 515.9 459.3 500.3 443.7zM79.1 208c0-70.58 57.42-128 128-128s128 57.42 128 128c0 70.58-57.42 128-128 128S79.1 278.6 79.1 208z'/%3E%3C/svg%3E");
+        background-repeat: no-repeat;
     }
-    :-ms-input-placeholder { /* Internet Explorer 10-11 */
+
+    //Changes placeholder text color
+    ::placeholder {
+        /* Chrome, Firefox, Opera, Safari 10.1+ */
         color: black;
-    } 
-    ::-ms-input-placeholder { /* Microsoft Edge */
+        opacity: 1;
+        /* Firefox */
+    }
+
+    :-ms-input-placeholder {
+        /* Internet Explorer 10-11 */
         color: black;
     }
 
-    .SearchBar__resultsbox{
+    ::-ms-input-placeholder {
+        /* Microsoft Edge */
+        color: black;
+    }
+
+    .SearchBar__resultsbox {
         background: $summer-white;
         position: fixed;
         z-index: 1;
@@ -49,19 +63,22 @@
         margin: 0px 0px;
         padding: 0px 0px;
     }
-    hr{
-        width:95%;
-        margin-top:0%;
-        margin-bottom:0%;
+
+    hr {
+        width: 95%;
+        margin-top: 0%;
+        margin-bottom: 0%;
     }
-    .SearchBar__results{
+
+    .SearchBar__results {
         background: $summer-white;
-        font-size:x-large;
+        font-size: x-large;
         margin: 0px 0px;
         padding: 1% 0;
         width: 100%;
     }
-    .SearchBar__btnClose{
+
+    .SearchBar__btnClose {
         color: red;
         display: none;
         position: relative;
@@ -70,12 +87,21 @@
         margin-right: 2%;
         font-size: 170%;
     }
-    .keyboard{
+
+    .keyboard {
         position: fixed;
         left: 0;
         right: 0;
         bottom: 0;
-        top: 500;    
+        top: 500;
     }
-    
+
 }
+
+// @include media-breakpoint-down(sm) {
+//     .SearchBar__container {
+//         .SearchBar__bar {
+//             font-size: unset;
+//         }
+//     }
+// }
