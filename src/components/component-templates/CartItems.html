@@ -27,15 +27,31 @@
                     class="col-2 btn btn-primary btn-circle btn-xl CartItems__review-order-btn" 
                     data-bs-toggle="modal" 
                     data-bs-target="#cartModalReviewScreen"
-                    >
+                    v-if="!checkMode">
                     <font-awesome-icon icon="cart-arrow-down" style="margin-left:3%;margin-bottom:2%;"/>
+                    </button>
+                    <button type="button" 
+                    class="col-2 btn btn-primary btn-circle btn-xl CartItems__dev-btn-bar disabled" 
+                    data-bs-toggle="modal" 
+                    data-bs-target="#cartModalReviewScreen"
+                    v-else>
+                    <font-awesome-icon icon="screwdriver-wrench" style="margin-left:3%;margin-bottom:2%;"/>
                     </button>
                     <!-- Clear Button -->
                     <button type="button" 
-                    class="col-2 btn btn-secondary btn-xl CartItems__info-btn p-0 m-0">
+                    class="col-2 btn btn-secondary btn-xl CartItems__info-btn p-0 m-0"
+                    v-if="!checkMode">
                         <div class="row px-auto mx-auto"   style="color: rgb(255, 70, 70);">
                             <font-awesome-icon icon="ban" class="p-0 m-0" />
                             <p class="CartItems__btn_text p-0 m-0">Clear</p>
+                        </div>
+                    </button>
+                    <button type="button" 
+                    class="col-2 btn btn-secondary btn-xl CartItems__info-btn p-0 m-0"
+                    v-else>
+                        <div class="row px-auto mx-auto"   style="color: rgb(81, 182, 81);">
+                            <font-awesome-icon icon="circle-check" class="p-0 m-0" />
+                            <p class="CartItems__btn_text p-0 m-0">Save</p>
                         </div>
                     </button>
                 </div>
@@ -126,7 +142,7 @@
       <div class="modal-content">
         <div class="modal-header">
           <h5 class="modal-title" id="cartModalHelpScreenLabel">Help Screen</h5>
-          <button type="button" class="btn-dev" data-bs-dismiss="modal" aria-label="Close" @click="devMode()">DEV</button>
+          <button type="button" class="btn-dev CartItems__dev-btn" data-bs-dismiss="modal" aria-label="Close" @click="devMode()">DEV</button>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">

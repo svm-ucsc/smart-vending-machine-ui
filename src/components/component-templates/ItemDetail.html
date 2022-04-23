@@ -41,9 +41,9 @@
                         <button type="button" class="btn ItemDetail__addCart disabled" v-else><font-awesome-icon icon="cart-shopping" /></button>
                     </div>
                     <div class="btn-group btn-group-cart" role="group" aria-label="second group" v-else>
-                        <button type="button" class="btn ItemDetail__addCart" v-if="quantity >= 1" style="background-color: green;"><font-awesome-icon icon="arrow-up" /></button>
+                        <button type="button" class="btn ItemDetail__addCart" v-if="quantity >= 1" style="background-color: green;" @click="increaseItemStock()"><font-awesome-icon icon="arrow-up" /></button>
                         <button type="button" class="btn ItemDetail__addCart disabled" v-else style="background-color: green;"><font-awesome-icon icon="arrow-up" /></button>
-                        <button type="button" class="btn ItemDetail__addCart" v-if="quantity >= 1" style="background-color: red;"><font-awesome-icon icon="arrow-down" /></button>
+                        <button type="button" class="btn ItemDetail__addCart" v-if="quantity >= 1" style="background-color: red;" @click="decreaseItemStock()"><font-awesome-icon icon="arrow-down" /></button>
                         <button type="button" class="btn ItemDetail__addCart disabled" v-else style="background-color: red;"><font-awesome-icon icon="arrow-down" /></button>
                     </div>
                 </div>

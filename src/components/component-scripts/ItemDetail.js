@@ -13,7 +13,8 @@ export default{
         return{
             data_ready: false,
             item_data: [],
-            quantity: 0
+            quantity: 0,
+            stock: this.itemCount
         };
     },
     computed: {
@@ -35,7 +36,7 @@ export default{
             return this.itemId;
         },
         getItemCount(){
-            return this.itemCount;
+            return this.stock;
         },
         getModalID(){
             const sym = "#"
@@ -51,9 +52,21 @@ export default{
         formatCost(){
             let temp = (this.itemCost)/100;
             return temp.toLocaleString("en-US", {style:"currency", currency:"USD"});
-        }
+        },
+        increaseItemStock(){
+            console.log("increase")
+            this.$emit('update:products', this.productListInChildren)
+            this.stock += this.quantity;
+            this.quantity = 0;
+        },
+        decreaseItemStock(){
+            console.log("decrease")
+            this.stock -= this.quantity;
+            this.quantity = 0;
+        },
     },
     created() {
         this.getData();
+        this.stock = this.itemCount;
     },
 };

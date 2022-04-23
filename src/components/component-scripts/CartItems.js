@@ -1,4 +1,5 @@
 import $ from 'jquery'
+import { mapGetters } from 'vuex'
 
 export default{
     data() {
@@ -8,6 +9,9 @@ export default{
             modal_pageCount: 0,
             cartReceipt: []
         }
+    },
+    computed: {
+        ...mapGetters(['checkMode'])
     },
     methods: {
         showCart(){
@@ -62,7 +66,7 @@ export default{
         },
         devMode(){
             this.$store.commit('switchMode'); 
-        }
+        },
     },
     mounted: function(){
         // need arrow operator because the scope of "this" changes otherwise

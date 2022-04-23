@@ -80,6 +80,20 @@
         margin-left: 1%;
         margin-right: 1%;
     }
+    .CartItems__dev-btn{
+        opacity: 0;
+        margin-left: 20%;
+    }
+
+    .CartItems__dev-btn-bar{
+        font-size: 125%;
+        text-align: center;
+        position: relative;
+        padding-right:2.5%;
+        margin-left: 1%;
+        margin-right: 1%;
+        background-color: rgb(214, 77, 67) !important;
+    }
 
     .CartItems__help-btn{
         position:relative;
