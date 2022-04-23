@@ -5,7 +5,8 @@ export default{
         imageUrl: String,
         nutritionalInfoUrl: String,
         itemCost: Number,
-        price: String
+        price: String,
+        itemCount: Number
     },
     data(){
         return{
@@ -28,6 +29,9 @@ export default{
 
         getItemID(){
             return this.itemId;
+        },
+        getItemCount(){
+            return this.itemCount;
         },
         getModalID(){
             const sym = "#"
