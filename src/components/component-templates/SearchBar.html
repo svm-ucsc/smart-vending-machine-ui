@@ -41,7 +41,8 @@
                     <div
                     style="display:flex;justify-content: center;align-items: center; margin-top: 20px;">
                     <!-- Check Availability Button  -->
-                      <button type="button" 
+                      <button type="button"
+                      @click="showMap()" 
                       class="btn btn-link SearchBar__checkAvailability"
                       style="text-align: center; font-size:x-large;"
                       data-bs-toggle="modal" 
@@ -70,6 +71,9 @@
             <h3>Available at    Baskin's Engineering 1st Floor (0.05 mi).</h3>
             <h3>Available at    Social Sciences 1st Floor (0.10 mi).</h3>
             <h3>Available at    McHenry Library (0.20 mi).</h3>
+            <OpenLayersMap 
+            :open-map="openMap"
+            v-if="openMap"/>
         </div>
       </div>
     </div>

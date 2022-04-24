@@ -54,13 +54,10 @@ export default{
             return temp.toLocaleString("en-US", {style:"currency", currency:"USD"});
         },
         increaseItemStock(){
-            console.log("increase")
-            this.$emit('update:products', this.productListInChildren)
             this.stock += this.quantity;
             this.quantity = 0;
         },
         decreaseItemStock(){
-            console.log("decrease")
             this.stock -= this.quantity;
             this.quantity = 0;
         },

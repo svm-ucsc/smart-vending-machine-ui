@@ -1,5 +1,7 @@
 import $ from 'jquery'
 import SimpleKeyboard from "../SimpleKeyboard.vue";
+import OpenLayersMap from "../OpenLayersMap.vue";
+import { ref } from 'vue';
 const axios = require('axios');
 export default{
     props: { 
@@ -10,7 +12,8 @@ export default{
         itemCost: Number
     },
     components:{
-        SimpleKeyboard
+        SimpleKeyboard,
+        OpenLayersMap
     },
     data(){
         return {
@@ -19,6 +22,7 @@ export default{
             showResults: false,
             showKeyboard: false,
             visible: false,
+            openMap: false,
             layout: "normal",
             input: "",
             foundCount: 0,
@@ -37,6 +41,18 @@ export default{
                 }
                 return item.name.toLowerCase().match(this.searchQuery.toLowerCase());
             });
+        }
+    },
+    setup() {
+        const center = ref([40, 40])
+        const projection = ref('EPSG:4326')
+        const zoom = ref(8)
+        const rotation = ref(0)
+        return {
+            center,
+            projection,
+            zoom,
+            rotation
         }
     },
     async mounted(){
@@ -93,6 +109,16 @@ export default{
         close(){
             this.searchQuery = '';
             this.showKeyboard = false;
+        },
+        showMap(){
+            this.openMap = true;
+                        
+        },
+        closeMap(){
+            this.openMap = false;
+        },
+        checkMap(){
+            return this.openMap;
         },
 
     }

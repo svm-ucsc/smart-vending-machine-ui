@@ -12,6 +12,8 @@ import SimpleKeyboard from "./components/SimpleKeyboard.vue";
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { fas } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+import OpenLayersMap from 'vue3-openlayers'
+import '../node_modules/vue3-openlayers/dist/vue3-openlayers.css'
 library.add(fas)
 
 const axios = require('axios');
@@ -77,11 +79,9 @@ const store = createStore({
         },
         initMode(state){
             state.isDevMode = false;
-            console.log(state.isDevMode);
         },
         switchMode(state){
             state.isDevMode = !state.isDevMode;
-            console.log(state.isDevMode);
         }
     },
     getters: {
@@ -100,6 +100,7 @@ app.component('CartItems', CartItems);
 app.component('StoreMenu', StoreMenu);
 app.component('SimpleKeyboard', SimpleKeyboard);
 app.component('Payment', Payment);
+app.component('OpenLayersMap', OpenLayersMap);
 app.component('FontAwesomeIcon', FontAwesomeIcon);
 
 app.mount('#app')
