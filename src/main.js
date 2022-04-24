@@ -93,6 +93,7 @@ const store = createStore({
 
 const app = createApp(App);
 app.use(store);
+app.use(OpenLayersMap);
 app.component('ItemDetail', ItemDetail);
 app.component('SearchBar', SearchBar);
 app.component('SearchResult', SearchResult);
