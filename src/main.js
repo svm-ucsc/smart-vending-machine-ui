@@ -12,7 +12,7 @@ import SimpleKeyboard from "./components/SimpleKeyboard.vue";
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { fas } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
-import OpenLayersMap from 'vue3-openlayers'
+import OpenLayersMap from '../node_modules/vue3-openlayers'
 import '../node_modules/vue3-openlayers/dist/vue3-openlayers.css'
 library.add(fas)
 
