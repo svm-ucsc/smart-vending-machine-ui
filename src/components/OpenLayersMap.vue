@@ -1,10 +1,5 @@
 <template>
-  <ol-map
-    ref="map"
-    :load-tiles-while-animating="true"
-    :load-tiles-while-interacting="true"
-    style="height:400px;"
-  >
+  <ol-map style="height:400px">
     <ol-view
       ref="view"
       :center="center"
@@ -16,7 +11,6 @@
     <ol-tile-layer>
       <ol-source-osm />
     </ol-tile-layer>
-
     <ol-geolocation
       :projection="projection"
       @positionChanged="geoLocChange"
@@ -37,17 +31,60 @@
         </ol-vector-layer>
       </template>
     </ol-geolocation>
+
+    <ol-vector-layer>
+      <ol-source-vector>
+        <ol-feature>
+          <ol-geom-point :coordinates="[-122.0633153, 37.0004593]" />
+          <ol-style>
+            <ol-style-icon
+              :src="getPinImg()"
+              :scale="0.1"
+            />
+          </ol-style>
+        </ol-feature>
+      </ol-source-vector>
+    </ol-vector-layer>
+
+    <ol-vector-layer>
+      <ol-source-vector>
+        <ol-feature>
+          <ol-geom-point :coordinates="[-122.0616427, 36.9995773]" />
+          <ol-style>
+            <ol-style-icon
+              :src="getPinImg()"
+              :scale="0.1"
+            />
+          </ol-style>
+        </ol-feature>
+      </ol-source-vector>
+    </ol-vector-layer>
+
+    <ol-vector-layer>
+      <ol-source-vector>
+        <ol-feature>
+          <ol-geom-point :coordinates="[-122.0587888, 37.0014776]" />
+          <ol-style>
+            <ol-style-icon
+              :src="getPinImg()"
+              :scale="0.1"
+            />
+          </ol-style>
+        </ol-feature>
+      </ol-source-vector>
+    </ol-vector-layer>
   </ol-map>
 </template>
 
-<script>
+<script> 
 import hereIcon from '@/assets/here.png'
+import pinIcon from '@/assets/pin.png'
 import {
     ref
 } from 'vue'
 export default {
     setup() {
-        const center = ref([140, 140])
+        const center = ref([-122.0633153,37.0004593])
         const projection = ref('EPSG:4326')
         const zoom = ref(8)
         const rotation = ref(0)
@@ -69,9 +106,22 @@ export default {
             hereIcon,
             view,
             map,
-            geoLocChange
+            geoLocChange,
         }
     },
-
+    methods:{
+        getPinImg(){
+            return pinIcon;
+        }
+    }
 }
 </script>
+<style>
+.overlay-content {
+    background: #efefef;
+    box-shadow: 0 5px 10px rgb(2 2 2 / 20%);
+    padding: 10px 20px;
+    font-size: 16px;
+}
+</style>
+
