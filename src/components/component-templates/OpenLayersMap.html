@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body> 
+    <ol-map style="height:400px">
+        <ol-view
+          ref="view"
+          :center="center"
+          :rotation="rotation"
+          :zoom="zoom"
+          :projection="projection"
+        />
+    
+        <ol-tile-layer>
+          <ol-source-osm />
+        </ol-tile-layer>
+        <ol-geolocation
+          :projection="projection"
+          @positionChanged="geoLocChange"
+        >
+          <template #default="slotProps">
+            <ol-vector-layer :z-index="2">
+              <ol-source-vector>
+                <ol-feature ref="positionFeature">
+                  <ol-geom-point :coordinates="slotProps.position" />
+                  <ol-style>
+                    <ol-style-icon
+                      :src="hereIcon"
+                      :scale="0.1"
+                    />
+                  </ol-style>
+                </ol-feature>
+              </ol-source-vector>
+            </ol-vector-layer>
+          </template>
+        </ol-geolocation>
+        
+        <ol-vector-layer v-for="location in locations">
+            <ol-source-vector>
+              <ol-feature>
+                <ol-geom-point :coordinates=getCoordinates(location) />
+                <!-- <ol-geom-point :coordinates="[-122.0616427, 36.9995773]" /> -->
+                <ol-style>
+                  <ol-style-icon
+                    :src="getPinImg()"
+                    :scale="0.1"
+                  />
+                </ol-style>
+              </ol-feature>
+            </ol-source-vector>
+          </ol-vector-layer>
+
+        <!-- <ol-vector-layer>
+          <ol-source-vector>
+            <ol-feature>
+              <ol-geom-point :coordinates="[-122.0633153, 37.0004593]" />
+              <ol-style>
+                <ol-style-icon
+                  :src="getPinImg()"
+                  :scale="0.1"
+                />
+              </ol-style>
+            </ol-feature>
+          </ol-source-vector>
+        </ol-vector-layer>
+    
+        <ol-vector-layer>
+          <ol-source-vector>
+            <ol-feature>
+              <ol-geom-point :coordinates="[-122.0616427, 36.9995773]" />
+              <ol-style>
+                <ol-style-icon
+                  :src="getPinImg()"
+                  :scale="0.1"
+                />
+              </ol-style>
+            </ol-feature>
+          </ol-source-vector>
+        </ol-vector-layer>
+    
+        <ol-vector-layer>
+          <ol-source-vector>
+            <ol-feature>
+              <ol-geom-point :coordinates="[-122.0587888, 37.0014776]" />
+              <ol-style>
+                <ol-style-icon
+                  :src="getPinImg()"
+                  :scale="0.1"
+                />
+              </ol-style>
+            </ol-feature>
+          </ol-source-vector>
+        </ol-vector-layer> -->
+
+      </ol-map>
+
+</body>
+</html>

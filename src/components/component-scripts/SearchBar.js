@@ -2,6 +2,7 @@ import $ from 'jquery'
 import SimpleKeyboard from "../SimpleKeyboard.vue";
 import OpenLayersMap from "../OpenLayersMap.vue";
 import { ref } from 'vue';
+
 const axios = require('axios');
 export default{
     props: { 
@@ -26,6 +27,8 @@ export default{
             layout: "normal",
             input: "",
             foundCount: 0,
+            locations: [],
+            loc_num: 0,
             options: {
                 useKbEvents: false,
                 preventClickEvent: false
@@ -110,9 +113,22 @@ export default{
             this.searchQuery = '';
             this.showKeyboard = false;
         },
-        showMap(){
-            this.openMap = true;
-                        
+        async showMap(){
+            let loc_obj  = 0
+            let  response = 0
+            try{
+                response = await axios.post('http://ec2-54-167-36-58.compute-1.amazonaws.com:3000/location/',
+                    {"item_id": "d016", "latitude":37.0003434, "longitude":-122.0632395, "range": 10000}
+                    //{"machine_id": "pi1", "items": orderObj} 
+                    // right now the post request will fail because the API cannot handle the subTotal receipt yet
+                )
+                loc_obj = response.data
+            }catch(e){
+                console.log("Error SearchBar.js")
+            }
+            this.locations = loc_obj
+            this.loc_num = loc_obj.length
+            this.openMap = true;          
         },
         closeMap(){
             this.openMap = false;
