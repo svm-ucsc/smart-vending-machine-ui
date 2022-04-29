@@ -73,7 +73,7 @@ export default{
             const respon = await axios.get('http://ec2-54-167-36-58.compute-1.amazonaws.com:3000/item');
             this.inventory = respon.data;
         } catch (e) {
-            console.log("Error");
+            console.log("Error SearchBar.js");
         }
     },
     methods: {
@@ -149,9 +149,8 @@ export default{
             }
             this.locations = loc_obj
             this.loc_num = loc_obj.length
-            this.openMap = true;
-            console.log(loc_obj)
-            this.inStock = (loc_obj.length <= 0) ? false : true          
+            this.inStock = (loc_obj.length <= 0) ? false : true
+            this.openMap = true;          
         },
         closeMap(){
             this.openMap = false;
