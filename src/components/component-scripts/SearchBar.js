@@ -20,10 +20,12 @@ export default{
         return {
             searchQuery: '',
             items: [],
+            inventory: [],
             showResults: false,
             showKeyboard: false,
             visible: false,
             openMap: false,
+            inStock: false,
             layout: "normal",
             input: "",
             foundCount: 0,
@@ -59,8 +61,20 @@ export default{
         }
     },
     async mounted(){
-        const response = await axios.get('http://ec2-54-167-36-58.compute-1.amazonaws.com:3000/item');
-        this.items = response.data;
+        try {
+            const response = await axios.get('http://ec2-54-167-36-58.compute-1.amazonaws.com:3000/machine', 
+                { params: { mids:["pi1"].join(), fields:["stock"].join() } });
+            const obj = response.data
+            let machineParsedData = Object.keys(obj[0].stock);
+            const res = await axios.get('http://ec2-54-167-36-58.compute-1.amazonaws.com:3000/item', 
+                { params: { iids:machineParsedData.join(), fields:["item_id", "name","nutrition_url", "cost", "image_url"].join()} });
+            let itemParsedData = res.data;
+            this.items=itemParsedData
+            const respon = await axios.get('http://ec2-54-167-36-58.compute-1.amazonaws.com:3000/item');
+            this.inventory = respon.data;
+        } catch (e) {
+            console.log("Error");
+        }
     },
     methods: {
         showSearchInterface(){
@@ -113,14 +127,21 @@ export default{
             this.searchQuery = '';
             this.showKeyboard = false;
         },
+        checkItemName(){
+            for(var i = 0; i < this.items.length; i++){
+                if(this.inventory[i].name.toLowerCase() == this.searchQuery.toLowerCase()){
+                    return this.inventory[i].item_id
+                }
+            }
+            return null
+        },
         async showMap(){
             let loc_obj  = 0
             let  response = 0
+            let id = this.checkItemName()
             try{
                 response = await axios.post('http://ec2-54-167-36-58.compute-1.amazonaws.com:3000/location/',
-                    {"item_id": "d016", "latitude":37.0003434, "longitude":-122.0632395, "range": 10000}
-                    //{"machine_id": "pi1", "items": orderObj} 
-                    // right now the post request will fail because the API cannot handle the subTotal receipt yet
+                    {"item_id": id, "latitude":37.0003434, "longitude":-122.0632395, "range": 10000}
                 )
                 loc_obj = response.data
             }catch(e){
@@ -128,7 +149,9 @@ export default{
             }
             this.locations = loc_obj
             this.loc_num = loc_obj.length
-            this.openMap = true;          
+            this.openMap = true;
+            console.log(loc_obj)
+            this.inStock = (loc_obj.length <= 0) ? false : true          
         },
         closeMap(){
             this.openMap = false;

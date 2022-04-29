@@ -34,11 +34,9 @@ export default {
     },
     methods:{
         getPinImg(){
-            // console.log(this.locations[0]["latitude"])
             return pinIcon;
         },
         getCoordinates(location){
-            console.log(location)
             const coordinates = [location["longitude"], location["latitude"]]
             return coordinates
         }

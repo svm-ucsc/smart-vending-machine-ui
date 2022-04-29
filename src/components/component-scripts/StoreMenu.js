@@ -7,12 +7,11 @@ export default {
             try {
                 const response = await axios.get('http://ec2-54-167-36-58.compute-1.amazonaws.com:3000/machine', 
                     { params: { mids:["pi1"].join(), fields:["stock"].join() } });
-                const obj = response.data;
+                const obj = response.data
                 let machineParsedData = Object.keys(obj[0].stock);
                 let quantityParsedData = Object.values(obj[0].stock);
                 const res = await axios.get('http://ec2-54-167-36-58.compute-1.amazonaws.com:3000/item', 
-                    { params: { iids:machineParsedData, fields:["item_id", "name","nutrition_url", "cost", "image_url"].join() } });
-            
+                    { params: { iids:machineParsedData.join(), fields:["item_id", "name","nutrition_url", "cost", "image_url"].join()} });
                 let itemParsedData = res.data;
                 let dataPlaceHolder = [];
                 let chunk = 3; // 3 items displayed per row
