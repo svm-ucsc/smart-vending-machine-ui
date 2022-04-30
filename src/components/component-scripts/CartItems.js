@@ -34,7 +34,7 @@ export default {
             for (let i of this.$store.state.cartInfo) {
                 this.cartReceipt.push(i);
             }
-            this.$store.commit('sendOrderToDB');
+            this.$store.commit('captureOrderID');
 
         },
         nextSplitModal() {
@@ -71,18 +71,55 @@ export default {
             local_subTotal = local_subTotal.toLocaleString("en-US", { style: "currency", currency: "USD" });
             return local_subTotal;
         },
-        async sleepingFcn(){
-            this.sleeping = true;
 
-            // await try/catch the api call /order here
+        // this function will call /order to verify the stock items
+        async checkInventory() {
+            this.sleeping = true;
+            await new Promise(resolve => setTimeout(resolve, 3000));
+
             // stuff returned is {order_id, paypal_order_id}
 
-            if (this.sleeping == true) {
-                this.modal_pageCount++;
-                this.sleeping = false;
+            // send the cartInfo by parsing cartInfo obj and reassigning to id:quantity format
+            let orderObj = this.$store.state.cartInfo.reduce(
+                (orderObj, item) =>
+                    Object.assign(orderObj, { [item.itemId]: item.quantity }),
+                {}
+            );
+            try {
+                const response = await axios.post(
+                    "http://ec2-54-167-36-58.compute-1.amazonaws.com:3000/order/",
+
+                    { machine_id: "testclient", items: orderObj }
+                );
+                // obj returns {"order_id": xxxx, "paypal_order_id": xxxxx}
+                const obj = response.data;
+                const order_id_key = Object.keys(obj)[0];
+                const order_id_value = obj[order_id_key];
+                const paypal_id_key = Object.keys(obj)[1];
+                const paypal_id_value = obj[paypal_id_key];
+
+                this.$store.state.order_id = order_id_value;
+                this.$store.state.paypal_order_id = paypal_id_value;
+
+                console.log(`${order_id_key}: ${order_id_value}`)
+                console.log(`${paypal_id_key}: ${paypal_id_value}`)
+                console.log(`obj response is: ${JSON.stringify(obj)}`)
+                if (this.sleeping == true) {
+                    this.modal_pageCount++;
+                    this.sleeping = false;
+                }
+                // state.cartInfo = []; // clear the cart and all information associated with it based on return code
+
+            } catch (e) {
+                console.log("Error (cartitems.js): " + e);
+                // console.log(`Reason: ${JSON.stringify(e["reason"])}`)
+                // EMIT A NEW EVENT? CREATE COMPONENT STATING ITEM IS OUT OF STOCK? come back to this.
+                this.modal_pageCount = 0;
             }
+
+
         }
-        // async sleepingFcn() {
+        // async checkInventory() {
         //     this.sleeping = true;
         //     // await new Promise(resolve => setTimeout(resolve, 3000));
         //     // I AM AWARE OF THIS GIANT COMMENT BLOCK: please keep this here for inventory validation

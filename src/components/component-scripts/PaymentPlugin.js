@@ -43,7 +43,6 @@ export default {
                         await actions.order.capture();
                         this.paidFor = true;
                         this.$emit('onApproval');
-                        // console.log(order);
                     },
                     onError: err => {
                         console.log(err);

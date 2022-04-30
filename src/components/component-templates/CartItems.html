@@ -97,7 +97,7 @@
 
                     <!-- loading page for validation with machine's inventory... -->
                     <div class="modal-split" v-if="modal_pageCount === 1">
-                        <LoadingSpinner @created-spinner="sleepingFcn()" />
+                        <LoadingSpinner @created-spinner="checkInventory()" />
                     </div>
 
                     <!-- Second Modal: Paypal Component here -->
