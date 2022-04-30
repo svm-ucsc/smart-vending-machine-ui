@@ -53,6 +53,8 @@ const store = createStore({
             // data stores the index of where the element is to be removed
             state.cartInfo.splice(indexToDelete, 1); // delete 1 element at indexToDelete
         },
+
+        // instead of order, this should be /order/capture
         async sendOrderToDB(state) {
             // send the cartInfo by parsing cartInfo obj and reassigning to id:quantity format
             let orderObj = state.cartInfo.reduce(
@@ -70,7 +72,6 @@ const store = createStore({
 
             } catch (e) {
                 console.log("Error (main.js): Cannot place the order");
-                // this.$emit('sentOrderFailed')
             }
         },
         calculateTotalCost(state) {

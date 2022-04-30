@@ -71,53 +71,64 @@ export default {
             local_subTotal = local_subTotal.toLocaleString("en-US", { style: "currency", currency: "USD" });
             return local_subTotal;
         },
-        async sleepingFcn() {
+        async sleepingFcn(){
             this.sleeping = true;
-            // await new Promise(resolve => setTimeout(resolve, 3000));
-            // I AM AWARE OF THIS GIANT COMMENT BLOCK: please keep this here for inventory validation
 
-            try {
-                const response = await axios.get('http://ec2-54-167-36-58.compute-1.amazonaws.com:3000/machine',
-                    { params: { fields: ["machine_id", "location", "stock"].join() } });
-                const obj = response.data;
-                let parsedData = obj;
-                let inventoryObj = parsedData.find((o) => o.machine_id == "testclient");
+            // await try/catch the api call /order here
+            // stuff returned is {order_id, paypal_order_id}
 
-                if ((inventoryObj != null) && (inventoryObj.machine_id == "testclient")) {
-                    // loop through temp.stock and compare with cart contents now:
-                    console.log("machine stock is: " + JSON.stringify(inventoryObj))
-                    for (let item in this.$store.state.cartInfo) {
-                        console.log(`looping... item: ${JSON.stringify(item)}`)
-                        let foodExists = inventoryObj.stock.find((i) => i === item.itemId);
-                        if (foodExists) {
-                            if (foodExists.quantity > item.quantity) {
-                                console.log(`OUT OF STOCK. You requested: ${item.itemId} amount ${item.quantity} but only ${foodExists.quantity} was found`)
-                            }
-                        }
-                    }
-                    // for (let foodIds in inventoryObj.stock) {
-                    //     console.log(`food: ${foodIds}, quantity: ${inventoryObj.stock[foodIds]}`);
-                    // }
-                    // console.log("the user's cart is: " + JSON.stringify(this.$store.state.cartInfo))
-                }
-
-                // async so we need to confirm with "mutex boolean" style logic before updating
-                if (this.sleeping == true) {
-                    this.modal_pageCount++;
-                    this.sleeping = false;
-                }
-                await new Promise(resolve => setTimeout(resolve, 10000));
-            } catch (e) {
-                console.log("Error (cartitems.js): " + e);
-                this.modal_pageCount = 0;
+            if (this.sleeping == true) {
+                this.modal_pageCount++;
                 this.sleeping = false;
             }
-            // // async so we need to confirm with "mutex boolean" style logic before updating
-            // if (this.sleeping == true) {
-            //     this.modal_pageCount++;
-            //     this.sleeping = false;
-            // }
         }
+        // async sleepingFcn() {
+        //     this.sleeping = true;
+        //     // await new Promise(resolve => setTimeout(resolve, 3000));
+        //     // I AM AWARE OF THIS GIANT COMMENT BLOCK: please keep this here for inventory validation
+
+        //     try {
+        //         const response = await axios.get('http://ec2-54-167-36-58.compute-1.amazonaws.com:3000/machine',
+        //             { params: { fields: ["machine_id", "location", "stock"].join() } });
+        //         const obj = response.data;
+        //         let parsedData = obj;
+        //         let inventoryObj = parsedData.find((o) => o.machine_id == "testclient");
+
+        //         if ((inventoryObj != null) && (inventoryObj.machine_id == "testclient")) {
+        //             // loop through temp.stock and compare with cart contents now:
+        //             console.log("machine stock is: " + JSON.stringify(inventoryObj))
+        //             for (let item in this.$store.state.cartInfo) {
+        //                 console.log(`looping... item: ${JSON.stringify(item)}`)
+        //                 let foodExists = inventoryObj.stock.find((i) => i === item.itemId);
+        //                 if (foodExists) {
+        //                     if (foodExists.quantity > item.quantity) {
+        //                         console.log(`OUT OF STOCK. You requested: ${item.itemId} amount ${item.quantity} but only ${foodExists.quantity} was found`)
+        //                     }
+        //                 }
+        //             }
+        //             // for (let foodIds in inventoryObj.stock) {
+        //             //     console.log(`food: ${foodIds}, quantity: ${inventoryObj.stock[foodIds]}`);
+        //             // }
+        //             // console.log("the user's cart is: " + JSON.stringify(this.$store.state.cartInfo))
+        //         }
+
+        //         // async so we need to confirm with "mutex boolean" style logic before updating
+        //         if (this.sleeping == true) {
+        //             this.modal_pageCount++;
+        //             this.sleeping = false;
+        //         }
+        //         await new Promise(resolve => setTimeout(resolve, 10000));
+        //     } catch (e) {
+        //         console.log("Error (cartitems.js): " + e);
+        //         this.modal_pageCount = 0;
+        //         this.sleeping = false;
+        //     }
+        //     // // async so we need to confirm with "mutex boolean" style logic before updating
+        //     // if (this.sleeping == true) {
+        //     //     this.modal_pageCount++;
+        //     //     this.sleeping = false;
+        //     // }
+        // }
     },
     mounted: function () {
         // need arrow operator because the scope of "this" changes otherwise
