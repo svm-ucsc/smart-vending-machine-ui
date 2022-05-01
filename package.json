@@ -20,6 +20,7 @@
     "core-js": "^3.6.5",
     "jquery": "^3.6.0",
     "node-static": "^0.7.11",
+    "qrcode.vue": "^3.3.3",
     "sass": "^1.49.8",
     "sass-loader": "^8.0.2",
     "simple-keyboard": "^3.4.68",
@@ -49,8 +50,8 @@
       "parser": "babel-eslint"
     },
     "rules": {
-        "indent": 2,
-        "vue/require-explicit-emits": 0
+      "indent": 2,
+      "vue/require-explicit-emits": 0
     }
   },
   "browserslist": [

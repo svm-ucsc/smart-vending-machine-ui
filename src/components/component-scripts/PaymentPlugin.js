@@ -15,32 +15,27 @@ export default {
         };
     },
     mounted: function () {
+
+
         const script = document.createElement("script");
         script.src =
             "https://www.paypal.com/sdk/js?client-id=AUa5_Jl61gBVAKStkIh3OroJlrRZUWqcfjmvjgKuUsCi7UsmZRZcPFT2uJKydC2n9Umqd_Xxyz3PB3WX";
         script.addEventListener("load", this.setLoaded);
         document.body.appendChild(script);
+
     },
     methods: {
         setLoaded: function () {
             this.loaded = true;
             window.paypal
                 .Buttons({
-                    createOrder: (data, actions) => {
-                        return actions.order.create({
-                            purchase_units: [
-                                {
-                                    description: this.product.description,
-                                    amount: {
-                                        currency_code: "USD",
-                                        value: (this.$store.subTotal) / 100
-                                    }
-                                }
-                            ]
-                        });
+                    createOrder: () => {
+                        // /order
+                        console.log(` payment plugin.js: ${this.$store.state.paypal_order_id}`)
+                        return this.$store.state.paypal_order_id;
+
                     },
-                    onApprove: async (data, actions) => {
-                        await actions.order.capture();
+                    onApprove: async () => {
                         this.paidFor = true;
                         this.$emit('onApproval');
                     },

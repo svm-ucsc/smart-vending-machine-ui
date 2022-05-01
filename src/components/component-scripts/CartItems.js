@@ -28,6 +28,9 @@ export default {
             this.sleeping = false;
 
         },
+        // decrementQuantity(index){
+
+        // },
         placeOrder() {
             this.modal_pageCount++;
             // copy order to a receipt list prior to the reset of content
@@ -75,10 +78,7 @@ export default {
         // this function will call /order to verify the stock items
         async checkInventory() {
             this.sleeping = true;
-            await new Promise(resolve => setTimeout(resolve, 3000));
-
-            // stuff returned is {order_id, paypal_order_id}
-
+            // await new Promise(resolve => setTimeout(resolve, 3000));
             // send the cartInfo by parsing cartInfo obj and reassigning to id:quantity format
             let orderObj = this.$store.state.cartInfo.reduce(
                 (orderObj, item) =>
@@ -92,7 +92,7 @@ export default {
                     { machine_id: "testclient", items: orderObj }
                 );
                 // obj returns {"order_id": xxxx, "paypal_order_id": xxxxx}
-                const obj = response.data;
+                var obj = response.data; // needs to become global scoped
                 const order_id_key = Object.keys(obj)[0];
                 const order_id_value = obj[order_id_key];
                 const paypal_id_key = Object.keys(obj)[1];
@@ -108,64 +108,18 @@ export default {
                     this.modal_pageCount++;
                     this.sleeping = false;
                 }
-                // state.cartInfo = []; // clear the cart and all information associated with it based on return code
 
             } catch (e) {
                 console.log("Error (cartitems.js): " + e);
-                // console.log(`Reason: ${JSON.stringify(e["reason"])}`)
+                console.log(`Here's the response: ${JSON.stringify(e.response.data)}`)
+
                 // EMIT A NEW EVENT? CREATE COMPONENT STATING ITEM IS OUT OF STOCK? come back to this.
                 this.modal_pageCount = 0;
             }
 
 
         }
-        // async checkInventory() {
-        //     this.sleeping = true;
-        //     // await new Promise(resolve => setTimeout(resolve, 3000));
-        //     // I AM AWARE OF THIS GIANT COMMENT BLOCK: please keep this here for inventory validation
 
-        //     try {
-        //         const response = await axios.get('http://ec2-54-167-36-58.compute-1.amazonaws.com:3000/machine',
-        //             { params: { fields: ["machine_id", "location", "stock"].join() } });
-        //         const obj = response.data;
-        //         let parsedData = obj;
-        //         let inventoryObj = parsedData.find((o) => o.machine_id == "testclient");
-
-        //         if ((inventoryObj != null) && (inventoryObj.machine_id == "testclient")) {
-        //             // loop through temp.stock and compare with cart contents now:
-        //             console.log("machine stock is: " + JSON.stringify(inventoryObj))
-        //             for (let item in this.$store.state.cartInfo) {
-        //                 console.log(`looping... item: ${JSON.stringify(item)}`)
-        //                 let foodExists = inventoryObj.stock.find((i) => i === item.itemId);
-        //                 if (foodExists) {
-        //                     if (foodExists.quantity > item.quantity) {
-        //                         console.log(`OUT OF STOCK. You requested: ${item.itemId} amount ${item.quantity} but only ${foodExists.quantity} was found`)
-        //                     }
-        //                 }
-        //             }
-        //             // for (let foodIds in inventoryObj.stock) {
-        //             //     console.log(`food: ${foodIds}, quantity: ${inventoryObj.stock[foodIds]}`);
-        //             // }
-        //             // console.log("the user's cart is: " + JSON.stringify(this.$store.state.cartInfo))
-        //         }
-
-        //         // async so we need to confirm with "mutex boolean" style logic before updating
-        //         if (this.sleeping == true) {
-        //             this.modal_pageCount++;
-        //             this.sleeping = false;
-        //         }
-        //         await new Promise(resolve => setTimeout(resolve, 10000));
-        //     } catch (e) {
-        //         console.log("Error (cartitems.js): " + e);
-        //         this.modal_pageCount = 0;
-        //         this.sleeping = false;
-        //     }
-        //     // // async so we need to confirm with "mutex boolean" style logic before updating
-        //     // if (this.sleeping == true) {
-        //     //     this.modal_pageCount++;
-        //     //     this.sleeping = false;
-        //     // }
-        // }
     },
     mounted: function () {
         // need arrow operator because the scope of "this" changes otherwise
