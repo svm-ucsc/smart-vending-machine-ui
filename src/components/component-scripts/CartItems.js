@@ -67,6 +67,11 @@ export default{
         devMode(){
             this.$store.commit('switchMode'); 
         },
+        secretMode(){
+            console.log(this.$store.getters.checkMachineID)
+            this.$store.commit('setMachineID'); 
+            console.log(this.$store.getters.checkMachineID)
+        },
     },
     mounted: function(){
         // need arrow operator because the scope of "this" changes otherwise

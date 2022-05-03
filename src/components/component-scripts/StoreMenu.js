@@ -1,12 +1,30 @@
 // import { parse } from '@vue/compiler-dom';
-
+import { mapGetters } from 'vuex'
 const axios = require('axios');
 export default {
+    data(){
+        return{
+            nameIdSet: [] // an array that holds an object. each object holds a foodname and foodID and foodcost
+        }
+    },
+    
+    computed: {
+        ...mapGetters({
+            machine_id: 'checkMachineID'
+        })
+    },
+    watch:{
+        machine_id(){
+            this.fetchingNameId()
+        },
+    },
     methods: {
         async fetchingNameId(){
             try {
+                const machine_id = this.machine_id
+                console.log(machine_id)
                 const response = await axios.get('http://ec2-54-167-36-58.compute-1.amazonaws.com:3000/machine', 
-                    { params: { mids:["pi1"].join(), fields:["stock"].join() } });
+                    { params: { mids:machine_id, fields:["stock"].join() } });
                 const obj = response.data
                 let machineParsedData = Object.keys(obj[0].stock);
                 let quantityParsedData = Object.values(obj[0].stock);
@@ -27,13 +45,6 @@ export default {
                 console.log("Error");
             }
         },
-    },
-  
-
-    data(){
-        return{
-            nameIdSet: [] // an array that holds an object. each object holds a foodname and foodID and foodcost
-        };
     },
 
     created(){

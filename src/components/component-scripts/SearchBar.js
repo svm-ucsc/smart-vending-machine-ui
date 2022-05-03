@@ -61,22 +61,26 @@ export default{
         }
     },
     async mounted(){
-        try {
-            const response = await axios.get('http://ec2-54-167-36-58.compute-1.amazonaws.com:3000/machine', 
-                { params: { mids:["pi1"].join(), fields:["stock"].join() } });
-            const obj = response.data
-            let machineParsedData = Object.keys(obj[0].stock);
-            const res = await axios.get('http://ec2-54-167-36-58.compute-1.amazonaws.com:3000/item', 
-                { params: { iids:machineParsedData.join(), fields:["item_id", "name","nutrition_url", "cost", "image_url"].join()} });
-            let itemParsedData = res.data;
-            this.items=itemParsedData
-            const respon = await axios.get('http://ec2-54-167-36-58.compute-1.amazonaws.com:3000/item');
-            this.inventory = respon.data;
-        } catch (e) {
-            console.log("Error SearchBar.js");
-        }
+        this.fetchStock()
     },
     methods: {
+        async fetchStock(){
+            try {
+                // Grabbing stock from pi1. Later this will be replaced with an API call to send location to find the machine ID.
+                const response = await axios.get('http://ec2-54-167-36-58.compute-1.amazonaws.com:3000/machine', 
+                    { params: { mids:["pi1"].join(), fields:["stock"].join() } });
+                const obj = response.data
+                let machineParsedData = Object.keys(obj[0].stock);
+                const res = await axios.get('http://ec2-54-167-36-58.compute-1.amazonaws.com:3000/item', 
+                    { params: { iids:machineParsedData.join(), fields:["item_id", "name","nutrition_url", "cost", "image_url"].join()} });
+                let itemParsedData = res.data;
+                this.items=itemParsedData
+                const respon = await axios.get('http://ec2-54-167-36-58.compute-1.amazonaws.com:3000/item');
+                this.inventory = respon.data;
+            } catch (e) {
+                console.log("Error SearchBar.js");
+            }
+        },
         showSearchInterface(){
             this.showKeyboard = true;
             const bar = document.getElementById('searchBar');

@@ -24,7 +24,8 @@ const store = createStore({
         return{
             isDevMode: Boolean,
             cartInfo: [],
-            subTotal: Number
+            subTotal: Number,
+            machineID: String
         };
     },
  
@@ -82,11 +83,17 @@ const store = createStore({
         },
         switchMode(state){
             state.isDevMode = !state.isDevMode;
+        },
+        setMachineID(state){
+            state.machineID = "pi1";
         }
     },
     getters: {
         checkMode: state => {
             return state.isDevMode;
+        },
+        checkMachineID: state => {
+            return state.machineID;
         }
     }
 });
