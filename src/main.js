@@ -3,6 +3,8 @@ import { createStore } from "vuex";
 import App from "./App.vue";
 import "bootstrap";
 // import $ from 'jquery'
+import JQuery from 'jquery';
+window.$ = JQuery;
 import ItemDetail from "./components/ItemDetail.vue";
 import SearchBar from "./components/SearchBar.vue";
 import CartItems from "./components/CartItems.vue";
@@ -12,6 +14,7 @@ import LoadingSpinner from "./components/LoadingSpinner.vue"
 import SearchResult from './components/SearchResult.vue';
 import SimpleKeyboard from "./components/SimpleKeyboard.vue";
 
+import QrCode from './components/QrCode.vue';
 // font awesome icons added
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { fas } from "@fortawesome/free-solid-svg-icons";
@@ -29,6 +32,8 @@ const store = createStore({
         return {
             cartInfo: [],
             subTotal: Number,
+            order_id: String,
+            paypal_order_id: String
         };
     },
 
@@ -53,26 +58,28 @@ const store = createStore({
             // data stores the index of where the element is to be removed
             state.cartInfo.splice(indexToDelete, 1); // delete 1 element at indexToDelete
         },
-        async sendOrderToDB(state) {
-            // send the cartInfo by parsing cartInfo obj and reassigning to id:quantity format
-            let orderObj = state.cartInfo.reduce(
-                (orderObj, item) =>
-                    Object.assign(orderObj, { [item.itemId]: item.quantity }),
-                {}
-            );
-            try {
-                await axios.post(
-                    "http://ec2-54-167-36-58.compute-1.amazonaws.com:3000/order/",
 
-                    { machine_id: "testclient", items: orderObj }
+        async captureOrderID(state) {
+            // simply send the order_id to the database that was created upon the /order post request from cartitems.js
+
+            //try catch statement, clear the cart upon success
+            // clear order_id upon success
+            // clear paypal order id upon success
+            try {
+                console.log(`capture order id info: ${this.state.order_id}`)
+                await axios.post(
+                    "http://ec2-54-167-36-58.compute-1.amazonaws.com:3000/order/capture",
+
+                    { order_id: this.state.order_id }
                 );
                 state.cartInfo = []; // clear the cart and all information associated with it based on return code
-
+                state.order_id = "";
+                state.paypal_order_id = "";
             } catch (e) {
-                console.log("Error (main.js): Cannot place the order");
-                // this.$emit('sentOrderFailed')
+                console.log("Error (main.js): Cannot capture the order");
             }
         },
+
         calculateTotalCost(state) {
             let subTotal = 0;
             if (state.cartInfo.length > 0) {
@@ -100,7 +107,8 @@ app.component('StoreMenu', StoreMenu);
 app.component('SimpleKeyboard', SimpleKeyboard);
 app.component('Payment', Payment);
 app.component('FontAwesomeIcon', FontAwesomeIcon);
-app.component("LoadingSpinner", LoadingSpinner)
+app.component("LoadingSpinner", LoadingSpinner);
+app.component('QrCode', QrCode);
 
 app.mount('#app')
 

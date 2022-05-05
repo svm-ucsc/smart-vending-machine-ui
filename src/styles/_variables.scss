@@ -1,13 +1,14 @@
 // This is where global styles will be stored
 // You can call these is the .scss styles like so:
 // property: $(variable-name);
-
+// @import "../node_modules/bootstrap/scss/mixins";
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@500;700&display=swap');
-$font-family: 'Noto Sans', sans-serif;
+$font-family: 'Noto Sans',
+sans-serif;
 $font-size: 16px;
 $font-height: 1.5;
 
-body{
+body {
     font-family: 'Noto Sans', Arial, Helvetica, sans-serif;
 }
 
@@ -17,13 +18,13 @@ $summer-tan: rgb(255, 233, 206);
 $summer-tan: rgb(255, 233, 206);
 $summer-yellow: rgba(23, 88, 238, 0.733);
 $summer-white: rgb(231, 241, 251);
-$summer-green: rgb(208,249,183);
-$summer-aqua: rgb(147, 244,202);
+$summer-green: rgb(208, 249, 183);
+$summer-aqua: rgb(147, 244, 202);
 $summer-creme: rgb(245, 250, 254);
 $summer-blue: rgb(28, 143, 153);
 $summer-lightblue: rgba(1, 13, 245, 0.111);
 $summer-purple: rgb(244, 224, 255);
-$summer-coral: rgb(248,131,121);
+$summer-coral: rgb(248, 131, 121);
 $nice-grey: rgb(235, 232, 237);
 
 // Shadowing, radii, etc
