@@ -18,8 +18,8 @@ export default {
 
 
         const script = document.createElement("script");
-        script.src =
-            "https://www.paypal.com/sdk/js?client-id=AUa5_Jl61gBVAKStkIh3OroJlrRZUWqcfjmvjgKuUsCi7UsmZRZcPFT2uJKydC2n9Umqd_Xxyz3PB3WX";
+        const script_string = "https://www.paypal.com/sdk/js?client-id=" + process.env.VUE_APP_PAYPALPUBKEY;
+        script.src = script_string;
         script.addEventListener("load", this.setLoaded);
         document.body.appendChild(script);
 
