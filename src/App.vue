@@ -20,6 +20,21 @@
   </div>
 </template>
 
+<script>
+export default ({
+    mounted() {
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition((position)=>{
+                const coordinates = {latitude: position.coords.latitude, longitude: position.coords.longitude}
+                this.$store.commit('setCoordinates', coordinates); 
+                this.$store.commit('setMachineID'); 
+            });
+        }
+    }
+})
+</script>
+
+
 <style lang="scss">
   @import'~bootstrap/dist/css/bootstrap.css';
   @import'../src/styles/_variables.scss';

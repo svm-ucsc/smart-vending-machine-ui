@@ -1,7 +1,6 @@
 import { createApp} from 'vue'
 import { createStore} from 'vuex'
 import App from './App.vue'
-import 'bootstrap'
 import ItemDetail from './components/ItemDetail.vue';
 import SearchBar from './components/SearchBar.vue';
 import SearchResult from './components/SearchResult.vue';
@@ -14,6 +13,7 @@ import { fas } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import OpenLayersMap from '../node_modules/vue3-openlayers'
 import '../node_modules/vue3-openlayers/dist/vue3-openlayers.css'
+import 'bootstrap'
 library.add(fas)
 
 const axios = require('axios');
@@ -25,7 +25,8 @@ const store = createStore({
             isDevMode: Boolean,
             cartInfo: [],
             subTotal: Number,
-            machineID: String
+            machineID: String,
+            coordinates: Object
         };
     },
  
@@ -86,7 +87,11 @@ const store = createStore({
         },
         setMachineID(state){
             state.machineID = "pi1";
+        },
+        setCoordinates(state, coordinatesObj){
+            state.coordinates = coordinatesObj;
         }
+
     },
     getters: {
         checkMode: state => {
@@ -94,6 +99,9 @@ const store = createStore({
         },
         checkMachineID: state => {
             return state.machineID;
+        },
+        checkCoordinates: state => {
+            return state.coordinates;
         }
     }
 });
