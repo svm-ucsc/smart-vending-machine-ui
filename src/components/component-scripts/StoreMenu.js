@@ -32,12 +32,11 @@ export default {
                     { params: { iids:machineParsedData.join(), fields:["item_id", "name","nutrition_url", "cost", "image_url"].join()} });
                 let itemParsedData = res.data;
                 let dataPlaceHolder = [];
-                let chunk = 3; // 3 items displayed per row
+                let chunk = 2; // 3 items displayed per row
                 let i,j;
                 for (i = 0,j = itemParsedData.length; i < j; i += chunk) {
                     itemParsedData[i].quantity = quantityParsedData[i];
                     itemParsedData[i+1].quantity = quantityParsedData[i+1];
-                    itemParsedData[i+2].quantity = quantityParsedData[i+2];
                     dataPlaceHolder = itemParsedData.slice(i,i+chunk);
                     this.nameIdSet.push(dataPlaceHolder); // push the (food, id, cost) as a set together
                 }        
