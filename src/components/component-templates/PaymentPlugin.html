@@ -11,56 +11,23 @@
     <div v-if="!paidFor">
         <h4 class="text-center">Please Select Your Method of Payment</h4>
 
-
-        <p>
+        <!-- QR Code Component -->
+        <p class="text-center">
             <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample"
                 aria-expanded="false" aria-controls="collapseExample">
                 Tap to Scan QR Code
             </button>
         </p>
         <div class="collapse" id="collapseExample">
-            <div class="card card-body">
+            <div class="card card-body payment-plugin__cardBody">
+                <p v-if="qrPaymentSuc == false">Payment Not Successful. Please Try Again.</p>
                 <QrCode />
-                <button type="button" @click="this.$emit('onApproval')">I've Paid!</button>
-                <!-- <input id="text" type="text" value="https://hogangnono.com" style="width:80%" /><br />
-                <div id="qrcode"></div> -->
-                <!-- <script type="text/javascript"> -->
-                <!-- // var qrcode = new QRCode(document.getElementById("qrcode"), {
-                    //     width: 100,
-                    //     height: 100
-                    // });
-
-                    // function makeCode() {
-                    //     var elText = document.getElementById("text");
-
-                    //     if (!elText.value) {
-                    //         alert("Input a text");
-                    //         elText.focus();
-                    //         return;
-                    //     }
-
-                    //     qrcode.makeCode(elText.value);
-                    // }
-
-                    // makeCode();
-
-                    // $("#text").
-                    //     on("blur", function () {
-                    //         makeCode();
-                    //     }).
-                    //     on("keydown", function (e) {
-                    //         if (e.keyCode == 13) {
-                    //             makeCode();
-                    //         }
-                    //     }); -->
-                <!-- </script> -->
+                <button type="button" @click="qrCodeAttemptAproval()">I've Paid!</button>
             </div>
         </div>
-
-
-
-
     </div>
+
+    <!-- Paypal Component -->
     <div v-if="paidFor">
     </div>
     <div ref="paypal" v-if="!paidFor" />

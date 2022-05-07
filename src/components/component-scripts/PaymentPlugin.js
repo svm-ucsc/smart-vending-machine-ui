@@ -1,7 +1,7 @@
 // This Component code was taken from: https://fireship.io/lessons/paypal-checkout-frontend/
 // It is also based on the PayPal Developer Code: https://developer.paypal.com/docs/checkout/standard/integrate/ 
 // These references were also used in conjunction with our PaymentPlugin.html template
-
+const axios = require("axios");
 export default {
     name: "PayPal Template",
 
@@ -11,7 +11,8 @@ export default {
             paidFor: false,
             product: {
                 description: "this is the amount you owe"
-            }
+            },
+            qrPaymentSuc: true
         };
     },
     mounted: function () {
@@ -45,5 +46,34 @@ export default {
                 })
                 .render(this.$refs.paypal);
         },
+
+        async qrCodeAttemptAproval() {
+
+            try {
+                // same functionality as captureOrderId() in main.js:
+                console.log(`capture order id info: ${this.$store.state.order_id}`)
+                await axios.post(
+                    "http://ec2-54-167-36-58.compute-1.amazonaws.com:3000/order/capture",
+
+                    { order_id: this.$store.state.order_id }
+                );
+
+                this.loaded = true;
+                this.paidFor = true;
+                this.$emit('qrMoveForward') // increments modal
+
+
+
+                this.$store.state.cartInfo = []; // clear the cart and all information associated with it based on return code
+                this.$store.state.order_id = "";
+                this.$store.state.paypal_order_id = "";
+
+            } catch (e) {
+                this.paidFor = false;
+                this.qrPaymentSuc = false;
+                console.log("Error (qr payment): Cannot capture the order");
+            }
+
+        }
     }
 };

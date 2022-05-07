@@ -16,6 +16,12 @@
     padding: 30px 30px 0px 30px;
 }
 
+.payment-plugin__cardBody {
+    // background: transparent !important;
+    box-shadow: $component-shadow;
+    margin-bottom: 10px;
+}
+
 #qrcode {
     width: 160px;
     height: 160px;

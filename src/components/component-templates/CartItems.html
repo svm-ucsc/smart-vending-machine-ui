@@ -105,7 +105,8 @@
                     <!-- Second Modal: Paypal Component here -->
                     <div class="modal-split" v-if="modal_pageCount === 2">
                         <!-- listen for approval event -->
-                        <Payment @on-approval="placeOrder()" />
+                        <!-- on approval event triggers normal order flow, qr event triggers QR order flow -->
+                        <Payment @on-approval="placeOrder()" @qr-move-forward="placeOrderQRVersion()" />
                     </div>
 
                     <!-- Third Modal Screen on Approval, Receipt Shown -->

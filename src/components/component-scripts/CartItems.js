@@ -40,6 +40,14 @@ export default {
             this.$store.commit('captureOrderID');
 
         },
+        // THE QR VERSION does everything that place order does, and it does its own version of capturing order id
+        placeOrderQRVersion() {
+            this.modal_pageCount++;
+            // copy order to a receipt list prior to the reset of content
+            for (let i of this.$store.state.cartInfo) {
+                this.cartReceipt.push(i);
+            }
+        },
         nextSplitModal() {
             this.modal_pageCount++;
             this.modal_paymentScreen = true;
