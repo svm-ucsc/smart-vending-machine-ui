@@ -21,18 +21,58 @@
 </template>
 
 <script>
+const axios = require('axios');
 export default ({
     mounted() {
         if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition((position)=>{
                 const coordinates = {latitude: position.coords.latitude, longitude: position.coords.longitude}
-                this.$store.commit('setCoordinates', coordinates); 
-                this.$store.commit('setMachineID'); 
+                this.$store.commit('setCoordinates', coordinates);
+                this.getClosestMachine(coordinates)
             });
+        }
+    },
+    methods:{
+        async getClosestMachine(coordinates){
+            let machineList = []
+            try{
+                let response = await axios.post('http://ec2-54-167-36-58.compute-1.amazonaws.com:3000/location/',
+                    {"item_id": "empty", "latitude": coordinates.latitude, "longitude":coordinates.longitude, "range": 10000}
+                )
+                machineList = response.data
+                
+            }catch(e){
+                console.log("Error App.vue")
+            }
+            let closest = machineList[0]
+            for(var i = 1; i < machineList.length; i++){
+                if(machineList[i].distance < closest.distance){
+                    closest = machineList[i]
+                }
+            }
+            this.$store.commit('setClosestMachineID', closest.machine_id ); 
         }
     }
 })
 </script>
+
+    <!-- async showMap(){
+            let loc_obj  = 0
+            let  response = 0
+            let id = this.checkItemName()
+            try{
+                response = await axios.post('http://ec2-54-167-36-58.compute-1.amazonaws.com:3000/location/',
+                    {"item_id": id, "latitude":37.0003434, "longitude":-122.0632395, "range": 10000}
+                )
+                loc_obj = response.data
+            }catch(e){
+                console.log("Error SearchBar.js")
+            }
+            this.locations = loc_obj
+            this.loc_num = loc_obj.length
+            this.inStock = (loc_obj.length <= 0) ? false : true
+            this.openMap = true;          
+        }, -->
 
 
 <style lang="scss">

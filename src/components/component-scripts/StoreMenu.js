@@ -22,10 +22,10 @@ export default {
         async fetchingNameId(){
             try {
                 const machine_id = this.machine_id
-                console.log(machine_id)
                 const response = await axios.get('http://ec2-54-167-36-58.compute-1.amazonaws.com:3000/machine', 
                     { params: { mids:machine_id, fields:["stock"].join() } });
                 const obj = response.data
+                if(obj.length === 0){return null}
                 let machineParsedData = Object.keys(obj[0].stock);
                 let quantityParsedData = Object.values(obj[0].stock);
                 const res = await axios.get('http://ec2-54-167-36-58.compute-1.amazonaws.com:3000/item', 
@@ -41,7 +41,8 @@ export default {
                     this.nameIdSet.push(dataPlaceHolder); // push the (food, id, cost) as a set together
                 }        
             } catch (e) {
-                console.log("Error");
+                console.log(e)
+                console.log("Error StoreMenu.js");
             }
         },
     },

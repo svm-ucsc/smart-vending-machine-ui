@@ -88,6 +88,9 @@ const store = createStore({
         setMachineID(state){
             state.machineID = "pi1";
         },
+        setClosestMachineID(state, id){
+            state.machineID = id;
+        },
         setCoordinates(state, coordinatesObj){
             state.coordinates = coordinatesObj;
         }
