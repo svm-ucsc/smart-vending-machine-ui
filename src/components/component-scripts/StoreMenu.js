@@ -20,6 +20,7 @@ export default {
     },
     methods: {
         async fetchingNameId(){
+            this.nameIdSet = []
             try {
                 const machine_id = this.machine_id
                 const response = await axios.get('http://ec2-54-167-36-58.compute-1.amazonaws.com:3000/machine', 
