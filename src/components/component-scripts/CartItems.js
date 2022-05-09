@@ -1,5 +1,6 @@
 import axios from 'axios';
 import $ from 'jquery'
+import { mapGetters } from 'vuex'
 
 export default {
     data() {
@@ -8,8 +9,12 @@ export default {
             modal_paymentScreen: false,
             modal_pageCount: 0,
             cartReceipt: [],
+            isSecretMode: false,
             sleeping: false
         }
+    },
+    computed: {
+        ...mapGetters(['checkMode'])
     },
     methods: {
         showCart() {
@@ -76,6 +81,20 @@ export default {
             let local_subTotal = (this.$store.subTotal) / 100;
             local_subTotal = local_subTotal.toLocaleString("en-US", { style: "currency", currency: "USD" });
             return local_subTotal;
+        },
+        devMode(){
+            this.$store.commit('switchMode'); 
+        },
+        secretMode(){
+            this.isSecretMode = !this.isSecretMode
+            console.log(this.isSecretMode)
+            if(this.isSecretMode){
+                this.$store.commit('setMachineID');
+            } 
+            else{
+                this.$store.commit('setClosestMachineID', this.$store.getters.checkClosestMachineID); 
+            }
+            
         },
 
         // this function will call /order to verify the stock items

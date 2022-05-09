@@ -1,3 +1,4 @@
+import { mapGetters } from 'vuex'
 export default{
     props: { 
         itemId: String,
@@ -5,14 +6,19 @@ export default{
         imageUrl: String,
         nutritionalInfoUrl: String,
         itemCost: Number,
-        price: String
+        price: String,
+        itemCount: Number
     },
     data(){
         return{
             data_ready: false,
             item_data: [],
-            quantity: 0
+            quantity: 0,
+            stock: this.itemCount
         };
+    },
+    computed: {
+        ...mapGetters(['checkMode'])
     },
     methods: {
         updateCartCounter(){
@@ -29,6 +35,9 @@ export default{
         getItemID(){
             return this.itemId;
         },
+        getItemCount(){
+            return this.stock;
+        },
         getModalID(){
             const sym = "#"
             const modalID = sym.concat(this.itemId);
@@ -43,13 +52,18 @@ export default{
         formatCost(){
             let temp = (this.itemCost)/100;
             return temp.toLocaleString("en-US", {style:"currency", currency:"USD"});
-        }
+        },
+        increaseItemStock(){
+            this.stock += this.quantity;
+            this.quantity = 0;
+        },
+        decreaseItemStock(){
+            this.stock -= this.quantity;
+            this.quantity = 0;
+        },
     },
     created() {
         this.getData();
+        this.stock = this.itemCount;
     },
 };
-
-
-
-

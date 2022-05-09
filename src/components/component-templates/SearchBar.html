@@ -31,11 +31,15 @@
                 <!-- Item Not Found Container  -->
                 <div class="SearchBar__notFoundContainer" v-if="0 >= filteredItems.length">
                     <h1 style=" margin-top:50px; text-align: center;">{{searchQuery}} not found.</h1>
-                    <div style="display:flex;justify-content: center;align-items: center; margin-top: 20px;">
-                        <!-- Check Availability Button  -->
-                        <button type="button" class="btn btn-link SearchBar__checkAvailability"
-                            style="text-align: center; font-size:x-large;" data-bs-toggle="modal"
-                            data-bs-target="#checkAvailabilityModal">Check nearby machines</button>
+                    <div
+                    style="display:flex;justify-content: center;align-items: center; margin-top: 20px;">
+                    <!-- Check Availability Button  -->
+                      <button type="button"
+                      @click="showMap()" 
+                      class="btn btn-link SearchBar__checkAvailability"
+                      style="text-align: center; font-size:x-large;"
+                      data-bs-toggle="modal" 
+                      data-bs-target="#checkAvailabilityModal">Check nearby machines</button> 
                     </div>
                 </div>
                 <!-- SimpleKeyboard Component  -->
@@ -50,19 +54,22 @@
 </body>
 
 <!-- Check Availability Modal  -->
-<div class="modal fade" id="checkAvailabilityModal" tabindex="-1" aria-labelledby="checkAvailabilityModalLabel"
-    aria-hidden="true">
+  <div class="modal" id="checkAvailabilityModal" tabindex="-1" aria-labelledby="checkAvailabilityModalLabel" aria-hidden="true">
     <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="checkAvailabilityModalLabel">Check Nearby Machines</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <h3>Available at Baskin's Engineering 1st Floor (0.05 mi).</h3>
-                <h3>Available at Social Sciences 1st Floor (0.10 mi).</h3>
-                <h3>Available at McHenry Library (0.20 mi).</h3>
-            </div>
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="checkAvailabilityModalLabel">Check Nearby Machines</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body" v-if="inStock">
+            <OpenLayersMap 
+            :open-map="openMap"
+            :locations=locations
+            :loc_num=loc_num
+            v-if="openMap"/>
+        </div>
+        <div class="modal-body" v-else>
+          <h3>Item out of stock at all machine locations :(</h3>
         </div>
     </div>
 </div>
