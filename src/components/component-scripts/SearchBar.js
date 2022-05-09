@@ -152,6 +152,7 @@ export default{
                 console.log("Error SearchBar.js")
             }
             this.locations = loc_obj
+            console.log(this.locations)
             this.loc_num = loc_obj.length
             this.inStock = (loc_obj.length <= 0) ? false : true
             this.openMap = true;          

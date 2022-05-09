@@ -36,6 +36,9 @@ export default {
         getPinImg(){
             return pinIcon;
         },
+        getUserCoordinates(){
+            return [-122.062,37]
+        },
         getCoordinates(location){
             const coordinates = [location["longitude"], location["latitude"]]
             return coordinates

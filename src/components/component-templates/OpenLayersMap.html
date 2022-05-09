@@ -19,7 +19,7 @@
         <ol-tile-layer>
           <ol-source-osm />
         </ol-tile-layer>
-        <ol-geolocation
+        <!-- <ol-geolocation
           :projection="projection"
           @positionChanged="geoLocChange"
         >
@@ -38,8 +38,22 @@
               </ol-source-vector>
             </ol-vector-layer>
           </template>
-        </ol-geolocation>
+        </ol-geolocation> -->
         
+        <ol-vector-layer>
+          <ol-source-vector>
+            <ol-feature>
+              <ol-geom-point :coordinates=getUserCoordinates() />
+              <ol-style>
+                <ol-style-icon
+                  :src="hereIcon"
+                  :scale="0.1"
+                />
+              </ol-style>
+            </ol-feature>
+          </ol-source-vector>
+        </ol-vector-layer>
+
         <ol-vector-layer v-for="location in locations">
             <ol-source-vector>
               <ol-feature>

@@ -24,13 +24,15 @@
 const axios = require('axios');
 export default ({
     created() {
-        if (navigator.geolocation) {
-            navigator.geolocation.getCurrentPosition((position)=>{
-                const coordinates = {latitude: position.coords.latitude, longitude: position.coords.longitude}
-                this.$store.commit('setCoordinates', coordinates);
-                this.getClosestMachine(coordinates)
-            });
-        }
+        // if (navigator.geolocation) {
+        //     navigator.geolocation.getCurrentPosition((position)=>{
+        //         const coordinates = {latitude: position.coords.latitude, longitude: position.coords.longitude}
+        //         this.$store.commit('setCoordinates', coordinates);
+        //         this.getClosestMachine(coordinates)
+        //     });
+        const coordinates = {latitude: 37.0004237945962, longitude: -122.06326193651142}
+        this.$store.commit('setCoordinates', coordinates);
+        this.getClosestMachine(coordinates)
     },
     methods:{
         async getClosestMachine(coordinates){
