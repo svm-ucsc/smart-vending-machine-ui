@@ -23,7 +23,7 @@
 <script>
 const axios = require('axios');
 export default ({
-    mounted() {
+    created() {
         if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition((position)=>{
                 const coordinates = {latitude: position.coords.latitude, longitude: position.coords.longitude}
@@ -54,25 +54,6 @@ export default ({
     }
 })
 </script>
-
-    <!-- async showMap(){
-            let loc_obj  = 0
-            let  response = 0
-            let id = this.checkItemName()
-            try{
-                response = await axios.post('http://ec2-54-167-36-58.compute-1.amazonaws.com:3000/location/',
-                    {"item_id": id, "latitude":37.0003434, "longitude":-122.0632395, "range": 10000}
-                )
-                loc_obj = response.data
-            }catch(e){
-                console.log("Error SearchBar.js")
-            }
-            this.locations = loc_obj
-            this.loc_num = loc_obj.length
-            this.inStock = (loc_obj.length <= 0) ? false : true
-            this.openMap = true;          
-        }, -->
-
 
 <style lang="scss">
   @import'~bootstrap/dist/css/bootstrap.css';
