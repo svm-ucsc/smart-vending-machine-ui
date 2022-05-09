@@ -32,6 +32,7 @@ const store = createStore({
             cartInfo: [],
             subTotal: Number,
             machineID: String,
+            closestMachineID: String,
             coordinates: Object,
             order_id: String,
             paypal_order_id: String
@@ -100,6 +101,7 @@ const store = createStore({
         },
         setClosestMachineID(state, id){
             state.machineID = id;
+            state.closestMachineID = id;
         },
         setCoordinates(state, coordinatesObj){
             state.coordinates = coordinatesObj;
@@ -112,6 +114,9 @@ const store = createStore({
         },
         checkMachineID: state => {
             return state.machineID;
+        },
+        checkClosestMachineID: state => {
+            return state.closestMachineID;
         },
         checkCoordinates: state => {
             return state.coordinates;

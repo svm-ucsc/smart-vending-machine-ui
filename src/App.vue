@@ -40,7 +40,6 @@ export default ({
                     {"item_id": "empty", "latitude": coordinates.latitude, "longitude":coordinates.longitude, "range": 100000}
                 )
                 machineList = response.data
-                console.log(machineList)
             }catch(e){
                 console.log("Error App.vue")
             }

@@ -9,6 +9,7 @@ export default {
             modal_paymentScreen: false,
             modal_pageCount: 0,
             cartReceipt: [],
+            isSecretMode: false,
             sleeping: false
         }
     },
@@ -85,7 +86,15 @@ export default {
             this.$store.commit('switchMode'); 
         },
         secretMode(){
-            this.$store.commit('setMachineID'); 
+            this.isSecretMode = !this.isSecretMode
+            console.log(this.isSecretMode)
+            if(this.isSecretMode){
+                this.$store.commit('setMachineID');
+            } 
+            else{
+                this.$store.commit('setClosestMachineID', this.$store.getters.checkClosestMachineID); 
+            }
+            
         },
 
         // this function will call /order to verify the stock items
