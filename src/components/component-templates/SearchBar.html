@@ -1,39 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
-  <!-- SearchBar Container -->
+    <!-- SearchBar Container -->
     <div class="container-fluid SearchBar__container">
         <div class="row SearchBar__border">
-          <!-- Search Bar Component  -->
-            <input class="col-1 form-control SearchBar__bar rounded-pill mx-auto"
-            id="searchBar" 
-            type="text" 
-            placeholder="🔍                        Tap to Search                                "
-            @keyup="showSearchResults()"
-            v-model="searchQuery"
-            v-on:click="showSearchInterface()"  
-            >
+            <!-- Search Bar Component  -->
+            <input class="col-1 form-control SearchBar__bar rounded-pill mx-auto" id="searchBar" type="text"
+                placeholder="Type to Search..." @keyup="showSearchResults()" v-model="searchQuery"
+                v-on:click="showSearchInterface()" style="font-family: Font Awesome 5 Free">
             <!-- SearchBar Close Component  -->
             <button type="button" class="btn SearchBar__btnClose col-1" id="closeBtn" @click="hideSearchInterface()">
-              <font-awesome-icon icon="circle-xmark" />
+                <font-awesome-icon icon="circle-xmark" />
             </button>
             <!-- SearchBar Results Box Component  -->
             <div class="SearchBar__resultsbox animated fadeIn" v-if="showKeyboard">
-              <!-- Loop through searchQuery input for any matches in items  -->
-                <div class="SearchBar__results" v-if="filteredItems.length > 0 && searchQuery.length > 0" v-for="item in filteredItems">
-                    <search-result 
-                    :item-id="item.item_id"
-                    :food-name="item.name"
-                    :image-url="item.image_url"
-                    :nutritional-info-url="item.nutrition_url"
-                    :item-cost="item.cost"
-                    />
+                <!-- Loop through searchQuery input for any matches in items  -->
+                <div class="SearchBar__results" v-if="filteredItems.length > 0 && searchQuery.length > 0"
+                    v-for="item in filteredItems">
+                    <search-result :item-id="item.item_id" :food-name="item.name" :image-url="item.image_url"
+                        :nutritional-info-url="item.nutrition_url" :item-cost="item.cost" />
                 </div>
                 <!-- Item Not Found Container  -->
                 <div class="SearchBar__notFoundContainer" v-if="0 >= filteredItems.length">
@@ -51,10 +44,11 @@
                 </div>
                 <!-- SimpleKeyboard Component  -->
                 <div class="keyboard">
-                    <SimpleKeyboard layout="default" @onChange="onChange" @onKeyPress="onKeyPress" :input="searchQuery"/>
+                    <SimpleKeyboard layout="default" @onChange="onChange" @onKeyPress="onKeyPress"
+                        :input="searchQuery" />
                 </div>
             </div>
-             
+
         </div>
     </div>
 </body>
@@ -77,8 +71,7 @@
         <div class="modal-body" v-else>
           <h3>Item out of stock at all machine locations :(</h3>
         </div>
-      </div>
     </div>
-  </div>
+</div>
 
 </html>

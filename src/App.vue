@@ -37,10 +37,10 @@ export default ({
             let machineList = []
             try{
                 let response = await axios.post('http://ec2-54-167-36-58.compute-1.amazonaws.com:3000/location/',
-                    {"item_id": "empty", "latitude": coordinates.latitude, "longitude":coordinates.longitude, "range": 10000}
+                    {"item_id": "empty", "latitude": coordinates.latitude, "longitude":coordinates.longitude, "range": 100000}
                 )
                 machineList = response.data
-                
+                console.log(machineList)
             }catch(e){
                 console.log("Error App.vue")
             }
