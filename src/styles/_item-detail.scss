@@ -33,10 +33,18 @@ body {
 
     .ItemDetail__name .col-7 {
         font-size: x-large;
+
+        @include media-breakpoint-down(sm) {
+            font-size: larger;
+        }
     }
 
     .ItemDetail__name .col-2 {
         font-size: larger;
+
+        @include media-breakpoint-down(sm) {
+            font-size: medium;
+        }
     }
 
     a {
@@ -115,6 +123,7 @@ body {
 @include media-breakpoint-down(sm) {
     .ItemDetail__container {
         height: 200px;
+        width: 200px;
         // padding: 0;
     }
 
@@ -127,6 +136,10 @@ body {
         // font-size: small !important;
         padding-top: 0px;
         margin-top: 0px;
+    }
+
+    .ItemDetail__btnToolbar {
+        // width: 100px;
     }
 
 }

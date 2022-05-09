@@ -9,7 +9,7 @@
 
 </head>
 
-<body>
+<body style="background:transparent">
     <!-- Item Cart -->
     <div class="container ItemDetail__container">
         <div class="row px-auto mx-auto">
@@ -26,8 +26,8 @@
         <!-- Item Cart Functionality -->
         <div class="row pt-1">
             <div class="col">
-                <div class="btn-toolbar justify-content-around" role="toolbar">
-                    <div class="btn-group" role="group" aria-label="first group">
+                <div class="btn-toolbar justify-content-around ItemDetail__btnToolbar" role="toolbar">
+                    <div class="btn-group " role="group" aria-label="first group">
                         <button type="button" class="btn ItemDetail__decBtn" v-if="quantity>0"
                             @click="quantity--"></button>
                         <button type="button" class="btn ItemDetail__decBtn" v-else></button>
