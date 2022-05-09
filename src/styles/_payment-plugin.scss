@@ -17,9 +17,21 @@
 }
 
 .payment-plugin__cardBody {
-    // background: transparent !important;
     box-shadow: $component-shadow;
     margin-bottom: 10px;
+}
+
+/* Custom paypal button design to match paypal's script */
+.payment-plugin__qrBtn {
+    font-family: Helvetica Neue;
+    font-weight: 500;
+    background: #ffc439;
+    width: 100%;
+}
+
+.payment-plugin__textErrMsg {
+    color: red;
+    font-family: $font-family;
 }
 
 #qrcode {

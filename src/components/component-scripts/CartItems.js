@@ -28,9 +28,6 @@ export default {
             this.sleeping = false;
 
         },
-        // decrementQuantity(index){
-
-        // },
         placeOrder() {
             this.modal_pageCount++;
             // copy order to a receipt list prior to the reset of content
@@ -52,8 +49,6 @@ export default {
             this.modal_pageCount++;
             this.modal_paymentScreen = true;
             this.sleeping = false;
-
-
         },
         prevSplitModal() {
             if (this.modal_pageCount == 2) {
@@ -86,7 +81,6 @@ export default {
         // this function will call /order to verify the stock items
         async checkInventory() {
             this.sleeping = true;
-            // await new Promise(resolve => setTimeout(resolve, 3000));
             // send the cartInfo by parsing cartInfo obj and reassigning to id:quantity format
             let orderObj = this.$store.state.cartInfo.reduce(
                 (orderObj, item) =>
@@ -99,19 +93,13 @@ export default {
 
                     { machine_id: "testclient", items: orderObj }
                 );
-                // obj returns {"order_id": xxxx, "paypal_order_id": xxxxx}
-                var obj = response.data; // needs to become global scoped
+                var obj = response.data;
                 const order_id_key = Object.keys(obj)[0];
                 const order_id_value = obj[order_id_key];
                 const paypal_id_key = Object.keys(obj)[1];
                 const paypal_id_value = obj[paypal_id_key];
-
                 this.$store.state.order_id = order_id_value;
                 this.$store.state.paypal_order_id = paypal_id_value;
-
-                console.log(`${order_id_key}: ${order_id_value}`)
-                console.log(`${paypal_id_key}: ${paypal_id_value}`)
-                console.log(`obj response is: ${JSON.stringify(obj)}`)
                 if (this.sleeping == true) {
                     this.modal_pageCount++;
                     this.sleeping = false;
@@ -120,9 +108,10 @@ export default {
             } catch (e) {
                 console.log("Error (cartitems.js): " + e);
                 console.log(`Here's the response: ${JSON.stringify(e.response.data)}`)
-
-                // EMIT A NEW EVENT? CREATE COMPONENT STATING ITEM IS OUT OF STOCK? come back to this.
                 this.modal_pageCount = 0;
+                // Future Design: If item is out of stock, make an error message notifying user
+                // Ideally, the item won't even be shown if it's out of stock.
+
             }
 
 

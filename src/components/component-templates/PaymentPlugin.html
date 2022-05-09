@@ -13,16 +13,25 @@
 
         <!-- QR Code Component -->
         <p class="text-center">
-            <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample"
-                aria-expanded="false" aria-controls="collapseExample">
+            <button class="btn payment-plugin__qrBtn" type="button" data-bs-toggle="collapse"
+                data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
                 Tap to Scan QR Code
             </button>
         </p>
         <div class="collapse" id="collapseExample">
             <div class="card card-body payment-plugin__cardBody">
-                <p v-if="qrPaymentSuc == false">Payment Not Successful. Please Try Again.</p>
-                <QrCode />
-                <button type="button" @click="qrCodeAttemptAproval()">I've Paid!</button>
+                <p v-if="qrPaymentSuc == false" class="payment-plugin__textErrMsg">Payment Not Successful. Please Try
+                    Again.</p>
+                <div class="row">
+                    <div class="col text-center">
+                        <QrCode />
+                    </div>
+
+                </div>
+
+
+                <button type="button" class="btn payment-plugin__qrBtn" @click="qrCodeAttemptAproval()">I've
+                    Paid!</button>
             </div>
         </div>
     </div>

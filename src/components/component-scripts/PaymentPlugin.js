@@ -16,14 +16,11 @@ export default {
         };
     },
     mounted: function () {
-
-
         const script = document.createElement("script");
         script.src =
             "https://www.paypal.com/sdk/js?client-id=AUa5_Jl61gBVAKStkIh3OroJlrRZUWqcfjmvjgKuUsCi7UsmZRZcPFT2uJKydC2n9Umqd_Xxyz3PB3WX";
         script.addEventListener("load", this.setLoaded);
         document.body.appendChild(script);
-
     },
     methods: {
         setLoaded: function () {
@@ -31,10 +28,7 @@ export default {
             window.paypal
                 .Buttons({
                     createOrder: () => {
-                        // /order
-                        console.log(` payment plugin.js: ${this.$store.state.paypal_order_id}`)
                         return this.$store.state.paypal_order_id;
-
                     },
                     onApprove: async () => {
                         this.paidFor = true;
@@ -48,10 +42,8 @@ export default {
         },
 
         async qrCodeAttemptAproval() {
-
             try {
                 // same functionality as captureOrderId() in main.js:
-                console.log(`capture order id info: ${this.$store.state.order_id}`)
                 await axios.post(
                     "http://ec2-54-167-36-58.compute-1.amazonaws.com:3000/order/capture",
 
@@ -61,9 +53,6 @@ export default {
                 this.loaded = true;
                 this.paidFor = true;
                 this.$emit('qrMoveForward') // increments modal
-
-
-
                 this.$store.state.cartInfo = []; // clear the cart and all information associated with it based on return code
                 this.$store.state.order_id = "";
                 this.$store.state.paypal_order_id = "";
