@@ -54,22 +54,23 @@
 </body>
 
 <!-- Check Availability Modal  -->
-  <div class="modal" id="checkAvailabilityModal" tabindex="-1" aria-labelledby="checkAvailabilityModalLabel" aria-hidden="true">
+<div class="modal" id="checkAvailabilityModal" tabindex="-1" aria-labelledby="checkAvailabilityModalLabel" aria-hidden="true">
     <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="checkAvailabilityModalLabel">Check Nearby Machines</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body" v-if="inStock">
-            <OpenLayersMap 
-            :open-map="openMap"
-            :locations=locations
-            :loc_num=loc_num
-            v-if="openMap"/>
-        </div>
-        <div class="modal-body" v-else>
-          <h3>Item out of stock at all machine locations :(</h3>
+        <div class="modal-content">
+            <div class="modal-header">
+            <h5 class="modal-title" id="checkAvailabilityModalLabel">Check Nearby Machines</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body" v-if="inStock">
+                <OpenLayersMap 
+                :open-map="openMap"
+                :locations=locations
+                :loc_num=loc_num
+                v-if="openMap"/>
+            </div>
+            <div class="modal-body" v-else>
+            <h3>Item out of stock at all machine locations :(</h3>
+            </div>
         </div>
     </div>
 </div>
