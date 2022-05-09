@@ -37,19 +37,24 @@ export default ({
             let machineList = []
             try{
                 let response = await axios.post('http://ec2-54-167-36-58.compute-1.amazonaws.com:3000/location/',
-                    {"item_id": "empty", "latitude": coordinates.latitude, "longitude":coordinates.longitude, "range": 100000}
+                    {"item_id": "empty", "latitude": coordinates.latitude, "longitude":coordinates.longitude, "range": 10000}
                 )
                 machineList = response.data
             }catch(e){
                 console.log("Error App.vue")
             }
-            let closest = machineList[0]
-            for(var i = 1; i < machineList.length; i++){
-                if(machineList[i].distance < closest.distance){
-                    closest = machineList[i]
+            if(machineList.length != 0){
+                let closest = machineList[0]
+                for(var i = 1; i < machineList.length; i++){
+                    if(machineList[i].distance < closest.distance){
+                        closest = machineList[i]
+                    }
                 }
+                this.$store.commit('setClosestMachineID', closest.machine_id ); 
             }
-            this.$store.commit('setClosestMachineID', closest.machine_id ); 
+            else{
+                this.$store.commit('setMachineID'); 
+            }
         }
     }
 })
