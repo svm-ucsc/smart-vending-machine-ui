@@ -1,13 +1,19 @@
 @import "variables"; // DO NOT REMOVE THIS LINE OR SCSS WILL NOT WORK!
 
-body{
+@import 'bootstrap/scss/_functions.scss';
+@import 'bootstrap/scss/_variables.scss';
+@import 'bootstrap/scss/_mixins.scss';
+
+body {
     border-radius: 30px;
 }
+
 .btn:focus {
     outline: none;
     box-shadow: none;
 }
-.ItemDetail__container{
+
+.ItemDetail__container {
     background: white;
     border-radius: $card-radius;
     box-shadow: $component-shadow;
@@ -15,55 +21,83 @@ body{
     padding-top: 5%;
     color: rgb(0, 0, 0);
     text-align: left;
-    .ItemDetail_name{
+    height: 330px;
+
+
+    .ItemDetail__name {
         font-family: $font-family;
         font-weight: 700;
         font-size: medium;
         padding: 10px 0px 0px 0px;
-        
-    }
-    a{
-        padding: 2% 2% 2% 2%;
-    }
-    .ItemDetail__image{
-        margin: auto;
-        min-width: 175px;
-        min-height: 175px;
     }
 
-    .ItemDetail_btncontainer{
+    .ItemDetail__name .col-7 {
+        font-size: x-large;
+    }
+
+    .ItemDetail__name .col-2 {
+        font-size: larger;
+    }
+
+    a {
+        padding: 2% 2% 2% 2%;
+    }
+
+    .ItemDetail__image {
+        // margin: auto;
+        // min-width: 175px;
+        // min-height: 175px;
+
+        // width: 100%;
+        height: 175px;
+        width: 200px;
+        // min-height: 200px;
+        // max-height: 200px;
+        border-radius: 30px;
+    }
+
+    .ItemDetail__btncontainer {
         display: flex;
         justify-content: center;
         align-content: center;
         margin-top: 3%;
-        font-weight: 700;   
+        font-weight: 700;
     }
 
-    .ItemDetail__decBtn{
-        background: $summer-lightblue;     
-        &:after{
+    .ItemDetail__decBtn {
+        background: $summer-lightblue;
+
+        &:after {
             content: "−";
         }
+
         width: 40px;
         border-radius: 20px;
     }
-    .ItemDetail__incBtn{
+
+    .ItemDetail__incBtn {
         background: $summer-lightblue;
-        &:after{
-            content:"+";
+
+        &:after {
+            content: "+";
         }
+
         width: 40px;
         border-radius: 20px;
     }
-    .ItemDetail__counter{
+
+    .ItemDetail__counter {
         background: $summer-creme;
         text-decoration: none;
-        &:after{
-            content:" ";
+
+        &:after {
+            content: " ";
         }
+
         width: 40px;
     }
-    .ItemDetail__addCart{
+
+    .ItemDetail__addCart {
         background: $summer-yellow;
         color: rgb(255, 255, 255);
         padding-left: 2%;
@@ -71,8 +105,28 @@ body{
         border-radius: 20px;
         font-size: 140%;
     }
-    .btn-group-cart{
+
+    .btn-group-cart {
         margin-left: 4%;
         width: 31%;
     }
+}
+
+@include media-breakpoint-down(sm) {
+    .ItemDetail__container {
+        height: 200px;
+        // padding: 0;
+    }
+
+    .ItemDetail__image {
+        height: 100px !important;
+        width: auto !important;
+    }
+
+    .ItemDetail__name {
+        // font-size: small !important;
+        padding-top: 0px;
+        margin-top: 0px;
+    }
+
 }
