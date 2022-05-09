@@ -61,12 +61,7 @@ const store = createStore({
 
         async captureOrderID(state) {
             // simply send the order_id to the database that was created upon the /order post request from cartitems.js
-
-            //try catch statement, clear the cart upon success
-            // clear order_id upon success
-            // clear paypal order id upon success
             try {
-                console.log(`capture order id info: ${this.state.order_id}`)
                 await axios.post(
                     "http://ec2-54-167-36-58.compute-1.amazonaws.com:3000/order/capture",
 
@@ -89,9 +84,9 @@ const store = createStore({
                     let costPerItem = state.cartInfo[i].itemCost;
                     subTotal += curQuantity * costPerItem;
                 }
+                // store running subtotal in a Vuex global store
+                this.subTotal = subTotal;
             }
-            // store running subtotal in a Vuex global store
-            this.subTotal = subTotal;
         },
     },
 });
