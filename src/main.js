@@ -13,28 +13,30 @@ import Payment from "./components/Payment.vue";
 import LoadingSpinner from "./components/LoadingSpinner.vue"
 import SearchResult from './components/SearchResult.vue';
 import SimpleKeyboard from "./components/SimpleKeyboard.vue";
-
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { fas } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+import OpenLayersMap from '../node_modules/vue3-openlayers'
 import QrCode from './components/QrCode.vue';
-// font awesome icons added
-import { library } from "@fortawesome/fontawesome-svg-core";
-import { fas } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
-library.add(fas);
-
-
-
+import '../node_modules/vue3-openlayers/dist/vue3-openlayers.css'
+import 'bootstrap'
+library.add(fas)
 
 const axios = require("axios");
 
 // Holds global data for application
 const store = createStore({
-    state() {
-        return {
+    state(){
+        return{
+            isDevMode: Boolean,
             cartInfo: [],
             subTotal: Number,
+            machineID: String,
+            closestMachineID: String,
+            coordinates: Object,
             order_id: String,
             paypal_order_id: String
-        };
+        }
     },
 
     mutations: {
@@ -88,12 +90,43 @@ const store = createStore({
                 this.subTotal = subTotal;
             }
         },
+        initMode(state){
+            state.isDevMode = false;
+        },
+        switchMode(state){
+            state.isDevMode = !state.isDevMode;
+        },
+        setMachineID(state){
+            state.machineID = "pi1";
+        },
+        setClosestMachineID(state, id){
+            state.machineID = id;
+            state.closestMachineID = id;
+        },
+        setCoordinates(state, coordinatesObj){
+            state.coordinates = coordinatesObj;
+        }
+
     },
+    getters: {
+        checkMode: state => {
+            return state.isDevMode;
+        },
+        checkMachineID: state => {
+            return state.machineID;
+        },
+        checkClosestMachineID: state => {
+            return state.closestMachineID;
+        },
+        checkCoordinates: state => {
+            return state.coordinates;
+        }
+    }
 });
 
 const app = createApp(App);
 app.use(store);
-
+app.use(OpenLayersMap);
 app.component('ItemDetail', ItemDetail);
 app.component('SearchBar', SearchBar);
 app.component('SearchResult', SearchResult);
@@ -101,6 +134,7 @@ app.component('CartItems', CartItems);
 app.component('StoreMenu', StoreMenu);
 app.component('SimpleKeyboard', SimpleKeyboard);
 app.component('Payment', Payment);
+app.component('OpenLayersMap', OpenLayersMap);
 app.component('FontAwesomeIcon', FontAwesomeIcon);
 app.component("LoadingSpinner", LoadingSpinner);
 app.component('QrCode', QrCode);

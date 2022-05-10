@@ -53,23 +53,23 @@
         font-size: 12px;
         line-height: 1.42857;
     }
+
     .btn-secondary{
         display: flex;
         justify-content: center;
         align-items: center;
     }
-    .btn-secondary:focus{
-        background-color: $summer-creme !important; /* add here any color */
+    .btn-secondary:focus,
+    .btn-secondary:focus-within,
+    .btn-secondary:target,
+    .btn-secondary:visited,
+    .btn-secondary:focus-visible,
+    .btn-secondary:hover,
+    .btn-secondary:active,
+    .btn-secondary.active {
+        background: $summer-creme;
         color: rgb(182, 185, 188);
         border: 1px solid $summer-creme;
-    }
-    .btn-secondary:active{
-        background-color: $summer-creme !important; /* add here any color */
-        color: rgb(182, 185, 188);
-    }
-    .btn-secondary:active:focus {
-        background-color: $summer-creme !important; /* add here any color */
-        color: rgb(182, 185, 188);
     }
     
     .CartItems__review-order-btn{
@@ -79,6 +79,24 @@
         padding-right:2.5%;
         margin-left: 1%;
         margin-right: 1%;
+    }
+    .CartItems__dev-btn{
+        opacity: 0;
+        margin-left: 20%;
+    }
+    .CartItems__secret-btn{
+        opacity: 0;
+        margin-left: 10%;
+    }
+
+    .CartItems__dev-btn-bar{
+        font-size: 125%;
+        text-align: center;
+        position: relative;
+        padding-right:2.5%;
+        margin-left: 1%;
+        margin-right: 1%;
+        background-color: rgb(214, 77, 67) !important;
     }
 
     .CartItems__help-btn{

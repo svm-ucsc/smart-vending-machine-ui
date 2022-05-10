@@ -10,38 +10,59 @@
 
 <body>
 
-    <!-- Button trigger modal -->
-    <div class="CartItems__btn_container">
-        <!-- Bottom Nav Bar -->
-        <div class="CartItems__review-order-bar p-0 m-0 text-center">
-            <div class="row m-0"
-                style="padding: 0px 2% 0px 2%; height:107px;display:flex;justify-content:center;align-items:center;">
-                <!-- Help Button -->
-                <button type="button" class=" col-2 btn btn-secondary btn-xl CartItems__help-btn p-0 m-0"
-                    data-bs-toggle="modal" data-bs-target="#cartModalHelpScreen">
-                    <div class="row px-auto mx-auto">
-                        <font-awesome-icon icon="circle-question" class="p-0 m-0" />
-                        <p class="CartItems__btn_text p-0 m-0">Help</p>
-                    </div>
-                </button>
-                <!-- Order Button -->
-                <button type="button" class="col-2 btn btn-primary btn-circle btn-xl CartItems__review-order-btn"
-                    data-bs-toggle="modal" data-bs-target="#cartModalReviewScreen">
-                    <font-awesome-icon icon="cart-arrow-down" style="margin-left:3%;margin-bottom:2%;" />
-                </button>
-                <!-- Info Button -->
-                <button type="button" class="col-2 btn btn-secondary btn-xl CartItems__info-btn p-0 m-0"
-                    data-bs-toggle="modal" data-bs-target="#cartModalInfoScreen">
-                    <div class="row px-auto mx-auto" style="color: rgb(250, 86, 86);">
-                        <font-awesome-icon icon="ban" class="p-0 m-0" />
-                        <p class="CartItems__btn_text p-0 m-0">Clear</p>
-                    </div>
-                </button>
+    <!-- Bottom Nav Bar -->
+        <div class="CartItems__btn_container">
+            <div class="CartItems__review-order-bar p-0 m-0 text-center">
+                <div class="row m-0" style="padding: 0px 2% 0px 2%; height:107px;display:flex;justify-content:center;align-items:center;">
+                    <!-- Help Button -->
+                    <button type="button" 
+                    class=" col-2 btn btn-secondary btn-xl CartItems__help-btn p-0 m-0" 
+                    data-bs-toggle="modal" 
+                    data-bs-target="#cartModalHelpScreen">
+                        <div class="row px-auto mx-auto">
+                            <font-awesome-icon icon="circle-question" class="p-0 m-0"/>
+                            <p class="CartItems__btn_text p-0 m-0">Help</p>
+                        </div>
+                    </button>
+                    <!-- Order Button -->
+                    <button type="button" 
+                    class="col-2 btn btn-primary btn-circle btn-xl CartItems__review-order-btn" 
+                    data-bs-toggle="modal" 
+                    data-bs-target="#cartModalReviewScreen"
+                    v-if="!checkMode">
+                    <font-awesome-icon icon="cart-arrow-down" style="margin-left:3%;margin-bottom:2%;"/>
+                    </button>
+                    <button type="button" 
+                    class="col-2 btn btn-primary btn-circle btn-xl CartItems__dev-btn-bar disabled" 
+                    data-bs-toggle="modal" 
+                    data-bs-target="#cartModalReviewScreen"
+                    v-else>
+                    <font-awesome-icon icon="screwdriver-wrench" style="margin-left:3%;margin-bottom:2%;"/>
+                    </button>
+                    <!-- Clear Button -->
+                    <button type="button" 
+                    class="col-2 btn btn-secondary btn-xl CartItems__info-btn p-0 m-0"
+                    v-if="!checkMode">
+                        <div class="row px-auto mx-auto"   style="color: rgb(255, 70, 70);">
+                            <font-awesome-icon icon="ban" class="p-0 m-0" />
+                            <p class="CartItems__btn_text p-0 m-0">Clear</p>
+                        </div>
+                    </button>
+                    <button type="button" 
+                    class="col-2 btn btn-secondary btn-xl CartItems__info-btn p-0 m-0"
+                    v-else>
+                        <div class="row px-auto mx-auto"   style="color: rgb(81, 182, 81);">
+                            <font-awesome-icon icon="circle-check" class="p-0 m-0" />
+                            <p class="CartItems__btn_text p-0 m-0">Save</p>
+                        </div>
+                    </button>
+                </div>
+                
             </div>
 
         </div>
 
-    </div>
+    
 
     <!-- Modal 1 -->
     <div class="modal fade" id="cartModalReviewScreen" tabindex="-1" role="dialog"
@@ -175,5 +196,28 @@
         </div>
     </div>
 </body>
+
+<!-- Help Button Modal  -->
+<div class="modal fade" id="cartModalHelpScreen" tabindex="-1" aria-labelledby="cartModalHelpScreenLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="cartModalHelpScreenLabel">Help Screen</h5>
+          <button type="button" class="btn-dev CartItems__dev-btn" data-bs-dismiss="modal" aria-label="Close" @click="devMode()">DEV</button>
+          <button type="button" class="btn-dev CartItems__secret-btn" data-bs-dismiss="modal" aria-label="Close" @click="secretMode()">SECRET</button>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <h3>Tap an item's image to view its nutritional information and the current stock in the machine.</h3>
+            <h3>Use the "+" and "-" buttons to select the amount to add to the cart.</h3>
+            <h3>Tap  to add the item to the cart.</h3>
+            <h3>To view the cart and pay, tap at the bottom of the screen.</h3>
+            <h3>Tap to empty the cart.</h3>
+            <h3>Use the searchbar to look up items.</h3>
+            <h3>You can also search for items that are available at other machines.</h3>
+        </div>
+      </div>
+    </div>
+  </div>
 
 </html>
