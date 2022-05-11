@@ -91,7 +91,7 @@ export default {
                 const response = await axios.post(
                     "http://ec2-54-167-36-58.compute-1.amazonaws.com:3000/order/",
 
-                    { machine_id: "testclient", items: orderObj }
+                    { machine_id: "pi1", items: orderObj }
                 );
                 var obj = response.data;
                 const order_id_key = Object.keys(obj)[0];
