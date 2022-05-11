@@ -1,4 +1,8 @@
 @import "variables"; // DO NOT REMOVE THIS LINE OR SCSS WILL NOT WORK!
+@import 'bootstrap/scss/_functions.scss';
+@import 'bootstrap/scss/_variables.scss';
+@import 'bootstrap/scss/_mixins.scss';
+
     .CartItems__btn_container{
         background: $summer-white;
         min-height: 104px;
@@ -42,6 +46,9 @@
         width: 250px;
         height: 80px;
         border-radius: 30px;
+        @media(max-width:550px){
+            width:100px;
+        }
     }
     
     .btn-circle {
