@@ -1,4 +1,8 @@
 @import "variables";
+@import 'bootstrap/scss/_functions.scss';
+@import 'bootstrap/scss/_variables.scss';
+@import 'bootstrap/scss/_mixins.scss';
+
 html{
     padding:0 !important;
 }
@@ -24,6 +28,9 @@ body::-webkit-scrollbar-thumb {
     overflow-y: scroll;
     min-height: 836px;
     max-height: 836px;
+    @media(max-width:550px){
+        overflow-y: unset;
+    }
 }
 
 .StoreMenu__row-box::-webkit-scrollbar {
