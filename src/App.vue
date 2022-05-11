@@ -20,6 +20,48 @@
   </div>
 </template>
 
+<script>
+const axios = require('axios');
+export default ({
+    created() {
+        // if (navigator.geolocation) {
+        //     navigator.geolocation.getCurrentPosition((position)=>{
+        //         const coordinates = {latitude: position.coords.latitude, longitude: position.coords.longitude}
+        //         this.$store.commit('setCoordinates', coordinates);
+        //         this.getClosestMachine(coordinates)
+        //     });
+        const coordinates = {latitude: 37.0004237945962, longitude: -122.06326193651142}
+        this.$store.commit('setCoordinates', coordinates);
+        this.getClosestMachine(coordinates)
+    },
+    methods:{
+        async getClosestMachine(coordinates){
+            let machineList = []
+            try{
+                let response = await axios.post('http://ec2-54-167-36-58.compute-1.amazonaws.com:3000/location/',
+                    {"item_id": "empty", "latitude": coordinates.latitude, "longitude":coordinates.longitude, "range": 10000}
+                )
+                machineList = response.data
+            }catch(e){
+                console.log("Error App.vue")
+            }
+            if(machineList.length != 0){
+                let closest = machineList[0]
+                for(var i = 1; i < machineList.length; i++){
+                    if(machineList[i].distance < closest.distance){
+                        closest = machineList[i]
+                    }
+                }
+                this.$store.commit('setClosestMachineID', closest.machine_id ); 
+            }
+            else{
+                this.$store.commit('setMachineID'); 
+            }
+        }
+    }
+})
+</script>
+
 <style lang="scss">
   @import'~bootstrap/dist/css/bootstrap.css';
   @import'../src/styles/_variables.scss';
