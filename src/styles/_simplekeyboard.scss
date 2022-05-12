@@ -1,8 +1,17 @@
 @import "variables";
+@import 'bootstrap/scss/_functions.scss';
+@import 'bootstrap/scss/_variables.scss';
+@import 'bootstrap/scss/_mixins.scss';
   
 .simple-keyboard {
     max-width: 850px;
     padding: 2% 2%;
+    @media(max-width:550px){
+        display: none;
+    }
+    // @include media-breakpoint-down(550px){
+    //     display: none;
+    // }
 }
 
 .simple-keyboard.hg-theme-default.myTheme {
