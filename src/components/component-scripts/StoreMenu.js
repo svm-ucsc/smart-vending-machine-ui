@@ -33,17 +33,23 @@ export default {
                     { params: { iids:machineParsedData.join(), fields:["item_id", "name","nutrition_url", "cost", "image_url"].join()} });
                 let itemParsedData = res.data;
                 let dataPlaceHolder = [];
-                let chunk = 2; // 3 items displayed per row
                 let i,j;
-                for (i = 0,j = itemParsedData.length; i < j; i += chunk) {
+  
+                for (i = 0,j = itemParsedData.length; i < j; i+=2) {
+                    if((i == j - 1) && (j % 2 != 0)){                        
+                        itemParsedData[i].quantity = quantityParsedData[i];
+                        let temp = itemParsedData.slice(i, i+1);
+                        this.nameIdSet.push(temp);
+                        continue;
+                    }
                     itemParsedData[i].quantity = quantityParsedData[i];
                     itemParsedData[i+1].quantity = quantityParsedData[i+1];
-                    dataPlaceHolder = itemParsedData.slice(i,i+chunk);
+                    dataPlaceHolder = itemParsedData.slice(i, i+2);
                     this.nameIdSet.push(dataPlaceHolder); // push the (food, id, cost) as a set together
-                }        
+                }     
             } catch (e) {
                 console.log(e)
-                console.log("Error StoreMenu.js");
+                console.log("Error StoreMenu.js " + e);
             }
         },
     },
